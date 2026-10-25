@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ThreadForge Live Demo</title>
+<meta name="description" content="Sign up with any email, work or personal, then try the ThreadForge suite in your browser, including the TradeMath calculators.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'; frame-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://threadforgeofficial.com/demo/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/gloock-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/public-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/demo.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ThreadForge Live Demo">
+<meta property="og:description" content="Sign up with a work or personal email, then try one session of the suite in your browser.">
+<meta property="og:url" content="https://threadforgeofficial.com/demo/">
+<meta property="og:image" content="https://threadforgeofficial.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script src="../assets/js/demo-engine.js" defer></script>
+<script src="../assets/js/demo-trade.js" defer></script>
+<script src="../assets/js/demo-ui.js" defer></script>
+</head>
+<body class="demo-body">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="demo-top">
+  <div class="demo-top-inner">
+    <a class="brand" href="../" aria-label="ThreadForge home">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#d6ee8e"/><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"><path d="M11 18c11 0 14 14 25 14M11 46c11 0 14-14 25-14" stroke="#173f30"/><path d="M11 32h36M43 24l9 8-9 8" stroke="#173f30"/></g></svg>
+      <span class="brand-word">ThreadForge</span>
+    </a>
+    <span class="demo-chip">Live demo</span>
+    <details class="demo-dl">
+      <summary class="demo-top-btn">Install</summary>
+      <div class="demo-dl-menu">
+        <a href="../#pricing">Buy ThreadForge</a>
+        <p>The 10.16.0 Windows and Android installers come with each one-time purchase, from $49, with their checksums and the licence. Nothing is charged after you buy.</p>
+      </div>
+    </details>
+    <div class="demo-top-tools" id="demo-tools" hidden>
+      <span class="demo-timer" id="demo-timer" role="timer" aria-live="off" title="Time left in your demo session">60:00</span>
+      <label class="demo-role"><span class="demo-role-label">Role</span>
+        <select id="demo-role" aria-label="Sign in as">
+          <option value="admin">Administrator</option>
+          <option value="operator">Operator</option>
+          <option value="finance">Finance</option>
+          <option value="viewer">Viewer</option>
+        </select>
+      </label>
+      <button class="demo-top-btn" type="button" id="demo-missions-toggle" aria-controls="demo-missions" aria-expanded="false"><span class="mlabel">Missions </span><span class="count" id="demo-mission-count">0/10</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="demo-gate" id="demo-gate" aria-labelledby="gate-title">
+    <div class="wrap demo-gate-grid">
+      <div id="gate-copy">
+        <p class="eyebrow">Live demo · ThreadForge 10.7.0</p>
+        <h1 id="gate-title">Sign up, then try the suite.</h1>
+        <p class="lead">One free session, right in your browser. Enter an email first. A work address and a personal address are both accepted. Then run the workflows for an invented company, Example Co., including the TradeMath calculators.</p>
+        <ul class="demo-facts">
+          <li><span><b>An email opens the demo.</b> Work or personal. This page keeps it in this browser. It is not sent to a server.</span></li>
+          <li><span><b>One session of 60 minutes.</b> Each browser gets one. Ending it, or letting the timer run out, closes it.</span></li>
+          <li><span><b>Business workflows really work.</b> Stock, orders, invoices, the ledger, CSV import, campaigns, roles and the trade calculators follow the product's rules.</span></li>
+          <li><span><b>AI, PC and data-source steps are simulated.</b> They follow the product's documented behaviour on sample data and are labelled wherever they appear.</span></li>
+        </ul>
+        <form class="demo-signup" id="demo-signup" action="#">
+          <label class="fld" for="demo-email">Email
+            <input id="demo-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required placeholder="you@example.com">
+          </label>
+          <p class="fine">Use whichever inbox you actually read. A company domain is not required.</p>
+          <p class="err" id="demo-email-err" hidden></p>
+          <div class="demo-gate-actions" id="gate-actions">
+            <button class="btn btn-primary" type="submit" id="demo-start" disabled>Start my session</button>
+            <a class="btn btn-ghost" href="../#pricing">See pricing</a>
+          </div>
+        </form>
+        <noscript><p class="err">The demo runs in your browser and needs JavaScript. Turn it on, or see the prices on the home page.</p></noscript>
+        <p class="fine" id="gate-fine">Prefer to skip the signup? <a href="../trademath/">Open TradeMath</a>. The same calculators, no email, on this site. Want another full session later? Email <span class="addr">support@threadforgeofficial.com</span>.</p>
+      </div>
+      <div class="demo-mission-card">
+        <h2 id="gate-missions-title">Ten things to try</h2>
+        <ol id="gate-missions">
+          <li>Receive a purchase order</li>
+          <li>Fulfil a sale and open its invoice</li>
+          <li>Record a payment in exact cents</li>
+          <li>Preview and commit a CSV import</li>
+          <li>Approve a campaign and see who consent leaves out</li>
+          <li>Run a supplier due-diligence check</li>
+          <li>Give the engineering agent a task and review its draft</li>
+          <li>Plan an original app with the app builder</li>
+          <li>Diagnose a PC and approve one repair</li>
+          <li>Switch to the Viewer role and see what's read-only</li>
+        </ol>
+        <p class="fine">A checklist follows you through the session, with a hint for each step. The TradeMath calculators are in the Trade section, separate from these ten.</p>
+      </div>
+    </div>
+    <div class="wrap demo-downloads" id="demo-downloads">
+      <a class="btn btn-ghost" href="../#pricing">Buy ThreadForge</a>
+      <p class="fine">The 10.16.0 Windows and Android installers come with each one-time purchase, from $49, with their checksums and the licence. Nothing is charged after you buy. They are unsigned development builds, so Windows may warn until code signing is in place.</p>
+    </div>
+  </section>
+
+  <div class="demo-app" id="demo-app" hidden>
+    <nav class="demo-nav" id="demo-nav" aria-label="Suite sections"></nav>
+    <div class="demo-main">
+      <p class="demo-banner"><b>Demo workspace · Example Co.</b><span>Signed up as <span id="demo-who"></span>.</span><span>Sample data in your browser only.</span><span class="badge sim">Simulated</span><span>marks AI, PC and data-source results.</span></p>
+      <div id="demo-view"></div>
+    </div>
+    <aside class="demo-missions" id="demo-missions" aria-labelledby="missions-title"></aside>
+  </div>
+</main>
+
+<div class="demo-toast" id="demo-toast" role="status" aria-live="polite"></div>
+</body>
+</html>
