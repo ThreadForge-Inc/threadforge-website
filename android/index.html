@@ -114,7 +114,42 @@
         </article>
       </div>
 
-      <h2>4. Updating, Security &amp; Prerelease Notes</h2>
+      <h2>4. Google Play Store Modular App Packs (Choose Only What You Need)</h2>
+      <p>Not every smartphone user needs the entire 40 MB multi-desk suite loaded onto their device. Whether you are an importer running daily TradeMath, an indie developer planning projects, a student in the Practice Lab, or simply want phone storage care, you can choose the exact focused App Pack for your workflow:</p>
+      <div class="feature-grid">
+        <article class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <h3>1. TradeForge · TradeMath &amp; ERP</h3>
+          <p><strong>Package:</strong> <code>com.methodology.trademath</code> · <strong>Size:</strong> ~12 MB</p>
+          <p>Built for merchants, importers, exporters, and wholesale distributors. Includes 57 TradeMath calculators (landed cost, CBM, container loading), local inventory stock ledger, sales orders, purchase invoices, sanctions screening, and PDF quotation/PO generation.</p>
+        </article>
+        <article class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h6M15 15h6"/></svg>
+          <h3>2. ForgeBuilder · Studio &amp; Projects</h3>
+          <p><strong>Package:</strong> <code>com.methodology.builder</code> · <strong>Size:</strong> ~16 MB</p>
+          <p>Built for solo developers, designers, and project managers. Includes plain-language App &amp; Web Builder specifications, Kanban sprint boards, task dependency tracking, capital BOQ cost plans, and SQLite schema generators.</p>
+        </article>
+        <article class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01M9 6h6"/></svg>
+          <h3>3. DroidCare · Phone &amp; System Care</h3>
+          <p><strong>Package:</strong> <code>com.methodology.care</code> · <strong>Size:</strong> ~8 MB</p>
+          <p>Built for everyday smartphone users and fleet IT administrators. Evaluates local storage health, detects background memory bloat, audits app telemetry permissions, and runs consent-gated device repairs—with zero external tracking.</p>
+        </article>
+        <article class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <h3>4. ThreadForge Academy · Practice Lab</h3>
+          <p><strong>Package:</strong> <code>com.methodology.academy</code> · <strong>Size:</strong> ~14 MB</p>
+          <p>Built for students, actuarial analysts, and researchers. Includes all 16 chronological research monographs by Bilal Ahmed Khan, 4-tier free curriculum (Apprentice to Titan), and 5 offline practice workbenches (Evidence Denominator, Chokepoints, Chamber Stress-Test, Edge LLM, and Biological Sovereignty). 100% Free Sovereign Charter.</p>
+        </article>
+      </div>
+
+      <article class="feature band-sunk">
+        <h3>5. Flagship: ThreadForge Sovereign Suite (All-in-One)</h3>
+        <p><strong>Package:</strong> <code>com.methodology.threadforge</code> · <strong>Size:</strong> 39.1 MB · <a href="https://github.com/ThreadForge-Inc/threadforge-website/releases/download/v10.16.1-moonwalk-v17/ThreadForge-10.16.1-android.apk">Download Full Suite APK</a></p>
+        <p>The complete unified multi-company suite: all six desks integrated with multi-tenant organization isolation, offline AI mentor support, and SQLite encrypted backups for manufacturing operations and business groups.</p>
+      </article>
+
+      <h2>5. Updating, Security &amp; Prerelease Notes</h2>
       <ul>
         <li><strong>Key Rotation Notice:</strong> Development builds use a run-specific signing key. If you have an earlier development APK (such as <code>10.16.0</code> or <code>10.7.0</code>) installed, export your records first, uninstall the previous app, and then install <code>10.16.1</code>.</li>
         <li><strong>Loopback Isolation:</strong> The embedded backend binds exclusively to <code>127.0.0.1</code> on a random port each start. Android cloud backup (<code>allowBackup=false</code>) is disabled so owner tokens are never uploaded to third-party cloud backups.</li>
