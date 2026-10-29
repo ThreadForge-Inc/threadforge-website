@@ -963,7 +963,8 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .price-status { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 0 0 24px; font-size: var(--t-sm); color: var(--fg-2); max-width: 860px; }
 .plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .plan { display: grid; gap: 12px; grid-template-rows: auto auto auto 1fr auto; padding: 24px 22px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-raised); min-width: 0; }
-.plan > .btn { justify-self: start; }
+.plan > .btn, .plan-act > .btn { justify-self: start; }
+.plan-act { display: grid; gap: 8px; }
 .plan.is-featured { border-color: var(--focus); box-shadow: var(--shadow); }
 .plan h3 { font-size: var(--t-lg); font-weight: 700; }
 .price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px; }
