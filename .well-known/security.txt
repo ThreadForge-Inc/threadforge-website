@@ -1,0 +1,5 @@
+﻿Contact: mailto:support@threadforgeofficial.com
+Expires: 2027-10-26T00:00:00Z
+Preferred-Languages: en
+Canonical: https://threadforgeofficial.com/.well-known/security.txt
+Policy: https://threadforgeofficial.com/principle/
