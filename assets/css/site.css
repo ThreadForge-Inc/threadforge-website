@@ -137,22 +137,22 @@
 
 /* Moon & Cosmos: Lunar obsidian, celestial starlight, starlight aurora mint accents & classic academic typography */
 :root[data-theme="cosmos"] {
-  --bg: #070a13;
-  --bg-raised: #0d1322;
+  --bg: #040c18;
+  --bg-raised: #091a32;
   --bg-sunk: #04060b;
   --fg: #eef3fb;
   --fg-2: #c6d4ea;
   --muted: #8598b5;
   --line: #1c273c;
   --line-strong: #2c3c5c;
-  --link: #74c0fc;
-  --forge: #0b172a;
-  --forge-2: #13243f;
+  --link: #f0c45a;
+  --forge: #0c2342;
+  --forge-2: #143562;
   --forge-fg: #f0f4fc;
   --forge-muted: #9eb5d6;
   --forge-line: #1e355b;
-  --lime: #63e6be;
-  --lime-ink: #04201a;
+  --lime: #f0c45a;
+  --lime-ink: #061326;
   --amber: #fcc419;
   --amber-bg: #2d2305;
   --ok: #69db7c;
@@ -165,7 +165,7 @@
   --console-warn: #fcc419;
   --console-ok: #63e6be;
   --console-info: #74c0fc;
-  --focus: #74c0fc;
+  --focus: #f0c45a;
   --shadow: 0 1px 0 rgba(0, 0, 0, .4), 0 30px 75px -30px rgba(2, 6, 18, .9);
 
   /* Classic Academic Font Pack Integration */
@@ -364,7 +364,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 .sw-contrast { background: linear-gradient(135deg, #000 55%, #ffe14d 55%); }
 .sw-warm { background: linear-gradient(135deg, #f4ecdc 55%, #7a4a12 55%); }
 .sw-cvd { background: linear-gradient(135deg, #0060a8 50%, #ffb000 50%); }
-.sw-cosmos { background: linear-gradient(135deg, #070a13 50%, #63e6be 50%); }
+.sw-cosmos { background: linear-gradient(135deg, #0c2342 50%, #f0c45a 50%); }
 .theme-toggle[data-mode="light"] .i-sun,
 .theme-toggle[data-mode="dark"] .i-moon,
 .theme-toggle[data-mode="cosmos"] .i-moon,
