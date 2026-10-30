@@ -135,6 +135,47 @@
   color-scheme: dark;
 }
 
+/* Moon & Cosmos: Lunar obsidian, celestial starlight, starlight aurora mint accents & classic academic typography */
+:root[data-theme="cosmos"] {
+  --bg: #070a13;
+  --bg-raised: #0d1322;
+  --bg-sunk: #04060b;
+  --fg: #eef3fb;
+  --fg-2: #c6d4ea;
+  --muted: #8598b5;
+  --line: #1c273c;
+  --line-strong: #2c3c5c;
+  --link: #74c0fc;
+  --forge: #0b172a;
+  --forge-2: #13243f;
+  --forge-fg: #f0f4fc;
+  --forge-muted: #9eb5d6;
+  --forge-line: #1e355b;
+  --lime: #63e6be;
+  --lime-ink: #04201a;
+  --amber: #fcc419;
+  --amber-bg: #2d2305;
+  --ok: #69db7c;
+  --ok-bg: #092c15;
+  --console-bg: #040812;
+  --console-raised: #0a1120;
+  --console-fg: #e2edfd;
+  --console-muted: #829bc0;
+  --console-line: #172640;
+  --console-warn: #fcc419;
+  --console-ok: #63e6be;
+  --console-info: #74c0fc;
+  --focus: #74c0fc;
+  --shadow: 0 1px 0 rgba(0, 0, 0, .4), 0 30px 75px -30px rgba(2, 6, 18, .9);
+
+  /* Classic Academic Font Pack Integration */
+  --font-display: "Gloock", "Palatino Linotype", "Book Antiqua", Palatino, "Iowan Old Style", "Cinzel", "EB Garamond", Georgia, serif;
+  --font-body: "Charter", "Bitstream Charter", "Sitka Text", "Cambria", "Palatino Linotype", "Book Antiqua", "Public Sans", Georgia, serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
+  color-scheme: dark;
+}
+
+
 /* High contrast: white on black with a yellow accent, about 21:1 for body text. */
 :root[data-theme="contrast"] {
   --bg: #000; --bg-raised: #0b0b0b; --bg-sunk: #000; --fg: #fff; --fg-2: #fff; --muted: #d6d6d6;
@@ -323,6 +364,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 .sw-contrast { background: linear-gradient(135deg, #000 55%, #ffe14d 55%); }
 .sw-warm { background: linear-gradient(135deg, #f4ecdc 55%, #7a4a12 55%); }
 .sw-cvd { background: linear-gradient(135deg, #0060a8 50%, #ffb000 50%); }
+.sw-cosmos { background: linear-gradient(135deg, #070a13 50%, #63e6be 50%); }
 .theme-toggle[data-mode="light"] .i-sun,
 .theme-toggle[data-mode="dark"] .i-moon,
 .theme-toggle[data-mode="system"] .i-auto { display: block; }
@@ -387,7 +429,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 .hero-title { font-family: var(--font-display); font-weight: 400; font-size: var(--t-hero); line-height: .98; letter-spacing: -.015em; word-spacing: .02em; }
 .hero-title span { display: block; }
 .hero-title span:last-child { color: var(--forge-2); }
-:root[data-theme="dark"] .hero-title span:last-child, :root[data-theme="contrast"] .hero-title span:last-child { color: var(--lime); }
+:root[data-theme="dark"] .hero-title span:last-child, :root[data-theme="contrast"] .hero-title span:last-child, :root[data-theme="cosmos"] .hero-title span:last-child { color: var(--lime); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .hero-title span:last-child { color: var(--lime); } }
 .hero-lead { font-size: var(--t-lg); line-height: 1.6; color: var(--fg-2); max-width: 36em; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -530,7 +572,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 .strip-list li:first-child { border-left: 0; padding-left: 0; }
 .strip-list svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--forge-2); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .strip-list svg { color: var(--lime); } }
-:root[data-theme="dark"] .strip-list svg, :root[data-theme="contrast"] .strip-list svg { color: var(--lime); }
+:root[data-theme="dark"] .strip-list svg, :root[data-theme="contrast"] .strip-list svg, :root[data-theme="cosmos"] .strip-list svg { color: var(--lime); }
 @media (max-width: 1023px) {
   .strip-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 0; }
   .strip-list li { border-left: 0; padding-left: 0; }
@@ -647,7 +689,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 }
 .feature svg { width: 26px; height: 26px; color: var(--forge-2); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .feature svg { color: var(--lime); } }
-:root[data-theme="dark"] .feature svg, :root[data-theme="contrast"] .feature svg { color: var(--lime); }
+:root[data-theme="dark"] .feature svg, :root[data-theme="contrast"] .feature svg, :root[data-theme="cosmos"] .feature svg { color: var(--lime); }
 .feature h3 { font-size: var(--t-md); font-weight: 700; }
 .feature p { font-size: var(--t-sm); color: var(--fg-2); line-height: 1.6; }
 @media (max-width: 1023px) { .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

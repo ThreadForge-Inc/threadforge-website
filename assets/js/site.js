@@ -35,6 +35,7 @@
     ["system", "Match this device", "Light or dark, as your device is set"],
     ["light", "Light", "The standard ThreadForge colours"],
     ["dark", "Dark", "Easier on the eyes at night"],
+    ["cosmos", "Moon & Cosmos", "Lunar obsidian, celestial starlight & academic typography"],
     ["contrast", "High contrast", "White on black, the strongest contrast"],
     ["warm", "Warm reading", "Soft paper tones with less glare"],
     ["cvd", "Colour-blind safe", "Blue and orange instead of green"]
