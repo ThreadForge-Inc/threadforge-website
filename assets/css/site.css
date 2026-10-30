@@ -533,6 +533,9 @@ p { margin: 0; }
 ul, ol { margin: 0; padding: 0; }
 
 code, pre, kbd { font-family: var(--font-mono); }
+/* Long hashes and package names wrap instead of widening the page on phones. */
+.prose code { overflow-wrap: anywhere; }
+.prose pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 
 .visually-hidden {
 

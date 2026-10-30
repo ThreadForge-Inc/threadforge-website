@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ThreadForge 10.16.1 for Android · Download Verified APK &amp; Installation Guide</title>
+<title>ThreadForge 10.16.1 for Android · Development Prerelease APK &amp; Installation Guide</title>
 <meta name="description" content="Download ThreadForge 10.16.1 for Android (com.methodology.threadforge). Run the complete private business workspace, 57 TradeMath calculators, Projects, Supplier Due Diligence, and offline Mentor locally on your phone at 127.0.0.1.">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'; frame-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -55,7 +55,7 @@
 <main id="main">
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Android Release · Version 10.16.1 (Code 101601)</p>
+      <p class="eyebrow">Android Development Prerelease · Version 10.16.1 (Code 101601) · Not yet on Google Play</p>
       <h1>Your private business workspace, running locally on your phone.</h1>
       <p class="lead">ThreadForge 10.16.1 for Android (<code>com.methodology.threadforge</code>) runs the complete Python 3.13 backend directly on your device at <code>127.0.0.1</code>. No PC, cloud server, or subscription required—your SQLite ledgers stay on your phone.</p>
       <div class="hero-cta">
@@ -76,11 +76,16 @@
         <li><strong>File Size:</strong> <code>41,055,894 bytes</code> (39.15 MB)</li>
         <li><strong>APK SHA-256 Checksum:</strong> <code>1c8d10d9e19efc4fdf534f5baf4f566e4408de839bfc13f496fd4e909644579d</code></li>
         <li><strong>Signer Certificate SHA-256:</strong> <code>05428107431fb6b9b5e94f4fd7f0b2d1e95956df7a2c983f59c25adb4a52bf37</code></li>
-        <li><strong>Google Play App Bundle (AAB):</strong> <a href="https://github.com/ThreadForge-Inc/threadforge-website/releases/download/v10.16.1-android-dev/ThreadForge-10.16.1-android.aab"><code>ThreadForge-10.16.1-android.aab</code></a> (<code>22,947,081 bytes</code>, SHA-256: <code>b5bc43446e3990887676b3905c13d44f1d69efd5dded0b054323fbb95a183071</code>, Upload Signer: <code>95387cee93f1bd717ceea7836ec00fea219306169122a2d496862f9dd5dd7265</code>)</li>
+        <li><strong>Android App Bundle (AAB), prepared for a future Google Play listing:</strong> <a href="https://github.com/ThreadForge-Inc/threadforge-website/releases/download/v10.16.1-android-dev/ThreadForge-10.16.1-android.aab"><code>ThreadForge-10.16.1-android.aab</code></a> (<code>22,947,081 bytes</code>, SHA-256: <code>b5bc43446e3990887676b3905c13d44f1d69efd5dded0b054323fbb95a183071</code>, Upload Signer: <code>95387cee93f1bd717ceea7836ec00fea219306169122a2d496862f9dd5dd7265</code>)</li>
         <li><strong>Required Android Permission:</strong> <code>android.permission.INTERNET</code> (sole permission; used for local <code>127.0.0.1</code> loopback and optional HTTPS sanctions/model requests)</li>
       </ul>
-      <p>To verify on Windows PowerShell before transferring to your phone:</p>
-      <pre><code>Get-FileHash .\ThreadForge-10.16.1-android.apk -Algorithm SHA256</code></pre>
+      <p>To check the SHA-256 on a computer before moving the file to your phone:</p>
+      <ul>
+        <li>Windows PowerShell: <code>Get-FileHash .\ThreadForge-10.16.1-android.apk -Algorithm SHA256</code></li>
+        <li>macOS: <code>shasum -a 256 ThreadForge-10.16.1-android.apk</code></li>
+        <li>Linux: <code>sha256sum ThreadForge-10.16.1-android.apk</code></li>
+      </ul>
+      <p>To check who signed it, with the Android SDK build tools: <code>apksigner verify --print-certs ThreadForge-10.16.1-android.apk</code>. The certificate SHA-256 it prints must match the signer above.</p>
 
       <h2>2. Installation &amp; First Start</h2>
       <ol>
@@ -95,12 +100,14 @@
         <article>
           <h3>Included on Android (10.16.1)</h3>
           <ul class="check-list">
-            <li><span><strong>Business Workspace &amp; ERP:</strong> Inventory, stock movements, orders, invoices, CRM, and multi-organization role isolation.</span></li>
-            <li><span><strong>Projects &amp; Capital Desk:</strong> Kanban boards, dependencies, BOQ cost plans, schedules, and risk registers.</span></li>
-            <li><span><strong>57 TradeMath Calculators:</strong> Landed cost, CBM, container loading, freight, and PDF quotation/PO generation.</span></li>
-            <li><span><strong>Excel &amp; PDF Engine:</strong> Open Excel workbooks directly and export Excel/PDF reports via Android’s native “Save as” dialog.</span></li>
-            <li><span><strong>Supplier Due Diligence:</strong> Screen suppliers against official US, EU, and UK sanctions lists with full source citations.</span></li>
-            <li><span><strong>The Mentor &amp; Connect a Model:</strong> Offline operational guidance on every desk, plus optional connection to Ollama or HTTPS model providers.</span></li>
+            <li><span><strong>Business Workspace &amp; ERP (Essentials):</strong> Inventory, stock movements, orders, invoices, CRM, and multi-organization role isolation.</span></li>
+            <li><span><strong>Projects Desk (Essentials):</strong> Kanban boards and task dependencies.</span></li>
+            <li><span><strong>Capital Projects Desk (Industrial):</strong> BOQ cost plans, bid comparison, PERT schedules, risk registers, investment cases, earned value and stage gates.</span></li>
+            <li><span><strong>57 TradeMath Calculators (Essentials):</strong> Landed cost, CBM, container loading, freight, quotations and purchase orders.</span></li>
+            <li><span><strong>Excel &amp; PDF Engine (Professional):</strong> Open Excel workbooks directly and download Trade desk results as Excel or PDF through Android’s “Save as” dialog.</span></li>
+            <li><span><strong>Supplier Due Diligence (Essentials):</strong> Screen suppliers against official US, EU, and UK sanctions lists with full source citations.</span></li>
+            <li><span><strong>The Mentor (Essentials):</strong> Offline guidance on every desk.</span></li>
+            <li><span><strong>Connect a Model (Professional for Ollama, Industrial for cloud providers):</strong> Optional connection to Ollama or HTTPS model providers.</span></li>
           </ul>
         </article>
         <article>
@@ -113,45 +120,37 @@
           </ul>
         </article>
       </div>
+      <p>Each desk is marked with the lowest tier that includes it: Essentials $49, Professional $149, Industrial $299 or Industrial Park $499, each paid once. A desk outside your tier keeps its records readable but refuses new changes. See <a href="../#pricing">pricing and how to order</a>; you receive a licence file by email and install it in <strong>People &amp; access</strong>.</p>
 
-      <h2>4. Google Play Store Modular App Packs (Choose Only What You Need)</h2>
-      <p>Not every smartphone user needs the entire 40 MB multi-desk suite loaded onto their device. Whether you are an importer running daily TradeMath, an indie developer planning projects, a student in the Practice Lab, or simply want phone storage care, you can choose the exact focused App Pack for your workflow:</p>
+      <h2>4. Planned Focused Apps</h2>
+      <p>Smaller single-purpose apps are planned. None of them is built or on Google Play yet; today the full suite below is the only ThreadForge Android app.</p>
       <div class="feature-grid">
         <article class="feature">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          <h3>1. TradeForge · TradeMath &amp; ERP</h3>
-          <p><strong>Package:</strong> <code>com.methodology.trademath</code> · <strong>Size:</strong> ~12 MB</p>
+          <h3>TradeForge · TradeMath &amp; ERP (planned)</h3>
           <p>Built for merchants, importers, exporters, and wholesale distributors. Includes 57 TradeMath calculators (landed cost, CBM, container loading), local inventory stock ledger, sales orders, purchase invoices, sanctions screening, and PDF quotation/PO generation.</p>
         </article>
         <article class="feature">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h6M15 15h6"/></svg>
-          <h3>2. ForgeBuilder · Studio &amp; Projects</h3>
-          <p><strong>Package:</strong> <code>com.methodology.builder</code> · <strong>Size:</strong> ~16 MB</p>
+          <h3>ForgeBuilder · Studio &amp; Projects (planned)</h3>
           <p>Built for solo developers, designers, and project managers. Includes plain-language App &amp; Web Builder specifications, Kanban sprint boards, task dependency tracking, capital BOQ cost plans, and SQLite schema generators.</p>
         </article>
         <article class="feature">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01M9 6h6"/></svg>
-          <h3>3. DroidCare · Phone &amp; System Care</h3>
-          <p><strong>Package:</strong> <code>com.methodology.care</code> · <strong>Size:</strong> ~8 MB</p>
-          <p>Built for everyday smartphone users and fleet IT administrators. Evaluates local storage health, detects background memory bloat, audits app telemetry permissions, and runs consent-gated device repairs—with zero external tracking.</p>
-        </article>
-        <article class="feature">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          <h3>4. ThreadForge Academy · Practice Lab</h3>
-          <p><strong>Package:</strong> <code>com.methodology.academy</code> · <strong>Size:</strong> ~14 MB</p>
+          <h3>ThreadForge Academy · Practice Lab (planned)</h3>
           <p>Built for students, actuarial analysts, and researchers. Includes all 16 chronological research monographs by Bilal Ahmed Khan, 4-tier free curriculum (Apprentice to Titan), and 5 offline practice workbenches (Evidence Denominator, Chokepoints, Chamber Stress-Test, Edge LLM, and Biological Sovereignty). 100% Free Sovereign Charter.</p>
         </article>
       </div>
 
       <article class="feature band-sunk">
-        <h3>5. Flagship: ThreadForge Sovereign Suite (All-in-One)</h3>
+        <h3>Available now: the full ThreadForge suite (all-in-one)</h3>
         <p><strong>Package:</strong> <code>com.methodology.threadforge</code> · <strong>Size:</strong> 39.1 MB · <a href="https://github.com/ThreadForge-Inc/threadforge-website/releases/download/v10.16.1-moonwalk-v17/ThreadForge-10.16.1-android.apk">Download Full Suite APK</a></p>
-        <p>The complete unified multi-company suite: all six desks integrated with multi-tenant organization isolation, offline AI mentor support, and SQLite encrypted backups for manufacturing operations and business groups.</p>
+        <p>The complete unified multi-company suite: all six desks integrated with multi-tenant organization isolation, offline Mentor support, and in-app CSV, Excel and PDF exports for manufacturing operations and business groups.</p>
       </article>
 
       <h2>5. Updating, Security &amp; Prerelease Notes</h2>
       <ul>
-        <li><strong>Key Rotation Notice:</strong> Development builds use a run-specific signing key. If you have an earlier development APK (such as <code>10.16.0</code> or <code>10.7.0</code>) installed, export your records first, uninstall the previous app, and then install <code>10.16.1</code>.</li>
+        <li><strong>Key Rotation Notice:</strong> Development builds use a run-specific signing key. Android will not install it over an earlier development APK (such as <code>10.16.0</code> or <code>10.7.0</code>). Uninstalling deletes the app's records on the phone, so export them first, then uninstall the previous app and install <code>10.16.1</code>.</li>
         <li><strong>Loopback Isolation:</strong> The embedded backend binds exclusively to <code>127.0.0.1</code> on a random port each start. Android cloud backup (<code>allowBackup=false</code>) is disabled so owner tokens are never uploaded to third-party cloud backups.</li>
         <li><strong>Digital Asset Links:</strong> Verified domain association for <code>threadforgeofficial.com</code> is published at <a href="../.well-known/assetlinks.json"><code>/.well-known/assetlinks.json</code></a>.</li>
       </ul>

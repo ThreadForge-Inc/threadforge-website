@@ -14,8 +14,8 @@
       }
     } catch (e) {}
     return {
-      modules: { "m1-1": true, "m1-2": true },
-      labsRun: { "lab-1": true },
+      modules: {},
+      labsRun: {},
       pledgeSigned: false,
       updatedAt: new Date().toISOString()
     };
@@ -69,7 +69,7 @@
     if (rankSubEl) {
       rankSubEl.textContent =
         doneModules + "/" + totalModules + " modules · " +
-        Math.min(5, labsCount) + "/5 PWI labs verified (" + pct + "%)";
+        Math.min(5, labsCount) + "/5 PWI labs run (" + pct + "%)";
     }
     if (rankFillEl) rankFillEl.style.width = Math.max(6, pct) + "%";
 
@@ -89,7 +89,10 @@
     });
   });
 
+  // Labs drawn once on page load are not credited; only a learner's own run counts.
+  var initializing = true;
   function markLabRun(labId) {
+    if (initializing) return;
     if (!state.labsRun) state.labsRun = {};
     state.labsRun[labId] = true;
     saveState();
@@ -165,7 +168,6 @@
     pwiPanels.forEach(function (p) {
       p.hidden = p.getAttribute("data-pwi-panel") !== labId;
     });
-    markLabRun(labId);
     if (scrollIntoView) {
       var workbench = document.getElementById("pwi-workbench");
       if (workbench && workbench.scrollIntoView) {
@@ -206,7 +208,11 @@
     var variance = values.reduce(function (acc, val) { return acc + Math.pow(val - mean, 2); }, 0) / (n - 1);
     var sd = Math.sqrt(variance);
     var se = sd / Math.sqrt(n);
-    var margin = 1.96 * se;
+    // Student's t for small samples: 1.96 understates the interval below about 30 observations.
+    var T95 = [12.706, 4.303, 3.182, 2.776, 2.571, 2.447, 2.365, 2.306, 2.262, 2.228, 2.201, 2.179, 2.160, 2.145, 2.131,
+      2.120, 2.110, 2.101, 2.093, 2.086, 2.080, 2.074, 2.069, 2.064, 2.060, 2.056, 2.052, 2.048, 2.045, 2.042];
+    var tCrit = n - 1 <= T95.length ? T95[n - 2] : 1.96;
+    var margin = tCrit * se;
 
     var incidents = Math.max(1, Number(incInput ? incInput.value : 1200) || 1200);
     var enforcements = Math.max(0, Number(enfInput ? enfInput.value : 36) || 36);
@@ -230,7 +236,7 @@
         "EVIDENCE & DENOMINATOR AUDIT [D/I/U PROTOCOL]\n" +
         "------------------------------------------------------------\n" +
         "1. Sample Distribution (n = " + n + "): Mean = " + mean.toFixed(3) + " | SD = " + sd.toFixed(3) + " | SE = " + se.toFixed(3) + "\n" +
-        "   95% Confidence Interval: [" + (mean - margin).toFixed(3) + " to " + (mean + margin).toFixed(3) + "]\n\n" +
+        "   95% Confidence Interval (t = " + tCrit.toFixed(3) + ", df = " + (n - 1) + "): [" + (mean - margin).toFixed(3) + " to " + (mean + margin).toFixed(3) + "]\n\n" +
         "2. Actuarial Accountability Denominator (Ref: 'The Wrong Denominator', Oct 1, 2026):\n" +
         "   - Documented Incidents [D]:        " + incidents + " events (" + ratePer1000.toFixed(2) + " per 1,000 exposed population)\n" +
         "   - Verified Enforcements [D]:       " + enforcements + " convictions/actions\n" +
@@ -449,14 +455,14 @@
         "SECURE EDGE LLM & AI ACCORD DETERRENCE AUDIT\n" +
         "------------------------------------------------------------\n" +
         "Classification: " + arch + "\n" +
-        "Verified Controls (" + passed + "/" + checks.length + "):\n" +
+        "Controls you ticked (" + passed + "/" + checks.length + "), a self-assessment:\n" +
         " - Layer 1 (Model): Quantized GGUF via llama.cpp on local/edge hardware\n" +
         " - Layer 2 (Safety): Dual input/output guardrails + per-request audit log (NIST AU)\n" +
         " - Layer 3 (Security): X-API-Key (NIST IA), TLS/mTLS (NIST SC), systemd sandbox (CIS/STIG), IEC 62443 VLAN\n" +
         " - Governance Accord (Ref: 'Defendant, Judge and Jury' & 'AI-Native University'):\n" +
         "   Named independent auditor, statutory/procurement consequence, human approval gate.\n\n" +
         (missing.length === 0
-          ? "VERDICT: ALL 10 SOVEREIGN EDGE & GOVERNANCE CONTROLS VERIFIED. Ready for production release gate."
+          ? "ALL " + checks.length + " CONTROLS TICKED. This is a self-assessment: under the Accord rules above, a named independent auditor must confirm them before a production release."
           : "MISSING CONTROLS TO REMEDIATE BEFORE PRODUCTION:\n - " + missing.join("\n - "));
     }
     markLabRun("lab-4");
@@ -538,4 +544,5 @@
   renderChamberScenario("base");
   runLab4();
   runLab5();
+  initializing = false;
 })();
