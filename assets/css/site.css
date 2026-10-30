@@ -367,6 +367,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 .sw-cosmos { background: linear-gradient(135deg, #070a13 50%, #63e6be 50%); }
 .theme-toggle[data-mode="light"] .i-sun,
 .theme-toggle[data-mode="dark"] .i-moon,
+.theme-toggle[data-mode="cosmos"] .i-moon,
 .theme-toggle[data-mode="system"] .i-auto { display: block; }
 
 @media (max-width: 1079px) {
