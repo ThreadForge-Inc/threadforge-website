@@ -459,8 +459,25 @@
     var noteOut = document.getElementById("calc-note");
     var order = document.getElementById("calc-order");
     var chosen = [], plan = "", message = "";
+    var storeRadios = calc.querySelectorAll("input[name=calc-store]");
+    var credit = Number(calc.getAttribute("data-store-credit"));
+    // The Microsoft Store edition counts as Essentials, or Professional for workspaces from before
+    // 1 November 2026. A licence file replaces it, so the desks it already gives are kept in the order.
+    var owned = function () {
+      var picked = Array.prototype.filter.call(storeRadios, function (radio) { return radio.checked; })[0];
+      return picked ? picked.value : "none";
+    };
+    var syncOwned = function () {
+      var store = owned(), level = tiers.indexOf(store);
+      Array.prototype.forEach.call(boxes, function (box) {
+        var mine = level >= 0 && tiers.indexOf(box.getAttribute("data-tier")) <= level;
+        if (mine) box.checked = true;
+        box.disabled = mine;
+      });
+    };
     var update = function () {
       chosen = Array.prototype.filter.call(boxes, function (box) { return box.checked; });
+      var store = owned(), level = tiers.indexOf(store);
       if (!chosen.length) {
         priceOut.textContent = "$0"; noteOut.textContent = "Choose at least one desk."; order.setAttribute("aria-disabled", "true");
         return;
@@ -469,17 +486,29 @@
       var full = Number(calc.getAttribute("data-" + tiers[top]));
       var custom = Number(calc.getAttribute("data-base")) + Number(calc.getAttribute("data-per")) * chosen.length;
       var labels = chosen.map(function (box) { return box.parentNode.textContent.trim(); });
+      var price = Math.min(full, custom);
+      if (level >= 0 && top <= level) {
+        priceOut.textContent = "$0";
+        noteOut.textContent = "Your Store edition already includes " + (chosen.length === 1 ? "this desk" : "these desks") + ". Add a desk it does not have.";
+        order.setAttribute("aria-disabled", "true");
+        return;
+      }
       order.removeAttribute("aria-disabled");
+      var due = level >= 0 ? Math.max(0, price - credit) : price;
+      var storeNote = level >= 0 ? " That is $" + price + " less the $" + credit + " you paid at the Store." : "";
+      var storeLine = level >= 0 ? " I own the Microsoft Store edition (" + (store === "professional" ? "bought before 1 November 2026, so it keeps Professional" : "Essentials") + "); please credit the $" + credit + " I paid." : "";
+      priceOut.textContent = "$" + due;
       if (custom >= full) {
-        priceOut.textContent = "$" + full;
-        noteOut.textContent = "once. " + names[tiers[top]] + " includes " + (chosen.length === 1 ? "this desk" : "all of these desks") + " for $" + full + ", so we'll order " + names[tiers[top]] + ".";
-        plan = names[tiers[top]]; message = "";
+        noteOut.textContent = "once. " + names[tiers[top]] + " includes " + (chosen.length === 1 ? "this desk" : "all of these desks") + " for $" + full + ", so we'll order " + names[tiers[top]] + "." + storeNote;
+        plan = level >= 0 ? "Upgrade" : names[tiers[top]];
+        message = level >= 0 ? names[tiers[top]] + " licence ($" + full + " once, $" + due + " after the Store credit)." + storeLine : "";
       } else {
-        priceOut.textContent = "$" + custom;
-        noteOut.textContent = "once for " + chosen.length + (chosen.length === 1 ? " desk." : " desks.") + " Upgrade later by paying the difference.";
-        plan = "Custom"; message = "Custom licence ($" + custom + " once) with: " + labels.join("; ") + ".";
+        noteOut.textContent = "once for " + chosen.length + (chosen.length === 1 ? " desk." : " desks.") + storeNote + " Upgrade later by paying the difference.";
+        plan = level >= 0 ? "Upgrade" : "Custom";
+        message = "Custom licence ($" + price + " once" + (level >= 0 ? ", $" + due + " after the Store credit" : "") + ") with: " + labels.join("; ") + "." + storeLine;
       }
     };
+    Array.prototype.forEach.call(storeRadios, function (radio) { radio.addEventListener("change", function () { syncOwned(); update(); }); });
     Array.prototype.forEach.call(boxes, function (box) { box.addEventListener("change", update); });
     document.querySelectorAll("[data-calc-open]").forEach(function (button) {
       button.addEventListener("click", function () { update(); calc.showModal(); });
