@@ -1,35 +1,24 @@
-# X (Twitter) thread — ThreadForge 10.16.1
+# X thread — ThreadForge 10.17
 
 **1/6**
-ThreadForge 10.16.1 ships today.
-
-Local-first business & intelligence suite — Trade, supplier due diligence, Capital, PC care — now with licence tiers, a new brand film and leaner CI.
+ThreadForge 10.17 is out: one private workspace for stock, orders, trade sourcing, supplier checks and projects. On your PC, phone or server. Pay once.
 
 https://threadforgeofficial.com
-#ThreadForge #IndieDev #Windows
 
 **2/6**
-Licensing now means something:
-Essentials ($49, 14-day trial) · Professional · Industrial · Industrial Park · Custom (one desk from $34)
-
-No licence file? You still run the Essentials desks. Reading your records is never gated — a desk outside your tier only refuses new changes.
+Try before you pay: Essentials runs free for 14 days. After that it only reads until you buy. Nothing is locked or deleted, and you can export and back up at any time.
 
 **3/6**
-The data never leaves the box. Every desk reads from your local catalog, the gateway is local, and Ollama models run on your own machine.
-
-MS Store build is signed, sandboxed, one-click.
+Pay for what you use:
+Essentials $49 · Professional $149 · Industrial $299 · Industrial Park $499, all once.
+Or Custom: $19 + $15 per desk, from $34. Upgrades cost only the difference.
 
 **4/6**
-New in this release:
-• Brand film (1080p + highlights reel)
-• Leaner CI and a Windows MSIX build & verify pipeline
-• Safer read-only Windows diagnostics
-• Pinned verified release data for 10.16
+Your records stay with you: the workspace lives on your device. No sign-up, no analytics, no telemetry. AI is optional and runs on your own model or your own provider account.
 
 **5/6**
-Docs: https://threadforgeofficial.com
-Store listing (submitting today): Microsoft Partner Center
-Repo: https://github.com/ThreadForge-Inc/SO
+Proof, not promises: 10.17.2 passed 543 backend tests and all 52 native Windows checks. Every download is checked against the build that made it before we publish it.
 
 **6/6**
-Founding members / early access: DM us. We’re issuing CI + named-user licences now — support@threadforgeofficial.com
+Learning is free: the ThreadForge Academy's courses, practice lab and lecture handouts.
+https://threadforgeofficial.com/academy/

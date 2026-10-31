@@ -1,31 +1,34 @@
-# Social / marketing image spec (ThreadForge 10.16.1)
+# Social and marketing image spec (ThreadForge 10.17)
 
-Use these specs to render a branded announcement image (1200x628 and 1080x1080).
+Follow the brand kit (threadforgeofficial.com/brand/). Prefer a still from an approved film or poster to a new image.
 
 ## Palette
-- #173f30 — primary green (background)
-- #f5f1e8 — paper/cream (text, cards)
-- #b89b5e — gold accent (highlights)
-- #0e2418 — deep green (footer bar)
+- #173F30 forge green: backgrounds and the mark
+- #D6EE8E signal lime: one highlight per image, never body text on light backgrounds
+- #EEF1E8 sage paper: text on forge, light backgrounds
+- #12241C ink: text on light
 
 ## Fonts
-- Headline: Inter Bold (or system sans-serif bold)
-- Subtitle: Inter Regular / SF Pro
-- Monospace for version: JetBrains Mono / SF Mono
+- Headlines: Gloock
+- Body and labels: Public Sans
+- Versions, prices and commands: JetBrains Mono
 
-## Layout — 1200x628 (wide)
-- Full-bleed #173f30 background, subtle diagonal grid in #1f4f3a.
-- Left 60%: "ThreadForge" large (cream), "10.16.1" in gold monospace, tagline “Local-first business & intelligence suite.”
-- Right 40%: four chips: Trade · Due Diligence · Capital · PC Care
-- Footer strip (#0e2418): `threadforgeofficial.com` + `Microsoft Store`
+## 1200 × 628 (wide)
+- Forge green background with the mark top left.
+- Headline (Gloock, sage paper): "Pay once, fairly."
+- Lime line (JetBrains Mono): "ThreadForge 10.17 · from $49 · 14-day trial"
+- Footer: threadforgeofficial.com
 
-## Layout — 1080x1080 (square, Instagram/WhatsApp)
-- Top: logo + "ThreadForge"
-- Centre: "10.16.1 is live." (cream, large)
-- Below: 3 bullets (licence tiers / local-first / licensed MSIX)
-- Bottom: URL + "Download for Windows"
+## 1080 × 1080 (square)
+- The mark and "ThreadForge" at the top.
+- Centre: "Your records stay with you." (Gloock)
+- Three lines: "Try free for 14 days" · "Pay once, from $49" · "Windows · Android · your server"
+- Bottom: threadforgeofficial.com
 
-## Asset export
-- PNG with sRGB; no alpha needed (solid background).
-- Also produce 2x versions for retina.
-Place finished assets in `threadforge/website/public/assets/marketing/`.
+## 1080 × 1920 (stories and reels)
+- Use the 9:16 film reels from the brand kit as they are.
+
+## Rules
+- Only claims that are on the website. No "best", "#1", "certified" or "enterprise-ready".
+- Never show a price without "once" or "one-time" nearby.
+- Export PNG in sRGB. Put finished files in `assets/marketing/`.

@@ -1,11 +1,11 @@
-# WhatsApp / SMS broadcast — ThreadForge 10.16.1
+# WhatsApp / SMS broadcast — ThreadForge 10.17
 
-ThreadForge (our business & intelligence suite) updated to **10.16.1**.
+ThreadForge 10.17 is out.
 
-✅ Trade, supplier due diligence, capital planning, PC care — all local-first
-✅ New licence tiers: Essentials / Professional / Industrial
-✅ 14-day Essentials trial, then $49 once, or buy just one desk
-✅ Microsoft Store build on the way (signed, one-click)
+✅ Stock, orders, trade sourcing, supplier checks and projects in one private workspace
+✅ Try Essentials free for 14 days, then pay once from $49, or one desk from $34
+✅ Your records stay on your own PC or phone
+✅ Windows (Microsoft Store), Android and your own server
 
-Site + download: https://threadforgeofficial.com
-Questions/support: support@threadforgeofficial.com
+Watch 56 seconds: https://threadforgeofficial.com/#film
+Questions: support@threadforgeofficial.com
