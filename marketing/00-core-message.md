@@ -10,7 +10,7 @@
 
 ThreadForge 10.16.1 is live: a private, local-first suite for trade sourcing, supplier due diligence, capital planning and PC care — now with a clear licensing model (Essentials / Professional / Industrial), a new brand film, and a smaller, faster installer.
 
-- Without a licence, an install runs the Essentials desks.
+- Without a licence, an install runs the Essentials desks for a 14-day trial, then only reads; records stay readable and exportable.
 - Records are never locked: a desk outside your tier refuses only new changes; everything you already captured stays readable.
 - Microsoft Store distribution means signed, sandboxed, one-click installs.
 

@@ -10,7 +10,7 @@ https://threadforgeofficial.com
 
 **2/6**
 Licensing now means something:
-Essentials (free) · Professional · Industrial · Industrial Park
+Essentials ($49, 14-day trial) · Professional · Industrial · Industrial Park · Custom (one desk from $34)
 
 No licence file? You still run the Essentials desks. Reading your records is never gated — a desk outside your tier only refuses new changes.
 

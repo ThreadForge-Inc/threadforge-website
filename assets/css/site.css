@@ -2093,6 +2093,36 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 
 @media (max-width: 800px) { .plan-once .check-list { grid-template-columns: 1fr; } }
 
+.plan.plan-custom { grid-column: 1 / -1; grid-template-rows: none; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); align-items: center; }
+
+@media (max-width: 800px) { .plan.plan-custom { grid-template-columns: minmax(0, 1fr); } }
+
+.calc-dialog { width: min(640px, calc(100vw - 32px)); max-width: none; max-height: calc(100vh - 32px); overflow: auto; padding: 20px 22px 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-raised); color: var(--fg); box-shadow: var(--shadow); }
+
+.calc-dialog::backdrop { background: rgba(6, 14, 10, .7); }
+
+.calc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+
+.calc-head h2 { font-size: var(--t-lg); font-weight: 700; }
+
+.calc-desks { border: 0; padding: 0; margin: 14px 0 0; }
+
+.calc-desks legend { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+
+.calc-desks ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+
+.calc-desks label { display: flex; align-items: flex-start; gap: 10px; font-size: var(--t-sm); cursor: pointer; }
+
+.calc-desks input { margin-top: 3px; accent-color: var(--focus); }
+
+.calc-total { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 18px 0 14px; font-size: var(--t-sm); color: var(--fg-2); }
+
+.calc-total strong { font-family: var(--font-display); font-weight: 400; font-size: 2.25rem; line-height: 1; color: var(--fg); font-variant-numeric: tabular-nums; }
+
+.calc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+
+.calc-actions [aria-disabled="true"] { opacity: .5; pointer-events: none; }
+
 @media (max-width: 1180px) { .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 @media (max-width: 560px) { .plans { grid-template-columns: minmax(0, 1fr); } }

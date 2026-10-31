@@ -115,7 +115,7 @@
           <a class="mega-link" href="demo/"><span class="mega-title">Live demo</span><span class="mega-desc">Ten guided missions in your browser</span></a>
           <a class="mega-link" href="academy/"><span class="mega-title">Academy &amp; PWI Practice Lab <span class="nav-badge">FREE</span></span><span class="mega-desc">16 chronological research works, 4-tier courses &amp; 5 live labs</span></a>
           <a class="mega-link" href="trademath/"><span class="mega-title">TradeMath calculators</span><span class="mega-desc">Free trade calculators, no sign-up</span></a>
-          <a class="mega-link" href="android/"><span class="mega-title">Android app <span class="nav-badge">10.16.3</span></span><span class="mega-desc">Development prerelease APK, not yet on Google Play</span></a>
+          <a class="mega-link" href="android/"><span class="mega-title">Android app <span class="nav-badge">10.17.2</span></span><span class="mega-desc">Development prerelease APK, not yet on Google Play</span></a>
           <a class="mega-link" href="#platforms"><span class="mega-title">Platforms and downloads</span><span class="mega-desc">Windows, Android, macOS and servers</span></a>
           <a class="mega-link" href="#faq"><span class="mega-title">Questions and answers</span><span class="mega-desc">How ThreadForge works and what it does not do</span></a>
         </div>
@@ -182,7 +182,7 @@
             <span class="store-badge-text">
               <span class="store-badge-kicker">Development prerelease · Not yet on Google Play</span>
               <span class="store-badge-title">Download ThreadForge for Android</span>
-              <span class="store-badge-sub">v10.16.3 APK · Check its SHA-256 before installing</span>
+              <span class="store-badge-sub">v10.17.2 APK · Check its SHA-256 before installing</span>
             </span>
           </a>
         </div>
@@ -866,13 +866,13 @@
       <header class="section-head">
         <p class="eyebrow">Pricing</p>
         <h2 id="pricing-title">Buy once. Keep it. No subscription.</h2>
-        <p class="lead">Four tiers, each a one-time purchase with unlimited organizations and seats. Nothing is charged after you buy: no monthly or annual fee and no per-user fee. AI runs on your own PC with a local model, or on your own provider account with no markup.</p>
+        <p class="lead">Four tiers, or Custom: just the desks you need. Each is a one-time purchase with unlimited organizations and seats. Nothing is charged after you buy: no monthly or annual fee and no per-user fee. AI runs on your own PC with a local model, or on your own provider account with no markup.</p>
       </header>
-      <p class="price-status"><span class="status ok">One-time prices</span><span>Order by email and we send a secure card payment link for Visa or Mastercard. <a href="demo/">Try the live demo</a> first.</span></p>
+      <p class="price-status"><span class="status ok">One-time prices</span><span>Try Essentials free for 14 days, then buy once. An upgrade costs only the difference from what you paid. Order by email and we send a secure card payment link for Visa or Mastercard. <a href="demo/">Try the live demo</a> first.</span></p>
       <div class="plans">
         <article class="plan">
           <h3>Essentials</h3>
-          <p class="price"><strong>$49</strong><span>once</span></p>
+          <p class="price"><strong>$49</strong><span>once</span> <span class="status ok">Microsoft Store</span></p>
           <p class="price-note">For solo operators, independent merchants, and single-desk management.</p>
           <ul class="check-list">
               <li><span>Unlimited organizations and seats on your local PC</span></li>
@@ -882,11 +882,14 @@
               <li><span>Supplier due diligence register with compliance screening checklists</span></li>
               <li><span>The Mentor: embedded, offline operational guidance</span></li>
           </ul>
-          <a class="btn btn-ghost" href="#pilot" data-plan="Essentials">Order Essentials</a>
+          <div class="plan-act">
+            <a class="btn btn-primary" href="https://apps.microsoft.com/detail/9pjtnxttx5cr?referrer=appbadge&amp;mode=full" target="_blank" rel="noopener">Buy on Microsoft Store</a>
+            <a class="fine" href="#pilot" data-plan="Essentials">or order via direct invoice</a>
+          </div>
         </article>
         <article class="plan is-featured">
           <h3>Professional</h3>
-          <p class="price"><strong>$149</strong><span>once</span> <span class="status ok">Microsoft Store</span></p>
+          <p class="price"><strong>$149</strong><span>once</span></p>
           <p class="price-note">The complete standalone workstation. Zero recurring SaaS fees or cloud lock-in.</p>
           <ul class="check-list">
               <li><span>Everything in Essentials</span></li>
@@ -895,10 +898,7 @@
               <li><span>Safe PC Care: read-only SQLite integrity, disk diagnostics, and security checklists</span></li>
               <li><span>Data stewardship: verified SQLite backup, migration, and spreadsheet-safe CSV export</span></li>
           </ul>
-          <div class="plan-act">
-            <a class="btn btn-primary" href="https://apps.microsoft.com/detail/9pjtnxttx5cr?referrer=appbadge&mode=full" target="_blank" rel="noopener">Buy on Microsoft Store</a>
-            <a class="fine" href="#pilot" data-plan="Professional">or order via direct invoice</a>
-          </div>
+          <a class="btn btn-primary" href="#pilot" data-plan="Professional">Order Professional</a>
         </article>
         <article class="plan">
           <h3>Industrial</h3>
@@ -928,8 +928,19 @@
           </ul>
           <a class="btn btn-ghost" href="#pilot" data-plan="Industrial Park">Order Industrial Park</a>
         </article>
+        <article class="plan plan-custom">
+          <div>
+            <h3>Custom</h3>
+            <p class="price"><strong>$19</strong><span>+ $15 per desk, once</span></p>
+            <p class="price-note">Need only TradeMath, or only PC care? Choose just those desks. Custom never costs more than the full tier that includes them, and you can upgrade later by paying the difference.</p>
+          </div>
+          <div class="plan-act">
+            <button class="btn btn-ghost" type="button" data-calc-open>Price my desks</button>
+            <span class="fine">For example, TradeMath alone or PC care alone is $34 once.</span>
+          </div>
+        </article>
       </div>
-      <p class="fine price-fine">US dollars, excluding tax. Each tier is a licence to use the version you buy, for your own organizations, for as long as you like, with fixes for that version at no charge. A later major version or a new product is a separate purchase that you choose to make. You may not resell, share or copy ThreadForge. Industrial Park source code may be changed only for your own organizations, keeping the ThreadForge credit.</p>
+      <p class="fine price-fine">US dollars, excluding tax. Each tier is a licence to use the version you buy, for your own organizations, for as long as you like, with fixes for that version at no charge. A later major version or a new product is a separate purchase that you choose to make. An upgrade to a higher tier, or more Custom desks, costs the new price less what you already paid, and your records carry over. Without a licence, Essentials runs for a 14-day trial and then only reads; your records stay readable and can be exported and backed up. The Microsoft Store edition is Essentials. You may not resell, share or copy ThreadForge. Industrial Park source code may be changed only for your own organizations, keeping the ThreadForge credit.</p>
       <div class="claims">
         <article>
           <h3>In every tier</h3>
@@ -982,7 +993,7 @@
         <li class="is-now"><span class="status">Open now</span><h3>Orders by email</h3><p>Essentials, Professional, Industrial and Industrial Park, each a one-time purchase, paid through a secure Visa or Mastercard link.</p><span class="who">Run by Threadforge Inc.</span></li>
         <li class="is-now"><span class="status">Open now</span><h3>Supplier due diligence</h3><p>Plain-language supplier checks in the business workspace, since the 10.5 development release. An independent review of screening accuracy is still to come.</p><span class="who">Built by Threadforge Inc.</span></li>
         <li class="is-now"><span class="status">Open now</span><h3>App builder and AI connectors</h3><p>Building original apps from a reference, choice of AI model, MCP servers and plugins, since the 10.6 development release. Planning has been tried with a local model; an evaluation of built apps with real models is still to come.</p><span class="who">Built by Threadforge Inc.</span></li>
-        <li><span class="status ok">Published</span><h3>One-time price list</h3><p>Essentials $49, Professional $149, Industrial $299 and Industrial Park $499, with unlimited organizations and seats and nothing to pay after you buy.</p><span class="who">Set by Threadforge Inc.</span></li>
+        <li><span class="status ok">Published</span><h3>One-time price list</h3><p>Essentials $49, Professional $149, Industrial $299 and Industrial Park $499, or Custom desks from $34, with unlimited organizations and seats, upgrades for the difference and nothing to pay after you buy.</p><span class="who">Set by Threadforge Inc.</span></li>
         <li><span class="status wip">In progress</span><h3>Trusted code signing</h3><p>Publisher identity validation so Windows can verify who built the installer.</p><span class="who">Issued by a certificate authority or Microsoft</span></li>
         <li><span class="status">After signing</span><h3>SmartScreen reputation</h3><p>Reputation for the signed installer and a Defender false-positive review.</p><span class="who">Decided by Microsoft</span></li>
         <li><span class="status">Planned</span><h3>Windows 11 acceptance</h3><p>A hands-on test plan on everyday PCs, beyond automated server checks.</p><span class="who">Owner test plan</span></li>
@@ -1042,6 +1053,8 @@
                 <option value="Professional" selected>Professional, $149 once</option>
                 <option value="Industrial">Industrial, $299 once</option>
                 <option value="Industrial Park">Industrial Park, $499 once</option>
+                <option value="Custom">Custom, $19 + $15 per desk</option>
+                <option value="Upgrade">Upgrade from my current licence</option>
               </select>
             </div>
             <div class="field full">
@@ -1127,11 +1140,41 @@
         </details>
         <details>
           <summary>Which systems are supported?</summary>
-          <div><p>The Windows app and PC care run on 64-bit Windows. The <a href="android/">Android app (10.16.3)</a> runs on 64-bit Android 7.0 or later with its own embedded Python 3.13 backend at 127.0.0.1. The macOS app runs on Intel and Apple silicon. The web workspace runs on any server with Docker.</p></div>
+          <div><p>The Windows app and PC care run on 64-bit Windows. The <a href="android/">Android app (10.17.2)</a> runs on 64-bit Android 7.0 or later with its own embedded Python 3.13 backend at 127.0.0.1. The macOS app runs on Intel and Apple silicon. The web workspace runs on any server with Docker.</p></div>
         </details>
       </div>
     </div>
   </section>
+  <dialog class="calc-dialog" id="calc-dialog" aria-labelledby="calc-title" data-base="19" data-per="15" data-essentials="49" data-professional="149" data-industrial="299">
+    <div class="calc-head">
+      <h2 id="calc-title">Price a Custom licence</h2>
+      <button class="icon-btn" type="button" data-calc-close aria-label="Close the price calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <p class="fine">Choose the desks you need. Every licence is paid once, with unlimited organizations and seats. Diagnosis in PC care is free in every edition.</p>
+    <fieldset class="calc-desks">
+      <legend>Desks</legend>
+      <ul>
+        <li><label><input type="checkbox" value="trade" data-tier="essentials"> <span>Trade desk with TradeMath and procurement</span></label></li>
+        <li><label><input type="checkbox" value="pc_care" data-tier="professional"> <span>PC care repairs</span></label></li>
+        <li><label><input type="checkbox" value="business" data-tier="essentials"> <span>Business workspace: stock, orders, invoices, payments, campaigns</span></label></li>
+        <li><label><input type="checkbox" value="projects" data-tier="essentials"> <span>Projects desk</span></label></li>
+        <li><label><input type="checkbox" value="diligence" data-tier="essentials"> <span>Supplier due diligence</span></label></li>
+        <li><label><input type="checkbox" value="mentor" data-tier="essentials"> <span>The Mentor</span></label></li>
+        <li><label><input type="checkbox" value="app_builder" data-tier="professional"> <span>App and website builder</span></label></li>
+        <li><label><input type="checkbox" value="office_files" data-tier="professional"> <span>Excel and PDF import and export</span></label></li>
+        <li><label><input type="checkbox" value="document_review" data-tier="professional"> <span>AI review of calculations and documents</span></label></li>
+        <li><label><input type="checkbox" value="local_ai" data-tier="professional"> <span>Local AI with Ollama</span></label></li>
+        <li><label><input type="checkbox" value="ai_connectors" data-tier="industrial"> <span>AI provider accounts, plugins and MCP servers</span></label></li>
+        <li><label><input type="checkbox" value="engineering_agents" data-tier="industrial"> <span>Engineering agents</span></label></li>
+        <li><label><input type="checkbox" value="capital_projects" data-tier="industrial"> <span>Capital projects desk</span></label></li>
+      </ul>
+    </fieldset>
+    <p class="calc-total" aria-live="polite"><strong id="calc-price">$0</strong> <span id="calc-note">Choose at least one desk.</span></p>
+    <div class="calc-actions">
+      <a class="btn btn-primary" href="#pilot" id="calc-order" aria-disabled="true">Order these desks</a>
+      <button class="btn-plain" type="button" data-calc-close>Close</button>
+    </div>
+  </dialog>
   <dialog class="film-dialog" id="film-dialog" aria-labelledby="film-dialog-title">
     <div class="film-dialog-bar">
       <span id="film-dialog-title">ThreadForge in 85 seconds</span>
@@ -1167,7 +1210,7 @@
           <li><a href="#connectors">AI models and connectors</a></li>
           <li><a href="#pc-care">PC care</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="android/">Android app (10.16.3)</a></li>
+          <li><a href="android/">Android app (10.17.2)</a></li>
           <li><a href="#platforms">Where it runs</a></li>
         </ul>
       </nav>
