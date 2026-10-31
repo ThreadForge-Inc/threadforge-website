@@ -2267,3 +2267,10 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 /* The language links in the English footer. */
 .footer-langs { margin-top: 8px; }
 .footer-langs a { margin-inline-end: 12px; }
+
+/* Official accounts, written into every footer by website/build_social.py. */
+.social-links { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 2px 0 0; padding: 0; }
+.site-footer > .wrap > .social-links { margin-bottom: 18px; }
+.social-links a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--line-strong); color: var(--fg-2); transition: color .15s, border-color .15s, background-color .15s; }
+.social-links a:hover, .social-links a:focus-visible { color: var(--fg); border-color: var(--fg); background: color-mix(in srgb, var(--fg) 6%, transparent); }
+.social-links svg { width: 20px; height: 20px; }
