@@ -2246,3 +2246,24 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .store-badge-title { font: 700 .95rem/1.25 var(--font-body); color: #eef1e8; margin-top: 2px; }
 
 .store-badge-sub { font: 500 .72rem/1.2 var(--font-mono); color: var(--forge-muted); margin-top: 2px; }
+/* Translated pages (ur, ar, zh). Headlines keep Gloock for Latin; other scripts fall back to the system's
+   own fonts, chosen per language. Urdu and Arabic read right to left. */
+.lang-switch { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: var(--t-sm); }
+.lang-switch a { color: var(--fg-2); text-decoration: none; }
+.lang-switch a:hover, .lang-switch a:focus-visible { color: var(--fg); text-decoration: underline; }
+.i18n-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.i18n-page .film-frame + .film-frame { margin-top: 28px; }
+.i18n-page .film-frame figcaption { margin-top: 10px; }
+.i18n-page .page-hero .fine { margin-top: 18px; }
+:lang(ur) { font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Urdu Typesetting", "Noto Naskh Arabic", serif; line-height: 2; }
+:lang(ar) { font-family: "Noto Naskh Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif; }
+:lang(zh) { font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", sans-serif; }
+:lang(ur) h1, :lang(ur) h2, :lang(ur) h3 { line-height: 1.9; letter-spacing: 0; }
+:lang(ar) h1, :lang(ar) h2, :lang(ar) h3, :lang(zh) h1, :lang(zh) h2, :lang(zh) h3 { letter-spacing: 0; line-height: 1.35; }
+[lang="en"] { font-family: inherit; }
+[dir="rtl"] .eyebrow, [dir="rtl"] .brand-word { direction: ltr; unicode-bidi: isolate; }
+[dir="rtl"] .prose ul { padding-inline-start: 1.4em; padding-left: 0; }
+
+/* The language links in the English footer. */
+.footer-langs { margin-top: 8px; }
+.footer-langs a { margin-inline-end: 12px; }
