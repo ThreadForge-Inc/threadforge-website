@@ -749,7 +749,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 .site-nav .nav-cta { display: none; }
 
-.theme-toggle .i-sun, .theme-toggle .i-moon, .theme-toggle .i-auto, .theme-toggle .i-eye { display: none; }
+.theme-toggle .i-sun, .theme-toggle .i-moon, .theme-toggle .i-eye { display: none; }
 
 .theme-toggle[data-mode="contrast"] .i-eye, .theme-toggle[data-mode="warm"] .i-eye, .theme-toggle[data-mode="cvd"] .i-eye { display: block; }
 
@@ -787,8 +787,6 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 .lang-menu a[aria-current="true"] { background: var(--bg-sunk); font-weight: 650; }
 
-.sw-system { background: linear-gradient(135deg, #eef1e8 50%, #0d1813 50%); }
-
 .sw-light { background: #eef1e8; } .sw-dark { background: #0d1813; }
 
 .sw-contrast { background: linear-gradient(135deg, #000 55%, #ffe14d 55%); }
@@ -803,9 +801,18 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 .theme-toggle[data-mode="dark"] .i-moon,
 
-.theme-toggle[data-mode="cosmos"] .i-moon,
+.theme-toggle[data-mode="cosmos"] .i-moon { display: block; }
 
-.theme-toggle[data-mode="system"] .i-auto { display: block; }
+/* A slow conic sweep so each swatch reads as a live preview of its theme, not a flat dot.
+   Off for anyone who asked for less motion, including in the three vision-friendly themes. */
+@media (prefers-reduced-motion: no-preference) {
+  .theme-swatch { background-size: 220% 220%; animation: swatch-sweep 5s ease-in-out infinite; }
+  .theme-menu button:hover .theme-swatch, .theme-menu button:focus-visible .theme-swatch { animation-duration: 2.2s; }
+}
+@keyframes swatch-sweep {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
 
 
 

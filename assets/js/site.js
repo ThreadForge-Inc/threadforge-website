@@ -60,15 +60,16 @@
 
 
 
-  // Theme: system, light, dark, or one of three vision-friendly themes. Stored only in this browser.
+  // Theme: the signature look, plain light/dark, or one of three vision-friendly themes. Stored only
+  // in this browser. "Match this device" was dropped: the default is always Cosmos, so it never did
+  // anything most visitors would choose over picking Light or Dark directly. A visitor with no
+  // JavaScript still gets a light/dark page from the plain CSS, via prefers-color-scheme.
 
   var themeButton = document.getElementById("theme-toggle");
 
   var THEMES = [
 
     ["cosmos", "Royal Navy & Gold", "Marine oceanic navy, golden silhouette & Royal English serif"],
-
-    ["system", "Match this device", "Light or dark, as your device is set"],
 
     ["light", "Light", "The standard ThreadForge colours"],
 
@@ -92,9 +93,7 @@
 
     if (!names[mode]) mode = "cosmos";
 
-    if (mode === "system") root.removeAttribute("data-theme");
-
-    else root.setAttribute("data-theme", mode);
+    root.setAttribute("data-theme", mode);
 
     if (themeButton) {
 
@@ -220,7 +219,7 @@
 
     ["/", "English"], ["/en-gb/", "English (UK)"], ["/ur/", "اردو"], ["/ar/", "العربية"],
 
-    ["/fa/", "فارسی"], ["/zh/", "中文"], ["/ja/", "日本語"], ["/hi/", "हिन्दी"],
+    ["/fa/", "فارسی"], ["/zh/", "中文"], ["/ja/", "日本語"], ["/hi/", "हिन्दी"], ["/si/", "සිංහල"],
 
     ["/ru/", "Русский"], ["/de/", "Deutsch"], ["/fr/", "Français"], ["/it/", "Italiano"]
 
@@ -545,7 +544,10 @@
   var calc = document.getElementById("calc-dialog");
   if (calc && typeof calc.showModal === "function") {
     var tiers = ["essentials", "professional", "industrial"];
-    var names = { essentials: "Essentials", professional: "Professional", industrial: "Industrial" };
+    // Scoped as tierNames, not names: the colour-theme menu above also declares a top-level "names" in
+    // this same IIFE, and `var` is function-scoped, so reusing that identifier here silently overwrote
+    // the theme map once this block ran, breaking every theme switch except the one chosen on load.
+    var tierNames = { essentials: "Essentials", professional: "Professional", industrial: "Industrial" };
     var boxes = calc.querySelectorAll("input[type=checkbox]");
     var priceOut = document.getElementById("calc-price");
     var noteOut = document.getElementById("calc-note");
@@ -591,9 +593,9 @@
       var storeLine = level >= 0 ? " I own the Microsoft Store edition (" + (store === "professional" ? "bought before 1 November 2026, so it keeps Professional" : "Essentials") + "); please credit the $" + credit + " I paid." : "";
       priceOut.textContent = "$" + due;
       if (custom >= full) {
-        noteOut.textContent = "once. " + names[tiers[top]] + " includes " + (chosen.length === 1 ? "this desk" : "all of these desks") + " for $" + full + ", so we'll order " + names[tiers[top]] + "." + storeNote;
-        plan = level >= 0 ? "Upgrade" : names[tiers[top]];
-        message = level >= 0 ? names[tiers[top]] + " licence ($" + full + " once, $" + due + " after the Store credit)." + storeLine : "";
+        noteOut.textContent = "once. " + tierNames[tiers[top]] + " includes " + (chosen.length === 1 ? "this desk" : "all of these desks") + " for $" + full + ", so we'll order " + tierNames[tiers[top]] + "." + storeNote;
+        plan = level >= 0 ? "Upgrade" : tierNames[tiers[top]];
+        message = level >= 0 ? tierNames[tiers[top]] + " licence ($" + full + " once, $" + due + " after the Store credit)." + storeLine : "";
       } else {
         noteOut.textContent = "once for " + chosen.length + (chosen.length === 1 ? " desk." : " desks.") + storeNote + " Upgrade later by paying the difference.";
         plan = level >= 0 ? "Upgrade" : "Custom";
