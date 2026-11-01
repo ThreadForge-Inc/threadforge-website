@@ -212,6 +212,98 @@
 
 
 
+  // Language: a menu of every translated page, built next to the colour theme button.
+
+  var langButton = document.getElementById("lang-toggle");
+
+  var LANGS = [
+
+    ["/", "English"], ["/en-gb/", "English (UK)"], ["/ur/", "اردو"], ["/ar/", "العربية"],
+
+    ["/fa/", "فارسی"], ["/zh/", "中文"], ["/ja/", "日本語"], ["/hi/", "हिन्दी"],
+
+    ["/ru/", "Русский"], ["/de/", "Deutsch"], ["/fr/", "Français"], ["/it/", "Italiano"]
+
+  ];
+
+  if (langButton) {
+
+    var langWrap = document.createElement("div");
+
+    langWrap.className = "lang-wrap";
+
+    langButton.parentNode.insertBefore(langWrap, langButton);
+
+    langWrap.appendChild(langButton);
+
+    var langMenu = document.createElement("div");
+
+    langMenu.className = "lang-menu"; langMenu.id = "lang-menu"; langMenu.hidden = true;
+
+    langMenu.setAttribute("role", "menu"); langMenu.setAttribute("aria-label", "Language");
+
+    langMenu.innerHTML = "<p>Language</p>";
+
+    var herePath = window.location.pathname;
+
+    LANGS.forEach(function (entry) {
+
+      var a = document.createElement("a");
+
+      a.href = entry[0]; a.textContent = entry[1]; a.setAttribute("role", "menuitem");
+
+      if (entry[0] === herePath) a.setAttribute("aria-current", "true");
+
+      langMenu.appendChild(a);
+
+    });
+
+    langWrap.appendChild(langMenu);
+
+    langButton.setAttribute("aria-haspopup", "menu");
+
+    langButton.setAttribute("aria-controls", "lang-menu");
+
+    langButton.setAttribute("aria-expanded", "false");
+
+    var langItems = function () { return Array.prototype.slice.call(langMenu.querySelectorAll("a")); };
+
+    var setLangOpen = function (open, focusItem) {
+
+      langMenu.hidden = !open;
+
+      langButton.setAttribute("aria-expanded", String(open));
+
+      if (open && focusItem) (langMenu.querySelector('[aria-current="true"]') || langItems()[0]).focus();
+
+    };
+
+    langButton.addEventListener("click", function () { setLangOpen(langMenu.hidden, true); });
+
+    langMenu.addEventListener("keydown", function (event) {
+
+      var list = langItems(), i = list.indexOf(document.activeElement);
+
+      if (event.key === "ArrowDown") { event.preventDefault(); list[(i + 1) % list.length].focus(); }
+
+      else if (event.key === "ArrowUp") { event.preventDefault(); list[(i - 1 + list.length) % list.length].focus(); }
+
+      else if (event.key === "Home") { event.preventDefault(); list[0].focus(); }
+
+      else if (event.key === "End") { event.preventDefault(); list[list.length - 1].focus(); }
+
+      else if (event.key === "Escape") { event.preventDefault(); setLangOpen(false); langButton.focus(); }
+
+      else if (event.key === "Tab") setLangOpen(false);
+
+    });
+
+    document.addEventListener("click", function (event) { if (!langWrap.contains(event.target)) setLangOpen(false); });
+
+  }
+
+
+
   // Header border once the page scrolls, and the mobile menu.
 
   var header = document.querySelector(".site-header");
