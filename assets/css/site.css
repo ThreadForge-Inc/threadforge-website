@@ -2295,3 +2295,8 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .social-links a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--line-strong); color: var(--fg-2); transition: color .15s, border-color .15s, background-color .15s; }
 .social-links a:hover, .social-links a:focus-visible { color: var(--fg); border-color: var(--fg); background: color-mix(in srgb, var(--fg) 6%, transparent); }
 .social-links svg { width: 20px; height: 20px; }
+
+/* Google Play Store official emerald CTA and status badge (CSP-compliant, no inline style) */
+.btn-play, :root[data-theme="cosmos"] .btn-play { background: #01875f; border-color: #01875f; color: #ffffff; }
+.btn-play:hover, :root[data-theme="cosmos"] .btn-play:hover { background: #016f4e; border-color: #016f4e; color: #ffffff; filter: brightness(1.04); }
+.status.play { background: #01875f; color: #ffffff; border-color: #01875f; }
