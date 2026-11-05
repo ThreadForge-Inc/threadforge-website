@@ -3,7 +3,7 @@
 **Product:** ThreadForge, a private workspace for independent business operations
 **Company:** Threadforge Inc.
 **Site:** https://threadforgeofficial.com
-**Where it runs:** Windows (Microsoft Store, ID 9PJTNXTTX5CR, and direct download), Android (direct APK), your own server
+**Where it runs:** Windows (Microsoft Store, ID 9PJTNXTTX5CR, and direct download), Android (Google Play Store `com.methodology.threadforge` and direct APK), your own server
 **Release:** 10.17.2 (31 October 2026)
 **Colours:** forge green #173F30, signal lime #D6EE8E, sage paper #EEF1E8 (see the brand kit)
 
@@ -40,5 +40,5 @@ Essentials free for 14 days; after that it only reads until you buy, and your re
 
 - The Windows installer from the website is not publisher-signed yet; SmartScreen may warn. The Microsoft Store
   edition is signed by Microsoft.
-- ThreadForge is not on Google Play yet. Android is a direct APK signed with the company's permanent key.
+- Android is available via Google Play (`com.methodology.threadforge`, https://play.google.com/store/apps/details?id=com.methodology.threadforge) and as a direct APK signed with the company's permanent key.
 - Calculations are planning estimates, and due-diligence results are decision support, not legal clearance.

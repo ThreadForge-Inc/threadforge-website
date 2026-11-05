@@ -83,7 +83,7 @@ Two things worth your own call, not fixed here because they're brand decisions, 
 
 ## 7. Languages
 
-The site is now in 12 languages: English, English (UK), Urdu, Arabic, Persian, Simplified Chinese,
+The site is now in 16 languages: English, English (UK), Urdu, Arabic, Persian, Simplified Chinese,
 Japanese, Hindi, Russian, German, French and Italian — `website/i18n/strings.json` and `subtitles.json`,
 built by `website/i18n/build_i18n.py`. Every translated page states plainly that it is translated from
 English and that the English text is authoritative where they differ (`website/i18n/README.md`). As with

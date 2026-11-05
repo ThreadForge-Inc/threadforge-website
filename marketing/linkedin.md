@@ -11,7 +11,7 @@ What 10.17 changes for a small business:
 2. Pay only for what you use. Buy a full tier once, from $49, or only the desks you need with Custom, from $34. An upgrade costs only the difference.
 3. Check every download. 10.17.2 passed 543 backend tests and all 52 native Windows checks, and every file is checked against the build that made it.
 
-It is also on the Microsoft Store (9PJTNXTTX5CR), and the Academy's courses, practice lab and lecture handouts are free.
+It is available on the Microsoft Store (9PJTNXTTX5CR) and Google Play (https://play.google.com/store/apps/details?id=com.methodology.threadforge), localized across 16 languages, and the Academy's courses, practice lab and lecture handouts are free.
 
 See it in 56 seconds, or try the live demo: https://threadforgeofficial.com
 
