@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThreadForge 10.16.0 — Social Media Marketing &amp; Comparison Film</title>
+<style>
+@font-face { font-family: "Gloock"; src: url("../website/public/assets/fonts/gloock-latin-400.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; src: url("../website/public/assets/fonts/public-sans-latin-var.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "JetBrains Mono"; src: url("../website/public/assets/fonts/jetbrains-mono-latin-var.woff2") format("woff2"); font-weight: 100 800; }
+:root {
+  --forge: #173f30;
+  --deep: #0b1e16;
+  --cream: #eef1e8;
+  --muted: #b8cbbd;
+  --soft: #8fa898;
+  --lime: #d6ee8e;
+  --lime-ink: #17320d;
+  --coral: #ff8b7b;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--deep); }
+#stage {
+  position: relative; width: 1920px; height: 1080px; overflow: hidden;
+  color: var(--cream); font-family: "Public Sans", sans-serif;
+  background: radial-gradient(1450px 980px at 32% 38%, #215440 0%, #153a2c 48%, #0a1b14 100%);
+}
+#glow {
+  position: absolute; width: 1400px; height: 1400px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(214, 238, 142, .15), rgba(214, 238, 142, 0));
+}
+#threads { position: absolute; inset: 0; }
+#threads path { fill: none; stroke-linecap: round; }
+#grain { position: absolute; inset: 0; opacity: .065; mix-blend-mode: overlay; pointer-events: none; }
+#vignette { position: absolute; inset: 0; background: radial-gradient(1500px 920px at 50% 50%, transparent 55%, rgba(0, 0, 0, .46) 100%); pointer-events: none; }
+.scene { position: absolute; inset: 0; visibility: hidden; }
+.abs { position: absolute; }
+.copy { position: absolute; left: 130px; top: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; justify-content: center; }
+.eyebrow {
+  font: 600 20px/1 "JetBrains Mono", monospace; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--lime); margin: 0 0 26px; display: flex; align-items: center; gap: 14px;
+}
+.eyebrow::before { content: ""; width: 34px; height: 2.5px; background: var(--lime); }
+.title { font: 400 84px/1.03 "Gloock", serif; margin: 0; letter-spacing: -.012em; }
+.line { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.line > span { display: inline-block; will-change: transform; }
+.body { font: 400 27px/1.46 "Public Sans", sans-serif; color: var(--muted); margin: 28px 0 0; max-width: 610px; }
+.lime { color: var(--lime); }
+.fine { font: 400 18px/1.45 "Public Sans", sans-serif; color: var(--soft); }
+.window {
+  position: absolute; border-radius: 18px; overflow: hidden; background: #fff;
+  box-shadow: 0 80px 140px -50px rgba(0, 0, 0, .75), 0 24px 50px -24px rgba(0, 0, 0, .5), 0 0 0 1.5px rgba(255, 255, 255, .1);
+}
+.window img { display: block; width: 100%; height: auto; }
+.tag {
+  position: absolute; font: 700 21px/1 "Public Sans", sans-serif; color: var(--lime-ink); background: var(--lime);
+  border-radius: 999px; padding: 14px 24px; white-space: nowrap;
+  box-shadow: 0 18px 34px -14px rgba(0, 0, 0, .55);
+}
+.card {
+  position: absolute; border-radius: 24px; padding: 28px 32px;
+  background: rgba(238, 241, 232, .065); border: 1.5px solid rgba(238, 241, 232, .16);
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .65);
+}
+.card.lime-card {
+  background: var(--lime); border-color: var(--lime); color: var(--lime-ink);
+  box-shadow: 0 45px 95px -35px rgba(214, 238, 142, .4);
+}
+.card .kicker { font: 600 16px/1 "JetBrains Mono", monospace; letter-spacing: .16em; text-transform: uppercase; color: var(--lime); margin-bottom: 12px; }
+.card.lime-card .kicker { color: #2b4a14; }
+.card .big-num { font: 400 68px/1 "Gloock", serif; color: var(--cream); }
+.card.lime-card .big-num { color: var(--lime-ink); }
+.card .desc { font: 500 21px/1.36 "Public Sans", sans-serif; color: var(--muted); margin-top: 12px; }
+.card.lime-card .desc { color: #254210; }
+.phone {
+  position: absolute; width: 320px; height: 680px; border-radius: 50px; background: #0a1712; padding: 13px;
+  box-shadow: 0 80px 140px -50px rgba(0, 0, 0, .8), 0 0 0 2px rgba(214, 238, 142, .22);
+}
+.phone .screen { width: 100%; height: 100%; border-radius: 38px; overflow: hidden; background: #fff; }
+.phone img { display: block; width: 100%; height: auto; }
+.hook { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+.hook h1 { margin: 0; font: 400 176px/1 "Gloock", serif; letter-spacing: -.02em; white-space: nowrap; }
+.hook.lime-bg { background: var(--lime); color: var(--lime-ink); }
+.hook.ink-bg { background: #091812; }
+.hook small { display: block; font: 600 25px/1 "JetBrains Mono", monospace; letter-spacing: .24em; text-transform: uppercase; margin-top: 38px; color: var(--lime); }
+.hook.lime-bg small { color: #2b4a14; }
+.cmp-row {
+  position: absolute; left: 800px; width: 990px; height: 132px; border-radius: 20px;
+  background: rgba(238, 241, 232, .055); border: 1.5px solid rgba(238, 241, 232, .13);
+  padding: 20px 28px; display: flex; flex-direction: column; justify-content: center;
+}
+.cmp-row.us {
+  background: rgba(214, 238, 142, .14); border: 2.5px solid var(--lime);
+  box-shadow: 0 0 50px rgba(214, 238, 142, .2);
+}
+.cmp-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.cmp-name { font: 700 26px/1 "Public Sans", sans-serif; color: var(--cream); }
+.cmp-name small { font: 500 17px/1 "JetBrains Mono", monospace; color: var(--soft); margin-left: 14px; }
+.cmp-row.us .cmp-name { color: var(--lime); }
+.cmp-row.us .cmp-name small { color: #d6ee8e; }
+.cmp-price { font: 400 40px/1 "Gloock", serif; color: var(--coral); }
+.cmp-row.us .cmp-price { color: var(--lime); font-size: 44px; }
+.cmp-bar-bg { width: 100%; height: 22px; border-radius: 11px; background: rgba(238, 241, 232, .08); overflow: hidden; }
+.cmp-bar-fill { height: 100%; border-radius: 11px; background: rgba(255, 139, 123, .65); transform-origin: left; }
+.cmp-row.us .cmp-bar-fill { background: var(--lime); }
+.step-box {
+  position: absolute; width: 310px; height: 290px; border-radius: 24px; padding: 28px;
+  background: rgba(238, 241, 232, .065); border: 1.5px solid rgba(238, 241, 232, .16);
+}
+.step-box.active { background: var(--lime); border-color: var(--lime); color: var(--lime-ink); }
+.step-num {
+  display: inline-block; padding: 7px 14px; border-radius: 999px;
+  font: 700 15px/1 "JetBrains Mono", monospace; letter-spacing: .14em;
+  background: rgba(214, 238, 142, .16); color: var(--lime); margin-bottom: 18px;
+}
+.step-box.active .step-num { background: rgba(23, 50, 13, .14); color: var(--lime-ink); }
+.step-box h3 { margin: 0 0 12px; font: 700 28px/1.18 "Public Sans", sans-serif; }
+.step-box p { margin: 0; font: 450 20px/1.42 "Public Sans", sans-serif; color: var(--muted); }
+.step-box.active p { color: #254210; }
+.soc-card {
+  position: absolute; width: 312px; height: 245px; border-radius: 24px; padding: 26px 26px;
+  background: rgba(238, 241, 232, .065); border: 1.5px solid rgba(238, 241, 232, .17);
+  box-shadow: 0 36px 70px -36px rgba(0, 0, 0, .65);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.soc-card.hot {
+  background: rgba(214, 238, 142, .13); border: 2px solid var(--lime);
+  box-shadow: 0 36px 70px -30px rgba(214, 238, 142, .22);
+}
+.soc-top { display: flex; align-items: center; gap: 16px; }
+.soc-btn {
+  width: 60px; height: 60px; border-radius: 16px; display: grid; place-items: center;
+  background: var(--lime); color: var(--lime-ink); flex: none;
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, .5);
+}
+.soc-btn svg { width: 32px; height: 32px; }
+.soc-title { font: 700 26px/1.1 "Public Sans", sans-serif; color: var(--cream); }
+.soc-handle { font: 600 15px/1.2 "JetBrains Mono", monospace; color: var(--lime); margin-top: 6px; }
+.soc-desc { font: 450 18.5px/1.38 "Public Sans", sans-serif; color: var(--muted); }
+.soc-bar {
+  position: absolute; left: 800px; top: 735px; width: 990px; height: 175px; border-radius: 24px;
+  background: #0a1912; border: 1.5px solid rgba(214, 238, 142, .32); padding: 24px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 45px 90px -45px rgba(0, 0, 0, .8);
+}
+.soc-pill-row { display: flex; gap: 16px; align-items: center; }
+.soc-icon-btn {
+  width: 62px; height: 62px; border-radius: 16px; display: grid; place-items: center;
+  background: rgba(238, 241, 232, .08); border: 1.5px solid rgba(214, 238, 142, .45); color: var(--lime);
+}
+.soc-icon-btn svg { width: 30px; height: 30px; }
+.wordmark { display: inline-block; font: 400 132px/1 "Gloock", serif; letter-spacing: -.012em; white-space: nowrap; }
+.cta { position: absolute; font: 700 27px/1 "Public Sans", sans-serif; color: var(--lime-ink); background: var(--lime); border-radius: 999px; padding: 22px 42px; white-space: nowrap; }
+#wipe { position: absolute; top: -200px; width: 520px; height: 1480px; background: var(--lime); transform: skewX(-14deg); visibility: hidden; }
+#wipe2 { position: absolute; top: -200px; width: 160px; height: 1480px; background: #eef1e8; transform: skewX(-14deg); visibility: hidden; }
+#progress { position: absolute; left: 0; bottom: 0; height: 6px; background: var(--lime); transform-origin: left; }
+.spark { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--lime); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="glow"></div>
+  <svg id="threads" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+
+  <!-- 0 · Open: Why ThreadForge 10.16.0 Stands Alone -->
+  <section class="scene" id="s-open">
+    <svg id="mark" class="abs" viewBox="8 14 48 36" width="190" height="142" style="left:865px;top:175px" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path id="m-top" d="M11 18c11 0 14 14 25 14" stroke="#eef1e8" stroke-width="4.5" pathLength="1"/>
+      <path id="m-bot" d="M11 46c11 0 14-14 25-14" stroke="#eef1e8" stroke-width="4.5" pathLength="1"/>
+      <path id="m-mid" d="M11 32h36" stroke="#d6ee8e" stroke-width="4.5" pathLength="1"/>
+      <path id="m-head" d="M43 24l9 8-9 8" stroke="#d6ee8e" stroke-width="4.5" pathLength="1"/>
+    </svg>
+    <div id="open-eye" class="abs" style="width:1920px;top:355px;text-align:center"><p class="eyebrow" style="justify-content:center">ThreadForge 10.16.0 · Why It Stands Alone</p></div>
+    <div id="open-title" class="abs" style="width:1920px;top:415px;text-align:center">
+      <h2 class="title" style="font-size:108px">
+        <span class="line"><span>Own your business suite.</span></span>
+        <span class="line"><span class="lime">Never pay monthly rent.</span></span>
+      </h2>
+    </div>
+    <div id="op-b0" class="tag" style="left:230px;top:760px">Suite Starting From $19 USD</div>
+    <div id="op-b1" class="tag" style="left:635px;top:760px">One-Time Purchase · $0/mo</div>
+    <div id="op-b2" class="tag" style="left:1035px;top:760px">0% AI Credit Markup</div>
+    <div id="op-b3" class="tag" style="left:1395px;top:760px">Google Play &amp; Microsoft Store</div>
+  </section>
+
+  <!-- 1 · Market Comparison: Online Subscriptions vs ThreadForge -->
+  <section class="scene" id="s-compare">
+    <div class="copy" style="width:620px">
+      <p class="eyebrow">Market Comparison</p>
+      <h2 class="title">
+        <span class="line"><span>Online suites</span></span>
+        <span class="line"><span>rent your seat.</span></span>
+        <span class="line"><span class="lime">We sell it once.</span></span>
+      </h2>
+      <p class="body">Other cloud suites charge per user every month and mark up AI credits. ThreadForge 10.16.0 is a one-time purchase with unlimited users and 0% AI markup.</p>
+    </div>
+    <div id="cmp0" class="cmp-row" style="top:145px">
+      <div class="cmp-top"><div class="cmp-name">Zoho One <small>10 users · $37/user/mo</small></div><div class="cmp-price">$4,440 / yr</div></div>
+      <div class="cmp-bar-bg"><div id="bar0" class="cmp-bar-fill" style="width:100%"></div></div>
+    </div>
+    <div id="cmp1" class="cmp-row" style="top:305px">
+      <div class="cmp-top"><div class="cmp-name">Odoo Standard <small>10 users · $31.10/user/mo</small></div><div class="cmp-price">$3,732 / yr</div></div>
+      <div class="cmp-bar-bg"><div id="bar1" class="cmp-bar-fill" style="width:84%"></div></div>
+    </div>
+    <div id="cmp2" class="cmp-row" style="top:465px">
+      <div class="cmp-top"><div class="cmp-name">Typical Cloud AI Suite <small>Monthly fee + credit markup</small></div><div class="cmp-price">$2,400+ / yr</div></div>
+      <div class="cmp-bar-bg"><div id="bar2" class="cmp-bar-fill" style="width:58%"></div></div>
+    </div>
+    <div id="cmp3" class="cmp-row us" style="top:640px;height:155px">
+      <div class="cmp-top"><div class="cmp-name">ThreadForge 10.16.0 <small>UNLIMITED SEATS · PAID ONCE · 0% AI MARKUP</small></div><div class="cmp-price">From $19 / $49</div></div>
+      <div class="cmp-bar-bg"><div id="bar3" class="cmp-bar-fill" style="width:12%"></div></div>
+    </div>
+    <div id="cmp-tag" class="tag" style="left:800px;top:835px">No monthly subscription · No per-seat fee · No AI credit tax</div>
+  </section>
+
+  <!-- 2 · Google Play Store Live Listing & Microsoft Store -->
+  <section class="scene" id="s-play">
+    <div class="copy" style="width:630px">
+      <p class="eyebrow">Google Play Store · Live Milestone</p>
+      <h2 class="title">
+        <span class="line"><span>Live on</span></span>
+        <span class="line"><span class="lime">Google Play &amp;</span></span>
+        <span class="line"><span class="lime">Microsoft Store.</span></span>
+      </h2>
+      <p class="body">ThreadForge: Trade &amp; Business is officially live on Google Play and Microsoft Store with full store verification and a private 127.0.0.1 backend on your device.</p>
+    </div>
+    <div id="pl-card1" class="card lime-card" style="left:810px;top:150px;width:480px;height:210px">
+      <div class="kicker">OFFICIAL ANDROID LISTING · LIVE</div>
+      <div class="big-num" style="font-size:48px">Google Play Store</div>
+      <div class="desc"><b>com.methodology.threadforge</b><br>Play App Signing · Android 7.0+</div>
+    </div>
+    <div id="pl-card2" class="card" style="left:1320px;top:150px;width:470px;height:210px">
+      <div class="kicker">OFFICIAL WINDOWS LISTING · LIVE</div>
+      <div class="big-num" style="font-size:48px">Microsoft Store</div>
+      <div class="desc"><b>Store ID: 9PJTNXTTX5CR</b><br>Windows 10/11 MSIX · Same Tier</div>
+    </div>
+    <div id="pl-p1" class="phone" style="left:890px;top:385px"><div class="screen"><img src="ui-1017/phone-trade.png" alt=""></div></div>
+    <div id="pl-p2" class="phone" style="left:1290px;top:410px"><div class="screen"><img src="ui-1017/phone-handouts.png" alt=""></div></div>
+  </section>
+
+  <!-- 3 · Custom Tier Facility Starting From $19 USD -->
+  <section class="scene" id="s-custom">
+    <div class="copy" style="width:620px">
+      <p class="eyebrow">Custom Tier Facility</p>
+      <h2 class="title">
+        <span class="line"><span>Start from</span></span>
+        <span class="line"><span class="lime">$19 USD base.</span></span>
+        <span class="line"><span>Pick your desks.</span></span>
+      </h2>
+      <p class="body">Start with the $19 core base and add only the desks your work needs at +$15 each. It never costs more than the full tier with the same desks.</p>
+    </div>
+    <div id="cus-win" class="window" style="left:810px;top:125px;width:530px;background:#0a1a2e"><img src="ui-1017/web-calculator.png" alt=""></div>
+    <div id="cus-c1" class="card lime-card" style="left:1380px;top:140px;width:410px;height:230px">
+      <div class="kicker">ENTRY BASE</div>
+      <div class="big-num">$19 USD</div>
+      <div class="desc">Core workspace base with unlimited seats &amp; organizations</div>
+    </div>
+    <div id="cus-c2" class="card" style="left:1380px;top:405px;width:410px;height:230px">
+      <div class="kicker">MODULAR DESKS</div>
+      <div class="big-num" style="color:var(--lime)">+$15</div>
+      <div class="desc">Per desk you select — Trade, Stock, Projects, AI, Builder &amp; more</div>
+    </div>
+    <div id="cus-c3" class="card" style="left:1380px;top:670px;width:410px;height:230px">
+      <div class="kicker">AUTOMATIC PRICE CAP</div>
+      <div class="big-num" style="color:var(--lime)">100%</div>
+      <div class="desc">Capped at the matching full tier — you never overpay</div>
+    </div>
+  </section>
+
+  <!-- 4 · Upgrade By Paying Only The Difference -->
+  <section class="scene" id="s-delta">
+    <div class="copy" style="width:610px">
+      <p class="eyebrow">Pay Only The Difference</p>
+      <h2 class="title">
+        <span class="line"><span>Bought for $49?</span></span>
+        <span class="line"><span class="lime">Never pay</span></span>
+        <span class="line"><span class="lime">full price again.</span></span>
+      </h2>
+      <p class="body">Once you buy any tier — for example Essentials at $49 — your next upgrade credits every dollar you already paid. You pay only the difference.</p>
+    </div>
+    <div id="dl-1" class="card" style="left:800px;top:185px;width:305px;height:310px">
+      <div class="kicker">STEP 1 · ALREADY BOUGHT</div>
+      <div class="big-num">$49</div>
+      <div class="desc"><b>Essentials Tier</b><br>Paid once. 100% credited toward any future upgrade.</div>
+    </div>
+    <div id="dl-2" class="card" style="left:1135px;top:185px;width:305px;height:310px">
+      <div class="kicker">STEP 2 · NEXT TIER</div>
+      <div class="big-num">$149</div>
+      <div class="desc"><b>Professional Tier</b><br>List price $149 — no need to pay the whole amount!</div>
+    </div>
+    <div id="dl-3" class="card lime-card" style="left:1470px;top:185px;width:330px;height:310px">
+      <div class="kicker">STEP 3 · YOU PAY ONLY Δ</div>
+      <div class="big-num">$100</div>
+      <div class="desc"><b>$149 − $49 = $100</b><br>Pay only the difference &amp; receive your upgrade licence!</div>
+    </div>
+    <div id="dl-bar" class="card" style="left:800px;top:545px;width:1000px;height:285px;background:#0a1912">
+      <div class="kicker">EXAMPLE UPGRADE PATHS FROM ESSENTIALS ($49 ALREADY PAID)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:24px">
+        <div style="padding:20px;border-radius:16px;background:rgba(214,238,142,.09);border:1px solid rgba(214,238,142,.25)">
+          <div style="font:600 18px/1 'Public Sans';color:var(--muted)">To Professional ($149)</div>
+          <div style="font:400 44px/1.15 'Gloock';color:var(--lime);margin-top:10px">Pay $100</div>
+          <div style="font:500 16px/1.3 'JetBrains Mono';color:var(--soft);margin-top:6px">$49 credited in full</div>
+        </div>
+        <div style="padding:20px;border-radius:16px;background:rgba(214,238,142,.09);border:1px solid rgba(214,238,142,.25)">
+          <div style="font:600 18px/1 'Public Sans';color:var(--muted)">To Industrial ($299)</div>
+          <div style="font:400 44px/1.15 'Gloock';color:var(--lime);margin-top:10px">Pay $250</div>
+          <div style="font:500 16px/1.3 'JetBrains Mono';color:var(--soft);margin-top:6px">$49 credited in full</div>
+        </div>
+        <div style="padding:20px;border-radius:16px;background:rgba(214,238,142,.09);border:1px solid rgba(214,238,142,.25)">
+          <div style="font:600 18px/1 'Public Sans';color:var(--muted)">To Industrial Park ($499)</div>
+          <div style="font:400 44px/1.15 'Gloock';color:var(--lime);margin-top:10px">Pay $450</div>
+          <div style="font:500 16px/1.3 'JetBrains Mono';color:var(--soft);margin-top:6px">$49 credited in full</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Instant Licence File Activation In Current App -->
+  <section class="scene" id="s-instant">
+    <div class="copy" style="width:610px">
+      <p class="eyebrow">Instant On-The-Spot Upgrade</p>
+      <h2 class="title">
+        <span class="line"><span>Install licence.</span></span>
+        <span class="line"><span class="lime">Upgrades on</span></span>
+        <span class="line"><span class="lime">the spot.</span></span>
+      </h2>
+      <p class="body">As soon as you buy an upgrade, you get your signed licence file. Install it inside your current app and it unlocks your new tier on the spot — no reinstall, no data loss.</p>
+    </div>
+    <div id="in-s1" class="step-box" style="left:790px;top:145px">
+      <span class="step-num">01 · RECEIVE FILE</span>
+      <h3>Get your upgrade .licence file</h3>
+      <p>Cryptographically signed Ed25519 licence file issued immediately upon upgrade.</p>
+    </div>
+    <div id="in-s2" class="step-box" style="left:1125px;top:145px">
+      <span class="step-num">02 · INSTALL IN APP</span>
+      <h3>Load in your current app</h3>
+      <p>Open Licence in your existing ThreadForge app and drop the file in.</p>
+    </div>
+    <div id="in-s3" class="step-box active" style="left:1460px;top:145px">
+      <span class="step-num">03 · LIVE ON THE SPOT</span>
+      <h3>Instant tier activation</h3>
+      <p>New desks unlock immediately with all your records, stock &amp; projects intact.</p>
+    </div>
+    <div id="in-win" class="window" style="left:790px;top:475px;width:980px">
+      <img src="ui-1017/licence-trial.png" alt="">
+    </div>
+    <div id="in-tag" class="tag" style="left:1010px;top:925px">Zero reinstall · Zero cloud migration · Unlocked on the spot</div>
+  </section>
+
+  <!-- 6 · Official Social Media Buttons & Appearance -->
+  <section class="scene" id="s-social">
+    <div class="copy" style="width:610px">
+      <p class="eyebrow">Official Social Presence</p>
+      <h2 class="title">
+        <span class="line"><span>Six official</span></span>
+        <span class="line"><span class="lime">social buttons.</span></span>
+        <span class="line"><span>Direct reach.</span></span>
+      </h2>
+      <p class="body">Every page on threadforgeofficial.com features our official YouTube, Instagram, LinkedIn, Reddit, X and WhatsApp buttons for films, community and direct upgrade support.</p>
+    </div>
+    <!-- Row 1: YouTube, Instagram, LinkedIn -->
+    <div id="sc0" class="soc-card hot" style="left:800px;top:160px">
+      <div class="soc-top">
+        <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></div>
+        <div><div class="soc-title">YouTube</div><div class="soc-handle">@ThreadForgeOfficial</div></div>
+      </div>
+      <div class="soc-desc">Official HD brand films, product walkthroughs &amp; Academy lectures.</div>
+    </div>
+    <div id="sc1" class="soc-card" style="left:1138px;top:160px">
+      <div class="soc-top">
+        <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <div><div class="soc-title">Instagram</div><div class="soc-handle">@mistar_n0buddy</div></div>
+      </div>
+      <div class="soc-desc">Vertical 9:16 reels, visual desk spotlights &amp; release milestones.</div>
+    </div>
+    <div id="sc2" class="soc-card" style="left:1476px;top:160px">
+      <div class="soc-top">
+        <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5v6M8 7.6v.1M11.5 16.5v-6M11.5 13c0-1.8 1-2.6 2.3-2.6s2.2.8 2.2 2.6v3.5"/></svg></div>
+        <div><div class="soc-title">LinkedIn</div><div class="soc-handle">Bilal Ahmed Khan</div></div>
+      </div>
+      <div class="soc-desc">Founder updates, institutional tracks &amp; enterprise partnerships.</div>
+    </div>
+    <!-- Row 2: Reddit, X, WhatsApp -->
+    <div id="sc3" class="soc-card" style="left:800px;top:435px">
+      <div class="soc-top">
+        <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="8" ry="5.5"/><circle cx="9" cy="13.5" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1" fill="currentColor" stroke="none"/><path d="M12 8.5l1.2-4.5 3.8 1"/><circle cx="18" cy="5.2" r="1.3"/></svg></div>
+        <div><div class="soc-title">Reddit</div><div class="soc-handle">u/threadforge00</div></div>
+      </div>
+      <div class="soc-desc">Open community discussions, TradeMath &amp; self-hosted architecture.</div>
+    </div>
+    <div id="sc4" class="soc-card" style="left:1138px;top:435px">
+      <div class="soc-top">
+        <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5l14 15M19 4.5l-14 15"/></svg></div>
+        <div><div class="soc-title">X</div><div class="soc-handle">ThreadForge on X</div></div>
+      </div>
+      <div class="soc-desc">Real-time store release alerts, verification digests &amp; threads.</div>
+    </div>
+    <div id="sc5" class="soc-card hot" style="left:1476px;top:435px">
+      <div class="soc-top">
+        <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 9 19.1z"/><path d="M9.2 8.6c.3 2.6 2.4 4.9 5.2 5.4l1-1.2-1.8-1-0.9.8c-.9-.4-1.6-1.1-2-2l.8-.9-1-1.8z" fill="currentColor" stroke="none"/></svg></div>
+        <div><div class="soc-title">WhatsApp</div><div class="soc-handle">wa.me/923352328151</div></div>
+      </div>
+      <div class="soc-desc">Direct licensing desk &amp; instant delta-upgrade `.licence` delivery.</div>
+    </div>
+    <!-- Website Footer Social Bar Appearance -->
+    <div id="sc-bar" class="soc-bar">
+      <div>
+        <div style="font:600 15px/1 'JetBrains Mono';letter-spacing:.16em;color:var(--lime);text-transform:uppercase">LIVE WEBSITE APPEARANCE · THREADFORGEOFFICIAL.COM</div>
+        <div style="font:600 26px/1.25 'Public Sans';color:var(--cream);margin-top:10px">One-click official social buttons on every page</div>
+        <div style="font:450 18px/1.3 'Public Sans';color:var(--soft);margin-top:4px">YouTube · Instagram · WhatsApp · X · Reddit · LinkedIn</div>
+      </div>
+      <div class="soc-pill-row">
+        <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></div>
+        <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 9 19.1z"/><path d="M9.2 8.6c.3 2.6 2.4 4.9 5.2 5.4l1-1.2-1.8-1-0.9.8c-.9-.4-1.6-1.1-2-2l.8-.9-1-1.8z" fill="currentColor" stroke="none"/></svg></div>
+        <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5l14 15M19 4.5l-14 15"/></svg></div>
+        <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="8" ry="5.5"/><circle cx="9" cy="13.5" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1" fill="currentColor" stroke="none"/><path d="M12 8.5l1.2-4.5 3.8 1"/><circle cx="18" cy="5.2" r="1.3"/></svg></div>
+        <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5v6M8 7.6v.1M11.5 16.5v-6M11.5 13c0-1.8 1-2.6 2.3-2.6s2.2.8 2.2 2.6v3.5"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hook -->
+  <section class="scene" id="s-hook">
+    <div class="hook" id="hook0"><div><h1>From $19.</h1><small>One-time purchase · Never rent software</small></div></div>
+    <div class="hook lime-bg" id="hook1"><div><h1>0% Markup.</h1><small>No monthly subscription · No AI credit tax</small></div></div>
+    <div class="hook ink-bg" id="hook2"><div><h1>Upgrade Δ.</h1><small>Pay only the difference · Instant licence activation</small></div></div>
+  </section>
+
+  <!-- 7 · End Card -->
+  <section class="scene" id="s-end">
+    <svg id="end-mark" class="abs" viewBox="8 14 48 36" width="180" height="135" style="left:870px;top:145px" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 18c11 0 14 14 25 14M11 46c11 0 14-14 25-14" stroke="#eef1e8" stroke-width="4.5"/>
+      <path d="M11 32h36M43 24l9 8-9 8" stroke="#d6ee8e" stroke-width="4.5"/>
+    </svg>
+    <div id="end-word" class="abs" style="width:1920px;top:295px;text-align:center"><span class="wordmark">ThreadForge 10.16</span></div>
+    <div id="end-line" class="abs" style="width:1920px;top:455px;text-align:center;font:500 32px/1.35 'Public Sans';color:#d6ee8e">
+      Suite From $19 Base · Essentials $49 · Professional $149 · Industrial $299 · Industrial Park $499
+    </div>
+    <div id="end-sub" class="abs" style="width:1920px;top:515px;text-align:center;font:400 26px/1.4 'Public Sans';color:#b8cbbd">
+      One-Time Purchase · Pay Only The Difference To Upgrade · Instant In-App Licence Activation
+    </div>
+    <div id="end-cta" class="cta" style="left:0;top:600px">threadforgeofficial.com · Live on Google Play &amp; Microsoft Store</div>
+    <div id="end-soc" class="abs" style="left:0;width:1920px;top:715px;display:flex;justify-content:center;gap:18px">
+      <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></div>
+      <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></div>
+      <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 9 19.1z"/><path d="M9.2 8.6c.3 2.6 2.4 4.9 5.2 5.4l1-1.2-1.8-1-0.9.8c-.9-.4-1.6-1.1-2-2l.8-.9-1-1.8z" fill="currentColor" stroke="none"/></svg></div>
+      <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5l14 15M19 4.5l-14 15"/></svg></div>
+      <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="8" ry="5.5"/><circle cx="9" cy="13.5" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1" fill="currentColor" stroke="none"/><path d="M12 8.5l1.2-4.5 3.8 1"/><circle cx="18" cy="5.2" r="1.3"/></svg></div>
+      <div class="soc-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5v6M8 7.6v.1M11.5 16.5v-6M11.5 13c0-1.8 1-2.6 2.3-2.6s2.2.8 2.2 2.6v3.5"/></svg></div>
+    </div>
+    <div id="end-soc-lbl" class="abs" style="width:1920px;top:795px;text-align:center;font:600 18px/1.3 'JetBrains Mono';color:var(--lime);letter-spacing:.14em">
+      YOUTUBE · INSTAGRAM · WHATSAPP · X · REDDIT · LINKEDIN
+    </div>
+    <div id="end-fine" class="abs fine" style="width:1920px;top:940px;text-align:center">
+      ThreadForge 10.16.0 / 10.16.1 Store Edition · Google Play (com.methodology.threadforge) &amp; Microsoft Store (9PJTNXTTX5CR) · Unlimited seats &amp; organizations · 0% AI credit markup.
+    </div>
+  </section>
+
+  <div id="wipe"></div><div id="wipe2"></div>
+  <div id="progress"></div>
+  <svg id="grain" width="1920" height="1080"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1920" height="1080" filter="url(#noise)"/></svg>
+  <div id="vignette"></div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const out3 = k => 1 - Math.pow(1 - k, 3);
+const inOut = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const back = k => { const c = 1.5; return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2); };
+const css = (el, o) => { el = typeof el === 'string' ? $(el) : el; for (const k in o) el.style[k] = o[k]; return el; };
+
+const HOOK = 3.0;
+const SCENES = [
+  ['s-open', 0.0, 6.2],
+  ['s-compare', 6.0, 14.4],
+  ['s-play', 14.2, 22.4],
+  ['s-custom', 22.2, 30.4],
+  ['s-delta', 30.2, 39.4],
+  ['s-instant', 39.2, 47.6],
+  ['s-social', 47.4, 55.4],
+  ['s-end', 55.2, 61.0]
+];
+const BODY = 61.0, DURATION = HOOK + BODY; // 64.0s (1920 frames)
+const WIPES = [0.0, 6.0, 14.2, 22.2, 30.2, 39.2, 47.4, 55.2];
+const CUES = [0, 3.0].concat(WIPES.slice(1).map(w => w + HOOK));
+
+function lines(root, t, start, gap = .12) {
+  root.querySelectorAll('.line > span').forEach((s, i) => {
+    const k = out3(span(t, start + i * gap, start + i * gap + .75));
+    s.style.transform = `translateY(${(1 - k) * 110}%)`;
+  });
+}
+function rise(el, t, start, d = .7, dist = 40) {
+  const k = out3(span(t, start, start + d));
+  css(el, { opacity: k, transform: `translateY(${(1 - k) * dist}px)` });
+}
+
+const threads = [];
+for (let i = 0; i < 9; i++) {
+  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  p.setAttribute('stroke', i % 3 === 0 ? '#d6ee8e' : '#eef1e8');
+  p.setAttribute('stroke-width', i % 3 === 0 ? 2.2 : 1.4);
+  p.setAttribute('opacity', i % 3 === 0 ? .16 : .07);
+  $('threads').append(p); threads.push(p);
+}
+function drawThreads(t) {
+  threads.forEach((p, i) => {
+    const y = 90 + i * 115, a = 70 + 30 * Math.sin(i * 1.7), w = t * (.12 + i * .013) + i;
+    const pts = [];
+    for (let x = -100; x <= 2020; x += 70) pts.push([x, y + a * Math.sin(x / 420 + w) + 26 * Math.sin(x / 170 - w * 1.4)]);
+    p.setAttribute('d', 'M' + pts.map(q => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' L'));
+  });
+  css('glow', { left: (260 + 220 * Math.sin(t * .11)) + 'px', top: (-280 + 160 * Math.cos(t * .09)) + 'px' });
+}
+
+const SPARKS = [];
+for (let i = 0; i < 14; i++) {
+  const e = document.createElement('div'); e.className = 'spark'; $('stage').append(e);
+  SPARKS.push([e, (i / 14) * Math.PI * 2 + (i % 3) * .2, 130 + (i * 37) % 95]);
+}
+function burst(t, at, x, y) {
+  const k = span(t, at, at + .75);
+  SPARKS.forEach(([e, angle, dist]) => {
+    const r = out3(k) * dist;
+    css(e, { left: (x + Math.cos(angle) * r - 5) + 'px', top: (y + Math.sin(angle) * r - 5) + 'px', opacity: k > 0 && k < 1 ? 1 - k : 0, transform: `scale(${1 - k * .6})` });
+  });
+}
+
+function seek(T) {
+  drawThreads(T);
+  const t = T - HOOK;
+
+  // Hook
+  $('s-hook').style.visibility = T < HOOK + .05 ? 'visible' : 'hidden';
+  ['hook0', 'hook1', 'hook2'].forEach((id, i) => {
+    const a = i * 1.0, on = T >= a && T < a + 1.0, k = out3(span(T, a, a + .35));
+    css(id, { visibility: on ? 'inherit' : 'hidden' });
+    css($(id).querySelector('h1'), { transform: `scale(${lerp(1.35, 1, k)})`, opacity: k });
+  });
+
+  // Wipes
+  const w = WIPES.find(at => Math.abs(t - at) < .32);
+  if (w !== undefined) {
+    const k = inOut(span(t, w - .32, w + .32));
+    css('wipe', { visibility: 'visible', left: lerp(-700, 2100, k) + 'px' });
+    css('wipe2', { visibility: 'visible', left: lerp(-420, 2380, k) + 'px' });
+  } else {
+    css('wipe', { visibility: 'hidden' });
+    css('wipe2', { visibility: 'hidden' });
+  }
+  css('progress', { transform: `scaleX(${clamp(T / DURATION)})`, opacity: t > 0 && t < 55.2 ? .9 : 0 });
+
+  for (const [id, a, b] of SCENES) {
+    const on = t >= a && t < b, el = $(id);
+    el.style.visibility = on ? 'visible' : 'hidden';
+    if (on) el.style.opacity = Math.min(span(t, a, a + .45), 1 - span(t, b - .45, b));
+  }
+
+  // 0 · Open
+  ['m-top', 'm-bot', 'm-mid', 'm-head'].forEach((id, i) => {
+    const k = out3(span(t, .2 + i * .16, .95 + i * .16));
+    css(id, { strokeDasharray: '1 1', strokeDashoffset: 1 - k, opacity: clamp(k / .08) });
+  });
+  rise('open-eye', t, .9, .6, 16);
+  lines($('open-title'), t, 1.2);
+  ['op-b0', 'op-b1', 'op-b2', 'op-b3'].forEach((id, i) => rise(id, t, 2.2 + i * .2, .65, 28));
+  css('s-open', { transform: `scale(${1 + inOut(span(t, 5.2, 6.2)) * .04})` });
+
+  // 1 · Compare
+  lines($('s-compare'), t, 6.3);
+  rise($('s-compare').querySelector('.body'), t, 6.9);
+  ['cmp0', 'cmp1', 'cmp2', 'cmp3'].forEach((id, i) => {
+    const at = 6.8 + i * .5;
+    rise(id, t, at, .7, 34);
+    const bar = $('bar' + i);
+    bar.style.transform = `scaleX(${out3(span(t, at + .2, at + 1.0))})`;
+  });
+  rise('cmp-tag', t, 9.6, .6, 20);
+
+  // 2 · Google Play & Microsoft Store
+  lines($('s-play'), t, 14.5);
+  rise($('s-play').querySelector('.body'), t, 15.1);
+  rise('pl-card1', t, 14.8, .75, 36);
+  rise('pl-card2', t, 15.2, .75, 36);
+  const p1 = out3(span(t, 15.6, 16.8)), p2 = out3(span(t, 16.1, 17.3)), pd = span(t, 14.2, 22.4);
+  css('pl-p1', { opacity: p1, transform: `translateY(${(1 - p1) * 140 - pd * 20}px) rotate(${lerp(-6, -2, p1)}deg)` });
+  css('pl-p2', { opacity: p2, transform: `translateY(${(1 - p2) * 160 - pd * 26}px) rotate(${lerp(7, 3, p2)}deg)` });
+
+  // 3 · Custom Tier ($19 Base)
+  lines($('s-custom'), t, 22.5);
+  rise($('s-custom').querySelector('.body'), t, 23.1);
+  const cIn = out3(span(t, 22.6, 23.8));
+  css('cus-win', { opacity: cIn, transform: `translateY(${(1 - cIn) * 80 - span(t, 22.2, 30.4) * 18}px) rotate(${lerp(-3, -1, cIn)}deg)` });
+  ['cus-c1', 'cus-c2', 'cus-c3'].forEach((id, i) => rise(id, t, 23.6 + i * .45, .7, 32));
+
+  // 4 · Pay Only The Difference
+  lines($('s-delta'), t, 30.5);
+  rise($('s-delta').querySelector('.body'), t, 31.1);
+  ['dl-1', 'dl-2', 'dl-3'].forEach((id, i) => {
+    const at = 31.0 + i * .5, k = back(span(t, at, at + .65));
+    css(id, { opacity: span(t, at, at + .25), transform: `translateY(${(1 - k) * 40}px) scale(${.88 + .12 * k})` });
+  });
+  rise('dl-bar', t, 32.8, .8, 36);
+
+  // 5 · Instant Licence File Upgrade
+  lines($('s-instant'), t, 39.5);
+  rise($('s-instant').querySelector('.body'), t, 40.1);
+  ['in-s1', 'in-s2', 'in-s3'].forEach((id, i) => {
+    const at = 40.0 + i * .45, k = back(span(t, at, at + .6));
+    css(id, { opacity: span(t, at, at + .25), transform: `translateY(${(1 - k) * 35}px) scale(${.9 + .1 * k})` });
+  });
+  rise('in-win', t, 41.5, .85, 45);
+  rise('in-tag', t, 42.3, .6, 20);
+
+  // 6 · Social Media Buttons & Appearance
+  lines($('s-social'), t, 47.7);
+  rise($('s-social').querySelector('.body'), t, 48.3);
+  ['sc0', 'sc1', 'sc2', 'sc3', 'sc4', 'sc5'].forEach((id, i) => {
+    const at = 48.0 + i * .26, k = back(span(t, at, at + .55));
+    css(id, { opacity: span(t, at, at + .22), transform: `translateY(${(1 - k) * 34}px) scale(${.88 + .12 * k})` });
+  });
+  rise('sc-bar', t, 49.8, .75, 32);
+
+  // Spark bursts on key highlights
+  if (t > 8.8 && t < 9.7) burst(t, 8.9, 1300, 710);
+  else if (t > 32.2 && t < 33.1) burst(t, 32.3, 1630, 340);
+  else if (t > 41.1 && t < 42.0) burst(t, 41.2, 1615, 290);
+  else if (t > 49.9 && t < 50.8) burst(t, 50.0, 1480, 820);
+  else if (t > 56.8 && t < 57.7) burst(t, 56.9, 960, 640);
+  else burst(t, -10, 0, 0);
+
+  // 7 · End Card
+  const eM = back(span(t, 55.4, 56.1));
+  css('end-mark', { opacity: span(t, 55.4, 55.7), transform: `scale(${eM})` });
+  rise('end-word', t, 55.7, .85, 36);
+  rise('end-line', t, 56.1, .75, 24);
+  rise('end-sub', t, 56.4, .75, 20);
+  const cta = $('end-cta');
+  css(cta, { left: (960 - cta.offsetWidth / 2) + 'px' });
+  const cIn2 = back(span(t, 56.8, 57.4));
+  css(cta, { opacity: span(t, 56.8, 57.1), transform: `scale(${.85 + .15 * cIn2})` });
+  rise('end-soc', t, 57.3, .7, 24);
+  rise('end-soc-lbl', t, 57.6, .7, 16);
+  rise('end-fine', t, 57.9, .8, 12);
+  css('stage', { opacity: 1 - span(T, DURATION - .8, DURATION) });
+}
+
+const mode = new URLSearchParams(location.search).get('mode') || 'film';
+window.seek = seek;
+window.ready = Promise.all([document.fonts.ready, ...[...document.images].map(img => img.decode())]).then(() => {
+  seek(mode === 'poster' ? HOOK + 34.0 : 0);
+  return { duration: DURATION, mode, cues: CUES, claps: [HOOK + 6.0, HOOK + 47.4] };
+});
+</script>
+</body>
+</html>
