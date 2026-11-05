@@ -17,7 +17,7 @@ Or Custom: $19 + $15 per desk, from $34. Upgrades cost only the difference.
 Your records stay with you: the workspace lives on your device. No sign-up, no analytics, no telemetry. AI is optional and runs on your own model or your own provider account.
 
 **5/7**
-Proof, not promises: 10.17.2 passed 543 backend tests and all 52 native Windows checks. Every download is checked against the build that made it before we publish it.
+Proof, not promises: 10.16.1 passed 543 backend tests and all 52 native Windows checks. Every download is checked against the build that made it before we publish it.
 
 **6/7**
 Learning is free: the ThreadForge Academy's courses, practice lab and lecture handouts.

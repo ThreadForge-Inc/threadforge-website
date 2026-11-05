@@ -4,10 +4,10 @@
 **Company:** Threadforge Inc.
 **Site:** https://threadforgeofficial.com
 **Where it runs:** Windows (Microsoft Store, ID 9PJTNXTTX5CR, and direct download), Android (Google Play Store `com.methodology.threadforge` and direct APK), your own server
-**Release:** 10.17.2 (31 October 2026)
+**Release:** 10.16.1 (31 October 2026)
 **Colours:** forge green #173F30, signal lime #D6EE8E, sage paper #EEF1E8 (see the brand kit)
 
-Every fact here matches the website and the published v10.17.2 release. Copy it as written, or shorten it
+Every fact here matches the website and the published v10.16.1 release. Copy it as written, or shorten it
 without adding claims. The brand kit (threadforgeofficial.com/brand/) has the rules and the approved films.
 
 ## Core message
@@ -21,7 +21,7 @@ Essentials free for 14 days; after that it only reads until you buy, and your re
 1. **Pay once, fairly.** Essentials $49 · Professional $149 · Industrial $299 · Industrial Park $499, or only the
    desks you need with Custom ($19 plus $15 per desk). An upgrade costs only the difference.
 2. **Your records stay with you.** The workspace lives on your device. No sign-up, no analytics, no telemetry.
-3. **Proof for every byte.** 10.17.2 passed 543 backend tests and all 52 native Windows checks, and every
+3. **Proof for every byte.** 10.16.1 passed 543 backend tests and all 52 native Windows checks, and every
    download is checked against the build that made it before it is published.
 
 ## Short variants

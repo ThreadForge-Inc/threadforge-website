@@ -1,6 +1,6 @@
-# Second wave — the Microsoft Store Professional courtesy (new in 10.17.2)
+# Second wave — the Microsoft Store Professional courtesy (new in 10.16.1)
 
-**Facts used below (CAPABILITIES-10.17.2.md, verified 2026-10-31):** since 10.17.0 the Microsoft Store
+**Facts used below (CAPABILITIES-10.16.1.md, verified 2026-10-31):** since 10.17.0 the Microsoft Store
 edition sells as Essentials ($49), not Professional. As a courtesy, a Store workspace *created* before
 **1 November 2026, 00:00 UTC** keeps Professional at no extra charge — the app checks the workspace's own
 creation date, recorded once and never altered, not the purchase date. A workspace created on or after
