@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThreadForge Rate & Policy Log Tutorial Film</title>
+<!--
+  ThreadForge Rate & Policy Log Inside-App UX Tutorial Film (72.0s = 2160 frames @ 30fps)
+  Showcases real desktop UI screens from ui-policylog-tutorial/:
+  Scene 1: Hook (Rate & Policy Log · SHA-256 Immutable Audit Ledger at $49 One-Time)
+  Scene 2: Market Comparison (Thomson Reuters ONESOURCE $30k-$80k/yr, ServiceNow GRC $50k-$150k/yr vs ThreadForge $49 / Custom)
+  Scene 3: Academy Evidence Standard ([D] Documented, [I] Inferred, [U] Unsupported)
+  Scene 4: Immutable Revision Lineage (Entries Never Overwritten · Superseded Chain Preserved)
+  Scene 5: Cryptographic SHA-256 Tamper Verification (Genesis to Head Chain Integrity)
+  Scene 6: Institutional Accountability & Open Tests (Four-Eyes Controls, CBAM Carbon, OECD Transfer Pricing)
+  Scene 7: Enterprise Data Sovereignty & Zero Cloud Leakage (100% Local Loopback 127.0.0.1)
+  Scene 8: End Card & Official Social Channels (YouTube, Instagram, WhatsApp, X, Reddit, LinkedIn, Badges)
+-->
+<style>
+@font-face { font-family: "Gloock"; src: url("../website/public/assets/fonts/gloock-latin-400.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; src: url("../website/public/assets/fonts/public-sans-latin-var.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "JetBrains Mono"; src: url("../website/public/assets/fonts/jetbrains-mono-latin-var.woff2") format("woff2"); font-weight: 100 800; }
+:root {
+  --forge: #061922;
+  --deep: #030d12;
+  --surface: #0a2533;
+  --cream: #f0fdfa;
+  --muted: #94a3b8;
+  --soft: #64748b;
+  --line: rgba(240, 253, 250, .14);
+  --teal: #14b8a6;
+  --teal-ink: #042f2e;
+  --emerald: #10b981;
+  --cyan: #06b6d4;
+  --alert-red: #ef4444;
+  --amber: #f59e0b;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--deep); }
+#stage {
+  position: relative; width: 1920px; height: 1080px; overflow: hidden; color: var(--cream); font-family: "Public Sans", sans-serif;
+  background: radial-gradient(1500px 1000px at 35% 40%, #0c3345 0%, #061922 50%, #030d12 100%);
+}
+#glow { position: absolute; width: 1500px; height: 1500px; border-radius: 50%; background: radial-gradient(closest-side, rgba(20, 184, 166, .14), transparent); }
+#threads { position: absolute; inset: 0; }
+#threads path { fill: none; stroke-linecap: round; }
+#grain { position: absolute; inset: 0; opacity: .06; mix-blend-mode: overlay; pointer-events: none; }
+#vignette { position: absolute; inset: 0; background: radial-gradient(1600px 920px at 50% 50%, transparent 60%, rgba(0, 0, 0, .45) 100%); pointer-events: none; }
+.scene { position: absolute; inset: 0; visibility: hidden; }
+.abs { position: absolute; }
+.copy { position: absolute; left: 110px; top: 0; bottom: 0; width: 630px; display: flex; flex-direction: column; justify-content: center; }
+.eyebrow { font: 600 20px/1 "JetBrains Mono", monospace; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); margin: 0 0 24px; display: flex; align-items: center; gap: 14px; }
+.eyebrow::before { content: ""; width: 32px; height: 2px; background: var(--teal); }
+.title { font: 400 74px/1.05 "Gloock", serif; margin: 0; letter-spacing: -.012em; }
+.line { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+.line > span { display: inline-block; will-change: transform; }
+.body { font: 400 25px/1.45 "Public Sans", sans-serif; color: var(--muted); margin: 26px 0 0; max-width: 600px; }
+.teal { color: var(--teal); }
+.emerald { color: var(--emerald); }
+.cyan { color: var(--cyan); }
+.red { color: var(--alert-red); }
+.amber { color: var(--amber); }
+.fine { font: 400 17px/1.45 "Public Sans", sans-serif; color: var(--soft); }
+
+/* Desktop App Window Mockup */
+.window {
+  position: absolute; border-radius: 18px; overflow: hidden; background: #fff;
+  box-shadow: 0 80px 140px -50px rgba(0, 0, 0, .8), 0 24px 50px -24px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .1);
+}
+.window img { display: block; width: 100%; height: auto; }
+.bar { height: 36px; background: #0c202d; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.bar i { width: 11px; height: 11px; border-radius: 50%; }
+.bar i.r { background: #ef4444; } .bar i.y { background: #f59e0b; } .bar i.g { background: #10b981; }
+.bar .app-title { margin-left: 12px; font: 500 13px/1 "JetBrains Mono", monospace; color: #94a3b8; letter-spacing: .08em; }
+
+/* Callout Highlights */
+.badge-pill {
+  position: absolute; display: flex; align-items: center; gap: 12px; padding: 14px 22px; border-radius: 14px;
+  background: rgba(10, 37, 51, 0.95); border: 1.5px solid var(--teal); box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  font: 600 22px/1.2 "Public Sans", sans-serif; color: var(--cream);
+}
+.badge-pill.emerald-border { border-color: var(--emerald); }
+.badge-pill.cyan-border { border-color: var(--cyan); }
+.badge-pill.amber-border { border-color: var(--amber); }
+.badge-pill small { display: block; font: 500 13px/1 "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-top: 5px; }
+.badge-pill.emerald-border small { color: var(--emerald); }
+.badge-pill.cyan-border small { color: var(--cyan); }
+.badge-pill.amber-border small { color: var(--amber); }
+
+/* Comparison Matrix */
+.cmp-card {
+  position: absolute; padding: 26px 30px; border-radius: 20px; background: rgba(10, 37, 51, 0.90);
+  border: 1.5px solid rgba(240, 253, 250, 0.12); width: 1080px; box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+.cmp-table { width: 100%; border-collapse: collapse; font-family: "Public Sans", sans-serif; }
+.cmp-table th { text-align: left; padding: 14px 18px; font: 600 15px/1 "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--soft); border-bottom: 1px solid var(--line); }
+.cmp-table td { padding: 18px 18px; font: 450 20px/1.3 "Public Sans", sans-serif; color: var(--cream); border-bottom: 1px solid rgba(240, 253, 250, 0.08); }
+.cmp-table tr.highlight td { background: rgba(20, 184, 166, 0.12); font-weight: 600; color: #fff; }
+.cmp-table tr.highlight td:first-child { border-left: 4px solid var(--teal); color: var(--teal); }
+.badge-check { display: inline-flex; align-items: center; gap: 6px; color: var(--teal); font-weight: 600; }
+.badge-x { display: inline-flex; align-items: center; gap: 6px; color: #f87171; font-weight: 500; }
+
+/* Hook and End Screen */
+.hook { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+.hook h1 { margin: 0; font: 400 148px/1 "Gloock", serif; letter-spacing: -.02em; white-space: nowrap; }
+.hook.teal-bg { background: var(--teal); color: var(--teal-ink); }
+.hook.ink-bg { background: #030d12; color: var(--cream); }
+.hook small { display: block; font: 500 24px/1 "JetBrains Mono", monospace; letter-spacing: .25em; text-transform: uppercase; margin-top: 32px; color: var(--teal); }
+
+/* Wipes */
+#wipe, #wipe2 {
+  position: absolute; top: -100px; bottom: -100px; width: 440px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(20, 184, 166, .5), rgba(20, 184, 166, .95), #fff, rgba(20, 184, 166, .95), rgba(20, 184, 166, .5), transparent);
+  filter: blur(1px); visibility: hidden; will-change: transform;
+}
+#wipe2 { width: 140px; background: rgba(255, 255, 255, .7); filter: blur(4px); }
+#progress { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: linear-gradient(90deg, var(--teal), var(--cyan)); transform-origin: left; transform: scaleX(0); will-change: transform; z-index: 100; }
+
+/* Social Icons */
+.soc-btn { width: 48px; height: 48px; border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); display: grid; place-items: center; color: var(--cream); }
+.soc-btn svg { width: 24px; height: 24px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="glow"></div>
+  <svg id="threads" viewBox="0 0 1920 1080" preserveAspectRatio="none"></svg>
+
+  <!-- Hook Scene (0.0s - 3.0s) -->
+  <section id="s-hook" class="scene">
+    <div id="hk0" class="hook teal-bg">
+      <div>
+        <h1 style="letter-spacing:-0.03em">CORPORATE POLICY DRIFT?</h1>
+        <small style="color:var(--teal-ink)">UNTYPED SPREADSHEETS FAIL REVENUE &amp; TAX AUDITS</small>
+      </div>
+    </div>
+    <div id="hk1" class="hook ink-bg">
+      <div>
+        <h1 style="color:var(--cyan)">SHA-256 HASH CHAINED.</h1>
+        <small>IMMUTABLE APPEND-ONLY LEDGER · REVISIONS NEVER OVERWRITTEN</small>
+      </div>
+    </div>
+    <div id="hk2" class="hook ink-bg">
+      <div>
+        <h1 style="color:var(--teal)">$49 ONE-TIME.</h1>
+        <small>NO THOMSON REUTERS TOLL · NO SERVICENOW GRC RENT</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 0 · Rate & Policy Log Overview (0.0s - 5.8s, abs 3.0s - 8.8s) -->
+  <section id="s-open" class="scene">
+    <div class="copy">
+      <div id="op-eye" class="eyebrow">DESK 04 · RATE &amp; POLICY LOGS</div>
+      <h2 id="op-title" class="title">
+        <span class="line"><span>Every Decision</span></span>
+        <span class="line"><span>Hashed Forever.</span></span>
+      </h2>
+      <p class="body">
+        An append-only, tamper-evident cryptographic ledger of every corporate rate, customs tariff, transfer pricing markup, and operational policy. Entries are never edited or deleted.
+      </p>
+      <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap">
+        <div id="op-b0" class="badge-pill" style="position:static;padding:10px 18px;font-size:16px"><span class="teal">01</span> SHA-256 Hash Chain</div>
+        <div id="op-b1" class="badge-pill" style="position:static;padding:10px 18px;font-size:16px"><span class="cyan">02</span> Academy Evidence [D/I/U]</div>
+        <div id="op-b2" class="badge-pill" style="position:static;padding:10px 18px;font-size:16px"><span class="emerald">03</span> Immutable Lineage</div>
+        <div id="op-b3" class="badge-pill" style="position:static;padding:10px 18px;font-size:16px"><span class="teal">04</span> Tamper Detection</div>
+      </div>
+    </div>
+    <div class="window" style="left:790px;top:100px;width:1040px">
+      <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="app-title">ThreadForge Desktop 10.16 — Rate &amp; Policy Log Desk (Local Sovereign 127.0.0.1)</span></div>
+      <img src="ui-policylog-tutorial/01-policylog-desk-overview.png" alt="Rate and Policy Log Overview">
+    </div>
+  </section>
+
+  <!-- Scene 1 · Market Comparison (5.6s - 14.8s, abs 8.6s - 17.8s) -->
+  <section id="s-cmp" class="scene">
+    <div style="position:absolute;left:110px;top:90px;width:1700px">
+      <div class="eyebrow">GOVERNANCE ECONOMICS · THE ENTERPRISE GRC RENT TAX</div>
+      <h2 class="title" style="font-size:62px;margin-bottom:14px">Why Pay $50,000/Year For Policy Compliance?</h2>
+      <p class="body" style="max-width:1200px;margin-top:0;font-size:22px">
+        Legacy governance platforms trap corporate rate cards and compliance rules in expensive cloud subscriptions with metered seat licenses. ThreadForge stores your immutable ledger locally.
+      </p>
+    </div>
+    <div id="cmp-card" class="cmp-card" style="left:110px;top:280px;width:1700px">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th style="width:26%">Platform &amp; Provider</th>
+            <th style="width:22%">Pricing Model</th>
+            <th style="width:26%">Cryptographic Integrity</th>
+            <th style="width:26%">Data Sovereignty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Thomson Reuters ONESOURCE</strong></td>
+            <td><span class="badge-x">✕</span> $30,000 to $80,000/year subscription</td>
+            <td>Centralized vendor database records</td>
+            <td>Transferred to vendor cloud servers</td>
+          </tr>
+          <tr>
+            <td><strong>ServiceNow GRC / MetricStream</strong></td>
+            <td><span class="badge-x">✕</span> $50,000 to $150,000/year multi-year contract</td>
+            <td>Complex audit modules, no direct hashing</td>
+            <td>Enterprise SaaS cloud telemetry</td>
+          </tr>
+          <tr>
+            <td><strong>Workiva Connected Compliance</strong></td>
+            <td><span class="badge-x">✕</span> $25,000+/year per reporting module</td>
+            <td>Application revision tags, not hashed</td>
+            <td>Vendor-hosted reporting silos</td>
+          </tr>
+          <tr class="highlight">
+            <td><strong>ThreadForge Rate &amp; Policy Log</strong></td>
+            <td><span class="badge-check">✓</span> <strong>$49 One-Time (Essentials) or $19 Base Custom</strong></td>
+            <td><strong>SHA-256 Block Hashed from Genesis · Tamper-Evident</strong></td>
+            <td><strong>100% Offline Loopback (127.0.0.1) · Zero Subscriptions</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Scene 2 · Academy Evidence Protocol (14.6s - 23.8s, abs 17.6s - 26.8s) -->
+  <section id="s-entry" class="scene">
+    <div class="copy">
+      <div class="eyebrow">ACADEMY EVIDENCE STANDARD</div>
+      <h2 class="title">
+        <span class="line"><span>Documented.</span></span>
+        <span class="line"><span>Inferred. Or Unsupported.</span></span>
+      </h2>
+      <p class="body">
+        Eliminate unverified corporate assumptions. Every logged rate requires a primary source citation ([D] Documented), unit, denominator, independent reviewer, review date, and legal consequence if wrong.
+      </p>
+      <div class="fine" style="margin-top:20px;line-height:1.6">
+        • Rates require exact numerical value, unit, and denominator basis<br>
+        • Documented [D] entries mandate primary record link or official docket<br>
+        • Independent reviewer and scheduled review dates enforce accountability
+      </div>
+    </div>
+    <div id="win-entry" class="window" style="left:790px;top:90px;width:1040px">
+      <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="app-title">ThreadForge — Record a Rate or Policy (Academy Evidence Protocol)</span></div>
+      <img src="ui-policylog-tutorial/02-record-rate-policy-form.png" alt="Record Policy Form Screen">
+    </div>
+    <div id="pill-entry" class="badge-pill" style="left:820px;bottom:50px">
+      <span>📜</span>
+      <div>
+        Documented [D] Evidence Standard
+        <small>Federal Register Notice 89 FR 76542 · Primary Source Mandated</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 3 · Immutable Revision Lineage (23.6s - 32.8s, abs 26.6s - 35.8s) -->
+  <section id="s-hist" class="scene">
+    <div class="copy">
+      <div class="eyebrow">IMMUTABLE REVISION LINEAGE</div>
+      <h2 class="title">
+        <span class="line"><span>Policies Are</span></span>
+        <span class="line"><span>Never Overwritten.</span></span>
+      </h2>
+      <p class="body">
+        ThreadForge has no call to edit or delete history. When the US Section 301 tariff increased from 25% to 50%, the new entry explicitly supersedes the 2022 rate while preserving the original record for retrospective customs audits.
+      </p>
+      <div class="fine" style="margin-top:20px;line-height:1.6">
+        • Click 'History' on any entry to reveal its complete chronological ancestry<br>
+        • Superseded policies remain permanently readable with their effective dates<br>
+        • Absolute clarity for legal audits, tax authorities, and board inquiries
+      </div>
+    </div>
+    <div id="win-hist" class="window" style="left:790px;top:90px;width:1040px">
+      <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="app-title">ThreadForge — Immutable Policy History &amp; Supersedes Audit Trail</span></div>
+      <img src="ui-policylog-tutorial/03-policy-history-audit-chain.png" alt="Policy History Screen">
+    </div>
+    <div id="pill-hist" class="badge-pill cyan-border" style="left:820px;bottom:50px">
+      <span>🔗</span>
+      <div>
+        Supersedes Lineage: 2022 (25%) ➔ 2024 (50%)
+        <small>Entries Never Overwritten · Complete Historical Defense Intact</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 4 · Cryptographic SHA-256 Tamper Verification (32.6s - 41.8s, abs 35.6s - 44.8s) -->
+  <section id="s-crypto" class="scene">
+    <div class="copy">
+      <div class="eyebrow">CRYPTOGRAPHIC CHAIN INTEGRITY</div>
+      <h2 class="title">
+        <span class="line"><span>SHA-256</span></span>
+        <span class="line"><span>Tamper Defense.</span></span>
+      </h2>
+      <p class="body">
+        Each entry hashes its own fields combined with the SHA-256 digest of the predecessor entry back to the genesis block. Changing or deleting a single row in the local SQLite database invalidates every subsequent hash in the chain.
+      </p>
+      <div class="fine" style="margin-top:20px;line-height:1.6">
+        • Verification algorithm recomputes every block from Genesis (0000...00)<br>
+        • 'Chain intact' pill confirms zero tampering across all company entries<br>
+        • Court-admissible proof that corporate policies have not been retroactively altered
+      </div>
+    </div>
+    <div id="win-crypto" class="window" style="left:790px;top:90px;width:1040px">
+      <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="app-title">ThreadForge — Cryptographic SHA-256 Hash-Chain Integrity Verification</span></div>
+      <img src="ui-policylog-tutorial/04-cryptographic-tamper-verification.png" alt="Cryptographic Tamper Verification Screen">
+    </div>
+    <div id="pill-crypto" class="badge-pill emerald-border" style="left:820px;bottom:50px">
+      <span>🛡️</span>
+      <div>
+        Chain Intact: All 5 Entries Verified
+        <small>SHA-256 Hash-Chaining · Tamper-Evident Local Database Integrity</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 5 · Institutional Governance & Open Tests (41.6s - 50.8s, abs 44.6s - 53.8s) -->
+  <section id="s-matrix" class="scene">
+    <div class="copy">
+      <div class="eyebrow">INSTITUTIONAL ACCOUNTABILITY</div>
+      <h2 class="title">
+        <span class="line"><span>Open Tests Enforce</span></span>
+        <span class="line"><span>Internal Controls.</span></span>
+      </h2>
+      <p class="body">
+        The system audits each policy for missing governance ('Primary record', 'Named reviewer', 'Review date'). Real operational rules show 'All met'—from OECD transfer pricing markups (4.5%) to Treasury dual-approval thresholds ($25,000).
+      </p>
+      <div class="fine" style="margin-top:20px;line-height:1.6">
+        • OECD Transfer Pricing: 4.50% operating margin with PwC benchmark citation<br>
+        • Treasury Governance: Mandatory 4-eyes approval for transfers &gt;$25k<br>
+        • Scope 2 Carbon Factor: 0.382 kg CO2e/kWh for EU CBAM audit readiness
+      </div>
+    </div>
+    <div id="win-matrix" class="window" style="left:790px;top:90px;width:1040px">
+      <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="app-title">ThreadForge — Governance Matrix &amp; Accountability Open Tests</span></div>
+      <img src="ui-policylog-tutorial/05-open-tests-accountability-matrix.png" alt="Open Tests Matrix Screen">
+    </div>
+    <div id="pill-matrix" class="badge-pill" style="left:820px;bottom:50px">
+      <span>⚖️</span>
+      <div>
+        Treasury &amp; Tax Governance: All Met
+        <small>Four-Eyes AP Threshold ($25k) · OECD 4.5% Transfer Pricing Benchmark</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 6 · Enterprise Sovereignty & Zero Cloud Leakage (50.6s - 59.8s, abs 53.6s - 62.8s) -->
+  <section id="s-export" class="scene">
+    <div class="copy">
+      <div class="eyebrow">ENTERPRISE DATA SOVEREIGNTY</div>
+      <h2 class="title">
+        <span class="line"><span>Zero Cloud Leak.</span></span>
+        <span class="line"><span>100% Local Loopback.</span></span>
+      </h2>
+      <p class="body">
+        Your transfer pricing formulas, internal rate cards, and sensitive treasury thresholds remain strictly on your machine. ThreadForge operates on local loopback (127.0.0.1) with zero data transmission to cloud third parties.
+      </p>
+      <div class="fine" style="margin-top:20px;line-height:1.6">
+        • No corporate rate card telemetry sent to SaaS vendor servers<br>
+        • Immutable SQLite storage protected by operating system user permissions<br>
+        • Clean audit documentation ready for external Big Four assurance teams
+      </div>
+    </div>
+    <div id="win-export" class="window" style="left:790px;top:90px;width:1040px">
+      <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="app-title">ThreadForge — Institutional Governance Ledger &amp; Sovereign Defense</span></div>
+      <img src="ui-policylog-tutorial/06-enterprise-compliance-export.png" alt="Enterprise Sovereignty Screen">
+    </div>
+    <div id="pill-export" class="badge-pill cyan-border" style="left:820px;bottom:50px">
+      <span>🔒</span>
+      <div>
+        100% Data Sovereignty (127.0.0.1)
+        <small>Zero Cloud Leakage · Sovereign Corporate Shield · No Per-Seat Tax</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 7 · End Card (59.6s - 69.0s, abs 62.6s - 72.0s) -->
+  <section id="s-end" class="scene">
+    <svg id="end-mark" class="abs" viewBox="8 14 48 36" width="180" height="135" style="left:870px;top:130px" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 18c11 0 14 14 25 14M11 46c11 0 14-14 25-14" stroke="#f0fdfa" stroke-width="4.5"/>
+      <path d="M11 32h36M43 24l9 8-9 8" stroke="#14b8a6" stroke-width="4.5"/>
+    </svg>
+    <div id="end-word" class="abs" style="width:1920px;top:280px;text-align:center"><span style="font:400 150px/1 'Gloock',serif">ThreadForge 10.16</span></div>
+    <div id="end-line" class="abs" style="width:1920px;top:440px;text-align:center;font:500 32px/1.35 'Public Sans';color:var(--teal)">
+      Rate &amp; Policy Logs Included in Essentials ($49) · Professional ($149) · Industrial ($299)
+    </div>
+    <div id="end-sub" class="abs" style="width:1920px;top:495px;text-align:center;font:400 24px/1.4 'Public Sans';color:#94a3b8">
+      Cryptographic SHA-256 Ledger · Microsoft &amp; Google Certified · One-Time Purchase · Zero Subscriptions
+    </div>
+    <div id="end-cta" class="abs" style="left:0;width:1920px;top:570px;display:flex;justify-content:center">
+      <div style="font:650 28px/1 'Public Sans';color:var(--teal-ink);background:var(--teal);border-radius:999px;padding:20px 42px">
+        threadforgeofficial.com · Live on Google Play &amp; Microsoft Store
+      </div>
+    </div>
+    <div id="end-soc" class="abs" style="left:0;width:1920px;top:685px;display:flex;justify-content:center;gap:18px">
+      <!-- YouTube -->
+      <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></div>
+      <!-- Instagram -->
+      <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></div>
+      <!-- WhatsApp -->
+      <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 9 19.1z"/><path d="M9.2 8.6c.3 2.6 2.4 4.9 5.2 5.4l1-1.2-1.8-1-0.9.8c-.9-.4-1.6-1.1-2-2l.8-.9-1-1.8z" fill="currentColor" stroke="none"/></svg></div>
+      <!-- X / Twitter -->
+      <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5l14 15M19 4.5l-14 15"/></svg></div>
+      <!-- Reddit -->
+      <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="8" ry="5.5"/><circle cx="9" cy="13.5" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1" fill="currentColor" stroke="none"/><path d="M12 8.5l1.2-4.5 3.8 1"/><circle cx="18" cy="5.2" r="1.3"/></svg></div>
+      <!-- LinkedIn -->
+      <div class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5v6M8 7.6v.1M11.5 16.5v-6M11.5 13c0-1.8 1-2.6 2.3-2.6s2.2.8 2.2 2.6v3.5"/></svg></div>
+    </div>
+    <div id="end-soc-lbl" class="abs" style="width:1920px;top:765px;text-align:center;font:600 17px/1.3 'JetBrains Mono';color:var(--teal);letter-spacing:.14em">
+      YOUTUBE · INSTAGRAM · WHATSAPP · X · REDDIT · LINKEDIN
+    </div>
+    <div id="end-fine" class="abs fine" style="width:1920px;top:920px;text-align:center">
+      ThreadForge 10.16.0 / 10.16.1 Store Edition · Google Play (com.methodology.threadforge) &amp; Microsoft Store (9PJTNXTTX5CR) · 0% AI Markup · Unlimited Seats.
+    </div>
+  </section>
+
+  <div id="wipe"></div><div id="wipe2"></div>
+  <div id="progress"></div>
+  <svg id="grain" width="1920" height="1080"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1920" height="1080" filter="url(#noise)"/></svg>
+  <div id="vignette"></div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const out3 = k => 1 - Math.pow(1 - k, 3);
+const inOut = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const css = (el, o) => { el = typeof el === 'string' ? $(el) : el; for (const k in o) el.style[k] = o[k]; return el; };
+
+const HOOK = 3.0;
+const SCENES = [
+  ['s-open', 0.0, 5.8],
+  ['s-cmp', 5.6, 14.8],
+  ['s-entry', 14.6, 23.8],
+  ['s-hist', 23.6, 32.8],
+  ['s-crypto', 32.6, 41.8],
+  ['s-matrix', 41.6, 50.8],
+  ['s-export', 50.6, 59.8],
+  ['s-end', 59.6, 69.0]
+];
+const DURATION = HOOK + 69.0; // 72.0s = 2160 frames @ 30fps
+const WIPES = [0.0, 5.6, 14.6, 23.6, 32.6, 41.6, 50.6, 59.6];
+const CUES = [0, 3.0].concat(WIPES.slice(1).map(w => w + HOOK));
+
+function lines(root, t, start, gap = .12) {
+  root.querySelectorAll('.line > span').forEach((s, i) => {
+    const k = out3(span(t, start + i * gap, start + i * gap + .75));
+    s.style.transform = `translateY(${(1 - k) * 110}%)`;
+  });
+}
+
+function rise(el, t, start, d = .7, dist = 40) {
+  el = typeof el === 'string' ? $(el) : el;
+  const k = out3(span(t, start, start + d));
+  el.style.opacity = k;
+  el.style.transform = `translateY(${(1 - k) * dist}px)`;
+}
+
+function seek(T) {
+  if (T < HOOK) {
+    css('s-hook', { visibility: 'visible', opacity: 1 });
+    ['s-open', 's-cmp', 's-entry', 's-hist', 's-crypto', 's-matrix', 's-export', 's-end'].forEach(id => css(id, { visibility: 'hidden' }));
+    css('hk0', { display: T < 1.0 ? 'grid' : 'none' });
+    css('hk1', { display: T >= 1.0 && T < 2.0 ? 'grid' : 'none' });
+    css('hk2', { display: T >= 2.0 ? 'grid' : 'none' });
+    css('progress', { transform: `scaleX(${clamp(T / DURATION)})`, opacity: 0 });
+    return;
+  }
+  css('s-hook', { visibility: 'hidden' });
+  const t = T - HOOK;
+
+  // Background ambient lines
+  const p = $('threads');
+  p.innerHTML = '';
+  for (let i = 0; i < 5; i++) {
+    const y0 = 180 + i * 190 + Math.sin(t * .7 + i) * 16;
+    const y1 = 260 + i * 190 + Math.cos(t * .8 + i) * 20;
+    const d = `M 0 ${y0} C 640 ${y0 + 80}, 1280 ${y1 - 80}, 1920 ${y1}`;
+    p.innerHTML += `<path d="${d}" stroke="rgba(20,184,166,${.06 + i * .015})" stroke-width="${1.5 + i * .4}"/>`;
+  }
+
+  // Wipes
+  let wHit = false;
+  for (const w of WIPES) {
+    if (t >= w && t < w + .55) {
+      wHit = true;
+      const k = span(t, w, w + .55);
+      const x = lerp(-600, 2400, inOut(k));
+      css('wipe', { visibility: 'visible', transform: `translateX(${x}px) skewX(-14deg)` });
+      css('wipe2', { visibility: 'visible', transform: `translateX(${x - 90}px) skewX(-14deg)` });
+      break;
+    }
+  }
+  if (!wHit) {
+    css('wipe', { visibility: 'hidden' });
+    css('wipe2', { visibility: 'hidden' });
+  }
+  css('progress', { transform: `scaleX(${clamp(T / DURATION)})`, opacity: t > 0 && t < 68.0 ? .9 : 0 });
+
+  for (const [id, a, b] of SCENES) {
+    const on = t >= a && t < b, el = $(id);
+    el.style.visibility = on ? 'visible' : 'hidden';
+    if (on) el.style.opacity = Math.min(span(t, a, a + .45), 1 - span(t, b - .45, b));
+  }
+
+  // Scene 0 · Open (0.0s - 5.8s)
+  rise('op-eye', t, .3, .6, 16);
+  lines($('op-title'), t, .6);
+  ['op-b0', 'op-b1', 'op-b2', 'op-b3'].forEach((id, i) => rise(id, t, 1.4 + i * .18, .65, 24));
+
+  // Scene 1 · Market Comparison (5.6s - 14.8s)
+  lines($('s-cmp'), t, 5.8);
+  rise($('s-cmp').querySelector('.body'), t, 6.4);
+  rise('cmp-card', t, 6.3, .8, 40);
+
+  // Scene 2 · Academy Evidence Protocol (14.6s - 23.8s)
+  lines($('s-entry'), t, 14.8);
+  rise($('s-entry').querySelector('.body'), t, 15.3);
+  rise('win-entry', t, 15.1, .8, 40);
+  rise('pill-entry', t, 16.2, .6, 24);
+
+  // Scene 3 · Immutable Lineage (23.6s - 32.8s)
+  lines($('s-hist'), t, 23.8);
+  rise($('s-hist').querySelector('.body'), t, 24.3);
+  rise('win-hist', t, 24.1, .8, 40);
+  rise('pill-hist', t, 25.2, .6, 24);
+
+  // Scene 4 · SHA-256 Tamper Verification (32.6s - 41.8s)
+  lines($('s-crypto'), t, 32.8);
+  rise($('s-crypto').querySelector('.body'), t, 33.3);
+  rise('win-crypto', t, 33.1, .8, 40);
+  rise('pill-crypto', t, 34.2, .6, 24);
+
+  // Scene 5 · Institutional Governance (41.6s - 50.8s)
+  lines($('s-matrix'), t, 41.8);
+  rise($('s-matrix').querySelector('.body'), t, 42.3);
+  rise('win-matrix', t, 42.1, .8, 40);
+  rise('pill-matrix', t, 43.2, .6, 24);
+
+  // Scene 6 · Data Sovereignty (50.6s - 59.8s)
+  lines($('s-export'), t, 50.8);
+  rise($('s-export').querySelector('.body'), t, 51.3);
+  rise('win-export', t, 51.1, .8, 40);
+  rise('pill-export', t, 52.2, .6, 24);
+
+  // Scene 7 · End Card (59.6s - 69.0s)
+  rise('end-mark', t, 59.8, .6, 20);
+  rise('end-word', t, 60.1, .7, 24);
+  rise('end-line', t, 60.4, .7, 24);
+  rise('end-sub', t, 60.7, .7, 24);
+  rise('end-cta', t, 61.1, .7, 30);
+  rise('end-soc', t, 61.5, .7, 24);
+  rise('end-soc-lbl', t, 61.8, .7, 18);
+  rise('end-fine', t, 62.2, .7, 16);
+}
+
+const mode = new URLSearchParams(location.search).get('mode') || 'film';
+window.seek = seek;
+window.ready = Promise.all([document.fonts.ready, ...[...document.images].map(img => img.decode())]).then(() => {
+  seek(mode === 'poster' ? HOOK + 28.0 : 0);
+  return { duration: DURATION, mode, cues: CUES, claps: [HOOK + 5.6, HOOK + 50.6] };
+});
+</script>
+</body>
+</html>
