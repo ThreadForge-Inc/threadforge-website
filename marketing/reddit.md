@@ -13,7 +13,7 @@ no sign-up and no telemetry.
 Version 10.17 changed how it is sold, and I'd like honest views on it:
 - a 14-day Essentials trial, after which it only reads until you buy (nothing is locked or deleted);
 - one-time prices from $49, or single desks from $34 with an upgrade costing only the difference;
-- every download checked against the build that made it (543 backend tests and 52 native Windows checks for 10.16.1).
+- every download checked against the build that made it (543 backend tests and 52 native Windows checks for 10.17.2).
 
 What is not done yet: the Windows installer from the website is not publisher-signed, so SmartScreen may warn
 (the Microsoft Store edition is signed by Microsoft, and the Android edition is on Google Play at https://play.google.com/store/apps/details?id=com.methodology.threadforge and as a direct APK).

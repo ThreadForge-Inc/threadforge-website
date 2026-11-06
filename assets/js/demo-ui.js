@@ -207,7 +207,7 @@
       h("div", { class: "demo-gate-actions" },
         h("a", { class: "btn btn-primary", href: "../#pricing", text: "See the prices" }),
         h("a", { class: "btn btn-ghost", href: "../#pilot", text: "Order ThreadForge" })),
-      h("p", { class: "fine" }, "Questions, or want a guided walkthrough? Email ", h("span", { class: "addr", text: "support@threadforgeofficial.com" }), ".")
+      h("p", { class: "fine" }, "Questions, or want a guided walkthrough? Email ", h("span", { class: "addr", text: "owner@threadforgeofficial.com" }), ".")
     );
     markGateMissions();
   }

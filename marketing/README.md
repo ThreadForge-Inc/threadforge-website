@@ -1,6 +1,6 @@
-# ThreadForge v10.16.1 branding & marketing kit — index
+# ThreadForge v10.17.2 branding & marketing kit — index
 
-One entry point into everything already approved for release v10.16.1 (31 October 2026). Nothing
+One entry point into everything already approved for release v10.17.2 (31 October 2026). Nothing
 below is new copy: it is a map of what exists, checked against the live code and the website on
 2026-10-31, so a press contact, reseller or teammate can be handed this folder and find everything
 without asking.
@@ -37,15 +37,15 @@ without asking.
 | `linkedin.md` | LinkedIn | Launch wave, live |
 | `reddit.md` | Reddit | Launch wave, live |
 | `whatsapp.md` | WhatsApp/SMS broadcast | Launch wave, live |
-| `institutional-outreach.md` | Email, institutions | Live, last checked 2026-10-31 against 10.16.1 |
+| `institutional-outreach.md` | Email, institutions | Live, last checked 2026-10-31 against 10.17.2 |
 | `handouts-launch.md` | X, LinkedIn, WhatsApp | **New** — free Academy lecture handouts (10.17.1) |
 | `store-courtesy-window.md` | X, WhatsApp, LinkedIn | **New** — Store Professional courtesy, time-boxed |
 | `90-day-calendar.md` | All | The posting schedule tying the above together |
 
-The four "launch wave" files already cite 10.16.1's own numbers (543 backend tests, 52 native Windows
+The four "launch wave" files already cite 10.17.2's own numbers (543 backend tests, 52 native Windows
 checks) under the "ThreadForge 10.17" product-line name used throughout the docs (CAPABILITIES-10.17.0
-through -10.16.1 are one line); they did not need changes. The two new files cover angles that opened
-only in 10.17.1 and 10.16.1 and that the launch wave predates.
+through -10.17.2 are one line); they did not need changes. The two new files cover angles that opened
+only in 10.17.1 and 10.17.2 and that the launch wave predates.
 
 ## 5. Customer-facing guide PDFs (owner and student)
 
@@ -53,7 +53,7 @@ only in 10.17.1 and 10.16.1 and that the launch wave predates.
 - **Student version** (12 pages, no answer key): `/api/suite/handouts/ThreadForge-Lecture-Handout-10.17-Student.pdf`
 - Both ship inside the app (Guides desk, any signed-in role) and on the website's Academy page, and
   were checked line-by-line against the current `tenancy.py`, `server.py`, `business_connectors.py`
-  and `licence.py` on 2026-10-31: **every fact in them still holds for 10.16.1.** `tenancy.py` and
+  and `licence.py` on 2026-10-31: **every fact in them still holds for 10.17.2.** `tenancy.py` and
   `business_connectors.py` have not changed since 10.17.0; the `licence.py`/`server.py` changes since
   then only added the Microsoft Store Professional courtesy and Google Play handling, which the
   handouts' four lecture parts (connectors, tokens, request flow, repository access) don't depend on.
@@ -72,7 +72,7 @@ carries the same five footer buttons, byte-for-byte:
 | WhatsApp | wa.me/923352328151 |
 | X | x.com/i/user/2116563049096376320 |
 | Reddit | reddit.com/user/threadforge00 |
-| LinkedIn | linkedin.com/in/bilal-ahmed-khan-731074445 (labelled as the founder's own profile, not a company page — intentional) |
+| LinkedIn | linkedin.com/in/thread-forge-731074445/recent-activity/all/ |
 
 Two things worth your own call, not fixed here because they're brand decisions, not bugs:
 - The Instagram handle (`mistar_n0buddy`) doesn't carry the ThreadForge name the way the other four

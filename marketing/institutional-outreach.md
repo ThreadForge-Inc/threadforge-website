@@ -2,8 +2,8 @@
 
 **Owner:** Threadforge Inc. · President & Founder Bilal Ahmed Khan
 **Landing page:** https://threadforgeofficial.com/institutions/
-**Reply address:** support@threadforgeofficial.com
-**Last checked against the site:** 2026-10-31 (release 10.16.1)
+**Reply address:** owner@threadforgeofficial.com
+**Last checked against the site:** 2026-10-31 (release 10.17.2)
 **Film to share:** The pioneer journey, 54 s: https://threadforgeofficial.com/assets/film/threadforge-journey-1080p.mp4
 
 The approach is the Mentor's: say what it does, show where to check, and say what is not done yet. Institutional buyers (universities, ministries, NGOs, corporate procurement) reject vendors who overclaim. They tend to trust vendors who list their own gaps first.

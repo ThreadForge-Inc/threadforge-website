@@ -8,4 +8,4 @@ ThreadForge 10.17 is out.
 ✅ Windows (Microsoft Store: https://apps.microsoft.com/detail/9pjtnxttx5cr), Android (Google Play: https://play.google.com/store/apps/details?id=com.methodology.threadforge) and your own server
 
 Watch 56 seconds: https://threadforgeofficial.com/#film
-Questions: support@threadforgeofficial.com
+Questions: owner@threadforgeofficial.com

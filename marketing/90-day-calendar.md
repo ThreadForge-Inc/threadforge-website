@@ -39,7 +39,7 @@ Every post ends with one link: the live demo, a film, the Academy, or the Instit
 
 - **Google Play live:** use week 12 for it, and only after the listing is published. Until then, say "Android
   APK"; the site checker refuses wording that calls a Play listing live.
-- **Microsoft Store 10.16.1 certified:** one LinkedIn and one X post that week, about the Store edition and the
+- **Microsoft Store 10.17.2 certified:** one LinkedIn and one X post that week, about the Store edition and the
   early-buyer courtesy.
 - **Urdu, Arabic and Chinese pages:** when they are published, repeat weeks 1 to 3 in each language.
 - **Signed Windows installer:** when it is signed, say so in one post and remove the SmartScreen caveat everywhere.

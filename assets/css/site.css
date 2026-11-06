@@ -1466,6 +1466,13 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 @media (max-width: 560px) { .feature-grid { grid-template-columns: minmax(0, 1fr); } .feature { padding: 22px 18px 24px; } }
 
+/* A feature-grid that only ever holds 2 cards (e.g. "Store parity" / "Value"): give each a real
+   half-width column instead of squeezing both into 1/4 of a 4-column track meant for a full row,
+   which let long paragraph text overflow its box and visually overlap the next card. */
+.feature-grid-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+@media (max-width: 560px) { .feature-grid-pair { grid-template-columns: minmax(0, 1fr); } }
+
 
 
 .note {
@@ -2267,6 +2274,12 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .store-badge-title { font: 700 .95rem/1.25 var(--font-body); color: #eef1e8; margin-top: 2px; }
 
 .store-badge-sub { font: 500 .72rem/1.2 var(--font-mono); color: var(--forge-muted); margin-top: 2px; }
+.store-badge-button { display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; text-decoration: none; transition: transform .15s ease, filter .15s ease; line-height: 0; }
+.store-badge-button:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.store-badge-img { display: block; width: auto; }
+.store-badge-ms { height: 48px; }
+/* Google's official PNG includes its required clear space, so it is drawn taller to match. */
+.store-badge-gp { height: 72px; margin: -12px -14px; }
 /* Translated pages (ur, ar, zh). Headlines keep Gloock for Latin; other scripts fall back to the system's
    own fonts, chosen per language. Urdu and Arabic read right to left. */
 .lang-switch { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: var(--t-sm); }
