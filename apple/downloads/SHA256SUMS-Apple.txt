@@ -1,8 +1,0 @@
-9aa69aad3d31f0aef62d254877918ad06b8da87100b6f9493d9f7347ea59062c  ThreadForge-10.18.0-ios.ipa
-0bb5402e2a8fd689ee73ff7a4519e0da313a8ea26febd4c6639c674f2ffb8c45  ThreadForge-10.18.0-mac-app-store.pkg
-9cde075d5d6ae34fd3685e823ae5b3fa4bbc8ebe20e5107e16dcbf937a3007b9  ThreadForge-10.18.0-mac-arm64.dmg
-8635ef9c458c0dae9a96076882bfa10799740136913982e9cf62d335b251ea20  ThreadForge-10.18.0-mac-arm64.zip
-fda661a14299f8fcfcb612c67a8a7c75cbfd7f1ad3bbf4bfe3fe7a219e84231e  ThreadForge-10.18.0-mac-universal.dmg
-63e6556eeeb60de4d44277268cb91290565524d1ee7d89ce6d9a945a69ff6e5d  ThreadForge-10.18.0-mac-universal.pkg
-14e512688b9e8dbb86e5e7f2920eabb3891403c3182c89bf6a07ebe97258b042  ThreadForge-10.18.0-mac-x64.dmg
-c47275496f2bf65e1edeef68ee96fc9a09d1185a8437223266e23f2c54e45c42  ThreadForge-10.18.0-mac-x64.zip

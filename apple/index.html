@@ -3,35 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ThreadForge · Apple iOS &amp; Mac OS Official Releases (Version 10.18.0)</title>
-<meta name="description" content="Official Apple iOS (App Store IPA &amp; TestFlight) and Mac OS (Universal DMG, Apple Silicon arm64, Intel x64, PKG installer) packages for ThreadForge Version 10.18.0.">
+<title>ThreadForge · Apple iOS &amp; Mac OS Status (Version 10.18.0)</title>
+<meta name="description" content="Honest status of ThreadForge's Apple iOS and Mac OS clients: native SwiftUI source code exists; compiled, signed and notarized installers are not yet available.">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'; frame-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://threadforgeofficial.com/apple/">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/css/site.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "ThreadForge",
-  "operatingSystem": "iOS 16.0+, macOS 11.0+ (Apple Silicon & Intel)",
-  "applicationCategory": "BusinessApplication",
-  "softwareVersion": "10.18.0",
-  "identifier": "com.methodology.threadforge",
-  "url": "https://threadforgeofficial.com/apple/",
-  "offers": {
-    "@type": "Offer",
-    "price": "49.00",
-    "priceCurrency": "USD"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Threadforge Inc."
-  }
-}
-</script>
 </head>
 <body class="page-sub">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -54,58 +33,70 @@
 <main id="main">
   <section class="kit-hero">
     <div class="wrap">
-      <p class="eyebrow">Apple Ecosystem Release · Version 10.18.0</p>
-      <h1>iOS App Store &amp; macOS Installers</h1>
-      <p class="lead">ThreadForge is now packaged natively for Apple iOS (iPhone &amp; iPad) and Mac OS users specifically. All packages uphold our core principle: zero tracking, deterministic local computing, and data sovereignty.</p>
+      <p class="eyebrow">Apple iOS &amp; Mac OS · In development</p>
+      <h1>Not released yet. Here is the real status.</h1>
+      <p class="lead">ThreadForge does not have a downloadable iOS or Mac OS installer yet. The native SwiftUI client's source code exists in the repository and is reviewable today; nothing has been compiled on a Mac, signed, notarized, or submitted to Apple.</p>
     </div>
   </section>
 
-  <!-- iOS App Store Section -->
-  <section class="section" id="ios-app-store">
+  <section class="section" id="status">
     <div class="wrap">
       <header class="section-head">
-        <p class="eyebrow">Mobile &amp; Tablet Workspace</p>
-        <h2>Apple iOS &amp; iPadOS (App Store Listing)</h2>
-        <p class="section-desc">Universal iOS package supporting iPhone and iPad with StoreKit 2 in-app tier unlocking, biometric Face ID security, and offline deterministic calculators.</p>
+        <p class="eyebrow">Why there is nothing to download</p>
+        <h2>Three real gates, none of them cleared yet</h2>
       </header>
-
       <div class="callout-grid">
         <article class="callout">
-          <h3>StoreKit 2 Tiers</h3>
-          <p>Single binary carrying all 20 desks. Unlock Essentials ($49), Professional ($149), Industrial ($299), or Industrial Park ($499) directly via Apple In-App Purchase.</p>
+          <h3>No Apple Developer Program enrollment</h3>
+          <p>Shipping on iOS or Mac OS requires a paid Apple Developer Program account ($99/year), D-U-N-S verification of Threadforge Inc., and a signed Paid Applications Agreement. None of this is in place yet.</p>
         </article>
         <article class="callout">
-          <h3>Biometric Security</h3>
-          <p>Face ID and Touch ID integration for the executive two-stage approval register and access token signing.</p>
+          <h3>No build has ever run on a real Mac</h3>
+          <p>The source code has not been compiled on actual Apple hardware with Xcode. No one has verified it builds, launches, or passes App Review's basic functionality checks.</p>
         </article>
         <article class="callout">
-          <h3>Air-Gapped Operation</h3>
-          <p>Runs offline with local storage and WebKit isolation. Trade math, customs calculators, and due diligence lists work without Internet connectivity.</p>
+          <h3>No signing, no notarization</h3>
+          <p>Without a Developer Program account there is no Apple Distribution certificate, no Developer ID certificate, and no notarization — all required before Mac OS Gatekeeper or the App Store will accept a build.</p>
         </article>
       </div>
+    </div>
+  </section>
 
+  <section class="section band-sunk" id="source">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">What is real today</p>
+        <h2>Native SwiftUI source code, reviewable now</h2>
+        <p class="section-desc">The client is written as a native SwiftUI app wrapping the same local-first gateway the Windows and Android clients use, with StoreKit 2 for in-app tier purchases and biometric authentication for the approval register. It has not been built or tested on a device.</p>
+      </header>
       <div class="voice-table-wrap">
         <table class="voice-table">
           <thead>
             <tr>
-              <th scope="col">Package</th>
-              <th scope="col">Target Platform</th>
-              <th scope="col">Version / Identifier</th>
-              <th scope="col">Distribution File</th>
+              <th scope="col">Component</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><b>Apple App Store Package (.ipa)</b></td>
-              <td>iPhone &amp; iPad (iOS 16.0+)</td>
-              <td><code>com.methodology.threadforge</code> v10.18.0</td>
-              <td><a class="btn btn-lime btn-sm" href="downloads/ThreadForge-10.18.0-ios.ipa" download>Download IPA (357 KB)</a></td>
+              <td><b>SwiftUI app shell &amp; WebKit bridge</b></td>
+              <td>Source written, not yet compiled on real Apple hardware</td>
             </tr>
             <tr>
-              <td><b>App Store Connect Metadata &amp; Spec</b></td>
-              <td>App Store Listing &amp; Review</td>
-              <td>Keywords, Screenshots, Export Compliance</td>
-              <td><a class="btn btn-ghost btn-sm" href="../#platforms">Listing Documentation</a></td>
+              <td><b>StoreKit 2 in-app tier purchases</b></td>
+              <td>Source written against the same 4 tiers as Windows/Android, not yet tested against a real sandbox</td>
+            </tr>
+            <tr>
+              <td><b>Biometric (Face ID / Touch ID) authentication</b></td>
+              <td>Source written, not yet tested on a device</td>
+            </tr>
+            <tr>
+              <td><b>Compiled, signed, notarized installer</b></td>
+              <td>Does not exist</td>
+            </tr>
+            <tr>
+              <td><b>App Store Connect listing</b></td>
+              <td>Does not exist; no app record has been created</td>
             </tr>
           </tbody>
         </table>
@@ -113,95 +104,13 @@
     </div>
   </section>
 
-  <!-- Mac OS Users Section -->
-  <section class="section band-sunk" id="macos-installers">
+  <section class="section" id="meanwhile">
     <div class="wrap">
       <header class="section-head">
-        <p class="eyebrow">Mac OS Users Specifically</p>
-        <h2>Mac OS Desktop Installers (Apple Silicon &amp; Intel)</h2>
-        <p class="section-desc">Engineered specifically for macOS 11.0+ (Big Sur through macOS 15 Sequoia). Features drag-and-drop disk images, enterprise PKG installers, and portable ZIP archives.</p>
+        <p class="eyebrow">Available today</p>
+        <h2>Windows and Android are real, signed releases</h2>
+        <p class="section-desc">ThreadForge already ships on the <a href="https://apps.microsoft.com/detail/9pjtnxttx5cr?referrer=appbadge&amp;mode=full" target="_blank" rel="noopener">Microsoft Store</a> (signed by Microsoft) and <a href="../android/">Google Play</a>. If you're on a Mac or iPhone today, the web workspace at the <a href="../demo/">live demo</a> runs the same suite in your browser.</p>
       </header>
-
-      <div class="voice-table-wrap">
-        <table class="voice-table">
-          <thead>
-            <tr>
-              <th scope="col">Installer Type</th>
-              <th scope="col">Architecture</th>
-              <th scope="col">Deployment Target</th>
-              <th scope="col">Direct Download</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b>Universal Disk Image (.dmg)</b></td>
-              <td>Universal (ARM64 &amp; x86_64)</td>
-              <td>Standard Mac drag-and-drop installer</td>
-              <td><a class="btn btn-lime btn-sm" href="downloads/ThreadForge-10.18.0-mac-universal.dmg" download>Universal DMG (240 KB)</a></td>
-            </tr>
-            <tr>
-              <td><b>Apple Silicon Disk Image (.dmg)</b></td>
-              <td>Apple Silicon (M1/M2/M3/M4)</td>
-              <td>Native ARM64 optimized installer</td>
-              <td><a class="btn btn-ghost btn-sm" href="downloads/ThreadForge-10.18.0-mac-arm64.dmg" download>Apple Silicon DMG (239 KB)</a></td>
-            </tr>
-            <tr>
-              <td><b>Intel Mac Disk Image (.dmg)</b></td>
-              <td>Intel 64-bit (x86_64)</td>
-              <td>Native Intel Mac installer</td>
-              <td><a class="btn btn-ghost btn-sm" href="downloads/ThreadForge-10.18.0-mac-x64.dmg" download>Intel Mac DMG (239 KB)</a></td>
-            </tr>
-            <tr>
-              <td><b>Enterprise Flat Package (.pkg)</b></td>
-              <td>Universal (ARM64 &amp; x86_64)</td>
-              <td>macOS Installer GUI &amp; MDM (Jamf/Munki)</td>
-              <td><a class="btn btn-lime btn-sm" href="downloads/ThreadForge-10.18.0-mac-universal.pkg" download>Managed PKG (241 KB)</a></td>
-            </tr>
-            <tr>
-              <td><b>Mac App Store Package (.pkg)</b></td>
-              <td>Universal (Sandboxed)</td>
-              <td>Mac App Store deployment</td>
-              <td><a class="btn btn-ghost btn-sm" href="downloads/ThreadForge-10.18.0-mac-app-store.pkg" download>Mac App Store PKG (241 KB)</a></td>
-            </tr>
-            <tr>
-              <td><b>Portable Application Archive (.zip)</b></td>
-              <td>Apple Silicon (arm64)</td>
-              <td>Standalone <code>ThreadForge.app</code></td>
-              <td><a class="btn btn-ghost btn-sm" href="downloads/ThreadForge-10.18.0-mac-arm64.zip" download>ARM64 ZIP (240 KB)</a></td>
-            </tr>
-            <tr>
-              <td><b>Portable Application Archive (.zip)</b></td>
-              <td>Intel 64-bit (x86_64)</td>
-              <td>Standalone <code>ThreadForge.app</code></td>
-              <td><a class="btn btn-ghost btn-sm" href="downloads/ThreadForge-10.18.0-mac-x64.zip" download>Intel ZIP (240 KB)</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cryptographic Signatures -->
-  <section class="section" id="checksums">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="eyebrow">Cryptographic Integrity</p>
-        <h2>SHA-256 Checksums for Apple Builds</h2>
-        <p class="section-desc">Verify your download against our official release digests. Download the complete cryptographic signature ledger: <a href="downloads/SHA256SUMS-Apple.txt" download>SHA256SUMS-Apple.txt</a>.</p>
-      </header>
-      <div class="copy-block">
-        <div class="copy-block-head"><span>Official Release Ledger · Version 10.18.0</span></div>
-        <p class="spec-mono">
-9aa69aad3d31f0ae...  ThreadForge-10.18.0-ios.ipa<br>
-fda661a14299f8fc...  ThreadForge-10.18.0-mac-universal.dmg<br>
-9cde075d5d6ae34f...  ThreadForge-10.18.0-mac-arm64.dmg<br>
-14e512688b9e8dbb...  ThreadForge-10.18.0-mac-x64.dmg<br>
-63e6556eeeb60de4...  ThreadForge-10.18.0-mac-universal.pkg<br>
-0bb5402e2a8fd689...  ThreadForge-10.18.0-mac-app-store.pkg<br>
-8635ef9c458c0dae...  ThreadForge-10.18.0-mac-arm64.zip<br>
-c47275496f2bf65e...  ThreadForge-10.18.0-mac-x64.zip
-        </p>
-      </div>
     </div>
   </section>
 </main>
