@@ -2191,8 +2191,19 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 
 /* Dual-OS Certified Store & Release Badges */
 
-.store-badges { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 18px; margin-bottom: 18px; }
-
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.store-badges.footer-store-badges {
+  margin-top: 10px;
+  margin-bottom: 0;
+  gap: 10px;
+}
 .store-badge {
 
   display: inline-flex; align-items: center; gap: 12px; padding: 10px 16px;
@@ -2216,11 +2227,44 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .store-badge-title { font: 700 .95rem/1.25 var(--font-body); color: #eef1e8; margin-top: 2px; }
 
 .store-badge-sub { font: 500 .72rem/1.2 var(--font-mono); color: var(--forge-muted); margin-top: 2px; }
-.store-badge-button { display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 8px 18px; border-radius: 12px; background: #ffffff; border: 1.5px solid var(--line-strong); box-shadow: 0 8px 24px -10px rgba(0, 0, 0, .35); text-decoration: none; transition: transform .15s ease, filter .15s ease, border-color .15s ease; line-height: 0; }
-.store-badge-button:hover { transform: translateY(-2px); border-color: var(--lime); filter: brightness(1.03); }
-.store-badge-img { display: block; width: auto; }
-.store-badge-ms { height: 30px; }
-.store-badge-gp { height: 32px; margin: 0; }
+.store-badge-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1.5px solid var(--line-strong);
+  box-shadow: 0 4px 14px -4px rgba(0, 0, 0, .28);
+  text-decoration: none;
+  transition: transform .15s ease, filter .15s ease, border-color .15s ease, box-shadow .15s ease;
+  line-height: 0;
+  box-sizing: border-box;
+}
+.store-badge-button:hover, .store-badge-button:focus-visible {
+  transform: translateY(-1.5px);
+  border-color: var(--lime);
+  filter: brightness(1.02);
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, .35);
+  text-decoration: none;
+}
+.store-badge-button:active {
+  transform: translateY(1px);
+}
+.store-badge-img {
+  display: block;
+  width: auto;
+  object-fit: contain;
+}
+.store-badge-ms {
+  height: 22px;
+}
+.store-badge-gp {
+  height: 23px;
+  margin: 0;
+}
 /* Translated pages (ur, ar, zh). Headlines keep Gloock for Latin; other scripts fall back to the system's
    own fonts, chosen per language. Urdu and Arabic read right to left. */
 .lang-switch { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: var(--t-sm); }
