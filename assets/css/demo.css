@@ -321,3 +321,36 @@
 .demo-theme-select { min-height: 36px; border-radius: 999px; padding: 0 28px 0 12px; font: 600 var(--t-xs)/1 var(--font-body); background: rgba(255, 255, 255, .1); color: var(--forge-fg); border: 1px solid var(--forge-line); }
 .demo-theme-select option { color: #0f1d2e; background: #ffffff; }
 .demo-footer { padding: 18px 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--t-xs); text-align: center; }
+
+/* WCAG Readability & Contrast Safeguards Across All 5 Themes */
+:root[data-theme="sapphire"] .badge.bad,
+:root[data-theme="emerald"] .badge.bad,
+:root[data-theme="sapphire"] .recommend.hold,
+:root[data-theme="emerald"] .recommend.hold {
+  background: #3b1a14; color: #fca5a5;
+}
+:root[data-theme="dark"] .demo-progress span,
+:root[data-theme="sapphire"] .demo-progress span,
+:root[data-theme="emerald"] .demo-progress span,
+:root[data-theme="dark"] .bar .in,
+:root[data-theme="sapphire"] .bar .in,
+:root[data-theme="emerald"] .bar .in,
+:root[data-theme="dark"] .legend .in::before,
+:root[data-theme="sapphire"] .legend .in::before,
+:root[data-theme="emerald"] .legend .in::before {
+  background: var(--lime);
+}
+:root[data-theme="dark"] .demo-facts li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%2396d6a4' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="sapphire"] .demo-facts li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%2322ead0' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="emerald"] .demo-facts li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23b4f04a' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="cvd"] .demo-facts li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23005a9c' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.demo-toast.is-warn { background: var(--amber-bg); color: var(--amber); border: 1.5px solid var(--amber); }
+.demo-role select option, .demo-theme-select option { background-color: var(--bg-raised); color: var(--fg); }

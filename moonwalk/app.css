@@ -465,13 +465,90 @@ td strong { color: #f7f3e8; font-weight: 650; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 
 }
-
-
 /* Parallel 5-Theme Adaptation & Fullscreen Controls for Moonwalk Workspace */
 .mw-theme-select { min-height: 34px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); font-size: 11px; font-weight: 650; }
+.mw-theme-select option { background-color: var(--green-dark); color: var(--ink); }
 .mw-fs-btn { min-height: 34px; width: 34px; padding: 0; font-size: 15px; }
-:root[data-theme="sapphire"] body { background: radial-gradient(1500px 950px at 32% 15%, #0e3256 0%, #0a2540 48%, #061627 100%) fixed; --ink: #f0f7fc; --muted: #8aa4be; --line: rgba(0, 212, 178, 0.28); --panel: rgba(10, 37, 64, 0.88); --green: #00d4b2; --green-dark: #0a2540; --green-soft: rgba(0, 212, 178, 0.16); }
-:root[data-theme="emerald"] body { background: radial-gradient(1500px 950px at 32% 15%, #17624f 0%, #124e3f 48%, #08241d 100%) fixed; --ink: #f2f8ee; --muted: #92b2a2; --line: rgba(163, 230, 53, 0.28); --panel: rgba(18, 78, 63, 0.88); --green: #a3e635; --green-dark: #124e3f; --green-soft: rgba(163, 230, 53, 0.16); }
-:root[data-theme="dark"] body { background: radial-gradient(1500px 950px at 32% 15%, #15251e 0%, #0c1611 52%, #070e0b 100%) fixed; --ink: #e5ede3; --muted: #92a99b; --line: rgba(214, 238, 142, 0.24); --panel: rgba(18, 32, 26, 0.9); --green: #d6ee8e; --green-dark: #12201a; --green-soft: rgba(214, 238, 142, 0.15); }
-:root[data-theme="light"] body { background: #f3f4ee; color: #12241c; --ink: #12241c; --muted: #5d6d64; --line: #c3cdbf; --panel: #ffffff; --green: #173f30; --green-dark: #173f30; --green-soft: #eef6d4; }
-:root[data-theme="cvd"] body { background: #f1f4f8; color: #0f1d2e; --ink: #0f1d2e; --muted: #4a607a; --line: #94a6bc; --panel: #ffffff; --green: #0060a8; --green-dark: #0060a8; --green-soft: #dcebf7; }
+
+:root[data-theme="sapphire"], :root[data-theme="sapphire"] body {
+  color-scheme: dark;
+  background: radial-gradient(1500px 950px at 32% 15%, #0a2540 0%, #071b30 48%, #051322 100%) fixed;
+  color: #f4f9fd;
+  --ink: #f4f9fd; --ink-2: #d8e6f3; --muted: #a8c2dc;
+  --line: rgba(0, 212, 178, 0.28); --panel: #0a2540; --panel-2: #06182c;
+  --green: #22ead0; --green-ink: #041421; --green-dark: #071b30; --green-soft: rgba(0, 212, 178, 0.16);
+}
+:root[data-theme="emerald"], :root[data-theme="emerald"] body {
+  color-scheme: dark;
+  background: radial-gradient(1500px 950px at 32% 15%, #0e3a2f 0%, #092820 48%, #061c16 100%) fixed;
+  color: #f4faf2;
+  --ink: #f4faf2; --ink-2: #d9ece0; --muted: #b0cfc0;
+  --line: rgba(163, 230, 53, 0.28); --panel: #0d362b; --panel-2: #07221b;
+  --green: #b4f04a; --green-ink: #071f17; --green-dark: #092820; --green-soft: rgba(163, 230, 53, 0.16);
+}
+:root[data-theme="dark"], :root[data-theme="dark"] body {
+  color-scheme: dark;
+  background: radial-gradient(1500px 950px at 32% 15%, #15251e 0%, #0c1611 52%, #070e0b 100%) fixed;
+  color: #ecf2ea;
+  --ink: #ecf2ea; --ink-2: #cedbd0; --muted: #a3b9ac;
+  --line: rgba(214, 238, 142, 0.24); --panel: #12201a; --panel-2: #0a1410;
+  --green: #d6ee8e; --green-ink: #16300f; --green-dark: #0f1b16; --green-soft: rgba(214, 238, 142, 0.15);
+}
+:root[data-theme="light"], :root[data-theme="light"] body {
+  color-scheme: light;
+  background: #f3f4ee;
+  color: #12241c;
+  --ink: #12241c; --ink-2: #2c4036; --muted: #52635a;
+  --line: #c3cdbf; --panel: #ffffff; --panel-2: #e9ede2;
+  --green: #173f30; --green-ink: #f3f6ee; --green-dark: #ffffff; --green-soft: #eef6d4;
+}
+:root[data-theme="cvd"], :root[data-theme="cvd"] body {
+  color-scheme: light;
+  background: #f1f4f8;
+  color: #0f1d2e;
+  --ink: #0f1d2e; --ink-2: #24384f; --muted: #4a596d;
+  --line: #94a6bc; --panel: #ffffff; --panel-2: #e4eaf2;
+  --green: #00589c; --green-ink: #f6f9fc; --green-dark: #ffffff; --green-soft: #dcebf7;
+}
+
+/* Override hardcoded colors in Moonwalk so every theme has 100% readable contrast */
+:root[data-theme] .sidebar { background: var(--panel-2); border-right-color: var(--line); color: var(--ink); box-shadow: none; }
+:root[data-theme] .brand, :root[data-theme] .local-status strong, :root[data-theme] h1,
+:root[data-theme] .card-head h2, :root[data-theme] .card h2, :root[data-theme] .quick-action strong,
+:root[data-theme] .activity-row strong, :root[data-theme] .toolbar h2, :root[data-theme] td strong,
+:root[data-theme] .empty strong { color: var(--ink); }
+:root[data-theme] .brand small, :root[data-theme] .nav-caption, :root[data-theme] .local-status small,
+:root[data-theme] .site-link, :root[data-theme] .breadcrumbs strong, :root[data-theme] .eyebrow,
+:root[data-theme] .metric strong, :root[data-theme] .text-button, :root[data-theme] .notice strong,
+:root[data-theme] .field label, :root[data-theme] .field-label, :root[data-theme] th,
+:root[data-theme] .template-card h3, :root[data-theme] .media-empty strong,
+:root[data-theme] .setting-card h3, :root[data-theme] .storage-line strong,
+:root[data-theme] .button.ghost { color: var(--green); }
+:root[data-theme] .brand-mark { border-color: var(--green); color: var(--green); background: var(--panel); box-shadow: none; }
+:root[data-theme] .nav-link { color: var(--ink-2); }
+:root[data-theme] .nav-link:hover { color: var(--ink); background: var(--green-soft); border-color: var(--line); }
+:root[data-theme] .nav-link.active, :root[data-theme] .button, :root[data-theme] .hero .button,
+:root[data-theme] .avatar, :root[data-theme] .badge { color: var(--green-ink); background: var(--green); border-color: var(--green); box-shadow: none; }
+:root[data-theme] .local-status, :root[data-theme] .local-pill, :root[data-theme] .date-chip,
+:root[data-theme] .notice, :root[data-theme] .callout, :root[data-theme] .button.secondary {
+  background: var(--panel); color: var(--ink); border-color: var(--line);
+}
+:root[data-theme] .topbar { background: color-mix(in srgb, var(--panel) 88%, transparent); border-bottom-color: var(--line); }
+:root[data-theme] .breadcrumbs, :root[data-theme] .sidebar-version, :root[data-theme] .metric small,
+:root[data-theme] .activity-row time, :root[data-theme] .field-help, :root[data-theme] .empty,
+:root[data-theme] .progress-copy, :root[data-theme] .media-empty, :root[data-theme] .privacy-footer { color: var(--muted); }
+:root[data-theme] td, :root[data-theme] .check-row, :root[data-theme] .media-toolbar .field-inline,
+:root[data-theme] .storage-line { color: var(--ink-2); border-top-color: var(--line); }
+:root[data-theme] th, :root[data-theme] .field input, :root[data-theme] .field select,
+:root[data-theme] .field textarea, :root[data-theme] .search-input,
+:root[data-theme] .media-toolbar input[type="number"], :root[data-theme] .quick-action,
+:root[data-theme] .media-stage {
+  background: var(--panel-2); color: var(--ink); border-color: var(--line);
+}
+:root[data-theme] .hero { background: var(--panel); color: var(--ink); border-color: var(--line); }
+:root[data-theme] .hero h2, :root[data-theme] .hero .eyebrow { color: var(--ink); }
+:root[data-theme] .hero p { color: var(--ink-2); }
+:root[data-theme] .metric, :root[data-theme] .card { border-color: var(--line); background: var(--panel); }
+:root[data-theme] .metric-icon, :root[data-theme] .activity-mark { color: var(--green); background: var(--green-soft); border-color: var(--line); }
+:root[data-theme] .status-dot, :root[data-theme] .progressbar::-webkit-progress-value,
+:root[data-theme] .progressbar::-moz-progress-bar { background: var(--green); }
