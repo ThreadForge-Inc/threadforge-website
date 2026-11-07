@@ -2313,3 +2313,4 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .btn-play, :root[data-theme="cosmos"] .btn-play { background: #01875f; border-color: #01875f; color: #ffffff; }
 .btn-play:hover, :root[data-theme="cosmos"] .btn-play:hover { background: #016f4e; border-color: #016f4e; color: #ffffff; filter: brightness(1.04); }
 .status.play { background: #01875f; color: #ffffff; border-color: #01875f; }
+.shot-phone { max-width: 360px; height: auto; border-radius: 12px; border: 1px solid var(--line); }
