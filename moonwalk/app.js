@@ -53,6 +53,46 @@
   const sidebar = document.querySelector("#sidebar");
   const scrim = document.querySelector("#scrim");
   const toastRegion = document.querySelector("#toast-region");
+  const MW_THEMES = ["sapphire", "emerald", "light", "dark", "cvd"];
+  function savedMwTheme() {
+    try { const t = localStorage.getItem("tf-theme"); return MW_THEMES.includes(t) ? t : "sapphire"; }
+    catch { return "sapphire"; }
+  }
+  function applyMwTheme(mode) {
+    if (!MW_THEMES.includes(mode)) mode = "sapphire";
+    document.documentElement.setAttribute("data-theme", mode);
+    const sel = document.querySelector("#mw-theme-select");
+    if (sel) sel.value = mode;
+  }
+  applyMwTheme(savedMwTheme());
+  const mwThemeSel = document.querySelector("#mw-theme-select");
+  if (mwThemeSel) {
+    mwThemeSel.addEventListener("change", () => {
+      const next = mwThemeSel.value;
+      try { localStorage.setItem("tf-theme", next); } catch {}
+      applyMwTheme(next);
+    });
+  }
+  const mwFsBtn = document.querySelector("#mw-fullscreen-toggle");
+  if (mwFsBtn) {
+    if (!(document.documentElement.requestFullscreen && document.fullscreenEnabled !== false)) {
+      mwFsBtn.hidden = true;
+    } else {
+      const syncMwFs = () => {
+        const on = !!document.fullscreenElement;
+        mwFsBtn.textContent = on ? "⛝" : "⛶";
+        mwFsBtn.setAttribute("aria-label", on ? "Exit full screen" : "Enter full screen");
+        mwFsBtn.setAttribute("aria-pressed", String(on));
+        mwFsBtn.title = on ? "Exit full screen" : "Full screen";
+      };
+      mwFsBtn.addEventListener("click", () => {
+        const r = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+        if (r && r.catch) r.catch(() => {});
+      });
+      document.addEventListener("fullscreenchange", syncMwFs);
+      syncMwFs();
+    }
+  }
 
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, character => ({

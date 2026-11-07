@@ -6,6 +6,46 @@
   if (!E) return;
 
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var DEMO_THEMES = ["sapphire", "emerald", "light", "dark", "cvd"];
+  function savedDemoTheme() {
+    try { var t = window.localStorage.getItem("tf-theme"); return DEMO_THEMES.indexOf(t) >= 0 ? t : "sapphire"; }
+    catch (e) { return "sapphire"; }
+  }
+  function applyDemoTheme(mode) {
+    if (DEMO_THEMES.indexOf(mode) < 0) mode = "sapphire";
+    document.documentElement.setAttribute("data-theme", mode);
+    var sel = document.getElementById("demo-theme-select");
+    if (sel) sel.value = mode;
+  }
+  applyDemoTheme(savedDemoTheme());
+  var demoThemeSel = document.getElementById("demo-theme-select");
+  if (demoThemeSel) {
+    demoThemeSel.addEventListener("change", function () {
+      var next = demoThemeSel.value;
+      try { window.localStorage.setItem("tf-theme", next); } catch (e) {}
+      applyDemoTheme(next);
+    });
+  }
+  var demoFsBtn = document.getElementById("demo-fullscreen-toggle");
+  if (demoFsBtn) {
+    if (!(document.documentElement.requestFullscreen && document.fullscreenEnabled !== false)) {
+      demoFsBtn.hidden = true;
+    } else {
+      var syncDemoFs = function () {
+        var on = !!document.fullscreenElement;
+        demoFsBtn.textContent = on ? "⛝" : "⛶";
+        demoFsBtn.setAttribute("aria-label", on ? "Exit full screen" : "Enter full screen");
+        demoFsBtn.setAttribute("aria-pressed", String(on));
+        demoFsBtn.title = on ? "Exit full screen" : "Full screen";
+      };
+      demoFsBtn.addEventListener("click", function () {
+        var r = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+        if (r && r.catch) r.catch(function () {});
+      });
+      document.addEventListener("fullscreenchange", syncDemoFs);
+      syncDemoFs();
+    }
+  }
   var STEP_MS = reduceMotion ? 150 : 850;
   var $ = function (id) { return document.getElementById(id); };
   var now = function () { return Date.now(); };

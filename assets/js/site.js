@@ -68,19 +68,11 @@
   var themeButton = document.getElementById("theme-toggle");
 
   var THEMES = [
-
-    ["cosmos", "Royal Navy & Gold", "Marine oceanic navy, golden silhouette & Royal English serif"],
-
+    ["sapphire", "Enterprise Sapphire", "Deep sapphire (#0A2540) & electric teal (#00D4B2) HD preset"],
+    ["emerald", "Emerald Prestige", "Deep forest emerald (#124E3F) & vibrant lime (#A3E635) HD preset"],
     ["light", "Light", "The standard ThreadForge colours"],
-
     ["dark", "Dark", "Easier on the eyes at night"],
-
-    ["contrast", "High contrast", "White on black, the strongest contrast"],
-
-    ["warm", "Warm reading", "Soft paper tones with less glare"],
-
     ["cvd", "Colour-blind safe", "Blue and orange instead of green"]
-
   ];
 
   var names = {};
@@ -91,7 +83,7 @@
 
   function applyTheme(mode) {
 
-    if (!names[mode]) mode = "cosmos";
+    if (!names[mode]) mode = "sapphire";
 
     root.setAttribute("data-theme", mode);
 
@@ -207,7 +199,36 @@
 
   }
 
-  applyTheme(store("tf-theme") || "cosmos");
+  applyTheme(store("tf-theme") || "sapphire");
+
+  // Full screen toggle button in header-actions across all website pages
+  if (themeButton && document.documentElement.requestFullscreen && document.fullscreenEnabled !== false) {
+    var fsBtn = document.getElementById("fullscreen-toggle");
+    if (!fsBtn) {
+      fsBtn = document.createElement("button");
+      fsBtn.className = "icon-btn fullscreen-toggle";
+      fsBtn.type = "button";
+      fsBtn.id = "fullscreen-toggle";
+      fsBtn.setAttribute("data-fullscreen-toggle", "");
+      var wrapParent = themeButton.closest(".theme-wrap") || themeButton;
+      wrapParent.insertAdjacentElement("afterend", fsBtn);
+    }
+    var syncFs = function () {
+      var on = !!document.fullscreenElement;
+      fsBtn.innerHTML = on
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>';
+      fsBtn.setAttribute("aria-label", on ? "Exit full screen" : "Enter full screen");
+      fsBtn.setAttribute("aria-pressed", String(on));
+      fsBtn.title = on ? "Exit full screen" : "Full screen";
+    };
+    fsBtn.addEventListener("click", function () {
+      var req = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+      if (req && req.catch) req.catch(function () {});
+    });
+    document.addEventListener("fullscreenchange", syncFs);
+    syncFs();
+  }
 
 
 

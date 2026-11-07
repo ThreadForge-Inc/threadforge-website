@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="sapphire">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -12,7 +12,7 @@
 <link rel="preload" href="/assets/fonts/public-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/gloock-latin-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/moonwalk/app.css">
-<title>Moonwalk · Local business workspace</title>
+<title>Moonwalk · Business &amp; Intelligence Workspace · Powered by © 2026 Threadforge Inc.</title>
 <script src="/moonwalk/app.js" defer></script>
 </head>
 <body>
@@ -21,7 +21,7 @@
   <aside class="sidebar" id="sidebar">
     <a class="brand" href="/moonwalk/" aria-label="Moonwalk workspace home">
       <span class="brand-mark" aria-hidden="true">M</span>
-      <span>moonwalk<small>BUSINESS WORKSPACE</small></span>
+      <span>moonwalk<small>BUSINESS &amp; INTELLIGENCE WORKSPACE</small></span>
     </a>
     <p class="nav-caption">WORKSPACE</p>
     <nav class="navigation" aria-label="Main navigation">
@@ -36,7 +36,7 @@
     <div class="sidebar-bottom">
       <div class="local-status"><span class="status-dot"></span><span><strong>Private on this device</strong><small id="connection-state">Checking local storage…</small></span></div>
       <a class="site-link" href="/">ThreadForge website <span aria-hidden="true">↗</span></a>
-      <p class="sidebar-version">MOONWALK PREVIEW · 17.0.19</p>
+      <p class="sidebar-version">MOONWALK PREVIEW · 17.0.19 · Powered by © 2026 Threadforge Inc.</p>
     </div>
   </aside>
   <div class="scrim" id="scrim" hidden></div>
@@ -46,12 +46,14 @@
       <div class="breadcrumbs"><span>Workspace</span><span aria-hidden="true">/</span><strong id="crumb">Overview</strong></div>
       <div class="top-actions">
         <button class="button secondary install-button" id="install-button" type="button" hidden>Install app</button>
+        <select id="mw-theme-select" class="mw-theme-select" aria-label="Colour theme"><option value="sapphire">Enterprise Sapphire</option><option value="emerald">Emerald Prestige</option><option value="light">Light</option><option value="dark">Dark</option><option value="cvd">Colour-blind safe</option></select>
+        <button class="button secondary mw-fs-btn" id="mw-fullscreen-toggle" type="button" aria-label="Enter full screen" title="Full screen">⛶</button>
         <span class="local-pill"><span class="status-dot"></span>Local only</span>
         <button class="avatar" type="button" aria-label="Local workspace profile">M</button>
       </div>
     </header>
     <div id="view-root" class="view-root" aria-live="polite"></div>
-    <footer class="privacy-footer">Local-only preview. Records are stored by this browser on this device. No account, server sync, analytics, or cross-device backup.</footer>
+    <footer class="privacy-footer">ThreadForge · Business &amp; Intelligence Workspace · Powered by © 2026 Threadforge Inc. · Local-only preview. Records are stored by this browser on this device. No account, server sync, analytics, or cross-device backup.</footer>
   </main>
 </div>
 <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>

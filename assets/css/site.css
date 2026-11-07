@@ -272,180 +272,126 @@
 
 
 
-/* Royal Navy & Golden Silhouette (#1 of 7 Default Theme): Marine oceanic navy, burnished gold silhouette rim & Royal English serif */
-
-:root[data-theme="cosmos"] {
-
-  --bg: #040c18;
-
-  --bg-raised: #091a32;
-
-  --bg-sunk: #030811;
-
-  --fg: #f7f3e8;
-
-  --fg-2: #d2deee;
-
-  --muted: #93a8c4;
-
-  --line: rgba(240, 196, 90, 0.24);
-
-  --line-strong: rgba(240, 196, 90, 0.52);
-
-  --link: #f0c45a;
-
-  --forge: #0c2342;
-
-  --forge-2: #f0c45a;
-
-  --forge-fg: #f7f3e8;
-
-  --forge-muted: #c5d4e8;
-
-  --forge-line: rgba(240, 196, 90, 0.34);
-
-  --lime: #f0c45a;
-
-  --lime-ink: #061326;
-
-  --amber: #fcc419;
-
-  --amber-bg: #2d2305;
-
-  --ok: #f0c45a;
-
-  --ok-bg: rgba(240, 196, 90, 0.16);
-
-  --console-bg: #050f1e;
-
-  --console-raised: #0a1d37;
-
-  --console-fg: #f7f3e8;
-
-  --console-muted: #9eb5d6;
-
-  --console-line: rgba(240, 196, 90, 0.28);
-
-  --console-warn: #fcc419;
-
-  --console-ok: #f0c45a;
-
-  --console-info: #74c0fc;
-
-  --focus: #f0c45a;
-
-  --shadow: 0 1px 0 rgba(240, 196, 90, 0.18), 0 30px 75px -30px rgba(0, 0, 0, .92), 0 0 38px rgba(240, 196, 90, 0.14);
-
-
-
-  /* Royal English Caliber Serif Typography */
-
-  --font-display: "Gloock", "Palatino Linotype", "Book Antiqua", Palatino, "Baskerville", "Iowan Old Style", Georgia, serif;
-
-  --font-body: "Palatino Linotype", "Book Antiqua", "Sitka Text", "Cambria", "Charter", "Public Sans", Georgia, serif;
-
-  --font-mono: "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, monospace;
-
+/* Enterprise Sapphire (#1 of 7 Built-in HD Theme Presets): Deep sapphire (#0A2540) with electric teal (#00D4B2) accent */
+:root[data-theme="sapphire"] {
+  --bg: #061627;
+  --bg-raised: #0a2540;
+  --bg-sunk: #040f1b;
+  --fg: #f0f7fc;
+  --fg-2: #c9d9e8;
+  --muted: #8aa4be;
+  --line: rgba(0, 212, 178, 0.24);
+  --line-strong: rgba(0, 212, 178, 0.52);
+  --link: #00d4b2;
+  --forge: #0a2540;
+  --forge-2: #00d4b2;
+  --forge-fg: #f0f7fc;
+  --forge-muted: #b8cde0;
+  --forge-line: rgba(0, 212, 178, 0.34);
+  --lime: #00d4b2;
+  --lime-ink: #041421;
+  --amber: #fbbf24;
+  --amber-bg: #2b2108;
+  --ok: #00d4b2;
+  --ok-bg: rgba(0, 212, 178, 0.16);
+  --console-bg: #051322;
+  --console-raised: #0a2540;
+  --console-fg: #f0f7fc;
+  --console-muted: #93aec9;
+  --console-line: rgba(0, 212, 178, 0.28);
+  --console-warn: #fbbf24;
+  --console-ok: #00d4b2;
+  --console-info: #38bdf8;
+  --focus: #00d4b2;
+  --shadow: 0 1px 0 rgba(0, 212, 178, 0.18), 0 30px 75px -30px rgba(0, 0, 0, .92), 0 0 38px rgba(0, 212, 178, 0.14);
   color-scheme: dark;
-
 }
-
-:root[data-theme="cosmos"] body {
-
-  background: radial-gradient(1600px 1000px at 30% 12%, #102d54 0%, #07172d 45%, #040c18 100%) fixed;
-
+:root[data-theme="sapphire"] body {
+  background: radial-gradient(1600px 1000px at 30% 12%, #0e3256 0%, #0a2540 45%, #061627 100%) fixed;
 }
-
-:root[data-theme="cosmos"] .btn-primary {
-
-  background: linear-gradient(135deg, #f8da82 0%, #d8a132 100%);
-
-  color: #061326;
-
-  border-color: #ffe8a3;
-
-  box-shadow: 0 12px 30px -10px rgba(240, 196, 90, 0.45);
-
+:root[data-theme="sapphire"] .btn-primary {
+  background: linear-gradient(135deg, #22ead0 0%, #00b89a 100%);
+  color: #041421;
+  border-color: #6df2de;
+  box-shadow: 0 12px 30px -10px rgba(0, 212, 178, 0.45);
 }
-
-:root[data-theme="cosmos"] .store-badge,
-
-:root[data-theme="cosmos"] .console,
-
-:root[data-theme="cosmos"] .film-frame,
-
-:root[data-theme="cosmos"] .plan.is-featured,
-
-:root[data-theme="cosmos"] .stat {
-
-  border-color: rgba(240, 196, 90, 0.48);
-
-  box-shadow: 0 26px 65px -26px rgba(0, 0, 0, 0.9), 0 0 36px rgba(240, 196, 90, 0.16);
-
+:root[data-theme="sapphire"] .store-badge,
+:root[data-theme="sapphire"] .console,
+:root[data-theme="sapphire"] .film-frame,
+:root[data-theme="sapphire"] .plan.is-featured,
+:root[data-theme="sapphire"] .stat {
+  border-color: rgba(0, 212, 178, 0.48);
+  box-shadow: 0 26px 65px -26px rgba(0, 0, 0, 0.9), 0 0 36px rgba(0, 212, 178, 0.16);
 }
-
-:root[data-theme="cosmos"] .brand-mark rect {
-
-  fill: #0c2342;
-
-  stroke: #f0c45a;
-
+:root[data-theme="sapphire"] .brand-mark rect {
+  fill: #0a2540;
+  stroke: #00d4b2;
   stroke-width: 2.5px;
-
+}
+:root[data-theme="sapphire"] .brand-mark g path:nth-child(2),
+:root[data-theme="sapphire"] .brand-mark g path:nth-child(3) {
+  stroke: #00d4b2;
 }
 
-:root[data-theme="cosmos"] .brand-mark g path:nth-child(2),
-
-:root[data-theme="cosmos"] .brand-mark g path:nth-child(3) {
-
-  stroke: #f0c45a;
-
-}
-
-
-
-/* High contrast: white on black with a yellow accent, about 21:1 for body text. */
-
-:root[data-theme="contrast"] {
-
-  --bg: #000; --bg-raised: #0b0b0b; --bg-sunk: #000; --fg: #fff; --fg-2: #fff; --muted: #d6d6d6;
-
-  --line: #8a8a8a; --line-strong: #fff; --link: #ffe14d;
-
-  --forge: #000; --forge-2: #ffe14d; --forge-fg: #fff; --forge-muted: #e0e0e0; --forge-line: #8a8a8a;
-
-  --lime: #ffe14d; --lime-ink: #000; --amber: #ffb347; --amber-bg: #2a1a00; --ok: #7dff9a; --ok-bg: #002a10;
-
-  --console-bg: #000; --console-raised: #1a1a1a; --console-fg: #fff; --console-muted: #d6d6d6; --console-line: #6a6a6a;
-
-  --console-warn: #ffb347; --console-ok: #7dff9a; --console-info: #8fd3ff;
-
-  --focus: #ffe14d; --shadow: 0 0 0 1px #8a8a8a;
-
+/* Emerald Prestige (#2 of 7 Built-in HD Theme Presets): Deep forest emerald (#124E3F) with vibrant lime (#A3E635) accent */
+:root[data-theme="emerald"] {
+  --bg: #08241d;
+  --bg-raised: #124e3f;
+  --bg-sunk: #051712;
+  --fg: #f2f8ee;
+  --fg-2: #cde0d4;
+  --muted: #92b2a2;
+  --line: rgba(163, 230, 53, 0.24);
+  --line-strong: rgba(163, 230, 53, 0.52);
+  --link: #a3e635;
+  --forge: #124e3f;
+  --forge-2: #a3e635;
+  --forge-fg: #f2f8ee;
+  --forge-muted: #bcd4c6;
+  --forge-line: rgba(163, 230, 53, 0.34);
+  --lime: #a3e635;
+  --lime-ink: #0a291e;
+  --amber: #fbbf24;
+  --amber-bg: #2b2108;
+  --ok: #a3e635;
+  --ok-bg: rgba(163, 230, 53, 0.16);
+  --console-bg: #071f19;
+  --console-raised: #0e3b30;
+  --console-fg: #f2f8ee;
+  --console-muted: #9abaa9;
+  --console-line: rgba(163, 230, 53, 0.28);
+  --console-warn: #fbbf24;
+  --console-ok: #a3e635;
+  --console-info: #67e8f9;
+  --focus: #a3e635;
+  --shadow: 0 1px 0 rgba(163, 230, 53, 0.18), 0 30px 75px -30px rgba(0, 0, 0, .92), 0 0 38px rgba(163, 230, 53, 0.14);
   color-scheme: dark;
-
 }
-
-/* Warm reading: soft paper and brown ink, with less blue light and glare. */
-
-:root[data-theme="warm"] {
-
-  --bg: #f4ecdc; --bg-raised: #faf5ea; --bg-sunk: #ebe0c9; --fg: #2e2416; --fg-2: #4a3c28; --muted: #6b5a42;
-
-  --line: #d9cbb0; --line-strong: #bfae8d; --link: #7a4a12;
-
-  --forge: #3a2e1c; --forge-2: #6a4a1c; --forge-fg: #f7efdf; --forge-muted: #d8c8a8; --forge-line: #5a4a30;
-
-  --lime: #f0c96a; --lime-ink: #2e2008; --amber: #8f4a10; --amber-bg: #f3dcbc; --ok: #4a6a1c; --ok-bg: #e4e6c4;
-
-  --console-bg: #2a2114; --console-raised: #352a1a; --console-fg: #f3e8d2; --console-muted: #c4b294; --console-line: #4a3c26;
-
-  --console-warn: #f5b56a; --console-ok: #c8d88a; --console-info: #e6c79a;
-
-  --focus: #7a4a12; --shadow: 0 1px 0 rgba(46, 36, 22, .05), 0 24px 60px -28px rgba(46, 36, 22, .35);
-
-  color-scheme: light;
-
+:root[data-theme="emerald"] body {
+  background: radial-gradient(1600px 1000px at 30% 12%, #17624f 0%, #124e3f 45%, #08241d 100%) fixed;
+}
+:root[data-theme="emerald"] .btn-primary {
+  background: linear-gradient(135deg, #bef264 0%, #84cc16 100%);
+  color: #0a291e;
+  border-color: #d9f99d;
+  box-shadow: 0 12px 30px -10px rgba(163, 230, 53, 0.45);
+}
+:root[data-theme="emerald"] .store-badge,
+:root[data-theme="emerald"] .console,
+:root[data-theme="emerald"] .film-frame,
+:root[data-theme="emerald"] .plan.is-featured,
+:root[data-theme="emerald"] .stat {
+  border-color: rgba(163, 230, 53, 0.48);
+  box-shadow: 0 26px 65px -26px rgba(0, 0, 0, 0.9), 0 0 36px rgba(163, 230, 53, 0.16);
+}
+:root[data-theme="emerald"] .brand-mark rect {
+  fill: #124e3f;
+  stroke: #a3e635;
+  stroke-width: 2.5px;
+}
+:root[data-theme="emerald"] .brand-mark g path:nth-child(2),
+:root[data-theme="emerald"] .brand-mark g path:nth-child(3) {
+  stroke: #a3e635;
 }
 
 /* Colour-blind safe: blue and orange from the Okabe-Ito palette instead of green and lime. */
@@ -751,7 +697,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 .theme-toggle .i-sun, .theme-toggle .i-moon, .theme-toggle .i-eye { display: none; }
 
-.theme-toggle[data-mode="contrast"] .i-eye, .theme-toggle[data-mode="warm"] .i-eye, .theme-toggle[data-mode="cvd"] .i-eye { display: block; }
+.theme-toggle[data-mode="cvd"] .i-eye { display: block; }
 
 .theme-wrap { position: relative; }
 
@@ -789,19 +735,15 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 .sw-light { background: #eef1e8; } .sw-dark { background: #0d1813; }
 
-.sw-contrast { background: linear-gradient(135deg, #000 55%, #ffe14d 55%); }
-
-.sw-warm { background: linear-gradient(135deg, #f4ecdc 55%, #7a4a12 55%); }
-
+.sw-sapphire { background: linear-gradient(135deg, #0a2540 50%, #00d4b2 50%); }
+.sw-emerald { background: linear-gradient(135deg, #124e3f 50%, #a3e635 50%); }
 .sw-cvd { background: linear-gradient(135deg, #0060a8 50%, #ffb000 50%); }
-
-.sw-cosmos { background: linear-gradient(135deg, #0c2342 50%, #f0c45a 50%); }
 
 .theme-toggle[data-mode="light"] .i-sun,
 
 .theme-toggle[data-mode="dark"] .i-moon,
 
-.theme-toggle[data-mode="cosmos"] .i-moon { display: block; }
+.theme-toggle[data-mode="sapphire"] .i-moon, .theme-toggle[data-mode="emerald"] .i-moon { display: block; }
 
 /* A slow conic sweep so each swatch reads as a live preview of its theme, not a flat dot.
    Off for anyone who asked for less motion, including in the three vision-friendly themes. */
@@ -936,7 +878,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 .hero-title span:last-child { color: var(--forge-2); }
 
-:root[data-theme="dark"] .hero-title span:last-child, :root[data-theme="contrast"] .hero-title span:last-child, :root[data-theme="cosmos"] .hero-title span:last-child { color: var(--lime); }
+:root[data-theme="dark"] .hero-title span:last-child, :root[data-theme="sapphire"] .hero-title span:last-child, :root[data-theme="emerald"] .hero-title span:last-child { color: var(--lime); }
 
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .hero-title span:last-child { color: var(--lime); } }
 
@@ -1222,7 +1164,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .strip-list svg { color: var(--lime); } }
 
-:root[data-theme="dark"] .strip-list svg, :root[data-theme="contrast"] .strip-list svg, :root[data-theme="cosmos"] .strip-list svg { color: var(--lime); }
+:root[data-theme="dark"] .strip-list svg, :root[data-theme="sapphire"] .strip-list svg, :root[data-theme="emerald"] .strip-list svg { color: var(--lime); }
 
 @media (max-width: 1023px) {
 
@@ -1456,7 +1398,7 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .feature svg { color: var(--lime); } }
 
-:root[data-theme="dark"] .feature svg, :root[data-theme="contrast"] .feature svg, :root[data-theme="cosmos"] .feature svg { color: var(--lime); }
+:root[data-theme="dark"] .feature svg, :root[data-theme="sapphire"] .feature svg, :root[data-theme="emerald"] .feature svg { color: var(--lime); }
 
 .feature h3 { font-size: var(--t-md); font-weight: 700; }
 
@@ -2310,8 +2252,8 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .social-links svg { width: 20px; height: 20px; }
 
 /* Google Play Store official emerald CTA and status badge (CSP-compliant, no inline style) */
-.btn-play, :root[data-theme="cosmos"] .btn-play { background: #01875f; border-color: #01875f; color: #ffffff; }
-.btn-play:hover, :root[data-theme="cosmos"] .btn-play:hover { background: #016f4e; border-color: #016f4e; color: #ffffff; filter: brightness(1.04); }
+.btn-play, :root[data-theme="sapphire"] .btn-play, :root[data-theme="emerald"] .btn-play { background: #01875f; border-color: #01875f; color: #ffffff; }
+.btn-play:hover, :root[data-theme="sapphire"] .btn-play:hover, :root[data-theme="emerald"] .btn-play:hover { background: #016f4e; border-color: #016f4e; color: #ffffff; filter: brightness(1.04); }
 .status.play { background: #01875f; color: #ffffff; border-color: #01875f; }
 .shot-phone { max-width: 360px; height: auto; border-radius: 12px; border: 1px solid var(--line); }
 

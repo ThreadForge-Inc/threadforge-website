@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="sapphire">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ThreadForge Live Demo</title>
+<title>ThreadForge · Business &amp; Intelligence Workspace · Live Demo</title>
 <meta name="description" content="Sign up with any email, work or personal, then try the ThreadForge suite in your browser, including the TradeMath calculators.">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'; frame-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -54,6 +54,16 @@
         </select>
       </label>
       <button class="demo-top-btn" type="button" id="demo-missions-toggle" aria-controls="demo-missions" aria-expanded="false"><span class="mlabel">Missions </span><span class="count" id="demo-mission-count">0/10</span></button>
+    </div>
+    <div class="demo-view-controls">
+      <select id="demo-theme-select" class="demo-theme-select" aria-label="Colour theme">
+        <option value="sapphire">Enterprise Sapphire</option>
+        <option value="emerald">Emerald Prestige</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="cvd">Colour-blind safe</option>
+      </select>
+      <button class="demo-top-btn" type="button" id="demo-fullscreen-toggle" aria-label="Enter full screen" title="Full screen">⛶</button>
     </div>
   </div>
 </header>
@@ -119,6 +129,7 @@
   </div>
 </main>
 
+<footer class="demo-footer">ThreadForge · Business &amp; Intelligence Workspace · Powered by © 2026 Threadforge Inc.</footer>
 <div class="demo-toast" id="demo-toast" role="status" aria-live="polite"></div>
 </body>
 </html>
