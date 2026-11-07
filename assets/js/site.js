@@ -539,15 +539,69 @@
 
 
 
+
+  // Product page tutorial video: immediately fetch and play the latest rendered tutorial upon landing.
+  document.querySelectorAll(".product-tutorial-video").forEach(function (video) {
+    var unmuteBtn = document.querySelector("[data-tutorial-unmute]");
+    var restartBtn = document.querySelector("[data-tutorial-restart]");
+    var syncSoundButton = function () {
+      if (!unmuteBtn) return;
+      unmuteBtn.textContent = video.muted ? "Unmute tutorial sound" : "Mute tutorial sound";
+      unmuteBtn.setAttribute("aria-pressed", String(!video.muted));
+    };
+    var startTutorial = function () {
+      if (video.preload !== "auto") video.preload = "auto";
+      var p = video.play();
+      if (p && p.catch) {
+        p.catch(function () {
+          video.muted = true;
+          syncSoundButton();
+          var p2 = video.play();
+          if (p2 && p2.catch) p2.catch(function () {});
+        });
+      }
+      syncSoundButton();
+    };
+    startTutorial();
+    video.addEventListener("loadeddata", function () {
+      if (video.paused) startTutorial();
+    }, { once: true });
+    if (unmuteBtn) {
+      unmuteBtn.addEventListener("click", function () {
+        video.muted = !video.muted;
+        if (!video.muted && video.paused) {
+          var p = video.play();
+          if (p && p.catch) p.catch(function () {});
+        }
+        syncSoundButton();
+      });
+    }
+    if (restartBtn) {
+      restartBtn.addEventListener("click", function () {
+        video.currentTime = 0;
+        video.muted = false;
+        var p = video.play();
+        if (p && p.catch) {
+          p.catch(function () {
+            video.muted = true;
+            video.play();
+          });
+        }
+        syncSoundButton();
+      });
+    }
+    video.addEventListener("volumechange", syncSoundButton);
+  });
+
   // Custom tier calculator: $19 plus $15 per desk, never more than the cheapest full tier with those
   // desks (the same rule as licence.price in the app). Prices come from the dialog's data attributes.
   var calc = document.getElementById("calc-dialog");
   if (calc && typeof calc.showModal === "function") {
-    var tiers = ["essentials", "professional", "industrial"];
+    var tiers = ["essentials", "professional", "industrial", "industrial_park"];
     // Scoped as tierNames, not names: the colour-theme menu above also declares a top-level "names" in
     // this same IIFE, and `var` is function-scoped, so reusing that identifier here silently overwrote
     // the theme map once this block ran, breaking every theme switch except the one chosen on load.
-    var tierNames = { essentials: "Essentials", professional: "Professional", industrial: "Industrial" };
+    var tierNames = { essentials: "Essentials", professional: "Professional", industrial: "Industrial", industrial_park: "Industrial Park" };
     var boxes = calc.querySelectorAll("input[type=checkbox]");
     var priceOut = document.getElementById("calc-price");
     var noteOut = document.getElementById("calc-note");
