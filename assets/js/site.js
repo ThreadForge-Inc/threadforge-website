@@ -832,7 +832,26 @@
 
   }
 
+/* Industry & Operational Compatibility Filter */
+  var filterButtons = Array.prototype.slice.call(document.querySelectorAll("[data-industry-filter]"));
+  var industryCards = Array.prototype.slice.call(document.querySelectorAll(".industry-card"));
+
+  if (filterButtons.length && industryCards.length) {
+    filterButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var cat = btn.getAttribute("data-industry-filter");
+        filterButtons.forEach(function (b) {
+          var match = b === btn;
+          b.classList.toggle("is-active", match);
+          b.setAttribute("aria-pressed", String(match));
+        });
+        industryCards.forEach(function (card) {
+          var cardCat = card.getAttribute("data-industry-cat");
+          card.hidden = (cat !== "all" && cardCat !== cat);
+        });
+      });
+    });
+  }
 
 
 })();
-
