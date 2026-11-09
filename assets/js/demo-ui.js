@@ -6,13 +6,13 @@
   if (!E) return;
 
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var DEMO_THEMES = ["sapphire", "emerald", "light", "dark", "cvd"];
+  var DEMO_THEMES = ["light", "dark", "cvd", "emerald"];
   function savedDemoTheme() {
-    try { var t = window.localStorage.getItem("tf-theme"); return DEMO_THEMES.indexOf(t) >= 0 ? t : "sapphire"; }
-    catch (e) { return "sapphire"; }
+    try { var t = window.localStorage.getItem("tf-theme"); return DEMO_THEMES.indexOf(t) >= 0 ? t : "emerald"; }
+    catch (e) { return "emerald"; }
   }
   function applyDemoTheme(mode) {
-    if (DEMO_THEMES.indexOf(mode) < 0) mode = "sapphire";
+    if (DEMO_THEMES.indexOf(mode) < 0) mode = "emerald";
     document.documentElement.setAttribute("data-theme", mode);
     var sel = document.getElementById("demo-theme-select");
     if (sel) sel.value = mode;
