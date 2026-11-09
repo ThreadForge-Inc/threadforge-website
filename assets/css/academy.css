@@ -1,5 +1,5 @@
 /* ThreadForge PWI Practice Lab & Chronological Research Academy
-   Inherits Royal Navy & Imperial Gold (cosmos #1 of 7) and all 7 accessible themes from site.css */
+   Inherits all 4 themes (Light, Dark, Colour-blind safe, Emerald Prestige) from site.css */
 
 .academy-hero {
   padding: clamp(3rem, 2.2rem + 3.5vw, 5.25rem) 0 clamp(2.5rem, 1.8rem + 2.5vw, 4rem);

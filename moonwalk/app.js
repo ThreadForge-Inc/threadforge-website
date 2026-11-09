@@ -53,13 +53,13 @@
   const sidebar = document.querySelector("#sidebar");
   const scrim = document.querySelector("#scrim");
   const toastRegion = document.querySelector("#toast-region");
-  const MW_THEMES = ["sapphire", "emerald", "royal-navy", "modern-violet", "obsidian-gold", "cyber-copper", "crimson-signal", "light", "dark", "cvd"];
+  const MW_THEMES = ["light", "dark", "cvd", "emerald"];
   function savedMwTheme() {
-    try { const t = localStorage.getItem("tf-theme"); return MW_THEMES.includes(t) ? t : "sapphire"; }
-    catch { return "sapphire"; }
+    try { const t = localStorage.getItem("tf-theme"); return MW_THEMES.includes(t) ? t : "emerald"; }
+    catch { return "emerald"; }
   }
   function applyMwTheme(mode) {
-    if (!MW_THEMES.includes(mode)) mode = "sapphire";
+    if (!MW_THEMES.includes(mode)) mode = "emerald";
     document.documentElement.setAttribute("data-theme", mode);
     const sel = document.querySelector("#mw-theme-select");
     if (sel) sel.value = mode;

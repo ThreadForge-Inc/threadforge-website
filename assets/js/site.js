@@ -68,16 +68,10 @@
   var themeButton = document.getElementById("theme-toggle");
 
   var THEMES = [
-    ["sapphire", "Enterprise Sapphire", "Deep sapphire (#0A2540) & electric teal (#00D4B2) HD preset"],
-    ["emerald", "Emerald Prestige", "Deep forest emerald (#124E3F) & vibrant lime (#A3E635) HD preset"],
-    ["royal-navy", "Royal Navy & Gold", "Deep navy (#050E1F) & warm gold (#F0C14B) HD preset"],
-    ["modern-violet", "Modern Violet", "Deep indigo (#0D0820) & electric violet (#B794FF) HD preset"],
-    ["obsidian-gold", "Obsidian Gold", "Near-black obsidian (#070707) & champagne gold (#F5D061) HD preset"],
-    ["cyber-copper", "Cyber Copper", "Dark graphite (#160F0A) & copper (#FF8A50) HD preset"],
-    ["crimson-signal", "Crimson Signal", "Deep garnet (#1C070B) & coral-crimson (#FF8787) HD preset"],
     ["light", "Light", "The standard ThreadForge colours"],
     ["dark", "Dark", "Easier on the eyes at night"],
-    ["cvd", "Colour-blind safe", "Blue and orange instead of green"]
+    ["cvd", "Colour-blind safe", "Midnight black (#030407), cobalt blue (#2355D6) & buttercream (#F3E5AB) HD preset"],
+    ["emerald", "Emerald Prestige", "Deep forest emerald (#124E3F) & vibrant lime (#A3E635) HD preset"]
   ];
 
   var names = {};
@@ -88,7 +82,7 @@
 
   function applyTheme(mode) {
 
-    if (!names[mode]) mode = "sapphire";
+    if (!names[mode]) mode = "emerald";
 
     root.setAttribute("data-theme", mode);
 
@@ -204,7 +198,7 @@
 
   }
 
-  applyTheme(store("tf-theme") || "sapphire");
+  applyTheme(store("tf-theme") || "emerald");
 
   // Full screen toggle button in header-actions across all website pages
   if (themeButton && document.documentElement.requestFullscreen && document.fullscreenEnabled !== false) {
