@@ -801,6 +801,38 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 .hero { position: relative; overflow: hidden; padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem) clamp(3.5rem, 2rem + 4vw, 6rem); }
 
+/* Hero backdrop: an atmospheric field of converging threads and a soft forge-glow, built from the
+   same motif as the brand mark (lines drawn together to a point). Pure SVG/CSS, no raster image, so
+   it re-colours automatically with every theme and never needs a second asset for dark mode. */
+.hero-backdrop {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+  transform: translate3d(calc(var(--hero-px, 0) * 1px), calc(var(--hero-py, 0) * 1px), 0);
+  transition: transform .5s var(--ease);
+}
+.hero-weave { width: 100%; height: 100%; display: block; }
+.hw-glow-a { stop-color: var(--lime); stop-opacity: .3; }
+.hw-glow-b { stop-color: var(--lime); stop-opacity: .07; }
+.hw-glow-c { stop-color: var(--lime); stop-opacity: 0; }
+.hw-glow-rect { transform-origin: 80% 22%; }
+.hw-line { fill: none; stroke: var(--line-strong); stroke-width: 1.4; stroke-linecap: round; opacity: .55; }
+.hw-lines .hw-line:nth-child(1) { opacity: .3; stroke-width: 1.1; }
+.hw-lines .hw-line:nth-child(2) { opacity: .38; }
+.hw-lines .hw-line:nth-child(3) { stroke: var(--forge-2); opacity: .6; stroke-width: 1.8; }
+.hw-lines .hw-line:nth-child(4) { opacity: .42; }
+.hw-lines .hw-line:nth-child(5) { opacity: .32; stroke-width: 1.2; }
+.hw-lines .hw-line:nth-child(6) { opacity: .24; stroke-width: 1; }
+.hw-spark { fill: var(--lime); opacity: .85; }
+.hw-spark-2 { opacity: .55; }
+@media (prefers-reduced-motion: no-preference) {
+  .hw-glow-rect { animation: hero-glow-drift 16s ease-in-out infinite alternate; }
+  .hw-spark { animation: hero-spark-pulse 3.6s ease-in-out infinite; }
+  .hw-spark-2 { animation-delay: 1.1s; animation-duration: 4.4s; }
+}
+@keyframes hero-glow-drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(-16px, 10px) scale(1.06); } }
+@keyframes hero-spark-pulse { 0%, 100% { opacity: .5; r: 2.2; } 50% { opacity: 1; r: 3.6; } }
+:root[data-theme="dark"] .hw-line, :root[data-theme="emerald"] .hw-line, :root[data-theme="cvd"] .hw-line { stroke: var(--lime); }
+:root[data-theme="dark"] .hw-lines .hw-line:nth-child(3), :root[data-theme="emerald"] .hw-lines .hw-line:nth-child(3), :root[data-theme="cvd"] .hw-lines .hw-line:nth-child(3) { stroke: var(--lime); opacity: .75; }
+
 .hero-threads {
 
   position: absolute; left: 0; right: 0; bottom: 14px; width: 100%; height: 72px;

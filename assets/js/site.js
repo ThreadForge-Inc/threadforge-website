@@ -853,6 +853,27 @@
   }
 
 
+/* Hero backdrop parallax: the converging threads and glow drift a few pixels toward the pointer. */
+  var hero = document.querySelector(".hero");
+  if (hero && !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)) {
+    var heroRaf = null;
+    hero.addEventListener("pointermove", function (event) {
+      if (heroRaf) return;
+      heroRaf = window.requestAnimationFrame(function () {
+        heroRaf = null;
+        var rect = hero.getBoundingClientRect();
+        var px = ((event.clientX - rect.left) / Math.max(1, rect.width) - 0.5) * 2;
+        var py = ((event.clientY - rect.top) / Math.max(1, rect.height) - 0.5) * 2;
+        hero.style.setProperty("--hero-px", (px * 10).toFixed(2));
+        hero.style.setProperty("--hero-py", (py * 8).toFixed(2));
+      });
+    });
+    hero.addEventListener("pointerleave", function () {
+      hero.style.setProperty("--hero-px", 0);
+      hero.style.setProperty("--hero-py", 0);
+    });
+  }
+
 /* Product tour: a 3D slide deck of the eight desks. Swipe, click, or use the arrow keys. */
   var deck = document.getElementById("product-deck");
   if (deck) {
