@@ -6,7 +6,7 @@
   if (!E) return;
 
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var DEMO_THEMES = ["sapphire", "emerald", "light", "dark", "cvd"];
+  var DEMO_THEMES = ["sapphire", "emerald", "royal-navy", "modern-violet", "obsidian-gold", "cyber-copper", "crimson-signal", "light", "dark", "cvd"];
   function savedDemoTheme() {
     try { var t = window.localStorage.getItem("tf-theme"); return DEMO_THEMES.indexOf(t) >= 0 ? t : "sapphire"; }
     catch (e) { return "sapphire"; }

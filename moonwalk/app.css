@@ -494,6 +494,46 @@ td strong { color: #f7f3e8; font-weight: 650; }
   --line: rgba(214, 238, 142, 0.24); --panel: #12201a; --panel-2: #0a1410;
   --green: #d6ee8e; --green-ink: #16300f; --green-dark: #0f1b16; --green-soft: rgba(214, 238, 142, 0.15);
 }
+:root[data-theme="royal-navy"], :root[data-theme="royal-navy"] body {
+  color-scheme: dark;
+  background: radial-gradient(1500px 950px at 32% 15%, #0b1f42 0%, #071631 48%, #050e1f 100%) fixed;
+  color: #f6f8fc;
+  --ink: #f6f8fc; --ink-2: #d9e1f0; --muted: #a7b4cf;
+  --line: rgba(240, 193, 75, 0.28); --panel: #0b1f42; --panel-2: #071631;
+  --green: #f0c14b; --green-ink: #1c1203; --green-dark: #071631; --green-soft: rgba(240, 193, 75, 0.16);
+}
+:root[data-theme="modern-violet"], :root[data-theme="modern-violet"] body {
+  color-scheme: dark;
+  background: radial-gradient(1500px 950px at 32% 15%, #1c1240 0%, #140b30 48%, #0d0820 100%) fixed;
+  color: #f6f3fd;
+  --ink: #f6f3fd; --ink-2: #ddd4f5; --muted: #b3a4d9;
+  --line: rgba(183, 148, 255, 0.28); --panel: #1c1240; --panel-2: #140b30;
+  --green: #b794ff; --green-ink: #1a1033; --green-dark: #140b30; --green-soft: rgba(183, 148, 255, 0.16);
+}
+:root[data-theme="obsidian-gold"], :root[data-theme="obsidian-gold"] body {
+  color-scheme: dark;
+  background: radial-gradient(1500px 950px at 32% 15%, #141414 0%, #0c0c0c 48%, #070707 100%) fixed;
+  color: #f8f6f0;
+  --ink: #f8f6f0; --ink-2: #ddd6c4; --muted: #a89f8a;
+  --line: rgba(245, 208, 97, 0.28); --panel: #141414; --panel-2: #0c0c0c;
+  --green: #f5d061; --green-ink: #1f1708; --green-dark: #0c0c0c; --green-soft: rgba(245, 208, 97, 0.16);
+}
+:root[data-theme="cyber-copper"], :root[data-theme="cyber-copper"] body {
+  color-scheme: dark;
+  background: radial-gradient(1500px 950px at 32% 15%, #271a11 0%, #1c130b 48%, #160f0a 100%) fixed;
+  color: #fbf4ee;
+  --ink: #fbf4ee; --ink-2: #e7d6c6; --muted: #bfa791;
+  --line: rgba(255, 138, 80, 0.28); --panel: #271a11; --panel-2: #1c130b;
+  --green: #ff8a50; --green-ink: #200c02; --green-dark: #1c130b; --green-soft: rgba(255, 138, 80, 0.16);
+}
+:root[data-theme="crimson-signal"], :root[data-theme="crimson-signal"] body {
+  color-scheme: dark;
+  background: radial-gradient(1500px 950px at 32% 15%, #331019 0%, #260a10 48%, #1c070b 100%) fixed;
+  color: #fbeef0;
+  --ink: #fbeef0; --ink-2: #e9c9ce; --muted: #c79aa1;
+  --line: rgba(255, 107, 107, 0.28); --panel: #331019; --panel-2: #260a10;
+  --green: #ff8787; --green-ink: #210608; --green-dark: #260a10; --green-soft: rgba(255, 107, 107, 0.16);
+}
 :root[data-theme="light"], :root[data-theme="light"] body {
   color-scheme: light;
   background: #f3f4ee;

@@ -53,7 +53,7 @@
   const sidebar = document.querySelector("#sidebar");
   const scrim = document.querySelector("#scrim");
   const toastRegion = document.querySelector("#toast-region");
-  const MW_THEMES = ["sapphire", "emerald", "light", "dark", "cvd"];
+  const MW_THEMES = ["sapphire", "emerald", "royal-navy", "modern-violet", "obsidian-gold", "cyber-copper", "crimson-signal", "light", "dark", "cvd"];
   function savedMwTheme() {
     try { const t = localStorage.getItem("tf-theme"); return MW_THEMES.includes(t) ? t : "sapphire"; }
     catch { return "sapphire"; }

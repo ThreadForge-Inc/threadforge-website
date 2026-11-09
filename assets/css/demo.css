@@ -322,22 +322,47 @@
 .demo-theme-select option { color: #0f1d2e; background: #ffffff; }
 .demo-footer { padding: 18px 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--t-xs); text-align: center; }
 
-/* WCAG Readability & Contrast Safeguards Across All 5 Themes */
+/* WCAG Readability & Contrast Safeguards Across All 10 Themes */
 :root[data-theme="sapphire"] .badge.bad,
 :root[data-theme="emerald"] .badge.bad,
+:root[data-theme="royal-navy"] .badge.bad,
+:root[data-theme="modern-violet"] .badge.bad,
+:root[data-theme="obsidian-gold"] .badge.bad,
+:root[data-theme="cyber-copper"] .badge.bad,
+:root[data-theme="crimson-signal"] .badge.bad,
 :root[data-theme="sapphire"] .recommend.hold,
-:root[data-theme="emerald"] .recommend.hold {
+:root[data-theme="emerald"] .recommend.hold,
+:root[data-theme="royal-navy"] .recommend.hold,
+:root[data-theme="modern-violet"] .recommend.hold,
+:root[data-theme="obsidian-gold"] .recommend.hold,
+:root[data-theme="cyber-copper"] .recommend.hold,
+:root[data-theme="crimson-signal"] .recommend.hold {
   background: #3b1a14; color: #fca5a5;
 }
 :root[data-theme="dark"] .demo-progress span,
 :root[data-theme="sapphire"] .demo-progress span,
 :root[data-theme="emerald"] .demo-progress span,
+:root[data-theme="royal-navy"] .demo-progress span,
+:root[data-theme="modern-violet"] .demo-progress span,
+:root[data-theme="obsidian-gold"] .demo-progress span,
+:root[data-theme="cyber-copper"] .demo-progress span,
+:root[data-theme="crimson-signal"] .demo-progress span,
 :root[data-theme="dark"] .bar .in,
 :root[data-theme="sapphire"] .bar .in,
 :root[data-theme="emerald"] .bar .in,
+:root[data-theme="royal-navy"] .bar .in,
+:root[data-theme="modern-violet"] .bar .in,
+:root[data-theme="obsidian-gold"] .bar .in,
+:root[data-theme="cyber-copper"] .bar .in,
+:root[data-theme="crimson-signal"] .bar .in,
 :root[data-theme="dark"] .legend .in::before,
 :root[data-theme="sapphire"] .legend .in::before,
-:root[data-theme="emerald"] .legend .in::before {
+:root[data-theme="emerald"] .legend .in::before,
+:root[data-theme="royal-navy"] .legend .in::before,
+:root[data-theme="modern-violet"] .legend .in::before,
+:root[data-theme="obsidian-gold"] .legend .in::before,
+:root[data-theme="cyber-copper"] .legend .in::before,
+:root[data-theme="crimson-signal"] .legend .in::before {
   background: var(--lime);
 }
 :root[data-theme="dark"] .demo-facts li::before {
@@ -348,6 +373,21 @@
 }
 :root[data-theme="emerald"] .demo-facts li::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23b4f04a' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="royal-navy"] .demo-facts li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23f0c14b' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="modern-violet"] .demo-facts li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23b794ff' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="obsidian-gold"] .demo-facts li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23f5d061' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="cyber-copper"] .demo-facts li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23ff8a50' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="crimson-signal"] .demo-facts li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23ff8787' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 :root[data-theme="cvd"] .demo-facts li::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23005a9c' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");

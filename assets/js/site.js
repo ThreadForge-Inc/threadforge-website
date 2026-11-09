@@ -70,6 +70,11 @@
   var THEMES = [
     ["sapphire", "Enterprise Sapphire", "Deep sapphire (#0A2540) & electric teal (#00D4B2) HD preset"],
     ["emerald", "Emerald Prestige", "Deep forest emerald (#124E3F) & vibrant lime (#A3E635) HD preset"],
+    ["royal-navy", "Royal Navy & Gold", "Deep navy (#050E1F) & warm gold (#F0C14B) HD preset"],
+    ["modern-violet", "Modern Violet", "Deep indigo (#0D0820) & electric violet (#B794FF) HD preset"],
+    ["obsidian-gold", "Obsidian Gold", "Near-black obsidian (#070707) & champagne gold (#F5D061) HD preset"],
+    ["cyber-copper", "Cyber Copper", "Dark graphite (#160F0A) & copper (#FF8A50) HD preset"],
+    ["crimson-signal", "Crimson Signal", "Deep garnet (#1C070B) & coral-crimson (#FF8787) HD preset"],
     ["light", "Light", "The standard ThreadForge colours"],
     ["dark", "Dark", "Easier on the eyes at night"],
     ["cvd", "Colour-blind safe", "Blue and orange instead of green"]
@@ -853,5 +858,80 @@
     });
   }
 
+
+/* Product tour: a 3D slide deck of the eight desks. Swipe, click, or use the arrow keys. */
+  var deck = document.getElementById("product-deck");
+  if (deck) {
+    var deckStage = deck.querySelector(".deck-stage");
+    var deckSlides = Array.prototype.slice.call(deck.querySelectorAll(".deck-slide"));
+    var deckDots = Array.prototype.slice.call(deck.querySelectorAll(".deck-dot"));
+    var deckLive = document.getElementById("deck-live");
+    var deckPrev = deck.querySelector(".deck-prev");
+    var deckNext = deck.querySelector(".deck-next");
+    var total = deckSlides.length;
+    var current = 0;
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var timer = null;
+
+    function renderDeck() {
+      deckSlides.forEach(function (slide, i) {
+        var diff = (i - current + total) % total;
+        slide.classList.remove("is-active", "is-next", "is-prev", "is-next2", "is-prev2", "is-hidden");
+        var state = "is-hidden";
+        if (diff === 0) state = "is-active";
+        else if (diff === 1) state = "is-next";
+        else if (diff === total - 1) state = "is-prev";
+        else if (diff === 2) state = "is-next2";
+        else if (diff === total - 2) state = "is-prev2";
+        slide.classList.add(state);
+        slide.setAttribute("aria-hidden", diff === 0 ? "false" : "true");
+        var link = slide.querySelector(".deck-link");
+        if (link) link.tabIndex = diff === 0 ? 0 : -1;
+      });
+      deckDots.forEach(function (dot, i) { dot.setAttribute("aria-selected", String(i === current)); });
+      if (deckLive) deckLive.textContent = deckSlides[current].getAttribute("aria-label") + ": " + deckSlides[current].querySelector("h3").textContent;
+    }
+
+    function goTo(index) {
+      current = ((index % total) + total) % total;
+      renderDeck();
+    }
+
+    function restartAutoplay() {
+      if (timer) window.clearInterval(timer);
+      if (reduceMotion) return;
+      timer = window.setInterval(function () { goTo(current + 1); }, 6500);
+    }
+
+    if (deckPrev) deckPrev.addEventListener("click", function () { goTo(current - 1); restartAutoplay(); });
+    if (deckNext) deckNext.addEventListener("click", function () { goTo(current + 1); restartAutoplay(); });
+    deckDots.forEach(function (dot, i) { dot.addEventListener("click", function () { goTo(i); restartAutoplay(); }); });
+
+    deck.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowRight") { event.preventDefault(); goTo(current + 1); restartAutoplay(); }
+      else if (event.key === "ArrowLeft") { event.preventDefault(); goTo(current - 1); restartAutoplay(); }
+    });
+
+    deck.addEventListener("pointerenter", function () { if (timer) window.clearInterval(timer); });
+    deck.addEventListener("pointerleave", restartAutoplay);
+    deck.addEventListener("focusin", function () { if (timer) window.clearInterval(timer); });
+    deck.addEventListener("focusout", restartAutoplay);
+
+    if (deckStage) {
+      var touchStartX = null;
+      deckStage.addEventListener("pointerdown", function (event) { touchStartX = event.clientX; });
+      deckStage.addEventListener("pointerup", function (event) {
+        if (touchStartX === null) return;
+        var delta = event.clientX - touchStartX;
+        touchStartX = null;
+        if (Math.abs(delta) < 40) return;
+        if (delta < 0) goTo(current + 1); else goTo(current - 1);
+        restartAutoplay();
+      });
+    }
+
+    renderDeck();
+    restartAutoplay();
+  }
 
 })();
