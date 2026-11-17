@@ -2058,9 +2058,22 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 
 .price-status { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 0 0 24px; font-size: var(--t-sm); color: var(--fg-2); max-width: 860px; }
 
-.plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; perspective: 1800px; }
 
-.plan { display: grid; gap: 12px; grid-template-rows: auto auto auto 1fr auto; padding: 24px 22px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-raised); min-width: 0; }
+.plan { display: grid; gap: 12px; grid-template-rows: auto auto auto 1fr auto; padding: 24px 22px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-raised); min-width: 0; transition: transform .7s var(--ease), opacity .6s var(--ease); }
+
+/* Scroll-triggered 3D entrance: each tier tilts up out of the page as the pricing
+   section comes into view, staggered left to right so the grid still reads as one row. */
+.plans.is-pre-reveal .plan { transform: translate3d(0, 54px, -200px) rotateX(16deg) scale(.92); opacity: 0; transition: none; }
+.plan:nth-child(1) { transition-delay: 0s; }
+.plan:nth-child(2) { transition-delay: .08s; }
+.plan:nth-child(3) { transition-delay: .16s; }
+.plan:nth-child(4) { transition-delay: .24s; }
+.plan:nth-child(5) { transition-delay: .32s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .plans.is-pre-reveal .plan { transform: none; opacity: 1; }
+}
 
 .plan > .btn, .plan-act > .btn { justify-self: start; }
 

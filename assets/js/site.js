@@ -963,4 +963,26 @@
     }
   }
 
+/* Pricing tiers: each plan card tilts up into place as the section scrolls into view. */
+  var plans = document.querySelector(".plans");
+  if (plans) {
+    var plansReduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!plansReduceMotion) {
+      plans.classList.add("is-pre-reveal");
+      if (window.IntersectionObserver) {
+        var plansRevealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              plans.classList.remove("is-pre-reveal");
+              plansRevealObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.2 });
+        plansRevealObserver.observe(plans);
+      } else {
+        plans.classList.remove("is-pre-reveal");
+      }
+    }
+  }
+
 })();
