@@ -465,19 +465,11 @@ td strong { color: #f7f3e8; font-weight: 650; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 
 }
-/* Parallel 5-Theme Adaptation & Fullscreen Controls for Moonwalk Workspace */
+/* Theme Adaptation & Fullscreen Controls for Moonwalk Workspace */
 .mw-theme-select { min-height: 34px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); font-size: 11px; font-weight: 650; }
 .mw-theme-select option { background-color: var(--green-dark); color: var(--ink); }
 .mw-fs-btn { min-height: 34px; width: 34px; padding: 0; font-size: 15px; }
 
-:root[data-theme="sapphire"], :root[data-theme="sapphire"] body {
-  color-scheme: dark;
-  background: radial-gradient(1500px 950px at 32% 15%, #0a2540 0%, #071b30 48%, #051322 100%) fixed;
-  color: #f4f9fd;
-  --ink: #f4f9fd; --ink-2: #d8e6f3; --muted: #a8c2dc;
-  --line: rgba(0, 212, 178, 0.28); --panel: #0a2540; --panel-2: #06182c;
-  --green: #22ead0; --green-ink: #041421; --green-dark: #071b30; --green-soft: rgba(0, 212, 178, 0.16);
-}
 :root[data-theme="emerald"], :root[data-theme="emerald"] body {
   color-scheme: dark;
   background: radial-gradient(1500px 950px at 32% 15%, #0e3a2f 0%, #092820 48%, #061c16 100%) fixed;
@@ -503,12 +495,12 @@ td strong { color: #f7f3e8; font-weight: 650; }
   --green: #173f30; --green-ink: #f3f6ee; --green-dark: #ffffff; --green-soft: #eef6d4;
 }
 :root[data-theme="cvd"], :root[data-theme="cvd"] body {
-  color-scheme: light;
-  background: #f1f4f8;
-  color: #0f1d2e;
-  --ink: #0f1d2e; --ink-2: #24384f; --muted: #4a596d;
-  --line: #94a6bc; --panel: #ffffff; --panel-2: #e4eaf2;
-  --green: #00589c; --green-ink: #f6f9fc; --green-dark: #ffffff; --green-soft: #dcebf7;
+  color-scheme: dark;
+  background: radial-gradient(1500px 950px at 32% 15%, #0a1330 0%, #050b1c 48%, #030407 100%) fixed;
+  color: #f6f7fb;
+  --ink: #f6f7fb; --ink-2: #d9deea; --muted: #99a3bb;
+  --line: rgba(35, 85, 214, 0.3); --panel: #0a1330; --panel-2: #050b1c;
+  --green: #f3e5ab; --green-ink: #2a2008; --green-dark: #050b1c; --green-soft: rgba(243, 229, 171, 0.16);
 }
 
 /* Override hardcoded colors in Moonwalk so every theme has 100% readable contrast */

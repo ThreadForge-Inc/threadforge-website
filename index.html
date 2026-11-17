@@ -145,7 +145,7 @@
           </div>
           <div class="mega-col">
             <p class="mega-head">06–10 · Brand, Policy & Studio</p>
-            <a class="mega-link" href="branding/"><span class="mega-title"><span class="nav-num">06</span> App Branding & Themes</span><span class="mega-desc">Your name, logo & 7 HD themes across every screen &middot; Auto-plays tutorial</span></a>
+            <a class="mega-link" href="branding/"><span class="mega-title"><span class="nav-num">06</span> App Branding & Themes</span><span class="mega-desc">Your name, logo & 4 HD themes across every screen &middot; Auto-plays tutorial</span></a>
             <a class="mega-link" href="marketing/"><span class="mega-title"><span class="nav-num">07</span> Marketing & Campaigns</span><span class="mega-desc">Consent-gated audiences, suppression & campaign drafts &middot; Auto-plays tutorial</span></a>
             <a class="mega-link" href="policy-log/"><span class="mega-title"><span class="nav-num">08</span> Rate & Policy Log</span><span class="mega-desc">Append-only ledger of FX, freight, duty & policy rules &middot; Auto-plays tutorial</span></a>
             <a class="mega-link" href="mentor/"><span class="mega-title"><span class="nav-num">09</span> The Mentor & Learning</span><span class="mega-desc">Offline step-by-step guidance & onboarding lessons &middot; Auto-plays tutorial</span></a>
@@ -315,7 +315,7 @@
 
       </button>
 
-      <button class="icon-btn theme-toggle" type="button" id="theme-toggle" data-mode="sapphire" aria-label="Color theme: Enterprise Sapphire">
+      <button class="icon-btn theme-toggle" type="button" id="theme-toggle" data-mode="emerald" aria-label="Color theme: Emerald Prestige">
 
         <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
 
@@ -348,6 +348,54 @@
   <!-- Hero -->
 
   <section class="hero" aria-labelledby="hero-title">
+
+    <div class="hero-backdrop" aria-hidden="true">
+
+      <svg class="hero-weave" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice">
+
+        <defs>
+
+          <radialGradient id="hero-glow" cx="80%" cy="22%" r="65%">
+
+            <stop class="hw-glow-a" offset="0%"/>
+
+            <stop class="hw-glow-b" offset="45%"/>
+
+            <stop class="hw-glow-c" offset="100%"/>
+
+          </radialGradient>
+
+        </defs>
+
+        <rect class="hw-glow-rect" width="1440" height="760" fill="url(#hero-glow)"/>
+
+        <g class="hw-lines">
+
+          <path class="hw-line" d="M-40 80 C 300 60, 700 180, 1200 165"/>
+
+          <path class="hw-line" d="M-40 180 C 320 140, 650 220, 1180 175"/>
+
+          <path class="hw-line" d="M-40 260 C 280 260, 600 240, 1160 185"/>
+
+          <path class="hw-line" d="M-40 340 C 340 320, 620 260, 1140 195"/>
+
+          <path class="hw-line" d="M-40 420 C 300 400, 650 300, 1150 205"/>
+
+          <path class="hw-line" d="M-40 520 C 380 480, 700 340, 1180 225"/>
+
+        </g>
+
+        <g class="hw-sparks">
+
+          <circle class="hw-spark" cx="1195" cy="185" r="3.2"/>
+
+          <circle class="hw-spark hw-spark-2" cx="1150" cy="205" r="2.2"/>
+
+        </g>
+
+      </svg>
+
+    </div>
 
     <svg class="hero-threads" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true">
 
@@ -598,6 +646,123 @@
     </ul>
 
   </div>
+
+
+
+  <!-- Product tour: eight desks, one 3D slide deck -->
+
+  <section class="section band-sunk" id="tour" aria-labelledby="tour-title">
+
+    <div class="wrap">
+
+      <header class="section-head">
+
+        <p class="eyebrow">Every desk, in order</p>
+
+        <h2 id="tour-title">One suite, eight desks. Page through them.</h2>
+
+        <p class="lead">The same eight desks run a single founder's desk or a larger operation. Use the arrows, the dots, your keyboard, or swipe.</p>
+
+      </header>
+
+      <div class="deck" id="product-deck" role="region" aria-roledescription="carousel" aria-label="ThreadForge desks">
+
+        <div class="deck-stage">
+
+          <article class="deck-slide" id="deck-slide-0" role="group" aria-roledescription="slide" aria-label="Desk 1 of 8">
+            <span class="deck-num" aria-hidden="true">01</span>
+            <p class="eyebrow">Desk 01 of 8</p>
+            <h3>Business workspace</h3>
+            <p>Stock, orders, invoices, payments and roles, kept together with an audit trail.</p>
+            <a class="deck-link" href="#business">Open this desk<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
+          </article>
+
+          <article class="deck-slide" id="deck-slide-1" role="group" aria-roledescription="slide" aria-label="Desk 2 of 8">
+            <span class="deck-num" aria-hidden="true">02</span>
+            <p class="eyebrow">Desk 02 of 8</p>
+            <h3>Projects</h3>
+            <p>Boards, dependencies and delivery insights for every team working the plan.</p>
+            <a class="deck-link" href="#projects">Open this desk<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
+          </article>
+
+          <article class="deck-slide" id="deck-slide-2" role="group" aria-roledescription="slide" aria-label="Desk 3 of 8">
+            <span class="deck-num" aria-hidden="true">03</span>
+            <p class="eyebrow">Desk 03 of 8</p>
+            <h3>Trade desk</h3>
+            <p>Landed cost, CBM, quotations and purchase orders for every shipment.</p>
+            <a class="deck-link" href="#trade">Open this desk<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
+          </article>
+
+          <article class="deck-slide" id="deck-slide-3" role="group" aria-roledescription="slide" aria-label="Desk 4 of 8">
+            <span class="deck-num" aria-hidden="true">04</span>
+            <p class="eyebrow">Desk 04 of 8</p>
+            <h3>Supplier due diligence</h3>
+            <p>Official lists, with the source of every finding, before you sign.</p>
+            <a class="deck-link" href="#due-diligence">Open this desk<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
+          </article>
+
+          <article class="deck-slide" id="deck-slide-4" role="group" aria-roledescription="slide" aria-label="Desk 5 of 8">
+            <span class="deck-num" aria-hidden="true">05</span>
+            <p class="eyebrow">Desk 05 of 8</p>
+            <h3>App builder</h3>
+            <p>Plan an original app from plain words, ready for a team to build.</p>
+            <a class="deck-link" href="#app-builder">Open this desk<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
+          </article>
+
+          <article class="deck-slide" id="deck-slide-5" role="group" aria-roledescription="slide" aria-label="Desk 6 of 8">
+            <span class="deck-num" aria-hidden="true">06</span>
+            <p class="eyebrow">Desk 06 of 8</p>
+            <h3>Engineering agents</h3>
+            <p>Tested changes as draft pull requests, never merged for you.</p>
+            <a class="deck-link" href="#engineering">Open this desk<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
+          </article>
+
+          <article class="deck-slide" id="deck-slide-6" role="group" aria-roledescription="slide" aria-label="Desk 7 of 8">
+            <span class="deck-num" aria-hidden="true">07</span>
+            <p class="eyebrow">Desk 07 of 8</p>
+            <h3>AI models and connectors</h3>
+            <p>A free local model first, or your own provider. No markup either way.</p>
+            <a class="deck-link" href="#connectors">Open this desk<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
+          </article>
+
+          <article class="deck-slide" id="deck-slide-7" role="group" aria-roledescription="slide" aria-label="Desk 8 of 8">
+            <span class="deck-num" aria-hidden="true">08</span>
+            <p class="eyebrow">Desk 08 of 8</p>
+            <h3>PC care</h3>
+            <p>Read-only diagnosis, and repairs that only run after you approve them.</p>
+            <a class="deck-link" href="#pc-care">Open this desk<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
+          </article>
+
+        </div>
+
+        <div class="deck-nav">
+
+          <button class="deck-btn deck-prev" type="button" aria-label="Previous desk" aria-controls="product-deck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+
+          <div class="deck-dots" role="tablist" aria-label="Choose a desk">
+
+            <button class="deck-dot" type="button" role="tab" data-go="0" aria-controls="deck-slide-0" aria-selected="true"><span class="visually-hidden">Desk 1: Business workspace</span></button>
+            <button class="deck-dot" type="button" role="tab" data-go="1" aria-controls="deck-slide-1" aria-selected="false"><span class="visually-hidden">Desk 2: Projects</span></button>
+            <button class="deck-dot" type="button" role="tab" data-go="2" aria-controls="deck-slide-2" aria-selected="false"><span class="visually-hidden">Desk 3: Trade desk</span></button>
+            <button class="deck-dot" type="button" role="tab" data-go="3" aria-controls="deck-slide-3" aria-selected="false"><span class="visually-hidden">Desk 4: Supplier due diligence</span></button>
+            <button class="deck-dot" type="button" role="tab" data-go="4" aria-controls="deck-slide-4" aria-selected="false"><span class="visually-hidden">Desk 5: App builder</span></button>
+            <button class="deck-dot" type="button" role="tab" data-go="5" aria-controls="deck-slide-5" aria-selected="false"><span class="visually-hidden">Desk 6: Engineering agents</span></button>
+            <button class="deck-dot" type="button" role="tab" data-go="6" aria-controls="deck-slide-6" aria-selected="false"><span class="visually-hidden">Desk 7: AI models and connectors</span></button>
+            <button class="deck-dot" type="button" role="tab" data-go="7" aria-controls="deck-slide-7" aria-selected="false"><span class="visually-hidden">Desk 8: PC care</span></button>
+
+          </div>
+
+          <button class="deck-btn deck-next" type="button" aria-label="Next desk" aria-controls="product-deck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+
+        </div>
+
+        <p class="visually-hidden" aria-live="polite" id="deck-live"></p>
+
+      </div>
+
+    </div>
+
+  </section>
 
 
 
