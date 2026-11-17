@@ -888,6 +888,8 @@
     var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var timer = null;
 
+    if (!reduceMotion) deck.classList.add("is-pre-reveal");
+
     function renderDeck() {
       deckSlides.forEach(function (slide, i) {
         var diff = (i - current + total) % total;
@@ -947,6 +949,18 @@
 
     renderDeck();
     restartAutoplay();
+
+    if (!reduceMotion && window.IntersectionObserver) {
+      var deckRevealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            deck.classList.remove("is-pre-reveal");
+            deckRevealObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      deckRevealObserver.observe(deck);
+    }
   }
 
 })();

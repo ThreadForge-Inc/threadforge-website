@@ -2970,6 +2970,19 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
 .deck-slide.is-next2 { transform: translate3d(70%, 0, -340px) rotateY(-32deg) scale(.72); opacity: 0; z-index: 3; }
 .deck-slide.is-prev2 { transform: translate3d(-70%, 0, -340px) rotateY(32deg) scale(.72); opacity: 0; z-index: 3; }
 .deck-slide.is-hidden { transform: translate3d(0, 0, -440px) scale(.6); opacity: 0; z-index: 1; }
+
+/* Scroll-triggered entrance: the deck sits as a tight stack until it scrolls into view,
+   then peels apart into its normal coverflow positions using the transition already above. */
+.deck.is-pre-reveal .deck-slide { transition: none; }
+.deck.is-pre-reveal .deck-slide.is-active,
+.deck.is-pre-reveal .deck-slide.is-next,
+.deck.is-pre-reveal .deck-slide.is-prev,
+.deck.is-pre-reveal .deck-slide.is-next2,
+.deck.is-pre-reveal .deck-slide.is-prev2 {
+  transform: translate3d(0, 0, -260px) scale(.7) rotateY(0deg);
+  opacity: 0;
+}
+
 .deck-num {
   position: absolute;
   right: 22px;
