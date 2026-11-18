@@ -852,6 +852,44 @@
     });
   }
 
+/* Industry cards: a one-time staggered 3D tilt-up as the grid scrolls into view.
+   Driven entirely by inline styles (set, then cleared on finish) so it never lingers
+   on top of the card's own hover transition or interferes with the filter above. */
+  var industryGrid = document.querySelector(".industry-grid-18");
+  var industryReduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (industryGrid && industryCards.length && !industryReduceMotion) {
+    industryCards.forEach(function (card) {
+      card.style.transition = "none";
+      card.style.opacity = "0";
+      card.style.transform = "translate3d(0, 46px, -180px) rotateX(14deg) scale(.9)";
+    });
+
+    function revealIndustryCards() {
+      industryCards.forEach(function (card, i) {
+        card.style.transition = "transform .7s var(--ease) " + (i * 35) + "ms, opacity .6s var(--ease) " + (i * 35) + "ms";
+        card.style.opacity = "";
+        card.style.transform = "";
+      });
+      window.setTimeout(function () {
+        industryCards.forEach(function (card) { card.style.transition = ""; });
+      }, industryCards.length * 35 + 750);
+    }
+
+    if (window.IntersectionObserver) {
+      var industryRevealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            revealIndustryCards();
+            industryRevealObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      industryRevealObserver.observe(industryGrid);
+    } else {
+      revealIndustryCards();
+    }
+  }
+
 
 /* Hero backdrop parallax: the converging threads and glow drift a few pixels toward the pointer. */
   var hero = document.querySelector(".hero");

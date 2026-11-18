@@ -2771,6 +2771,7 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin-bottom: 34px;
+  perspective: 1800px;
 }
 .industry-card {
   display: flex;
