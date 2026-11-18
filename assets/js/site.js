@@ -1047,4 +1047,26 @@
     }
   }
 
+/* Institutions: the "who it is for" grid tilts up into place as it scrolls into view. */
+  var tracksGrid = document.querySelector("#tracks .feature-grid");
+  if (tracksGrid) {
+    var tracksReduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!tracksReduceMotion) {
+      tracksGrid.classList.add("is-pre-reveal");
+      if (window.IntersectionObserver) {
+        var tracksRevealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              tracksGrid.classList.remove("is-pre-reveal");
+              tracksRevealObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.2 });
+        tracksRevealObserver.observe(tracksGrid);
+      } else {
+        tracksGrid.classList.remove("is-pre-reveal");
+      }
+    }
+  }
+
 })();
