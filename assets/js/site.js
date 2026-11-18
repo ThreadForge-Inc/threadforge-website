@@ -963,6 +963,30 @@
     }
   }
 
+/* All 20 products grid: cards tilt up into place, staggered, as the section scrolls into view. */
+  var productsGrid = document.querySelector(".products-grid-20");
+  if (productsGrid) {
+    var productsReduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var productTiles = Array.prototype.slice.call(productsGrid.querySelectorAll(".product-tile"));
+    productTiles.forEach(function (tile, i) { tile.style.setProperty("--i", String(i)); });
+    if (!productsReduceMotion) {
+      productsGrid.classList.add("is-pre-reveal");
+      if (window.IntersectionObserver) {
+        var productsRevealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              productsGrid.classList.remove("is-pre-reveal");
+              productsRevealObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.15 });
+        productsRevealObserver.observe(productsGrid);
+      } else {
+        productsGrid.classList.remove("is-pre-reveal");
+      }
+    }
+  }
+
 /* Pricing tiers: each plan card tilts up into place as the section scrolls into view. */
   var plans = document.querySelector(".plans");
   if (plans) {
