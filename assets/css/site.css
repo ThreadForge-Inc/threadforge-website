@@ -1417,6 +1417,21 @@ code, pre, kbd { font-family: var(--font-mono); }
 
 }
 
+/* Institutions "who it is for" grid: a one-time staggered 3D tilt-up as it scrolls into
+   view. Scoped to #tracks only — .feature-grid is shared markup used on other pages too,
+   and .feature has no hover transition of its own, so a persistent per-card delay is safe here. */
+#tracks .feature-grid { perspective: 1800px; }
+#tracks .feature { transition: transform .65s var(--ease), opacity .55s var(--ease); }
+#tracks .feature-grid.is-pre-reveal .feature { transform: translate3d(0, 44px, -180px) rotateX(14deg) scale(.92); opacity: 0; transition: none; }
+#tracks .feature:nth-child(1) { transition-delay: 0s; }
+#tracks .feature:nth-child(2) { transition-delay: .08s; }
+#tracks .feature:nth-child(3) { transition-delay: .16s; }
+#tracks .feature:nth-child(4) { transition-delay: .24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  #tracks .feature-grid.is-pre-reveal .feature { transform: none; opacity: 1; }
+}
+
 .feature svg { width: 26px; height: 26px; color: var(--forge-2); }
 
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .feature svg { color: var(--lime); } }
@@ -2771,6 +2786,7 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin-bottom: 34px;
+  perspective: 1800px;
 }
 .industry-card {
   display: flex;
@@ -2854,6 +2870,31 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
 .ind-capacity-bar strong {
   color: var(--fg);
 }
+/* Industry card disclosure: the dense workflow/calculator/role/desk detail is collapsed
+   by default behind a toggle, so the 18-card grid reads as a scannable summary grid
+   rather than a wall of text; the full detail is one click away, never lost. */
+.ind-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg-sunk);
+  color: var(--fg);
+  font: 650 .78rem/1.3 var(--font-body);
+  cursor: pointer;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease);
+}
+.ind-toggle:hover, .ind-toggle:focus-visible { background: var(--bg-raised); border-color: var(--line-strong); }
+.ind-toggle-chev { width: 16px; height: 16px; flex-shrink: 0; color: var(--muted); transition: transform .2s var(--ease); }
+.ind-toggle[aria-expanded="true"] .ind-toggle-chev { transform: rotate(180deg); }
+.ind-detail { margin-top: 2px; }
+.ind-detail[hidden] { display: none; }
 .ind-body {
   display: flex;
   flex-direction: column;

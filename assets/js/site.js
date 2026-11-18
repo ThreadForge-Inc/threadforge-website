@@ -831,6 +831,21 @@
 
   }
 
+/* Industry cards: the dense detail (workflow, calculators, roles, desks) is collapsed
+   by default behind a "View full operational profile" toggle. */
+  var industryToggles = Array.prototype.slice.call(document.querySelectorAll(".ind-toggle"));
+  industryToggles.forEach(function (btn) {
+    var detail = document.getElementById(btn.getAttribute("aria-controls"));
+    var label = btn.querySelector(".ind-toggle-label");
+    if (!detail) return;
+    btn.addEventListener("click", function () {
+      var expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      detail.hidden = expanded;
+      if (label) label.textContent = expanded ? "View full operational profile" : "Hide operational profile";
+    });
+  });
+
 /* Industry & Operational Compatibility Filter */
   var filterButtons = Array.prototype.slice.call(document.querySelectorAll("[data-industry-filter]"));
   var industryCards = Array.prototype.slice.call(document.querySelectorAll(".industry-card"));
@@ -850,6 +865,44 @@
         });
       });
     });
+  }
+
+/* Industry cards: a one-time staggered 3D tilt-up as the grid scrolls into view.
+   Driven entirely by inline styles (set, then cleared on finish) so it never lingers
+   on top of the card's own hover transition or interferes with the filter above. */
+  var industryGrid = document.querySelector(".industry-grid-18");
+  var industryReduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (industryGrid && industryCards.length && !industryReduceMotion) {
+    industryCards.forEach(function (card) {
+      card.style.transition = "none";
+      card.style.opacity = "0";
+      card.style.transform = "translate3d(0, 46px, -180px) rotateX(14deg) scale(.9)";
+    });
+
+    function revealIndustryCards() {
+      industryCards.forEach(function (card, i) {
+        card.style.transition = "transform .7s var(--ease) " + (i * 35) + "ms, opacity .6s var(--ease) " + (i * 35) + "ms";
+        card.style.opacity = "";
+        card.style.transform = "";
+      });
+      window.setTimeout(function () {
+        industryCards.forEach(function (card) { card.style.transition = ""; });
+      }, industryCards.length * 35 + 750);
+    }
+
+    if (window.IntersectionObserver) {
+      var industryRevealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            revealIndustryCards();
+            industryRevealObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      industryRevealObserver.observe(industryGrid);
+    } else {
+      revealIndustryCards();
+    }
   }
 
 
@@ -1005,6 +1058,28 @@
         plansRevealObserver.observe(plans);
       } else {
         plans.classList.remove("is-pre-reveal");
+      }
+    }
+  }
+
+/* Institutions: the "who it is for" grid tilts up into place as it scrolls into view. */
+  var tracksGrid = document.querySelector("#tracks .feature-grid");
+  if (tracksGrid) {
+    var tracksReduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!tracksReduceMotion) {
+      tracksGrid.classList.add("is-pre-reveal");
+      if (window.IntersectionObserver) {
+        var tracksRevealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              tracksGrid.classList.remove("is-pre-reveal");
+              tracksRevealObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.2 });
+        tracksRevealObserver.observe(tracksGrid);
+      } else {
+        tracksGrid.classList.remove("is-pre-reveal");
       }
     }
   }
