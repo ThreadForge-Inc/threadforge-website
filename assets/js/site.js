@@ -831,6 +831,21 @@
 
   }
 
+/* Industry cards: the dense detail (workflow, calculators, roles, desks) is collapsed
+   by default behind a "View full operational profile" toggle. */
+  var industryToggles = Array.prototype.slice.call(document.querySelectorAll(".ind-toggle"));
+  industryToggles.forEach(function (btn) {
+    var detail = document.getElementById(btn.getAttribute("aria-controls"));
+    var label = btn.querySelector(".ind-toggle-label");
+    if (!detail) return;
+    btn.addEventListener("click", function () {
+      var expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      detail.hidden = expanded;
+      if (label) label.textContent = expanded ? "View full operational profile" : "Hide operational profile";
+    });
+  });
+
 /* Industry & Operational Compatibility Filter */
   var filterButtons = Array.prototype.slice.call(document.querySelectorAll("[data-industry-filter]"));
   var industryCards = Array.prototype.slice.call(document.querySelectorAll(".industry-card"));

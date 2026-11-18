@@ -2870,6 +2870,31 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
 .ind-capacity-bar strong {
   color: var(--fg);
 }
+/* Industry card disclosure: the dense workflow/calculator/role/desk detail is collapsed
+   by default behind a toggle, so the 18-card grid reads as a scannable summary grid
+   rather than a wall of text; the full detail is one click away, never lost. */
+.ind-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg-sunk);
+  color: var(--fg);
+  font: 650 .78rem/1.3 var(--font-body);
+  cursor: pointer;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease);
+}
+.ind-toggle:hover, .ind-toggle:focus-visible { background: var(--bg-raised); border-color: var(--line-strong); }
+.ind-toggle-chev { width: 16px; height: 16px; flex-shrink: 0; color: var(--muted); transition: transform .2s var(--ease); }
+.ind-toggle[aria-expanded="true"] .ind-toggle-chev { transform: rotate(180deg); }
+.ind-detail { margin-top: 2px; }
+.ind-detail[hidden] { display: none; }
 .ind-body {
   display: flex;
   flex-direction: column;
