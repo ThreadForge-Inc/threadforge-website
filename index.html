@@ -2008,13 +2008,30 @@
 
       <header class="section-head">
 
-        <p class="eyebrow">Projects <span class="nav-badge">New in 10.9</span></p>
+        <p class="eyebrow">Executive Command Center &amp; Projects <span class="nav-badge">Upgraded in 10.18</span></p>
 
         <h2 id="projects-title">Plan the work. Watch it move. Finish it in order.</h2>
 
-        <p class="lead">A board and a list over the same work items, inside the workspace that already holds your stock, orders and suppliers. Dependencies and work-in-progress limits are enforced, not just drawn, and every change lands in the activity ledger.</p>
+        <p class="lead">Now redesigned with dual-mode <strong>Obsidian Executive</strong> and <strong>Light (Kerjata)</strong> workspaces: a 4-column executive KPI strip, live Operational Queue, Operational Health chart, segmented Kanban / List / Timeline / Sprints toolbar, and priority-banded cards with inline progress bars&mdash;all running privately beside your stock, orders and suppliers.</p>
 
       </header>
+
+      <div class="suite-showcase-grid" aria-label="ThreadForge 10.18.0 live interface screenshots">
+        <figure class="suite-shot">
+          <img src="assets/screenshots/06-obsidian-executive.png" alt="ThreadForge 10.18.0 Obsidian Executive Command Center with KPI strip, Today's Operational Queue, Operational Health bar chart, and collapsible sidebar" width="1440" height="900" loading="lazy">
+          <figcaption>
+            <span class="suite-shot-title">Obsidian Executive Command Center</span>
+            <span class="suite-shot-desc">Matte obsidian workspace with collapsible sidebar groups, <code>Ctrl K</code> command search, live metric badges, 4-column KPI strip, searchable Operational Queue, and 5-column Operational Health chart.</span>
+          </figcaption>
+        </figure>
+        <figure class="suite-shot">
+          <img src="assets/screenshots/07-kerjata-kanban.png" alt="ThreadForge 10.18.0 Light Kerjata Projects Kanban board with dark charcoal sidebar, royal blue active pill, segmented toolbar, and priority-banded cards" width="1440" height="900" loading="lazy">
+          <figcaption>
+            <span class="suite-shot-title">Light (Kerjata) Precision Kanban Workspace</span>
+            <span class="suite-shot-desc">High-contrast dark rail paired with a crisp pearl-white board, segmented <code>Kanban | List | Timeline | Sprints</code> switcher, collapsible Filter tray, priority-banded cards, and inline <code>% Complete</code> progress meters.</span>
+          </figcaption>
+        </figure>
+      </div>
 
       <div class="pb-frame">
 
@@ -2092,7 +2109,7 @@
 
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
 
-        <span><b>In ThreadForge 10.16.</b> Projects is in the apps for Windows and Android from 10.16.1, and on servers. It is not in the browser demo yet.</span>
+        <span><b>In ThreadForge 10.18.0.</b> Both the Obsidian Executive command center and the upgraded Kerjata-style Projects Kanban board ship across Windows, Android, and self-hosted servers, alongside expanded Local Image Workshop commercial presets and Team Toolkit playbooks.</span>
 
       </p>
 
@@ -2775,6 +2792,31 @@
         </li>
 
       </ul>
+
+      <div class="trust-guide" id="installer-signing" aria-labelledby="trust-guide-title">
+        <div class="trust-guide-head">
+          <p class="eyebrow">Installer Integrity &amp; Local Certificate Trust</p>
+          <h3 id="trust-guide-title">Zero-friction installation on Windows &amp; Android&mdash;and how to prevent local MSIX certificate errors.</h3>
+          <p>Official Store releases are signed directly by Microsoft and Google Play. When sideloading a local Windows <code>.msix</code> or direct Android release <code>.apk</code> outside the stores, follow the verified trust path below.</p>
+        </div>
+        <div class="trust-cards">
+          <article class="trust-card">
+            <h4>1. Recommended: Store-Signed Releases</h4>
+            <p>Install from the <a href="https://apps.microsoft.com/detail/9pjtnxttx5cr?referrer=appbadge&amp;mode=full" target="_blank" rel="noopener">Microsoft Store (<code>9PJTNXTTX5CR</code>)</a> on Windows 10/11 or <a href="https://play.google.com/store/apps/details?id=com.methodology.threadforge" target="_blank" rel="noopener">Google Play (<code>com.methodology.threadforge</code>)</a> on Android. Both platforms verify signatures automatically with zero local certificate steps.</p>
+          </article>
+          <article class="trust-card">
+            <h4>2. Sideloading a Local Windows <code>.msix</code></h4>
+            <p>Windows App Installer displays <em>&ldquo;publisher certificate could not be verified&rdquo;</em> if a locally signed <code>.msix</code> is opened before its publisher <code>.cer</code> is trusted. Run the included <code>Trust-And-Install-MSIX-As-Admin.cmd</code> helper as Administrator (or trust the <code>.cer</code> in PowerShell first):</p>
+            <code class="trust-code">Import-Certificate -FilePath .\ThreadForge-10.18.0-Local-MSIX.cer -CertStoreLocation Cert:\LocalMachine\TrustedPeople
+Import-Certificate -FilePath .\ThreadForge-10.18.0-Local-MSIX.cer -CertStoreLocation Cert:\LocalMachine\Root
+Add-AppxPackage -Path .\ThreadForge-10.18.0-win-x64-signed-local.msix</code>
+          </article>
+          <article class="trust-card">
+            <h4>3. Direct Android Release APK</h4>
+            <p>Direct release APKs for 10.18.0 are signed with APK Signature Scheme v2 by <code>Threadforge Inc.</code> (cert SHA-256 prefix <code>95387cee…</code>). If an earlier debug-signed test APK is installed on the phone, uninstall it first so Android accepts the release signature cleanly.</p>
+          </article>
+        </div>
+      </div>
 
     </div>
 

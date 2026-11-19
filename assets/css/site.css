@@ -3121,3 +3121,109 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
   .deck-slide.is-active { transform: none; }
   .deck-slide.is-next, .deck-slide.is-prev, .deck-slide.is-next2, .deck-slide.is-prev2, .deck-slide.is-hidden { transform: none; opacity: 0; }
 }
+
+/* 10.18.0 Dual-Mode Executive UI Showcase & Local Installer Certificate Trust Guide */
+.suite-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 28px 0 32px;
+}
+.suite-shot {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.suite-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--line);
+}
+.suite-shot figcaption {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.suite-shot-title {
+  font-weight: 700;
+  font-size: .98rem;
+  color: var(--fg);
+}
+.suite-shot-desc {
+  font-size: .88rem;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.trust-guide {
+  margin-top: 28px;
+  padding: 24px 26px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.trust-guide-head {
+  margin-bottom: 16px;
+}
+.trust-guide-head h3 {
+  margin: 4px 0 6px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  color: var(--fg);
+}
+.trust-guide-head p:last-child {
+  margin: 0;
+  color: var(--fg-2);
+  max-width: 72ch;
+}
+.trust-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.trust-card {
+  padding: 16px 18px;
+  background: var(--bg-sunk);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 4px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.trust-card h4 {
+  margin: 0;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+.trust-card p {
+  margin: 0;
+  font-size: .87rem;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.trust-code {
+  display: block;
+  margin-top: 4px;
+  padding: 9px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-family: var(--font-mono, ui-monospace, Consolas, monospace);
+  font-size: .76rem;
+  line-height: 1.45;
+  color: var(--fg);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+@media (max-width: 920px) {
+  .suite-showcase-grid, .trust-cards { grid-template-columns: minmax(0, 1fr); }
+}
