@@ -155,44 +155,6 @@
     });
   });
 
-  /* Research library: a one-time staggered 3D tilt-up as the grid scrolls into view.
-     Inline-style driven and fully cleared on finish, so it never lingers on top of the
-     card's own hover transition (border-color) or interferes with the filter above. */
-  var paperGrid = document.querySelector(".paper-grid");
-  var paperReduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (paperGrid && paperCards.length && !paperReduceMotion) {
-    paperCards.forEach(function (card) {
-      card.style.transition = "none";
-      card.style.opacity = "0";
-      card.style.transform = "translate3d(0, 46px, -180px) rotateX(14deg) scale(.9)";
-    });
-
-    function revealPaperCards() {
-      paperCards.forEach(function (card, i) {
-        card.style.transition = "transform .7s var(--ease) " + (i * 35) + "ms, opacity .6s var(--ease) " + (i * 35) + "ms";
-        card.style.opacity = "";
-        card.style.transform = "";
-      });
-      window.setTimeout(function () {
-        paperCards.forEach(function (card) { card.style.transition = ""; });
-      }, paperCards.length * 35 + 750);
-    }
-
-    if (window.IntersectionObserver) {
-      var paperRevealObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            revealPaperCards();
-            paperRevealObserver.disconnect();
-          }
-        });
-      }, { threshold: 0.1 });
-      paperRevealObserver.observe(paperGrid);
-    } else {
-      revealPaperCards();
-    }
-  }
-
   /* 3. PWI Workbench Tab Switcher & Deep Links */
   var pwiTabs = Array.prototype.slice.call(document.querySelectorAll("[data-pwi-tab]"));
   var pwiPanels = Array.prototype.slice.call(document.querySelectorAll("[data-pwi-panel]"));
