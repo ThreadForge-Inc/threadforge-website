@@ -3122,7 +3122,7 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
   .deck-slide.is-next, .deck-slide.is-prev, .deck-slide.is-next2, .deck-slide.is-prev2, .deck-slide.is-hidden { transform: none; opacity: 0; }
 }
 
-/* 10.18.0 Dual-Mode Executive UI Showcase & Local Installer Certificate Trust Guide */
+/* 10.18.1 Dual-Mode Executive UI Showcase & Local Installer Certificate Trust Guide */
 .suite-showcase-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
