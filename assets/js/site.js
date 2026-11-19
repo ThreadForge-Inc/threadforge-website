@@ -70,7 +70,7 @@
   var THEMES = [
     ["light", "Light", "The standard ThreadForge colours"],
     ["dark", "Dark", "Easier on the eyes at night"],
-    ["cvd", "Colour-blind safe", "Midnight black (#030407), cobalt blue (#2355D6) & buttercream (#F3E5AB) HD preset"],
+    ["kerjata", "Light (Kerjata)", "Suite 10.18.1 UI/UX: matte charcoal (#111318), pearl white (#F6F8FB) & royal blue (#3B82F6)"],
     ["emerald", "Emerald Prestige", "Deep forest emerald (#124E3F) & vibrant lime (#A3E635) HD preset"]
   ];
 
@@ -81,6 +81,8 @@
   var themeMenu = null;
 
   function applyTheme(mode) {
+
+    if (mode === "cvd") mode = "kerjata";
 
     if (!names[mode]) mode = "emerald";
 
