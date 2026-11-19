@@ -494,13 +494,13 @@ td strong { color: #f7f3e8; font-weight: 650; }
   --line: #c3cdbf; --panel: #ffffff; --panel-2: #e9ede2;
   --green: #173f30; --green-ink: #f3f6ee; --green-dark: #ffffff; --green-soft: #eef6d4;
 }
-:root[data-theme="cvd"], :root[data-theme="cvd"] body {
-  color-scheme: dark;
-  background: radial-gradient(1500px 950px at 32% 15%, #0a1330 0%, #050b1c 48%, #030407 100%) fixed;
-  color: #f6f7fb;
-  --ink: #f6f7fb; --ink-2: #d9deea; --muted: #99a3bb;
-  --line: rgba(35, 85, 214, 0.3); --panel: #0a1330; --panel-2: #050b1c;
-  --green: #f3e5ab; --green-ink: #2a2008; --green-dark: #050b1c; --green-soft: rgba(243, 229, 171, 0.16);
+:root[data-theme="kerjata"], :root[data-theme="kerjata"] body {
+  color-scheme: light;
+  background: #f6f8fb;
+  color: #0f172a;
+  --ink: #0f172a; --ink-2: #334155; --muted: #475569;
+  --line: #cbd5e1; --panel: #ffffff; --panel-2: #f1f5f9;
+  --green: #2563eb; --green-ink: #ffffff; --green-dark: #ffffff; --green-soft: #eff6ff;
 }
 
 /* Override hardcoded colors in Moonwalk so every theme has 100% readable contrast */

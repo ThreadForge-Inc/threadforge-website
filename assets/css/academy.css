@@ -1,5 +1,5 @@
 /* ThreadForge PWI Practice Lab & Chronological Research Academy
-   Inherits all 4 themes (Light, Dark, Colour-blind safe, Emerald Prestige) from site.css */
+   Inherits all 4 themes (Light, Dark, Light (Kerjata), Emerald Prestige) from site.css */
 
 .academy-hero {
   padding: clamp(3rem, 2.2rem + 3.5vw, 5.25rem) 0 clamp(2.5rem, 1.8rem + 2.5vw, 4rem);
