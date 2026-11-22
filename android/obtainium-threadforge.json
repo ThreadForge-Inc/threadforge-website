@@ -1,0 +1,9 @@
+{
+  "id": "com.methodology.threadforge",
+  "url": "https://github.com/ThreadForge-Inc/threadforge-website",
+  "author": "Threadforge Inc.",
+  "name": "ThreadForge",
+  "preferredApkIndex": 0,
+  "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"ThreadForge-.*-android-direct\\\\.apk\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":false,\"appName\":\"ThreadForge\",\"appAuthor\":\"Threadforge Inc.\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"ThreadForge 10 Sovereign Trade, ERP, Multichannel, MRP & Barcode Suite (100% local offline Android workspace)\"}",
+  "overrideSource": "GitHub"
+}
