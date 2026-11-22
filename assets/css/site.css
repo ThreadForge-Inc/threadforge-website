@@ -339,7 +339,7 @@
 :root[data-theme="emerald"] .brand-mark g path:nth-child(3) {
   stroke: #a3e635;
 }
-/* Light (Kerjata) UI/UX theme (Suite 10.18.1): crisp pearl-white canvas (#F6F8FB / #FFFFFF),
+/* Light (Kerjata) UI/UX theme (Suite 10.19.0): crisp pearl-white canvas (#F6F8FB / #FFFFFF),
    matte charcoal structural bands (#111318), and vibrant royal blue (#2563EB / #3B82F6) accents. */
 :root[data-theme="kerjata"] {
   --bg: #f6f8fb;
@@ -3132,7 +3132,7 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
   .deck-slide.is-next, .deck-slide.is-prev, .deck-slide.is-next2, .deck-slide.is-prev2, .deck-slide.is-hidden { transform: none; opacity: 0; }
 }
 
-/* 10.18.1 Dual-Mode Executive UI Showcase & Local Installer Certificate Trust Guide */
+/* 10.19.0 Dual-Mode Executive UI Showcase & Local Installer Certificate Trust Guide */
 .suite-showcase-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
