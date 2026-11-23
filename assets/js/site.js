@@ -68,10 +68,12 @@
   var themeButton = document.getElementById("theme-toggle");
 
   var THEMES = [
-    ["light", "Light", "The standard ThreadForge colours"],
-    ["dark", "Dark", "Easier on the eyes at night"],
-    ["kerjata", "Light (Kerjata)", "Suite 10.18.1 UI/UX: matte charcoal (#111318), pearl white (#F6F8FB) & royal blue (#3B82F6)"],
-    ["emerald", "Emerald Prestige", "Deep forest emerald (#124E3F) & vibrant lime (#A3E635) HD preset"]
+    ["emerald", "Emerald Prestige", "Deep forest emerald (#124E3F) & vibrant lime (#A3E635) HD preset"],
+    ["titanium", "Titanium Cyber-Apex", "threadforge.live & threadforge.cloud AI-Native slate (#070B14), electric cyan (#22D3EE) & lime (#A3E635)"],
+    ["kerjata", "Light (Kerjata)", "Suite 10.19.0 UI/UX: matte charcoal (#111318), pearl white (#F6F8FB) & royal blue (#3B82F6)"],
+    ["obsidian", "Obsidian Executive", "Sovereign carbon (#090A0F), executive gold (#FBBF24) & platinum ink (#F8FAFC)"],
+    ["light", "Light (Sage Paper)", "Classic ThreadForge sage-paper & forge-green workbench"],
+    ["dark", "Dark (Forge Night)", "Deep forest night workbench for low-light operations"]
   ];
 
   var names = {};
@@ -1086,4 +1088,242 @@
     }
   }
 
+/* === PIONEER ECOSYSTEM COMMAND PALETTE & INTERACTIVE WORKBENCH === */
+  // Quick theme switch buttons ([data-set-theme]) inside the Design System showcase
+  document.addEventListener("click", function (event) {
+    var tBtn = event.target.closest("[data-set-theme]");
+    if (!tBtn) return;
+    var mode = tBtn.getAttribute("data-set-theme");
+    applyTheme(mode);
+    store("tf-theme", mode);
+  });
+
+  // Ecosystem Workbench 4-Tab Architecture Switcher ([data-eco-tab])
+  var ecoTabs = Array.prototype.slice.call(document.querySelectorAll("[data-eco-tab]"));
+  if (ecoTabs.length) {
+    var ecoPanels = Array.prototype.slice.call(document.querySelectorAll("[data-eco-panel]"));
+    var activateEcoTab = function (targetId) {
+      ecoTabs.forEach(function (btn) {
+        var active = btn.getAttribute("data-eco-tab") === targetId;
+        btn.setAttribute("aria-selected", String(active));
+      });
+      ecoPanels.forEach(function (panel) {
+        var active = panel.getAttribute("data-eco-panel") === targetId;
+        panel.classList.toggle("is-active", active);
+        panel.hidden = !active;
+      });
+    };
+    ecoTabs.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        activateEcoTab(btn.getAttribute("data-eco-tab"));
+      });
+    });
+  }
+
+  // Live IoT Sensor & Triple-Core Telemetry Simulator ([data-iot-node])
+  var iotBtns = Array.prototype.slice.call(document.querySelectorAll("[data-iot-node]"));
+  if (iotBtns.length) {
+    var IOT_NODES = {
+      "cold-chain": {
+        node: "REEFER-NODE-01 · Port Qasim -> Hamburg",
+        metricA: "-18.4 °C (Target -18.0 °C)",
+        metricB: "0.14 g Vibration · Sealed",
+        anomaly: "0.018 (Normal · Z-Score 0.41)",
+        action: "Relay AI HMAC Signed -> Local 127.0.0.1 Ledger #8841"
+      },
+      "pharma-cleanroom": {
+        node: "GMP-AUTOCLAVE-04 · Cleanroom ISO-5",
+        metricA: "121.2 °C · 2.05 Bar Sterile",
+        metricB: "18.2 Pa Differential Pressure",
+        anomaly: "0.009 (Pass · CoA Hash Verified)",
+        action: "Titanium EvidenceRecord SHA-256 -> Batch Lot #API-209"
+      },
+      "textile-loom": {
+        node: "SPIN-FRAME-12 · Ring Spindle Telemetry",
+        metricA: "17,850 RPM · 98.4% Efficiency",
+        metricB: "62.1% RH · 28.4 °C Ambient",
+        anomaly: "0.031 (Nominal · Zero Yarn Break)",
+        action: "suite.threadforge.cloud Tunnel -> MRP Work Order #WO-412"
+      },
+      "sandbox-agent": {
+        node: "TITANIUM-MCP-01 · *.tforge.run Sandbox",
+        metricA: "97.2% Prefix Cache Hit ($0 Burn)",
+        metricB: "14/14 Harness · 4/4 Rust Kernel",
+        anomaly: "0.000 (Circuit Breaker Armed)",
+        action: "Draft PR Proposed -> Waiting Human Disposal Approval"
+      }
+    };
+    var setIotNode = function (key) {
+      var data = IOT_NODES[key] || IOT_NODES["cold-chain"];
+      iotBtns.forEach(function (b) {
+        b.classList.toggle("is-active", b.getAttribute("data-iot-node") === key);
+      });
+      var elNode = document.getElementById("iot-val-node");
+      var elA = document.getElementById("iot-val-a");
+      var elB = document.getElementById("iot-val-b");
+      var elAnom = document.getElementById("iot-val-anomaly");
+      var elAct = document.getElementById("iot-val-action");
+      if (elNode) elNode.textContent = data.node;
+      if (elA) elA.textContent = data.metricA;
+      if (elB) elB.textContent = data.metricB;
+      if (elAnom) elAnom.textContent = data.anomaly;
+      if (elAct) elAct.textContent = data.action;
+    };
+    iotBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        setIotNode(b.getAttribute("data-iot-node"));
+      });
+    });
+  }
+
+  // Global Ctrl+K / Cmd+K Pioneer Ecosystem Command Palette
+  var prefix = "";
+  var scripts = document.querySelectorAll("script[src]");
+  scripts.forEach(function (s) {
+    var src = s.getAttribute("src") || "";
+    var idx = src.indexOf("assets/js/site.js");
+    if (idx > -1) prefix = src.slice(0, idx);
+  });
+
+  var CMD_ITEMS = [
+    { title: "threadforgeofficial.com — Parent Organization & 10.19.0 ERP Flagship", sub: "Threadforge Inc. · 24 operational desks, 18 industries & 57+ calculators", tag: "Ecosystem", cat: "ecosystem", href: prefix + "#pioneer-ecosystem" },
+    { title: "threadforge.cloud — Sovereign Cloud Control Plane & Edge IoT Ingress", sub: "Next.js 15 WebContainers Studio, suite.threadforge.cloud tunnel & *.tforge.run sandboxes", tag: "Cloud / IoT", cat: "ecosystem", href: prefix + "cloud/" },
+    { title: "threadforge.live — Sovereign Human-Agent Engineering OS", sub: "Rust Titanium Kernel + TypeScript Zero-Burn Harness + Python Relay AI & Omni Viral", tag: "Agent OS", cat: "ecosystem", href: prefix + "live/" },
+    { title: "Pioneer-Class Principle & Founding Charter", sub: "Led by President & Founder Bilal Ahmed Khan · The agent stack proposes; a human disposes", tag: "Charter", cat: "ecosystem", href: prefix + "principle/" },
+    { title: "21 · Landed Cost & Ledger Desk (10.19.0)", sub: "FIFO/AVCO layers, 5-method freight/duty allocation & balanced DR=CR journals", tag: "Desk 21", cat: "desks", href: prefix + "landed/" },
+    { title: "22 · Multichannel Hub Desk (10.19.0)", sub: "Shopify, Amazon, WooCommerce & Etsy offline CSV sync + SKU mapping", tag: "Desk 22", cat: "desks", href: prefix + "channels/" },
+    { title: "23 · Manufacturing & MRP Desk (10.19.0)", sub: "Multi-level BOM explosion, atomic Work Orders & FIFO/AVCO production costing", tag: "Desk 23", cat: "desks", href: prefix + "mrp/" },
+    { title: "24 · Warehouse & Barcode Desk (10.19.0)", sub: "Offline USB/camera scanner, pick/pack/receive verification & SVG Code 128B labels", tag: "Desk 24", cat: "desks", href: prefix + "warehouse/" },
+    { title: "01 · Business & Commerce Desk", sub: "Stock, orders, invoices, payments, CRM & integer-cent ledger", tag: "Desk 01", cat: "desks", href: prefix + "business/" },
+    { title: "03 · Trade & TradeMath (57+ Calculators)", sub: "CBM, container load, landed cost, Incoterms, FX forward & industry math", tag: "Desk 03", cat: "desks", href: prefix + "trademath/" },
+    { title: "12 · App Builder & Engineering Agents", sub: "Plain-language app studio & draft-PR engineering agents with test evidence", tag: "Desk 12", cat: "desks", href: prefix + "app-builder/" },
+    { title: "14 · Local AI & MCP Connectors", sub: "Free local Ollama, 0% markup BYOK providers & Titanium MCP server tools", tag: "Desk 14", cat: "desks", href: prefix + "connectors/" },
+    { title: "Industry 01 · Hospital & Healthcare Networks ($79 Tier Pack)", sub: "48s real-suite calculator film · Batch Scaling 250 kg & Reorder Safety Stock", tag: "Industry 01", cat: "industries", href: prefix + "industries/healthcare/" },
+    { title: "Industry 02 · Pharmaceutical & Biotech Manufacturing ($79 Tier Pack)", sub: "48s real-suite calculator film · API Potency 51.6919 kg & Accelerated Aging Q10", tag: "Industry 02", cat: "industries", href: prefix + "industries/pharma/" },
+    { title: "Industry 03 · Food & Beverage Processing Plants ($79 Tier Pack)", sub: "48s real-suite calculator film · Batch Scaling, Pallet Loading 48 cartons & FEFO", tag: "Industry 03", cat: "industries", href: prefix + "industries/food/" },
+    { title: "All 18 Industrial Standards & Custom Tier Packs ($49–$499)", sub: "Browse all 18 industry cinema films, live inside-suite calculators & role matrices", tag: "18 Industries", cat: "industries", href: prefix + "#industries-scale" },
+    { title: "Switch Theme: Titanium Cyber-Apex (threadforge.live / .cloud)", sub: "AI-Native dark slate (#070B14), electric cyan (#22D3EE) & titanium lime (#A3E635)", tag: "Theme", cat: "design", actionTheme: "titanium" },
+    { title: "Switch Theme: Emerald Prestige (Signature HD)", sub: "Deep forest emerald (#124E3F) & vibrant lime (#A3E635)", tag: "Theme", cat: "design", actionTheme: "emerald" },
+    { title: "Switch Theme: Light (Kerjata 10.19.0)", sub: "Crisp pearl white (#F6F8FB), matte charcoal (#111318) & royal blue (#2563EB)", tag: "Theme", cat: "design", actionTheme: "kerjata" },
+    { title: "Switch Theme: Obsidian Executive (Carbon & Gold)", sub: "Sovereign carbon (#090A0F) & warm executive gold (#FBBF24)", tag: "Theme", cat: "design", actionTheme: "obsidian" },
+    { title: "Live Interactive Browser Demo (10 Guided Missions)", sub: "Try ThreadForge directly in your browser with sample data", tag: "Interactive", cat: "desks", href: prefix + "demo/" },
+    { title: "Compare vs Odoo, Zoho, Katana & Cloud ERPs", sub: "Head-to-head parity matrix & 5-year TCO breakdown ($49 once vs $18,000+)", tag: "TCO Matrix", cat: "ecosystem", href: prefix + "#competitive-edge" }
+  ];
+
+  var headerActions = document.querySelector(".header-actions");
+  if (headerActions && !document.getElementById("cmdk-open-btn")) {
+    var cmdBtn = document.createElement("button");
+    cmdBtn.type = "button";
+    cmdBtn.id = "cmdk-open-btn";
+    cmdBtn.className = "cmdk-trigger";
+    cmdBtn.setAttribute("aria-label", "Open Ecosystem Command Palette (Ctrl+K)");
+    cmdBtn.title = "Search Ecosystem, 24 Desks, 18 Industries, threadforge.cloud & threadforge.live (Ctrl+K)";
+    cmdBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="cmdk-trigger-label">Ecosystem</span><kbd class="cmdk-kbd">Ctrl K</kbd>';
+    headerActions.insertBefore(cmdBtn, headerActions.firstChild);
+
+    var dlg = document.createElement("dialog");
+    dlg.id = "cmdk-dialog";
+    dlg.className = "cmdk-dialog";
+    dlg.setAttribute("aria-label", "ThreadForge Pioneer Ecosystem Command Palette");
+    dlg.innerHTML =
+      '<div class="cmdk-shell">' +
+        '<div class="cmdk-search-bar">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' +
+          '<input type="search" class="cmdk-input" id="cmdk-input" placeholder="Jump to threadforge.cloud, threadforge.live, 24 desks, 18 industries, or themes..." autocomplete="off">' +
+          '<button type="button" class="cmdk-close" id="cmdk-close">ESC</button>' +
+        '</div>' +
+        '<div class="cmdk-filters" role="toolbar" aria-label="Filter command categories">' +
+          '<button type="button" class="cmdk-chip is-active" data-cmdk-cat="all">All Ecosystem</button>' +
+          '<button type="button" class="cmdk-chip" data-cmdk-cat="ecosystem">Parent · .cloud · .live</button>' +
+          '<button type="button" class="cmdk-chip" data-cmdk-cat="desks">24 ERP Desks</button>' +
+          '<button type="button" class="cmdk-chip" data-cmdk-cat="industries">18 Industries</button>' +
+          '<button type="button" class="cmdk-chip" data-cmdk-cat="design">UI/UX Themes</button>' +
+        '</div>' +
+        '<ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>' +
+        '<div class="cmdk-foot">' +
+          '<span><b>Threadforge Inc.</b> · Pioneer &amp; Parent Organization of <code>threadforgeofficial.com</code>, <code>threadforge.cloud</code> &amp; <code>threadforge.live</code></span>' +
+          '<span>↑↓ Navigate · Enter Select · Esc Close</span>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(dlg);
+
+    var cmdInput = document.getElementById("cmdk-input");
+    var cmdList = document.getElementById("cmdk-list");
+    var cmdClose = document.getElementById("cmdk-close");
+    var cmdChips = Array.prototype.slice.call(dlg.querySelectorAll("[data-cmdk-cat]"));
+    var activeCat = "all";
+
+    var renderCmdList = function () {
+      var q = (cmdInput.value || "").toLowerCase().trim();
+      cmdList.innerHTML = "";
+      var filtered = CMD_ITEMS.filter(function (item) {
+        if (activeCat !== "all" && item.cat !== activeCat) return false;
+        if (!q) return true;
+        return item.title.toLowerCase().indexOf(q) > -1 ||
+               item.sub.toLowerCase().indexOf(q) > -1 ||
+               item.tag.toLowerCase().indexOf(q) > -1;
+      });
+      filtered.forEach(function (item, idx) {
+        var li = document.createElement("li");
+        li.className = "cmdk-item" + (idx === 0 ? " is-selected" : "");
+        var a = document.createElement("a");
+        a.href = item.href || "#";
+        if (item.actionTheme) a.setAttribute("data-cmdk-theme", item.actionTheme);
+        a.innerHTML =
+          '<span class="cmdk-item-main">' +
+            '<span class="cmdk-item-title"></span>' +
+            '<span class="cmdk-item-sub"></span>' +
+          '</span>' +
+          '<span class="cmdk-item-tag"></span>';
+        a.querySelector(".cmdk-item-title").textContent = item.title;
+        a.querySelector(".cmdk-item-sub").textContent = item.sub;
+        a.querySelector(".cmdk-item-tag").textContent = item.tag;
+        a.addEventListener("click", function (ev) {
+          var th = a.getAttribute("data-cmdk-theme");
+          if (th) {
+            ev.preventDefault();
+            applyTheme(th);
+            store("tf-theme", th);
+          }
+          if (dlg.open) dlg.close();
+        });
+        li.appendChild(a);
+        cmdList.appendChild(li);
+      });
+    };
+
+    var openCmdPalette = function () {
+      if (!dlg.showModal) return;
+      renderCmdList();
+      if (!dlg.open) dlg.showModal();
+      cmdInput.focus();
+    };
+
+    cmdBtn.addEventListener("click", openCmdPalette);
+    document.querySelectorAll("[data-cmdk-open]").forEach(function (el) {
+      el.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        openCmdPalette();
+      });
+    });
+    cmdClose.addEventListener("click", function () { if (dlg.open) dlg.close(); });
+    dlg.addEventListener("click", function (ev) {
+      if (ev.target === dlg) dlg.close();
+    });
+    cmdInput.addEventListener("input", renderCmdList);
+    cmdChips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        activeCat = chip.getAttribute("data-cmdk-cat");
+        cmdChips.forEach(function (c) { c.classList.toggle("is-active", c === chip); });
+        renderCmdList();
+      });
+    });
+    document.addEventListener("keydown", function (ev) {
+      if ((ev.ctrlKey || ev.metaKey) && (ev.key === "k" || ev.key === "K")) {
+        ev.preventDefault();
+        if (dlg.open) dlg.close();
+        else openCmdPalette();
+      }
+    });
+  }
 })();
