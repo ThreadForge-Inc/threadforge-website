@@ -68,10 +68,8 @@
   var themeButton = document.getElementById("theme-toggle");
 
   var THEMES = [
-    ["emerald", "Emerald Prestige", "Deep forest emerald (#124E3F) & vibrant lime (#A3E635) HD preset"],
-    ["titanium", "Titanium Cyber-Apex", "threadforge.live & threadforge.cloud AI-Native slate (#070B14), electric cyan (#22D3EE) & lime (#A3E635)"],
-    ["kerjata", "Light (Kerjata)", "Suite 10.19.0 UI/UX: matte charcoal (#111318), pearl white (#F6F8FB) & royal blue (#3B82F6)"],
-    ["obsidian", "Obsidian Executive", "Sovereign carbon (#090A0F), executive gold (#FBBF24) & platinum ink (#F8FAFC)"],
+    ["emerald", "Emerald Prestige", "Signature deep forest emerald (#124E3F) & vibrant lime (#A3E635)"],
+    ["kerjata", "Light (Kerjata)", "Crisp pearl white (#F6F8FB), matte charcoal (#111318) & royal blue (#2563EB)"],
     ["light", "Light (Sage Paper)", "Classic ThreadForge sage-paper & forge-green workbench"],
     ["dark", "Dark (Forge Night)", "Deep forest night workbench for low-light operations"]
   ];
@@ -85,6 +83,7 @@
   function applyTheme(mode) {
 
     if (mode === "cvd") mode = "kerjata";
+    if (mode === "titanium" || mode === "obsidian") mode = "emerald";
 
     if (!names[mode]) mode = "emerald";
 
@@ -852,7 +851,7 @@
 
 /* Industry & Operational Compatibility Filter */
   var filterButtons = Array.prototype.slice.call(document.querySelectorAll("[data-industry-filter]"));
-  var industryCards = Array.prototype.slice.call(document.querySelectorAll(".industry-card"));
+  var industryCards = Array.prototype.slice.call(document.querySelectorAll(".industry-card, .ind-film-card"));
 
   if (filterButtons.length && industryCards.length) {
     filterButtons.forEach(function (btn) {
@@ -963,6 +962,8 @@
         if (link) link.tabIndex = diff === 0 ? 0 : -1;
       });
       deckDots.forEach(function (dot, i) { dot.setAttribute("aria-selected", String(i === current)); });
+      var deckCounter = document.getElementById("deck-counter");
+      if (deckCounter) deckCounter.textContent = String(current + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
       if (deckLive) deckLive.textContent = deckSlides[current].getAttribute("aria-label") + ": " + deckSlides[current].querySelector("h3").textContent;
     }
 
@@ -1088,95 +1089,8 @@
     }
   }
 
+
 /* === PIONEER ECOSYSTEM COMMAND PALETTE & INTERACTIVE WORKBENCH === */
-  // Quick theme switch buttons ([data-set-theme]) inside the Design System showcase
-  document.addEventListener("click", function (event) {
-    var tBtn = event.target.closest("[data-set-theme]");
-    if (!tBtn) return;
-    var mode = tBtn.getAttribute("data-set-theme");
-    applyTheme(mode);
-    store("tf-theme", mode);
-  });
-
-  // Ecosystem Workbench 4-Tab Architecture Switcher ([data-eco-tab])
-  var ecoTabs = Array.prototype.slice.call(document.querySelectorAll("[data-eco-tab]"));
-  if (ecoTabs.length) {
-    var ecoPanels = Array.prototype.slice.call(document.querySelectorAll("[data-eco-panel]"));
-    var activateEcoTab = function (targetId) {
-      ecoTabs.forEach(function (btn) {
-        var active = btn.getAttribute("data-eco-tab") === targetId;
-        btn.setAttribute("aria-selected", String(active));
-      });
-      ecoPanels.forEach(function (panel) {
-        var active = panel.getAttribute("data-eco-panel") === targetId;
-        panel.classList.toggle("is-active", active);
-        panel.hidden = !active;
-      });
-    };
-    ecoTabs.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        activateEcoTab(btn.getAttribute("data-eco-tab"));
-      });
-    });
-  }
-
-  // Live IoT Sensor & Triple-Core Telemetry Simulator ([data-iot-node])
-  var iotBtns = Array.prototype.slice.call(document.querySelectorAll("[data-iot-node]"));
-  if (iotBtns.length) {
-    var IOT_NODES = {
-      "cold-chain": {
-        node: "REEFER-NODE-01 · Port Qasim -> Hamburg",
-        metricA: "-18.4 °C (Target -18.0 °C)",
-        metricB: "0.14 g Vibration · Sealed",
-        anomaly: "0.018 (Normal · Z-Score 0.41)",
-        action: "Relay AI HMAC Signed -> Local 127.0.0.1 Ledger #8841"
-      },
-      "pharma-cleanroom": {
-        node: "GMP-AUTOCLAVE-04 · Cleanroom ISO-5",
-        metricA: "121.2 °C · 2.05 Bar Sterile",
-        metricB: "18.2 Pa Differential Pressure",
-        anomaly: "0.009 (Pass · CoA Hash Verified)",
-        action: "Titanium EvidenceRecord SHA-256 -> Batch Lot #API-209"
-      },
-      "textile-loom": {
-        node: "SPIN-FRAME-12 · Ring Spindle Telemetry",
-        metricA: "17,850 RPM · 98.4% Efficiency",
-        metricB: "62.1% RH · 28.4 °C Ambient",
-        anomaly: "0.031 (Nominal · Zero Yarn Break)",
-        action: "suite.threadforge.cloud Tunnel -> MRP Work Order #WO-412"
-      },
-      "sandbox-agent": {
-        node: "TITANIUM-MCP-01 · *.tforge.run Sandbox",
-        metricA: "97.2% Prefix Cache Hit ($0 Burn)",
-        metricB: "14/14 Harness · 4/4 Rust Kernel",
-        anomaly: "0.000 (Circuit Breaker Armed)",
-        action: "Draft PR Proposed -> Waiting Human Disposal Approval"
-      }
-    };
-    var setIotNode = function (key) {
-      var data = IOT_NODES[key] || IOT_NODES["cold-chain"];
-      iotBtns.forEach(function (b) {
-        b.classList.toggle("is-active", b.getAttribute("data-iot-node") === key);
-      });
-      var elNode = document.getElementById("iot-val-node");
-      var elA = document.getElementById("iot-val-a");
-      var elB = document.getElementById("iot-val-b");
-      var elAnom = document.getElementById("iot-val-anomaly");
-      var elAct = document.getElementById("iot-val-action");
-      if (elNode) elNode.textContent = data.node;
-      if (elA) elA.textContent = data.metricA;
-      if (elB) elB.textContent = data.metricB;
-      if (elAnom) elAnom.textContent = data.anomaly;
-      if (elAct) elAct.textContent = data.action;
-    };
-    iotBtns.forEach(function (b) {
-      b.addEventListener("click", function () {
-        setIotNode(b.getAttribute("data-iot-node"));
-      });
-    });
-  }
-
-  // Global Ctrl+K / Cmd+K Pioneer Ecosystem Command Palette
   var prefix = "";
   var scripts = document.querySelectorAll("script[src]");
   scripts.forEach(function (s) {
@@ -1186,28 +1100,37 @@
   });
 
   var CMD_ITEMS = [
-    { title: "threadforgeofficial.com — Parent Organization & 10.19.0 ERP Flagship", sub: "Threadforge Inc. · 24 operational desks, 18 industries & 57+ calculators", tag: "Ecosystem", cat: "ecosystem", href: prefix + "#pioneer-ecosystem" },
-    { title: "threadforge.cloud — Sovereign Cloud Control Plane & Edge IoT Ingress", sub: "Next.js 15 WebContainers Studio, suite.threadforge.cloud tunnel & *.tforge.run sandboxes", tag: "Cloud / IoT", cat: "ecosystem", href: prefix + "cloud/" },
-    { title: "threadforge.live — Sovereign Human-Agent Engineering OS", sub: "Rust Titanium Kernel + TypeScript Zero-Burn Harness + Python Relay AI & Omni Viral", tag: "Agent OS", cat: "ecosystem", href: prefix + "live/" },
-    { title: "Pioneer-Class Principle & Founding Charter", sub: "Led by President & Founder Bilal Ahmed Khan · The agent stack proposes; a human disposes", tag: "Charter", cat: "ecosystem", href: prefix + "principle/" },
-    { title: "21 · Landed Cost & Ledger Desk (10.19.0)", sub: "FIFO/AVCO layers, 5-method freight/duty allocation & balanced DR=CR journals", tag: "Desk 21", cat: "desks", href: prefix + "landed/" },
-    { title: "22 · Multichannel Hub Desk (10.19.0)", sub: "Shopify, Amazon, WooCommerce & Etsy offline CSV sync + SKU mapping", tag: "Desk 22", cat: "desks", href: prefix + "channels/" },
-    { title: "23 · Manufacturing & MRP Desk (10.19.0)", sub: "Multi-level BOM explosion, atomic Work Orders & FIFO/AVCO production costing", tag: "Desk 23", cat: "desks", href: prefix + "mrp/" },
-    { title: "24 · Warehouse & Barcode Desk (10.19.0)", sub: "Offline USB/camera scanner, pick/pack/receive verification & SVG Code 128B labels", tag: "Desk 24", cat: "desks", href: prefix + "warehouse/" },
-    { title: "01 · Business & Commerce Desk", sub: "Stock, orders, invoices, payments, CRM & integer-cent ledger", tag: "Desk 01", cat: "desks", href: prefix + "business/" },
-    { title: "03 · Trade & TradeMath (57+ Calculators)", sub: "CBM, container load, landed cost, Incoterms, FX forward & industry math", tag: "Desk 03", cat: "desks", href: prefix + "trademath/" },
-    { title: "12 · App Builder & Engineering Agents", sub: "Plain-language app studio & draft-PR engineering agents with test evidence", tag: "Desk 12", cat: "desks", href: prefix + "app-builder/" },
-    { title: "14 · Local AI & MCP Connectors", sub: "Free local Ollama, 0% markup BYOK providers & Titanium MCP server tools", tag: "Desk 14", cat: "desks", href: prefix + "connectors/" },
-    { title: "Industry 01 · Hospital & Healthcare Networks ($79 Tier Pack)", sub: "48s real-suite calculator film · Batch Scaling 250 kg & Reorder Safety Stock", tag: "Industry 01", cat: "industries", href: prefix + "industries/healthcare/" },
-    { title: "Industry 02 · Pharmaceutical & Biotech Manufacturing ($79 Tier Pack)", sub: "48s real-suite calculator film · API Potency 51.6919 kg & Accelerated Aging Q10", tag: "Industry 02", cat: "industries", href: prefix + "industries/pharma/" },
-    { title: "Industry 03 · Food & Beverage Processing Plants ($79 Tier Pack)", sub: "48s real-suite calculator film · Batch Scaling, Pallet Loading 48 cartons & FEFO", tag: "Industry 03", cat: "industries", href: prefix + "industries/food/" },
-    { title: "All 18 Industrial Standards & Custom Tier Packs ($49–$499)", sub: "Browse all 18 industry cinema films, live inside-suite calculators & role matrices", tag: "18 Industries", cat: "industries", href: prefix + "#industries-scale" },
-    { title: "Switch Theme: Titanium Cyber-Apex (threadforge.live / .cloud)", sub: "AI-Native dark slate (#070B14), electric cyan (#22D3EE) & titanium lime (#A3E635)", tag: "Theme", cat: "design", actionTheme: "titanium" },
-    { title: "Switch Theme: Emerald Prestige (Signature HD)", sub: "Deep forest emerald (#124E3F) & vibrant lime (#A3E635)", tag: "Theme", cat: "design", actionTheme: "emerald" },
-    { title: "Switch Theme: Light (Kerjata 10.19.0)", sub: "Crisp pearl white (#F6F8FB), matte charcoal (#111318) & royal blue (#2563EB)", tag: "Theme", cat: "design", actionTheme: "kerjata" },
-    { title: "Switch Theme: Obsidian Executive (Carbon & Gold)", sub: "Sovereign carbon (#090A0F) & warm executive gold (#FBBF24)", tag: "Theme", cat: "design", actionTheme: "obsidian" },
-    { title: "Live Interactive Browser Demo (10 Guided Missions)", sub: "Try ThreadForge directly in your browser with sample data", tag: "Interactive", cat: "desks", href: prefix + "demo/" },
-    { title: "Compare vs Odoo, Zoho, Katana & Cloud ERPs", sub: "Head-to-head parity matrix & 5-year TCO breakdown ($49 once vs $18,000+)", tag: "TCO Matrix", cat: "ecosystem", href: prefix + "#competitive-edge" }
+    { title: "Threadforge Inc. (threadforgeofficial.com) — Pioneer & Parent Organization", sub: "Constitutional parent organization & ThreadForge 10.19.0 Sovereign ERP Suite (26 Desks · 18 Industries)", tag: "Parent Org", cat: "ecosystem", href: prefix + "#pioneer-ecosystem" },
+    { title: "threadforge.live — Commercial No-Code SaaS, AaaS & Global IoT Platform", sub: "Independent commercial cloud venture for No-Code SaaS, Agent-as-a-Service & Global IoT automation", tag: "SaaS / AaaS / IoT", cat: "ecosystem", href: prefix + "live/" },
+    { title: "threadforge.cloud — Managed Cloud Infrastructure & Edge IoT Division", sub: "Independent cloud control plane, managed WebContainers hosting & industrial telemetry ingress", tag: "Cloud & IoT", cat: "ecosystem", href: prefix + "cloud/" },
+    { title: "Pioneer-Class Principle & Founding Charter", sub: "Led by President & Founder Bilal Ahmed Khan · Constitutional operational standards", tag: "Charter", cat: "ecosystem", href: prefix + "principle/" },
+    { title: "01 · Start Here — Executive Command Center", sub: "Live KPIs, Today's Operational Queue, Operational Health chart & quick actions", tag: "Desk 01", cat: "desks", href: prefix + "demo/" },
+    { title: "02 · HR & Attendance Desk", sub: "Personnel roster, biometric muster imports & shift payroll estimate math", tag: "Desk 02", cat: "desks", href: prefix + "hr/" },
+    { title: "03 · Audit, Finance & Treasury Desk", sub: "Depreciation schedules, financial ratios, CCC, FX hedging & L/C cost math", tag: "Desk 03", cat: "desks", href: prefix + "finance/" },
+    { title: "04 · Executive Approvals Desk", sub: "Two-stage Director & Owner maker-checker approval register across desks", tag: "Desk 04", cat: "desks", href: prefix + "governance/" },
+    { title: "05 · Team Toolkits & SOPs Desk", sub: "Reusable shift checklists, chain-of-custody logs & custom operational toolkits", tag: "Desk 05", cat: "desks", href: prefix + "toolkits/" },
+    { title: "06 · Learning Paths & Academy Desk", sub: "Self-paced onboarding curricula, PWI research modules & team assessments", tag: "Desk 06", cat: "desks", href: prefix + "academy/" },
+    { title: "07 · Local Image Workshop Desk", sub: "Offline still-image crop, resize, colour grade & PNG/JPEG/WebP export", tag: "Desk 07", cat: "desks", href: prefix + "media/" },
+    { title: "08 · Document & Stamp Studio Desk", sub: "Excel/PDF import-export, tamper-evident certificates, vector stamps & print packs", tag: "Desk 08", cat: "desks", href: prefix + "documents/" },
+    { title: "09 · Business & Commerce Desk", sub: "Stock ledger, sales & purchase orders, internal invoices, payments & CRM", tag: "Desk 09", cat: "desks", href: prefix + "business/" },
+    { title: "10 · Landed Cost & Double-Entry Ledger Desk (10.19.0)", sub: "FIFO/AVCO layers, 5-method freight/duty allocation, variance & DR=CR journals", tag: "Desk 10", cat: "desks", href: prefix + "landed/" },
+    { title: "11 · Multichannel Hub Desk (10.19.0)", sub: "Shopify, Amazon, WooCommerce & Etsy offline CSV/TSV sync packs ($0 order fees)", tag: "Desk 11", cat: "desks", href: prefix + "channels/" },
+    { title: "12 · Manufacturing & Light MRP Desk (10.19.0)", sub: "Multi-component BOMs, shortage explosion, 1-click POs & atomic FIFO Work Orders", tag: "Desk 12", cat: "desks", href: prefix + "mrp/" },
+    { title: "13 · Warehouse & Offline Barcode Desk (10.19.0)", sub: "USB/Bluetooth HID & camera scanning, pick/receive, cycle count & SVG Code 128B", tag: "Desk 13", cat: "desks", href: prefix + "warehouse/" },
+    { title: "14 · Data, Insights & AI Review Desk", sub: "Sales velocity, 7/30/90/365-day demand signals, CSV preview & AI document review", tag: "Desk 14", cat: "desks", href: prefix + "insights/" },
+    { title: "15 · Marketing & Campaigns Desk", sub: "Consent-gated audiences, suppression lists, image rights & campaign brief reviews", tag: "Desk 15", cat: "desks", href: prefix + "marketing/" },
+    { title: "16 · Trade & TradeMath Desk (57+ Calculators)", sub: "57+ deterministic calculators: CBM, container fill, landed cost, GSM & tolerances", tag: "Desk 16", cat: "desks", href: prefix + "trademath/" },
+    { title: "17 · Supplier Due Diligence Desk", sub: "Official US/EU/UK sanctions lists, LEI registry & UN Comtrade provenance checks", tag: "Desk 17", cat: "desks", href: prefix + "diligence/" },
+    { title: "18 · Projects & Precision Kanban Desk", sub: "Kanban, List, Timeline & Sprints boards with dependencies and progress bars", tag: "Desk 18", cat: "desks", href: prefix + "projects/" },
+    { title: "19 · Capital Projects & BOQ Desk", sub: "AACE cost plans, PERT/CPM schedules, bid leveling, risk EMV & Earned Value", tag: "Desk 19", cat: "desks", href: prefix + "capital/" },
+    { title: "20 · Rate & Policy Log Desk", sub: "Append-only cryptographic ledger of FX rates, freight tariffs, duty & policy rules", tag: "Desk 20", cat: "desks", href: prefix + "policy-log/" },
+    { title: "21 · App & Website Builder Desk", sub: "Plan and scaffold original web applications from plain-language specifications", tag: "Desk 21", cat: "desks", href: prefix + "app-builder/" },
+    { title: "22 · Devices, Tools & PC Care Desk", sub: "Read-only Windows diagnostics, restore-point safeguards & human-approved repairs", tag: "Desk 22", cat: "desks", href: prefix + "pc-care/" },
+    { title: "23 · People, Roles & Access Tokens Desk", sub: "Up to 100 isolated organizations, 4 roles & expiring named access tokens", tag: "Desk 23", cat: "desks", href: prefix + "access/" },
+    { title: "24 · Local AI, Branding & MCP Connectors Desk", sub: "Free local Ollama, 0% markup BYOK providers, custom app branding & MCP tools", tag: "Desk 24", cat: "desks", href: prefix + "connectors/" },
+    { title: "25 · Guides & The Mentor Desk", sub: "Embedded offline step-by-step operational walkthroughs across every desk", tag: "Desk 25", cat: "desks", href: prefix + "mentor/" },
+    { title: "26 · Engineering Agents Workspace", sub: "Isolated background coding agents, Docker test verification & draft GitHub PRs", tag: "Desk 26", cat: "desks", href: prefix + "app-builder/#engineering" },
+    { title: "All 18 Industry 48s Cinema Films & Custom Tier Packs ($49–$499)", sub: "Explore all 18 industry standards with real inside-suite calculator walkthroughs", tag: "18 Industries", cat: "industries", href: prefix + "#industries-scale" }
   ];
 
   var headerActions = document.querySelector(".header-actions");
@@ -1216,33 +1139,32 @@
     cmdBtn.type = "button";
     cmdBtn.id = "cmdk-open-btn";
     cmdBtn.className = "cmdk-trigger";
-    cmdBtn.setAttribute("aria-label", "Open Ecosystem Command Palette (Ctrl+K)");
-    cmdBtn.title = "Search Ecosystem, 24 Desks, 18 Industries, threadforge.cloud & threadforge.live (Ctrl+K)";
-    cmdBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="cmdk-trigger-label">Ecosystem</span><kbd class="cmdk-kbd">Ctrl K</kbd>';
+    cmdBtn.setAttribute("aria-label", "Quick Search across 26 Desks, 18 Industries & Parent Ecosystem (Ctrl+K)");
+    cmdBtn.title = "Quick Search across 26 Desks, 18 Industries & Parent Ecosystem (Ctrl+K)";
+    cmdBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="cmdk-trigger-label">Search 26 Desks</span><kbd class="cmdk-kbd">Ctrl K</kbd>';
     headerActions.insertBefore(cmdBtn, headerActions.firstChild);
 
     var dlg = document.createElement("dialog");
     dlg.id = "cmdk-dialog";
     dlg.className = "cmdk-dialog";
-    dlg.setAttribute("aria-label", "ThreadForge Pioneer Ecosystem Command Palette");
+    dlg.setAttribute("aria-label", "ThreadForge Quick Search");
     dlg.innerHTML =
       '<div class="cmdk-shell">' +
         '<div class="cmdk-search-bar">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' +
-          '<input type="search" class="cmdk-input" id="cmdk-input" placeholder="Jump to threadforge.cloud, threadforge.live, 24 desks, 18 industries, or themes..." autocomplete="off">' +
+          '<input type="search" class="cmdk-input" id="cmdk-input" placeholder="Search all 26 operational desks in suite order, 18 industry films, or sister divisions..." autocomplete="off">' +
           '<button type="button" class="cmdk-close" id="cmdk-close">ESC</button>' +
         '</div>' +
-        '<div class="cmdk-filters" role="toolbar" aria-label="Filter command categories">' +
-          '<button type="button" class="cmdk-chip is-active" data-cmdk-cat="all">All Ecosystem</button>' +
-          '<button type="button" class="cmdk-chip" data-cmdk-cat="ecosystem">Parent · .cloud · .live</button>' +
-          '<button type="button" class="cmdk-chip" data-cmdk-cat="desks">24 ERP Desks</button>' +
-          '<button type="button" class="cmdk-chip" data-cmdk-cat="industries">18 Industries</button>' +
-          '<button type="button" class="cmdk-chip" data-cmdk-cat="design">UI/UX Themes</button>' +
+        '<div class="cmdk-filters" role="toolbar" aria-label="Filter search categories">' +
+          '<button type="button" class="cmdk-chip is-active" data-cmdk-cat="all">All (31)</button>' +
+          '<button type="button" class="cmdk-chip" data-cmdk-cat="desks">26 Suite Desks (In Order)</button>' +
+          '<button type="button" class="cmdk-chip" data-cmdk-cat="industries">18 Industry Films</button>' +
+          '<button type="button" class="cmdk-chip" data-cmdk-cat="ecosystem">Parent &amp; Sister Divisions</button>' +
         '</div>' +
         '<ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>' +
         '<div class="cmdk-foot">' +
-          '<span><b>Threadforge Inc.</b> · Pioneer &amp; Parent Organization of <code>threadforgeofficial.com</code>, <code>threadforge.cloud</code> &amp; <code>threadforge.live</code></span>' +
-          '<span>↑↓ Navigate · Enter Select · Esc Close</span>' +
+          '<span><b>Threadforge Inc.</b> &middot; Parent Organization of <code>threadforgeofficial.com</code>, <code>threadforge.live</code> &amp; <code>threadforge.cloud</code></span>' +
+          '<span>Enter to open &middot; Esc to close</span>' +
         '</div>' +
       '</div>';
     document.body.appendChild(dlg);
@@ -1268,7 +1190,6 @@
         li.className = "cmdk-item" + (idx === 0 ? " is-selected" : "");
         var a = document.createElement("a");
         a.href = item.href || "#";
-        if (item.actionTheme) a.setAttribute("data-cmdk-theme", item.actionTheme);
         a.innerHTML =
           '<span class="cmdk-item-main">' +
             '<span class="cmdk-item-title"></span>' +
@@ -1278,13 +1199,7 @@
         a.querySelector(".cmdk-item-title").textContent = item.title;
         a.querySelector(".cmdk-item-sub").textContent = item.sub;
         a.querySelector(".cmdk-item-tag").textContent = item.tag;
-        a.addEventListener("click", function (ev) {
-          var th = a.getAttribute("data-cmdk-theme");
-          if (th) {
-            ev.preventDefault();
-            applyTheme(th);
-            store("tf-theme", th);
-          }
+        a.addEventListener("click", function () {
           if (dlg.open) dlg.close();
         });
         li.appendChild(a);
@@ -1300,12 +1215,6 @@
     };
 
     cmdBtn.addEventListener("click", openCmdPalette);
-    document.querySelectorAll("[data-cmdk-open]").forEach(function (el) {
-      el.addEventListener("click", function (ev) {
-        ev.preventDefault();
-        openCmdPalette();
-      });
-    });
     cmdClose.addEventListener("click", function () { if (dlg.open) dlg.close(); });
     dlg.addEventListener("click", function (ev) {
       if (ev.target === dlg) dlg.close();
