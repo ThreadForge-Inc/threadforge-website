@@ -3279,3 +3279,26 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
     max-width: min(1140px, calc(100vw - 48px));
   }
 }
+
+
+/* 10.19.0 Industry Tier Pack Films & Spotlight (01-03) */
+.ind-showcase-wrap { margin: 28px 0 30px; }
+.ind-showcase-head { margin-bottom: 16px; }
+.ind-showcase-head h3 { margin: 4px 0 0; font-size: clamp(1.2rem, 1rem + .8vw, 1.55rem); color: var(--fg); }
+.ind-film-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.ind-film-card { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: var(--shadow); }
+.ind-film-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.ind-pack-price-badge { margin-left: auto; font: 700 .72rem/1.2 var(--font-mono); padding: 4px 9px; border-radius: 999px; background: var(--ok-bg); color: var(--link); border: 1px solid var(--line); }
+.ind-film-card h3 { margin: 0; font-size: 1.05rem; color: var(--fg); }
+.ind-film-sub { margin: 0; font-size: .82rem; line-height: 1.45; color: var(--fg-2); }
+.ind-film-player { margin: 2px 0 4px; }
+.ind-film-player figcaption { margin-top: 6px; font-size: .78rem; }
+.ind-pack-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.ind-tier-pack-box { margin: 8px 0 10px; padding: 10px 12px; border-radius: 10px; background: var(--ok-bg); border: 1px solid color-mix(in srgb, var(--link) 35%, var(--line)); font-size: .8rem; line-height: 1.45; color: var(--fg); }
+.ind-tier-pack-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; font-weight: 700; }
+.ind-tier-pack-links a { color: var(--link); text-decoration: none; }
+.ind-tier-pack-links a:hover { text-decoration: underline; }
+.ind-desks-standalone { margin-top: 22px; padding: 18px 20px; border-radius: 14px; background: var(--bg-raised); border: 1px solid var(--line); }
+.ind-desk-pill-link { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 999px; font-size: .82rem; font-weight: 600; background: var(--bg-sunk); color: var(--link); border: 1px solid var(--line); text-decoration: none; }
+.ind-desk-pill-link:hover { border-color: var(--link); text-decoration: underline; }
+@media (max-width: 1020px) { .ind-film-grid { grid-template-columns: 1fr; } }
