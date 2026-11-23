@@ -3302,3 +3302,7 @@ select option { background-color: var(--bg-raised); color: var(--fg); }
 .ind-desk-pill-link { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 999px; font-size: .82rem; font-weight: 600; background: var(--bg-sunk); color: var(--link); border: 1px solid var(--line); text-decoration: none; }
 .ind-desk-pill-link:hover { border-color: var(--link); text-decoration: underline; }
 @media (max-width: 1020px) { .ind-film-grid { grid-template-columns: 1fr; } }
+
+.ind-all-films-bar { margin: -8px 0 26px; padding: 16px 20px; border-radius: var(--radius); background: var(--bg-raised); border: 1px solid var(--line); }
+.ind-all-films-bar strong { display: block; margin-bottom: 10px; font-size: .88rem; color: var(--fg); }
+.ind-all-films-pills { display: flex; flex-wrap: wrap; gap: 8px; }
