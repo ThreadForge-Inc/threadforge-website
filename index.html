@@ -679,9 +679,9 @@
 
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>
 
-            <span>See it for yourself with sample data. No sign-up beyond an email that stays in your browser.</span>
+            <span>See it for yourself with sample data. Launches in 1 click — zero email or signup wall.</span>
 
-            <a class="console-link" href="demo/">Open the live demo</a>
+            <a class="console-link" href="demo/?launch=1">Launch instant demo</a>
 
           </figcaption>
 
@@ -714,6 +714,19 @@
     </ul>
 
   </div>
+
+  <!-- Instant Interactive TradeMath Widget (Above-the-Fold Quick Win) -->
+  <section class="section band-sunk" id="quick-trademath" aria-labelledby="quick-trademath-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">Try ThreadForge Math Now &middot; Zero Login Wall</p>
+        <h2 id="quick-trademath-title">Incoterms 2020 (EXW, FOB, CIF, DDP) &amp; CBM Landed-Cost Estimator.</h2>
+        <p class="lead">Calculate exact container utilization (20ft, 40ft, 40ft HC), customs valuation base, duty, unit landed cost, and export a SHA-256 checksummed BOQ certificate locally in exact <code>BigInt</code> integer cents &mdash; before installing anything. <a href="public/widgets/trademath-landed-cost.html">Open standalone single-file widget</a> or <a href="demo/?launch=1">launch the 26-desk live demo in 1 click</a>.</p>
+      </header>
+      <div class="lc-mount" data-lc-widget data-widget-base="./"></div>
+      <script src="assets/js/landed-widget.js" defer></script>
+    </div>
+  </section>
 
     <!-- Pioneer & Parent Organization Ecosystem Showcase: threadforgeofficial.com -> threadforge.live & threadforge.cloud -->
   <section class="section" id="pioneer-ecosystem" aria-labelledby="pioneer-ecosystem-title">
@@ -2531,9 +2544,13 @@
 
       <div class="form-actions">
 
-        <a class="btn btn-primary" href="trademath/">Open TradeMath</a>
+        <a class="btn btn-primary" href="#quick-trademath">Run Incoterms &amp; CBM Estimator</a>
 
-        <a class="btn btn-ghost" href="demo/">Try it inside the full demo</a>
+        <a class="btn btn-ghost" href="trademath/">Open all TradeMath calculators</a>
+
+        <a class="btn btn-ghost" href="public/widgets/trademath-landed-cost.html">Standalone widget</a>
+
+        <a class="btn btn-ghost" href="demo/?launch=1">Launch instant demo</a>
 
       </div>
 
@@ -3600,6 +3617,31 @@ Add-AppxPackage -Path .\ThreadForge-10.19.0-win-x64-signed-local.msix</code>
 
       <p class="fine price-fine">US dollars, excluding tax. Each tier is a licence to use the version you buy, for your own organizations, for as long as you like, with fixes for that version at no charge. A later major version or a new product is a separate purchase that you choose to make. An upgrade to a higher tier, or more Custom desks, costs the new price less what you already paid, and your records carry over. Without a licence, Essentials runs for a 14-day trial and then steps down smoothly into Community (Free Forever, $0) for Starter TradeMath pre-shipment calculators, up to 25 SKUs, 50 orders per 30 days, basic barcode scanning, and full CSV &amp; encrypted backup exports; your records always stay readable and exportable. The Microsoft Store edition (9PJTNXTTX5CR) installs free at Essentials and sells Professional (Store ID 9PCS8DH4MTQJ), Industrial (Store ID 9P6L6SFJBSXJ) and Industrial Park (Store ID 9MZTQH29P0JH) as in-app purchases, billed by the Store itself at the same prices above. The Google Play edition (ThreadForge: Trade &amp; Business, com.methodology.threadforge) is Essentials only ($49 one-time purchase) for now. You may not resell, share or copy ThreadForge. Industrial Park source code may be changed only for your own organizations, keeping the ThreadForge credit.</p>
 
+      <div class="sku-arch-wrap" id="sku-architecture">
+        <div class="sku-arch-head">
+          <h3>Modular SKU Segregation &amp; Optional Sovereign Fulfillment</h3>
+          <span class="fine">Strict capability isolation · Ed25519 offline <code>.tfkey</code> verification · Optional annual regulatory &amp; sync pack</span>
+        </div>
+        <div class="sku-arch-grid">
+          <article class="sku-card">
+            <span class="sku-code">SKU_TRADE_ERP</span>
+            <h4>Trade &amp; Industrial ERP</h4>
+            <p>Double-entry integer-cent ledger, TradeMath (57+ calculators), MRP, WMS barcode scanning, customs &amp; BOQ desks. Standalone OS repair, startup quarantine, and cloning routines remain isolated off by default unless explicitly opted in.</p>
+          </article>
+          <article class="sku-card">
+            <span class="sku-code">SKU_OPS_AGENCY</span>
+            <h4>Ops &amp; Agency Workspace</h4>
+            <p>Precision Kanban projects, Business &amp; Commerce, consent-gated campaign approvals, Document &amp; Stamp Studio, Team Toolkits, and Academy learning paths — built for clean operations and agency workflows.</p>
+          </article>
+          <article class="sku-card">
+            <span class="sku-code">SKU_DEV_SYSOPS</span>
+            <h4>Dev &amp; SysAdmin Companion</h4>
+            <p>Read-only-first Windows PC Care (human yes/no repair journal), sandboxed PR engineering agent workspace, local Ollama models, and MCP connectors — keeping system automation clearly separated from factory floor ERPs.</p>
+          </article>
+        </div>
+        <p class="fine"><b>Offline <code>.tfkey</code> &amp; Optional Maintenance (AMR):</b> Direct orders verify offline with signed Ed25519 <code>.tfkey</code> license artifacts and SHA-256 hash-chain ledger audits — zero cloud phone-home. An optional Annual Maintenance &amp; Regulatory Pack (for customs/tariff schedule packs, tax rule updates, and E2EE backup relay) is available separately without ever expiring your perpetual software rights.</p>
+      </div>
+
       <div class="claims">
 
         <article>
@@ -3896,7 +3938,7 @@ Add-AppxPackage -Path .\ThreadForge-10.19.0-win-x64-signed-local.msix</code>
 
           <summary>Can I try ThreadForge before buying?</summary>
 
-          <div><p>Yes. The <a href="demo/">live demo</a> asks for an email first. A work address and a personal address both work, and a company domain is not required. The address stays in that browser and is not sent to us. Each browser then gets one free 60-minute session of the whole suite with sample data, including the TradeMath calculators. Business workflows work for real; AI, PC and data-source results are simulated and labelled. After that, buy it once, from $49, and run it on your own PC or server with your own data.</p></div>
+          <div><p>Yes. The <a href="demo/?launch=1">live demo</a> launches immediately in 1 click with zero email gate or signup wall. You can optionally enter a label inside the page for local browser exports (nothing is sent to us). Each browser gets a free 60-minute interactive session of the suite with sample data, plus permanent unlimited free access to the <a href="#quick-trademath">Incoterms 2020 &amp; CBM Estimator</a> and <a href="trademath/">TradeMath calculators</a>. Business workflows execute for real; AI, PC and data-source results are simulated and labelled. After that, buy once (from $49, or keep Community $0 forever) and run it locally on your own PC or server.</p></div>
 
         </details>
 

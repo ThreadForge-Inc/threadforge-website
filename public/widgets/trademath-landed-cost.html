@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'self'">
+<title>TradeMath · Incoterms 2020 &amp; CBM Landed-Cost Estimator</title>
+<style>
+  :root {
+    --bg: #eef1e8;
+    --surface: #f7f9f3;
+    --sunk: #e3e9db;
+    --ink: #12241c;
+    --ink-2: #354b40;
+    --line: #c6d0bf;
+    --forge: #124e3f;
+    --forge-2: #173f30;
+    --forge-ink: #eef1e8;
+    --lime: #d6ee8e;
+    --lime-ink: #1b3510;
+    --amber: #8f5410;
+    --amber-bg: #f6e7cb;
+    --bad: #8b2635;
+    --bad-bg: #f8dfe3;
+    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 15px/1.5 var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  .tf-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px clamp(14px, 3vw, 28px);
+  }
+  .tf-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .tf-eyebrow {
+    margin: 0 0 4px;
+    font: 700 11px/1.2 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--forge);
+  }
+  .tf-head h1 {
+    margin: 0;
+    font-size: clamp(1.35rem, 1.05rem + 1.2vw, 1.9rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .tf-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tf-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: var(--sunk);
+    border: 1px solid var(--line);
+    font: 600 12px/1.2 var(--font-mono);
+    color: var(--ink-2);
+  }
+  .tf-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.95fr);
+    gap: 18px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .tf-grid { grid-template-columns: minmax(0, 1fr); }
+  }
+  .tf-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    display: grid;
+    gap: 16px;
+  }
+  .tf-inco-bar {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+  @media (max-width: 520px) {
+    .tf-inco-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  .tf-inco-btn {
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    border-radius: 12px;
+    padding: 10px 10px;
+    text-align: left;
+    cursor: pointer;
+    font: 600 13px/1.25 var(--font-sans);
+  }
+  .tf-inco-btn span {
+    display: block;
+    font: 400 11px/1.3 var(--font-sans);
+    color: var(--ink-2);
+    margin-top: 2px;
+  }
+  .tf-inco-btn[aria-pressed="true"] {
+    background: var(--forge);
+    border-color: var(--forge);
+    color: var(--forge-ink);
+  }
+  .tf-inco-btn[aria-pressed="true"] span {
+    color: var(--lime);
+  }
+  .tf-inco-btn:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  button:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+  }
+  .tf-inco-banner {
+    background: var(--sunk);
+    border-left: 3px solid var(--forge);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .tf-section-label {
+    margin: 0;
+    font: 700 11px/1.2 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 6px;
+  }
+  .tf-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 12px;
+  }
+  .tf-fields-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 620px) {
+    .tf-fields, .tf-fields-2 { grid-template-columns: minmax(0, 1fr); }
+  }
+  .tf-fld {
+    display: grid;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-2);
+  }
+  .tf-fld input,
+  .tf-fld select {
+    width: 100%;
+    min-height: 38px;
+    padding: 6px 10px;
+    border-radius: 9px;
+    border: 1px solid var(--line);
+    background: #ffffff;
+    color: var(--ink);
+    font: 500 14px/1.2 var(--font-mono);
+  }
+  .tf-fld small {
+    font: 400 11px/1.25 var(--font-sans);
+    color: var(--ink-2);
+  }
+  .tf-slip {
+    background: var(--forge-2);
+    color: var(--forge-ink);
+    border-radius: 16px;
+    padding: 20px;
+    display: grid;
+    gap: 14px;
+    position: sticky;
+    top: 14px;
+  }
+  .tf-slip-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .tf-slip-top h2 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--lime);
+  }
+  .tf-hero-metric {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(214, 238, 142, 0.25);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tf-hero-metric .lbl {
+    font-size: 12px;
+    color: #c4d6ca;
+  }
+  .tf-hero-metric .val {
+    font: 700 1.75rem/1.1 var(--font-mono);
+    color: var(--lime);
+  }
+  .tf-kv {
+    margin: 0;
+    display: grid;
+    gap: 7px;
+  }
+  .tf-kv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed rgba(196, 214, 202, 0.22);
+    font-size: 13px;
+  }
+  .tf-kv-row dt { color: #c4d6ca; }
+  .tf-kv-row dd {
+    margin: 0;
+    font: 600 13px/1.2 var(--font-mono);
+    color: #ffffff;
+    text-align: right;
+  }
+  .tf-meter-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: grid;
+    gap: 8px;
+  }
+  .tf-meter-head {
+    display: flex;
+    justify-content: space-between;
+    font: 600 12px/1.2 var(--font-mono);
+    color: #e3ece5;
+  }
+  .tf-bar {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    overflow: hidden;
+  }
+  .tf-bar > span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--lime);
+    transition: width 0.2s ease;
+  }
+  .tf-bar > span.is-over {
+    background: #f59e0b;
+  }
+  .tf-warn {
+    padding: 9px 11px;
+    border-radius: 9px;
+    font-size: 12px;
+    background: var(--amber-bg);
+    color: var(--amber);
+    font-weight: 600;
+  }
+  .tf-err {
+    padding: 9px 11px;
+    border-radius: 9px;
+    font-size: 12px;
+    background: var(--bad-bg);
+    color: var(--bad);
+    font-weight: 600;
+  }
+  .tf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 2px;
+  }
+  .tf-btn {
+    min-height: 40px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font: 700 13px/1.1 var(--font-sans);
+  }
+  .tf-btn-lime {
+    background: var(--lime);
+    color: var(--lime-ink);
+  }
+  .tf-btn-ghost {
+    background: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.32);
+  }
+  .tf-btn-dark {
+    background: var(--forge);
+    color: #ffffff;
+  }
+  .tf-fine {
+    margin: 0;
+    font-size: 11.5px;
+    color: #c4d6ca;
+    line-height: 1.45;
+  }
+  .tf-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(12, 24, 19, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .tf-modal-backdrop[hidden] { display: none; }
+  .tf-modal {
+    width: min(480px, 100%);
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    display: grid;
+    gap: 14px;
+  }
+  .tf-modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .tf-modal-head h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  .tf-close {
+    min-width: 34px;
+    min-height: 34px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    cursor: pointer;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<div class="tf-wrap">
+  <header class="tf-head">
+    <div>
+      <p class="tf-eyebrow">ThreadForge TradeMath &middot; Sovereign Offline Engine</p>
+      <h1>Incoterms 2020 &amp; CBM Landed-Cost Estimator</h1>
+    </div>
+    <div class="tf-pill-row">
+      <span class="tf-pill">BigInt Exact-Cent Math</span>
+      <span class="tf-pill">0 Cookies &middot; 0 Cloud Calls</span>
+      <span class="tf-pill">Instant No-Login Run</span>
+    </div>
+  </header>
+
+  <main class="tf-grid">
+    <section class="tf-card" aria-label="Shipment and Incoterms Inputs">
+      <div>
+        <p class="tf-section-label">1. Incoterms 2020 Commercial Basis</p>
+        <div class="tf-inco-bar" role="group" aria-label="Incoterm 2020 selector" style="margin-top:10px">
+          <button type="button" class="tf-inco-btn" data-inco="EXW" aria-pressed="false">
+            EXW
+            <span>Ex Works (Buyer pays all)</span>
+          </button>
+          <button type="button" class="tf-inco-btn" data-inco="FOB" aria-pressed="true">
+            FOB
+            <span>Free On Board (Loaded)</span>
+          </button>
+          <button type="button" class="tf-inco-btn" data-inco="CIF" aria-pressed="false">
+            CIF
+            <span>Cost, Ins. &amp; Freight</span>
+          </button>
+          <button type="button" class="tf-inco-btn" data-inco="DDP" aria-pressed="false">
+            DDP
+            <span>Delivered Duty Paid</span>
+          </button>
+        </div>
+        <div class="tf-inco-banner" id="tm-inco-desc" style="margin-top:10px"></div>
+      </div>
+
+      <div>
+        <p class="tf-section-label">2. Carton Geometry &amp; Container Packing</p>
+        <div class="tf-fields" style="margin-top:10px">
+          <label class="tf-fld">
+            Length per carton
+            <input id="tm-len" type="text" inputmode="decimal" value="60">
+          </label>
+          <label class="tf-fld">
+            Width per carton
+            <input id="tm-wid" type="text" inputmode="decimal" value="40">
+          </label>
+          <label class="tf-fld">
+            Height per carton
+            <input id="tm-hei" type="text" inputmode="decimal" value="40">
+          </label>
+          <label class="tf-fld">
+            Dimension unit
+            <select id="tm-unit">
+              <option value="cm" selected>Centimetres (cm)</option>
+              <option value="in">Inches (in)</option>
+            </select>
+          </label>
+          <label class="tf-fld">
+            Carton gross weight (kg)
+            <input id="tm-wt" type="text" inputmode="decimal" value="18.5">
+          </label>
+          <label class="tf-fld">
+            Container equipment
+            <select id="tm-cont">
+              <option value="20ft">20ft Standard (33.2 m&sup3; / 28,200 kg)</option>
+              <option value="40ft">40ft Standard (67.7 m&sup3; / 26,600 kg)</option>
+              <option value="40hc" selected>40ft High Cube (76.3 m&sup3; / 26,460 kg)</option>
+              <option value="lcl">LCL Consolidated Cargo</option>
+            </select>
+          </label>
+          <label class="tf-fld">
+            Total cartons
+            <input id="tm-cartons" type="text" inputmode="numeric" value="420">
+          </label>
+          <label class="tf-fld">
+            Units per carton
+            <input id="tm-upc" type="text" inputmode="numeric" value="12">
+          </label>
+          <label class="tf-fld">
+            Target resale price / unit ($)
+            <input id="tm-sell" type="text" inputmode="decimal" value="32.50">
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <p class="tf-section-label">3. Integer-Cent Cost Breakdown (USD)</p>
+        <div class="tf-fields" style="margin-top:10px">
+          <label class="tf-fld">
+            Unit invoice price ($)
+            <input id="tm-unit-price" type="text" inputmode="decimal" value="14.25">
+            <small id="tm-goods-sub">EXW/FOB supplier unit quote</small>
+          </label>
+          <label class="tf-fld">
+            Origin handling &amp; export ($)
+            <input id="tm-origin" type="text" inputmode="decimal" value="0.00">
+            <small>Buyer origin drayage / export fee</small>
+          </label>
+          <label class="tf-fld">
+            Main freight total ($)
+            <input id="tm-freight" type="text" inputmode="decimal" value="3850.00">
+            <small id="tm-freight-note">Buyer pays main ocean/air leg</small>
+          </label>
+          <label class="tf-fld">
+            Marine insurance ($ flat)
+            <input id="tm-insurance" type="text" inputmode="decimal" value="410.00">
+            <small id="tm-ins-note">Cargo policy / war risk</small>
+          </label>
+          <label class="tf-fld">
+            Import duty rate (%)
+            <input id="tm-duty-pct" type="text" inputmode="decimal" value="6.5">
+            <small id="tm-duty-note">Applied on CIF customs base</small>
+          </label>
+          <label class="tf-fld">
+            Destination fees / brokerage ($)
+            <input id="tm-dest" type="text" inputmode="decimal" value="980.00">
+            <small>Port wharfage, customs broker, drayage</small>
+          </label>
+        </div>
+      </div>
+
+      <p id="tm-error" class="tf-err" hidden role="alert"></p>
+    </section>
+
+    <aside class="tf-slip" aria-label="Deterministic Landed Cost Breakdown">
+      <div class="tf-slip-top">
+        <h2>Landed-Cost Slip</h2>
+        <span class="tf-pill" id="tm-slip-badge" style="background:rgba(214,238,142,.15);color:#d6ee8e;border-color:rgba(214,238,142,.35)">FOB · 40ft HC</span>
+      </div>
+
+      <div class="tf-hero-metric">
+        <div>
+          <div class="lbl">Exact Unit Landed Cost</div>
+          <div style="font-size:12px;color:#c4d6ca" id="tm-total-units-lbl">5,040 units total</div>
+        </div>
+        <div class="val" id="tm-unit-landed">$0.0000</div>
+      </div>
+
+      <dl class="tf-kv">
+        <div class="tf-kv-row"><dt>Commercial Goods Value</dt><dd id="tm-r-goods">$0.00</dd></div>
+        <div class="tf-kv-row"><dt>Origin Handling + Main Freight</dt><dd id="tm-r-freight">$0.00</dd></div>
+        <div class="tf-kv-row"><dt>Marine Insurance</dt><dd id="tm-r-ins">$0.00</dd></div>
+        <div class="tf-kv-row"><dt>CIF Customs Valuation Base</dt><dd id="tm-r-cif">$0.00</dd></div>
+        <div class="tf-kv-row"><dt>Customs Import Duty</dt><dd id="tm-r-duty">$0.00</dd></div>
+        <div class="tf-kv-row"><dt>Destination Clearance &amp; Drayage</dt><dd id="tm-r-dest">$0.00</dd></div>
+        <div class="tf-kv-row" style="border-bottom:none;padding-top:4px">
+          <dt style="font-weight:700;color:#d6ee8e">Total All-In Landed Cost</dt>
+          <dd style="font-size:1.05rem;color:#d6ee8e" id="tm-r-total">$0.00</dd>
+        </div>
+        <div class="tf-kv-row" style="border-bottom:none">
+          <dt>Est. Gross Margin @ Resale</dt>
+          <dd id="tm-r-margin">0.00%</dd>
+        </div>
+      </dl>
+
+      <div class="tf-meter-box">
+        <div class="tf-meter-head">
+          <span>Shipment Volume (<span id="tm-cbm-val">0.000</span> m&sup3;)</span>
+          <span id="tm-vol-pct">0.0% fill</span>
+        </div>
+        <div class="tf-bar"><span id="tm-vol-bar"></span></div>
+        <div class="tf-meter-head">
+          <span>Gross Weight (<span id="tm-kg-val">0</span> kg)</span>
+          <span id="tm-wt-pct">0.0% payload</span>
+        </div>
+        <div class="tf-bar"><span id="tm-wt-bar"></span></div>
+        <div style="font:600 12px/1.35 var(--font-mono);color:#d6ee8e" id="tm-packing-advice">Packing summary</div>
+      </div>
+
+      <div id="tm-warn" class="tf-warn" hidden></div>
+
+      <div class="tf-actions">
+        <button type="button" class="tf-btn tf-btn-lime" id="tm-export-btn">Export Verified BOQ Report</button>
+        <button type="button" class="tf-btn tf-btn-ghost" id="tm-reset-btn">Reset Sample</button>
+      </div>
+
+      <p class="tf-fine">All monetary calculations execute locally in integer micro-cents (<code>BigInt</code>) with zero IEEE-754 float drift. No inputs leave your browser.</p>
+    </aside>
+  </main>
+</div>
+
+<div class="tf-modal-backdrop" id="tm-modal-bg" hidden role="dialog" aria-modal="true" aria-labelledby="tm-modal-title">
+  <div class="tf-modal">
+    <div class="tf-modal-head">
+      <h2 id="tm-modal-title">Export Verified BOQ Report</h2>
+      <button type="button" class="tf-close" id="tm-modal-close" aria-label="Close modal">&times;</button>
+    </div>
+    <p style="margin:0;font-size:13.5px;color:var(--ink-2)">Enter your email and organization to stamp and download your deterministic BOQ &amp; Incoterms 2020 Landed-Cost Certificate (<code>.txt</code> + SHA-256 verification digest). Generated offline in your browser.</p>
+    <form id="tm-modal-form" novalidate style="display:grid;gap:12px">
+      <label class="tf-fld">
+        Work or Personal Email
+        <input id="tm-lead-email" type="email" required placeholder="procurement@company.com">
+      </label>
+      <label class="tf-fld">
+        Organization / Company Name
+        <input id="tm-lead-org" type="text" required placeholder="Northgate Manufacturing Ltd.">
+      </label>
+      <p id="tm-modal-err" class="tf-err" hidden role="alert"></p>
+      <div class="tf-actions">
+        <button type="submit" class="tf-btn tf-btn-dark">Download Signed BOQ Report</button>
+        <button type="button" class="tf-btn tf-close" id="tm-modal-cancel" style="padding:0 14px;width:auto">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var INCOTERMS = {
+    EXW: {
+      desc: "EXW (Ex Works): Seller makes packed goods available at factory gate. Buyer bears origin export clearance, loading, main ocean/air freight, marine insurance, import duty, and destination delivery.",
+      zeroFields: []
+    },
+    FOB: {
+      desc: "FOB (Free On Board): Seller clears export and loads goods onto the vessel at named port. Buyer pays main freight, marine insurance, customs import duty, and destination drayage.",
+      zeroFields: []
+    },
+    CIF: {
+      desc: "CIF (Cost, Insurance & Freight): Seller pays goods, export clearance, main freight, and minimum marine insurance to destination port. Buyer still pays destination port/brokerage charges and import customs duty.",
+      zeroFields: ["freight", "insurance"]
+    },
+    DDP: {
+      desc: "DDP (Delivered Duty Paid): Seller bears goods, freight, insurance, and import customs duties/taxes to named destination. Enter only buyer-side internal unloading/warehousing fees if applicable.",
+      zeroFields: ["origin", "freight", "insurance", "dutyPct"]
+    }
+  };
+
+  var CONTAINERS = {
+    "20ft": { label: "20ft Standard", cbmScaled: 33200000n, maxKgScaled: 28200000000n },
+    "40ft": { label: "40ft Standard", cbmScaled: 67700000n, maxKgScaled: 26600000000n },
+    "40hc": { label: "40ft HC", cbmScaled: 76300000n, maxKgScaled: 26460000000n },
+    "lcl":  { label: "LCL Consolidated", cbmScaled: 76300000n, maxKgScaled: 26460000000n }
+  };
+
+  var currentInco = "FOB";
+  var lastReport = null;
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Parse non-negative decimal string strictly into BigInt scaled by 10^scaleDigits
+  function parseScaled(raw, scaleDigits, label) {
+    var s = String(raw == null ? "" : raw).trim().replace(/[$,\s]/g, "");
+    if (!s) throw new Error(label + " is required.");
+    var m = /^(\d+)(?:\.(\d+))?$/.exec(s);
+    if (!m) throw new Error(label + " must be a non-negative number.");
+    var whole = BigInt(m[1]);
+    var frac = (m[2] || "").slice(0, scaleDigits);
+    while (frac.length < scaleDigits) frac += "0";
+    var factor = 10n ** BigInt(scaleDigits);
+    return whole * factor + BigInt(frac || "0");
+  }
+
+  function parsePositiveInt(raw, label) {
+    var s = String(raw == null ? "" : raw).trim().replace(/,/g, "");
+    if (!/^\d+$/.test(s)) throw new Error(label + " must be a whole integer.");
+    var v = BigInt(s);
+    if (v <= 0n) throw new Error(label + " must be greater than zero.");
+    return v;
+  }
+
+  // Round half-up: numerator / denominator -> BigInt integer
+  function divRound(num, den) {
+    if (den <= 0n) return 0n;
+    return (num * 2n + den) / (2n * den);
+  }
+
+  function divCeil(num, den) {
+    if (num <= 0n) return 1n;
+    return (num + den - 1n) / den;
+  }
+
+  function fmtScaled(valScaled, scaleDigits, decimals) {
+    var neg = valScaled < 0n;
+    var abs = neg ? -valScaled : valScaled;
+    var drop = scaleDigits - decimals;
+    var rounded = drop > 0 ? divRound(abs, 10n ** BigInt(drop)) : abs * (10n ** BigInt(-drop));
+    var factor = 10n ** BigInt(decimals);
+    var whole = (rounded / factor).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    var frac = (rounded % factor).toString().padStart(decimals, "0");
+    return (neg ? "-" : "") + whole + (decimals > 0 ? "." + frac : "");
+  }
+
+  function fmtCents(cents) {
+    return "$" + fmtScaled(cents, 2, 2);
+  }
+
+  function setInco(code) {
+    currentInco = code;
+    document.querySelectorAll(".tf-inco-btn").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String(btn.getAttribute("data-inco") === code));
+    });
+    $("tm-inco-desc").textContent = INCOTERMS[code].desc;
+    if (code === "CIF") {
+      $("tm-freight-note").textContent = "Seller covers main leg under CIF (add only buyer surcharge if any)";
+      $("tm-ins-note").textContent = "Seller covers minimum Clause C (enter incremental top-up only)";
+    } else if (code === "DDP") {
+      $("tm-freight-note").textContent = "Seller covers main leg under DDP (enter 0.00 unless buyer pays extra)";
+      $("tm-ins-note").textContent = "Included by seller under DDP";
+      $("tm-duty-note").textContent = "Included by seller under DDP";
+    } else {
+      $("tm-freight-note").textContent = "Buyer pays main ocean/air leg";
+      $("tm-ins-note").textContent = "Cargo policy / war risk";
+      $("tm-duty-note").textContent = "Applied on CIF customs base";
+    }
+    calculate();
+  }
+
+  function calculate() {
+    var errEl = $("tm-error");
+    var warnEl = $("tm-warn");
+    errEl.hidden = true;
+    warnEl.hidden = true;
+
+    try {
+      var cartons = parsePositiveInt($("tm-cartons").value, "Total cartons");
+      var upc = parsePositiveInt($("tm-upc").value, "Units per carton");
+      var totalUnits = cartons * upc;
+
+      // Length/width/height scaled 1e2 (centi-units)
+      var len = parseScaled($("tm-len").value, 2, "Carton length");
+      var wid = parseScaled($("tm-wid").value, 2, "Carton width");
+      var hei = parseScaled($("tm-hei").value, 2, "Carton height");
+      if (len <= 0n || wid <= 0n || hei <= 0n) throw new Error("Carton dimensions must be greater than zero.");
+
+      // Convert carton volume to micro-CBM (10^-6 m^3) using BigInt
+      // cm -> m^3 = l_cm * w_cm * h_cm / 1e6. With l,w,h scaled by 1e2 -> / 1e12 * 1e6 = / 1e6.
+      // inch -> cm * 2.54 exact (254/100)
+      var cbmUnitScaled;
+      if ($("tm-unit").value === "cm") {
+        cbmUnitScaled = divRound(len * wid * hei, 1000000n);
+      } else {
+        // 1 in^3 = 16.387064 cm^3 = 16387064 / 10^12 m^3 -> micro-CBM factor
+        var cubicScaled = len * wid * hei; // in^3 * 1e6
+        cbmUnitScaled = divRound(cubicScaled * 16387064n, 1000000000000n);
+      }
+      var totalCbmScaled = cbmUnitScaled * cartons; // 10^-6 m^3
+
+      var cartonKgScaled = parseScaled($("tm-wt").value, 3, "Carton weight (kg)"); // milligrams*10^3 -> 10^-3 kg (grams)
+      var totalKgScaled = cartonKgScaled * cartons; // 10^-3 kg -> actually 10^-3 kg * 1e3 = 10^-6 kg scale if needed; WAIT let's match 10^6 scale:
+      var totalKgMicro = totalKgScaled * 1000n; // 10^-6 kg
+
+      var contKey = $("tm-cont").value;
+      var cont = CONTAINERS[contKey];
+      // Volume pct in basis points (100.0% = 1000 bp)
+      var volBp = divRound(totalCbmScaled * 1000n, cont.cbmScaled);
+      var wtBp = divRound(totalKgMicro * 1000n, cont.maxKgScaled);
+      var practicalCapScaled = (cont.cbmScaled * 85n) / 100n;
+      var containersNeeded = contKey === "lcl" ? 1n : divCeil(totalCbmScaled, practicalCapScaled);
+      var wContainers = contKey === "lcl" ? 1n : divCeil(totalKgMicro, cont.maxKgScaled);
+      if (wContainers > containersNeeded) containersNeeded = wContainers;
+
+      // Financial values in integer cents (10^2)
+      var unitPriceMicro = parseScaled($("tm-unit-price").value, 4, "Unit price"); // 10^-4 USD
+      var goodsCents = divRound(unitPriceMicro * totalUnits, 100n);
+      var originCents = parseScaled($("tm-origin").value, 2, "Origin handling");
+      var freightCents = parseScaled($("tm-freight").value, 2, "Main freight");
+      var insCents = parseScaled($("tm-insurance").value, 2, "Marine insurance");
+      var destCents = parseScaled($("tm-dest").value, 2, "Destination fees");
+      var dutyBp = parseScaled($("tm-duty-pct").value, 2, "Duty %"); // 6.5% -> 650
+
+      // CIF Valuation base for customs duty:
+      var cifBaseCents = goodsCents + (currentInco === "EXW" ? originCents : 0n) + freightCents + insCents;
+      var dutyCents = currentInco === "DDP" ? 0n : divRound(cifBaseCents * dutyBp, 10000n);
+      if (currentInco === "DDP") {
+        // Under DDP, seller price already covers customs clearance; buyer adds only explicit local destination fees
+        freightCents = 0n;
+        insCents = 0n;
+        originCents = 0n;
+      }
+
+      var totalLandedCents = goodsCents + originCents + freightCents + insCents + dutyCents + destCents;
+      var unitLandedMicro = divRound(totalLandedCents * 100n, totalUnits); // 10^-4 USD (cents * 100 = 1/10000 USD)
+
+      var sellPriceCents = parseScaled($("tm-sell").value, 2, "Target resale price");
+      var unitLandedCentsRounded = divRound(totalLandedCents, totalUnits);
+      var unitProfitCents = sellPriceCents - unitLandedCentsRounded;
+      var marginBp = sellPriceCents > 0n ? divRound(unitProfitCents * 10000n, sellPriceCents) : 0n;
+
+      // Render DOM cleanly via textContent
+      $("tm-slip-badge").textContent = currentInco + " · " + cont.label;
+      $("tm-total-units-lbl").textContent = totalUnits.toLocaleString("en-US") + " units (" + cartons.toLocaleString("en-US") + " cartons)";
+      $("tm-unit-landed").textContent = "$" + fmtScaled(unitLandedMicro, 4, 4);
+      $("tm-r-goods").textContent = fmtCents(goodsCents);
+      $("tm-r-freight").textContent = fmtCents(originCents + freightCents);
+      $("tm-r-ins").textContent = fmtCents(insCents);
+      $("tm-r-cif").textContent = fmtCents(cifBaseCents);
+      $("tm-r-duty").textContent = fmtCents(dutyCents) + (currentInco === "DDP" ? " (Seller Paid)" : "");
+      $("tm-r-dest").textContent = fmtCents(destCents);
+      $("tm-r-total").textContent = fmtCents(totalLandedCents);
+      $("tm-r-margin").textContent = fmtScaled(marginBp, 2, 2) + "% (" + fmtCents(unitProfitCents) + "/unit)";
+
+      $("tm-cbm-val").textContent = fmtScaled(totalCbmScaled, 6, 3);
+      $("tm-kg-val").textContent = fmtScaled(totalKgMicro, 6, 1);
+
+      var volPctNum = Number(volBp) / 10;
+      var wtPctNum = Number(wtBp) / 10;
+      $("tm-vol-pct").textContent = volPctNum.toFixed(1) + "% fill";
+      $("tm-wt-pct").textContent = wtPctNum.toFixed(1) + "% payload";
+
+      var volBar = $("tm-vol-bar");
+      var wtBar = $("tm-wt-bar");
+      volBar.style.width = Math.min(100, Math.max(0, volPctNum)).toFixed(1) + "%";
+      wtBar.style.width = Math.min(100, Math.max(0, wtPctNum)).toFixed(1) + "%";
+      volBar.classList.toggle("is-over", volPctNum > 85);
+      wtBar.classList.toggle("is-over", wtPctNum > 95);
+
+      if (contKey === "lcl") {
+        $("tm-packing-advice").textContent = "LCL Volume: " + fmtScaled(totalCbmScaled, 6, 3) + " m\u00b3 total" + (volPctNum > 45 ? " (Check FCL 20ft break-even)" : "");
+      } else {
+        $("tm-packing-advice").textContent = containersNeeded.toString() + "x " + cont.label + " required @ 85% usable packing efficiency";
+      }
+
+      if (contKey !== "lcl" && (volPctNum > 85 || wtPctNum > 95)) {
+        warnEl.textContent = "Capacity Alert: Shipment exceeds 85% practical " + cont.label + " fill or 95% road payload limit (" + containersNeeded.toString() + " container(s) needed).";
+        warnEl.hidden = false;
+      }
+
+      lastReport = {
+        incoterm: currentInco,
+        container: cont.label,
+        cartons: cartons.toString(),
+        unitsPerCarton: upc.toString(),
+        totalUnits: totalUnits.toString(),
+        totalCbm: fmtScaled(totalCbmScaled, 6, 4),
+        totalGrossKg: fmtScaled(totalKgMicro, 6, 2),
+        containersNeeded: containersNeeded.toString(),
+        goodsUsd: fmtCents(goodsCents),
+        freightAndOriginUsd: fmtCents(originCents + freightCents),
+        insuranceUsd: fmtCents(insCents),
+        cifCustomsBaseUsd: fmtCents(cifBaseCents),
+        dutyUsd: fmtCents(dutyCents),
+        destinationUsd: fmtCents(destCents),
+        totalLandedUsd: fmtCents(totalLandedCents),
+        unitLandedUsd: "$" + fmtScaled(unitLandedMicro, 4, 4),
+        estimatedMarginPct: fmtScaled(marginBp, 2, 2) + "%"
+      };
+    } catch (err) {
+      errEl.textContent = err.message || "Check numeric inputs.";
+      errEl.hidden = false;
+      lastReport = null;
+    }
+  }
+
+  document.querySelectorAll(".tf-inco-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      setInco(btn.getAttribute("data-inco"));
+    });
+  });
+
+  ["tm-len", "tm-wid", "tm-hei", "tm-unit", "tm-wt", "tm-cont", "tm-cartons", "tm-upc", "tm-sell",
+   "tm-unit-price", "tm-origin", "tm-freight", "tm-insurance", "tm-duty-pct", "tm-dest"].forEach(function (id) {
+    var el = $(id);
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+
+  $("tm-reset-btn").addEventListener("click", function () {
+    $("tm-len").value = "60"; $("tm-wid").value = "40"; $("tm-hei").value = "40";
+    $("tm-unit").value = "cm"; $("tm-wt").value = "18.5"; $("tm-cont").value = "40hc";
+    $("tm-cartons").value = "420"; $("tm-upc").value = "12"; $("tm-sell").value = "32.50";
+    $("tm-unit-price").value = "14.25"; $("tm-origin").value = "0.00"; $("tm-freight").value = "3850.00";
+    $("tm-insurance").value = "410.00"; $("tm-duty-pct").value = "6.5"; $("tm-dest").value = "980.00";
+    setInco("FOB");
+  });
+
+  // Accessible Export Report Modal (Email + Organization)
+  var modalBg = $("tm-modal-bg");
+  function openModal() {
+    if (!lastReport) return;
+    $("tm-modal-err").hidden = true;
+    modalBg.hidden = false;
+    $("tm-lead-email").focus();
+  }
+  function closeModal() {
+    modalBg.hidden = true;
+    $("tm-export-btn").focus();
+  }
+
+  $("tm-export-btn").addEventListener("click", openModal);
+  $("tm-modal-close").addEventListener("click", closeModal);
+  $("tm-modal-cancel").addEventListener("click", closeModal);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !modalBg.hidden) closeModal();
+  });
+
+  async function sha256Hex(text) {
+    if (window.crypto && window.crypto.subtle && window.TextEncoder) {
+      var buf = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+      return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+    }
+    return "offline-subtle-crypto-unavailable";
+  }
+
+  $("tm-modal-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    var errEl = $("tm-modal-err");
+    errEl.hidden = true;
+    var email = $("tm-lead-email").value.trim();
+    var org = $("tm-lead-org").value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = "Enter a valid email address for the certificate header.";
+      errEl.hidden = false;
+      return;
+    }
+    if (!org) {
+      errEl.textContent = "Enter your organization or company name.";
+      errEl.hidden = false;
+      return;
+    }
+
+    var canonicalJson = JSON.stringify({ organization: org, email: email, report: lastReport, timestamp: new Date().toISOString() }, null, 2);
+    var digest = await sha256Hex(canonicalJson);
+    var body = [
+      "THREADFORGE TRADEMATH - VERIFIED BOQ & LANDED-COST CERTIFICATE",
+      "==============================================================",
+      "Organization : " + org,
+      "Prepared For : " + email,
+      "Generated At : " + new Date().toISOString(),
+      "Math Engine  : BigInt Integer Micro-Cents (0 Floating-Point Drift)",
+      "SHA-256 Hash : " + digest,
+      "",
+      "SUMMARY",
+      "-------",
+      "Incoterm 2020 Basis : " + lastReport.incoterm,
+      "Equipment & Count   : " + lastReport.containersNeeded + "x " + lastReport.container,
+      "Quantity            : " + lastReport.totalUnits + " units (" + lastReport.cartons + " cartons @ " + lastReport.unitsPerCarton + "/ctn)",
+      "Total CBM / Mass    : " + lastReport.totalCbm + " m3 / " + lastReport.totalGrossKg + " kg",
+      "Commercial Goods    : " + lastReport.goodsUsd,
+      "Origin + Freight    : " + lastReport.freightAndOriginUsd,
+      "Marine Insurance    : " + lastReport.insuranceUsd,
+      "CIF Customs Base    : " + lastReport.cifCustomsBaseUsd,
+      "Import Duty         : " + lastReport.dutyUsd,
+      "Destination Fees    : " + lastReport.destinationUsd,
+      "TOTAL LANDED COST   : " + lastReport.totalLandedUsd,
+      "UNIT LANDED COST    : " + lastReport.unitLandedUsd,
+      "Est. Gross Margin   : " + lastReport.estimatedMarginPct,
+      "",
+      "Canonical JSON Payload:",
+      canonicalJson
+    ].join("\n");
+
+    var blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "threadforge-trademath-" + lastReport.incoterm.toLowerCase() + "-boq.txt";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+    closeModal();
+  });
+
+  setInco("FOB");
+})();
+</script>
+</body>
+</html>

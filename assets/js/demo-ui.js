@@ -201,7 +201,7 @@
       emailInput.addEventListener("input", function () { showEmailError(""); });
     }
     var status = E.sessionStatus(state, now());
-    if (signup && status === "active") { showApp(); return; }
+    if (status === "active") { showApp(); return; }
     if (status === "ended") {
       if (state && state.products) { state = E.endSession(state, now()); save(); }
       showEnded();
@@ -212,25 +212,31 @@
     if (start) start.disabled = false;
     function begin(event) {
       if (event) event.preventDefault();
-      if (!validEmail(currentEmail())) {
-        showEmailError("Enter an email address to open the demo. A work or personal address is fine.");
+      var rawEmail = currentEmail().trim();
+      if (rawEmail && !validEmail(rawEmail)) {
+        showEmailError("Enter a valid email address, or leave the optional box blank to launch immediately.");
         if (emailInput) emailInput.focus();
         return;
       }
-      var signed = saveSignup(currentEmail());
+      var labelEmail = rawEmail || "sandbox@127.0.0.1";
+      saveSignup(labelEmail);
       if (E.sessionStatus(state, now()) === "active") { showApp(); return; }
       state = E.createState(now());
       save();
       showApp();
-      toast("Signed up as " + signed.email + ". Your 60-minute session has started.");
+      toast(rawEmail
+        ? "Signed in locally as " + rawEmail + ". Your 60-minute session has started."
+        : "Your 60-minute instant demo session has started — no email required.");
     }
     if (form) {
       form.addEventListener("submit", begin);
-      form.addEventListener("invalid", function (event) {
-        event.preventDefault();
-        showEmailError("Enter an email address to open the demo. A work or personal address is fine.");
-      }, true);
     }
+    try {
+      var qs = new URLSearchParams(window.location.search || "");
+      if (qs.get("launch") === "1" || qs.get("instant") === "1") {
+        begin();
+      }
+    } catch (e) { /* keep 1-click button */ }
   }
 
   function showEnded() {

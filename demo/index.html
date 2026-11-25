@@ -72,27 +72,28 @@
     <div class="wrap demo-gate-grid">
       <div id="gate-copy">
         <p class="eyebrow">Live demo · ThreadForge 10.19.0</p>
-        <h1 id="gate-title">Sign up, then try the suite.</h1>
-        <p class="lead">One free session, right in your browser. Enter an email first. A work address and a personal address are both accepted. Then run the workflows for an invented company, Example Co., including the TradeMath calculators.</p>
+        <h1 id="gate-title">Launch instant demo. Zero signup wall.</h1>
+        <p class="lead">One free 60-minute session right in your browser &mdash; no email or signup required. Run real stock, orders, invoices, ledger entries, roles, and TradeMath calculators for Example Co.</p>
         <ul class="demo-facts">
-          <li><span><b>An email opens the demo.</b> Work or personal. This page keeps it in this browser. It is not sent to a server.</span></li>
+          <li><span><b>1-click instant entry.</b> No email or registration gate. Optionally add a browser-local email label below if you want it stamped into downloaded exports.</span></li>
           <li><span><b>One session of 60 minutes.</b> Each browser gets one. Ending it, or letting the timer run out, closes it.</span></li>
           <li><span><b>Business workflows really work.</b> Stock, orders, invoices, the ledger, CSV import, campaigns, roles and the trade calculators follow the product's rules.</span></li>
           <li><span><b>AI, PC and data-source steps are simulated.</b> They follow the product's documented behaviour on sample data and are labelled wherever they appear.</span></li>
         </ul>
         <form class="demo-signup" id="demo-signup" action="#">
-          <label class="fld" for="demo-email">Email
-            <input id="demo-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required placeholder="you@example.com">
-          </label>
-          <p class="fine">Use whichever inbox you actually read. A company domain is not required.</p>
-          <p class="err" id="demo-email-err" hidden></p>
           <div class="demo-gate-actions" id="gate-actions">
-            <button class="btn btn-primary" type="submit" id="demo-start" disabled>Start my session</button>
+            <button class="btn btn-primary" type="submit" id="demo-start">Launch instant 60-minute demo</button>
+            <a class="btn btn-ghost" href="../trademath/">Open TradeMath Calculators</a>
             <a class="btn btn-ghost" href="../#pricing">See pricing</a>
           </div>
+          <label class="fld" for="demo-email">Optional session label (email stays only in this browser)
+            <input id="demo-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" placeholder="Optional — leave blank to enter immediately">
+          </label>
+          <p class="fine">Zero signup wall: click Launch above to open all sample ledgers, orders, and workflows in 1 click.</p>
+          <p class="err" id="demo-email-err" hidden></p>
         </form>
         <noscript><p class="err">The demo runs in your browser and needs JavaScript. Turn it on, or request a guided pilot from the home page.</p></noscript>
-        <p class="fine" id="gate-fine">Prefer to skip the signup? <a href="../trademath/">Open TradeMath</a>. The same calculators, no email, on this site. Want another full session later? Email <span class="addr">owner@threadforgeofficial.com</span>.</p>
+        <p class="fine" id="gate-fine">Want to verify standalone landed cost first? <a href="../public/widgets/trademath-landed-cost.html">Open Incoterms 2020 &amp; CBM Estimator</a>. Need another session later? Email <span class="addr">owner@threadforgeofficial.com</span>.</p>
       </div>
       <div class="demo-mission-card">
         <h2 id="gate-missions-title">Ten things to try</h2>
