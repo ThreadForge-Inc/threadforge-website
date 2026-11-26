@@ -1,3 +1,3 @@
-﻿1a52e7d3dad8dad7378afcf5466eb32481774f50dcf13b9347302f3f26298ac1  pc/ThreadForge-Quartz-Setup-10.20.0-win-x64-signed.exe
-2e2952827f942ab0954919918e1e7fb4418b7c7186a7859c67eb1d1c4efceafb  pc/ThreadForge-Quartz-Portable-10.20.0-win-x64-signed.zip
-87890a00fb6e1c63cbbcda697b98185edcb23c5be432576c827ea3502b4eee3d  android/ThreadForge-Quartz-10.20.0-android-signed.apk
+﻿6b2d1f8ba97b08b4d2298bfaa5699f485eb5350f6eed8b68460a601360347307  pc/ThreadForge-Quartz-Setup-10.20.0-win-x64-signed.exe
+ed84b525f40ef3433278b3e668f7ca4abae0fe32a3e00bbc338559e3d329fc92  pc/ThreadForge-Quartz-Portable-10.20.0-win-x64-signed.zip
+a6f531c3043184f76b7cca8b5f361338b6dbd14207a904e1f5ba39b4c764e733  android/ThreadForge-Quartz-10.20.0-android-signed.apk
