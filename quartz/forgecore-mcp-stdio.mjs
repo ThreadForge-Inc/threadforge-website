@@ -196,6 +196,16 @@ rl.on('line', async (line) => {
       return;
     }
 
+    if (method === 'resources/list') {
+      sendRpc({ jsonrpc: '2.0', id, result: { resources: [] } });
+      return;
+    }
+
+    if (method === 'prompts/list') {
+      sendRpc({ jsonrpc: '2.0', id, result: { prompts: [] } });
+      return;
+    }
+
     if (method === 'tools/call') {
       const toolName = params?.name;
       const prompt = String(params?.arguments?.prompt || '');

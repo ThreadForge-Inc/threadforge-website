@@ -38,6 +38,27 @@ if (Test-Path $ClaudeDir) {
   Write-Host "    Added mcpServers.forgecore-5size to Claude Desktop config (Quit & reopen Claude.exe to see Tools)." -ForegroundColor Green
 }
 
+$AgyDir = Join-Path $env:USERPROFILE ".gemini\config"
+if (Test-Path $AgyDir) {
+  $AgyCfgPath = Join-Path $AgyDir "mcp_config.json"
+  $NodeExe = (Get-Command node).Source
+  $McpScript = Join-Path $TargetDir "forgecore-mcp-stdio.mjs"
+  node -e "
+    const fs = require('fs');
+    const p = process.argv[1];
+    let cfg = {};
+    try { if (fs.existsSync(p)) cfg = JSON.parse(fs.readFileSync(p, 'utf8')); } catch {}
+    cfg.mcpServers = cfg.mcpServers || {};
+    cfg.mcpServers['forgecore-5size'] = {
+      command: process.argv[2],
+      args: [process.argv[3]],
+      env: { FORGECORE_BASE_URL: 'http://127.0.0.1:4173', OLLAMA_URL: 'http://127.0.0.1:11434' }
+    };
+    fs.writeFileSync(p, JSON.stringify(cfg, null, 2), 'utf8');
+  " $AgyCfgPath $NodeExe $McpScript
+  Write-Host "    Added mcpServers.forgecore-5size to Antigravity Global MCP (~/.gemini/config/mcp_config.json)." -ForegroundColor Green
+}
+
 Write-Host "==> [4/5] Ensuring Loopback Sovereign Port 127.0.0.1:4173 is Live..." -ForegroundColor Cyan
 $alive = $false
 try {
