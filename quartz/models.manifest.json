@@ -1,0 +1,170 @@
+{
+  "manifestVersion": "1.2.0",
+  "schema": "threadforge.quartz.evergreen.manifest.v1",
+  "updatedAt": "2026-11-26T00:00:00Z",
+  "signedBy": "Threadforge Inc.",
+  "standardizedInterfaces": [
+    {
+      "id": "iface-gateway-mcp",
+      "name": "Unified OpenAI-Compatible Gateway + MCP",
+      "protocol": "HTTP/JSON + Model Context Protocol (MCP)",
+      "role": "Routes all text & reasoning across Ollama, llama.cpp, vLLM, Anthropic, Google, and OpenAI through one client contract."
+    },
+    {
+      "id": "iface-hybrid-rrf",
+      "name": "Hybrid BM25 + Dense Vector Retrieval",
+      "protocol": "Reciprocal Rank Fusion (SQLite-vec / pgvector / Qdrant)",
+      "role": "Unifies exact SKU/invoice lexical BM25 matching with dense semantic vector search locally or in cluster."
+    },
+    {
+      "id": "iface-cpp-worker",
+      "name": "Unified C++ Inference Worker",
+      "protocol": "llama.cpp (GGUF) + stable-diffusion.cpp / ONNX / TensorRT",
+      "role": "Executes local LLMs, OCR, TTS, and 2K/4MP visual models with zero Python bloat."
+    }
+  ],
+  "benchmarks": [
+    { "rank": 61, "id": "swe-bench-verified", "name": "SWE-bench Verified / Pro", "domain": "Software Engineering", "gateThreshold": 72.0 },
+    { "rank": 62, "id": "hle", "name": "Humanity's Last Exam (HLE)", "domain": "Frontier Multi-Domain", "gateThreshold": 38.0 },
+    { "rank": 63, "id": "aa-intelligence-v5", "name": "Artificial Analysis Intelligence Index v5", "domain": "Quality / Speed / Cost", "gateThreshold": 78.0 },
+    { "rank": 64, "id": "lmarena-elo", "name": "LMArena (Text & WebDev)", "domain": "Human Preference Elo", "gateThreshold": 1360 },
+    { "rank": 65, "id": "gpqa-diamond", "name": "GPQA Diamond", "domain": "Graduate Science QA", "gateThreshold": 75.0 },
+    { "rank": 66, "id": "aime-matharena", "name": "AIME 2026 / MathArena", "domain": "Competition Math", "gateThreshold": 85.0 },
+    { "rank": 67, "id": "osworld", "name": "OSWorld", "domain": "Desktop GUI Automation", "gateThreshold": 48.0 },
+    { "rank": 68, "id": "webarena-workarena", "name": "WebArena / WorkArena", "domain": "Enterprise Web & ERP", "gateThreshold": 60.0 },
+    { "rank": 69, "id": "bfcl", "name": "BFCL (Berkeley Function Calling)", "domain": "Tool & JSON Schema", "gateThreshold": 88.0 },
+    { "rank": 70, "id": "tau-bench", "name": "TAU-bench", "domain": "Policy-Adherent Agents", "gateThreshold": 74.0 },
+    { "rank": 71, "id": "mmmu-pro", "name": "MMMU-Pro", "domain": "Multimodal Reasoning", "gateThreshold": 68.0 },
+    { "rank": 72, "id": "ocrbench-v2", "name": "OCRBench v2 / DocVQA", "domain": "Document & Table OCR", "gateThreshold": 86.0 },
+    { "rank": 73, "id": "geneval-dpg", "name": "GenEval / DPG-Bench", "domain": "Image Prompt Adherence", "gateThreshold": 84.0 },
+    { "rank": 74, "id": "aa-image-arena", "name": "Artificial Analysis Image Arena", "domain": "Visual Quality Elo", "gateThreshold": 1150 },
+    { "rank": 75, "id": "mteb", "name": "MTEB", "domain": "Embedding & Reranking", "gateThreshold": 70.0 },
+    { "rank": 76, "id": "longbench-v2", "name": "LongBench v2 / RULER", "domain": "128K-1M Long Context", "gateThreshold": 82.0 },
+    { "rank": 77, "id": "livecodebench", "name": "LiveCodeBench", "domain": "Contamination-Free Code", "gateThreshold": 74.0 },
+    { "rank": 78, "id": "zebralogic", "name": "ZebraLogic", "domain": "Constraint Deduction", "gateThreshold": 79.0 },
+    { "rank": 79, "id": "financebench", "name": "FinanceBench", "domain": "Financial Statement QA", "gateThreshold": 89.0 },
+    { "rank": 80, "id": "cyberseceval", "name": "CyberSecEval / PromptBench", "domain": "Prompt Injection Defense", "gateThreshold": 94.0 }
+  ],
+  "models": [
+    {
+      "rank": 21,
+      "id": "claude-opus-5.5",
+      "name": "Claude Opus 5.5",
+      "pillar": "text-models",
+      "tier": "Proprietary Frontier",
+      "license": "Commercial API",
+      "vramGb": 0,
+      "costPer1MTokensUsd": 15.0,
+      "contextWindow": "1M",
+      "benchmarks": { "sweBench": 84.6, "aaIndex": 92, "bfcl": 93.4 }
+    },
+    {
+      "rank": 22,
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon / Argon",
+      "pillar": "text-models",
+      "tier": "Proprietary Frontier",
+      "license": "Commercial API",
+      "vramGb": 0,
+      "costPer1MTokensUsd": 7.5,
+      "contextWindow": "2M",
+      "benchmarks": { "hle": 46.2, "mmmuPro": 81.5, "longBench": 94.0 }
+    },
+    {
+      "rank": 23,
+      "id": "gpt-6-astra",
+      "name": "GPT-6 Astra / GPT-6.1 Sol",
+      "pillar": "text-models",
+      "tier": "Proprietary Frontier",
+      "license": "Commercial API",
+      "vramGb": 0,
+      "costPer1MTokensUsd": 10.0,
+      "contextWindow": "1M",
+      "benchmarks": { "aime": 96.0, "financeBench": 95.2, "bfcl": 94.1 }
+    },
+    {
+      "rank": 27,
+      "id": "deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash / V4 Pro",
+      "pillar": "text-models",
+      "tier": "Open-Weight Frontier",
+      "license": "MIT / Open-Weight",
+      "vramGb": 48,
+      "costPer1MTokensUsd": 0.45,
+      "contextWindow": "256K",
+      "benchmarks": { "liveCodeBench": 84.1, "aime": 91.2, "aaIndex": 86 }
+    },
+    {
+      "rank": 36,
+      "id": "qwen3-14b-32b",
+      "name": "Qwen3 32B / 14B / 8B",
+      "pillar": "text-models",
+      "tier": "Open-Weight Local Default",
+      "license": "Apache 2.0",
+      "vramGb": 12,
+      "costPer1MTokensUsd": 0.0,
+      "contextWindow": "128K",
+      "benchmarks": { "bfcl": 89.2, "liveCodeBench": 75.4, "cyberSecEval": 95.0 }
+    },
+    {
+      "rank": 40,
+      "id": "phi-4-compact",
+      "name": "Phi-4 / Compact Reasoning Models",
+      "pillar": "text-models",
+      "tier": "Local CPU/NPU Specialist",
+      "license": "MIT",
+      "vramGb": 4,
+      "costPer1MTokensUsd": 0.0,
+      "contextWindow": "64K",
+      "benchmarks": { "aaIndex": 69, "zebraLogic": 79.5 }
+    },
+    {
+      "rank": 45,
+      "id": "flux2-dev-32b",
+      "name": "FLUX.2 [dev] (32B)",
+      "pillar": "specialized-models",
+      "tier": "Open-Weight High-Res Image",
+      "license": "Non-Commercial / Workstation",
+      "vramGb": 24,
+      "costPer1MTokensUsd": 0.0,
+      "contextWindow": "4MP",
+      "benchmarks": { "geneval": 91.0, "aaImageArena": 1210 }
+    },
+    {
+      "rank": 46,
+      "id": "flux2-klein-4b",
+      "name": "FLUX.2 [klein] (9B / 4B)",
+      "pillar": "specialized-models",
+      "tier": "Real-Time Image Gen",
+      "license": "Apache 2.0 (4B)",
+      "vramGb": 8,
+      "costPer1MTokensUsd": 0.0,
+      "contextWindow": "Sub-second 4-step",
+      "benchmarks": { "geneval": 86.2, "aaImageArena": 1165 }
+    },
+    {
+      "rank": 47,
+      "id": "qwen-image-2.1",
+      "name": "Qwen-Image 2.1 / 2512",
+      "pillar": "specialized-models",
+      "tier": "Open-Weight Workstation Image",
+      "license": "Apache 2.0",
+      "vramGb": 12,
+      "costPer1MTokensUsd": 0.0,
+      "contextWindow": "2K RGBA",
+      "benchmarks": { "geneval": 88.4, "ocrBenchV2": 92.1 }
+    },
+    {
+      "rank": 48,
+      "id": "hunyuan-image-3.0",
+      "name": "HunyuanImage 3.0 (80B MoE)",
+      "pillar": "specialized-models",
+      "tier": "Open-Weight Multimodal Image",
+      "license": "Open-Weight",
+      "vramGb": 48,
+      "costPer1MTokensUsd": 0.0,
+      "contextWindow": "CoT Layout",
+      "benchmarks": { "geneval": 92.4, "aaImageArena": 1228 }
+    }
+  ]
+}
