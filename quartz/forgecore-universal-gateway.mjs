@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Forgecore Universal Sovereign Gateway v1.3.0
- * Powered by © 2026 Threadforge Inc.
+ * Forgecore Universal Sovereign Gateway v10.21.0 (Titanium Kernel v1.100)
+ * ThreadForge Quartz 10.21.0 — Pioneer Legacy Build · Powered by Threadforge Inc.
  *
  * Zero-dependency multi-protocol loopback gateway exposing Forgecore Conversational
  * Intelligence & the 5-Size Model Family (Spark, Thor, Ronin, Genesis, Titan) to:
@@ -50,7 +50,7 @@ const MODEL_ALIASES = {
   'gemini-2.5-flash': 'forgecore-spark-1',
 };
 
-let syncedManifestVersion = '1.3.0-embedded';
+let syncedManifestVersion = '10.21.0-pioneer-legacy';
 
 async function upgradedBuildFetch() {
   for (const url of MANIFEST_URLS) {

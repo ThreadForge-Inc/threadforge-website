@@ -1,8 +1,11 @@
 {
-  "manifestVersion": "1.3.0",
+  "manifestVersion": "10.21.0",
+  "releaseBuild": "ThreadForge Quartz 10.21.0 — Pioneer Legacy Build",
+  "titaniumKernelVersion": "v1.100",
   "schema": "threadforge.quartz.evergreen.manifest.v1",
-  "updatedAt": "2026-11-26T15:15:00Z",
+  "updatedAt": "2026-11-27T00:00:00Z",
   "signedBy": "Threadforge Inc.",
+  "founder": "Bilal Ahmed Khan",
   "universalGateway": {
     "loopbackEndpoint": "http://127.0.0.1:4173",
     "openAiBaseUrl": "http://127.0.0.1:4173/v1",

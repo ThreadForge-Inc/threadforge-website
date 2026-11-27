@@ -1,0 +1,17 @@
+{
+  "schema": "threadforge.founder_release_attestation.v1",
+  "release": "ThreadForge Quartz 10.21.0 \u2014 Pioneer Legacy Build",
+  "version": "10.21.0",
+  "signedBy": "Bilal Ahmed Khan",
+  "title": "President & Founder",
+  "onBehalfOf": "Threadforge Inc.",
+  "organizationDomains": [
+    "threadforgeofficial.com",
+    "threadforge.cloud",
+    "threadforge.live"
+  ],
+  "signingKeyAlgorithm": "Ed25519",
+  "signingPublicKeySha256": "bb7998e1b5b6c3c7",
+  "issuedAtUtc": "2026-11-27T00:00:00Z",
+  "storeCertificateStatus": "LOCAL-DEV-SELF-SIGNED & UNSIGNED STORE PACKAGES ONLY \u2014 apply real WIN_SIGN_PFX / ANDROID_KEYSTORE_PATH via SIGN_FOR_STORE.md before store upload."
+}

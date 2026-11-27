@@ -160,7 +160,7 @@ rl.on('line', async (line) => {
           capabilities: { tools: {} },
           serverInfo: {
             name: 'forgecore-5size',
-            version: '1.3.2',
+            version: '10.21.0',
           },
         },
       });

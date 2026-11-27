@@ -1,0 +1,1069 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:5a996548-9e10-59d4-982e-1c91f66198cd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-27T00:00:00Z",
+    "component": {
+      "type": "application",
+      "name": "ThreadForge Quartz 10.21.0 \u2014 Pioneer Legacy Build",
+      "version": "10.21.0",
+      "publisher": "Threadforge Inc.",
+      "authors": [
+        {
+          "name": "Bilal Ahmed Khan",
+          "email": "owner@threadforgeofficial.com"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "lucide-react",
+      "version": "0.475.0",
+      "scope": "required",
+      "purl": "pkg:npm/lucide-react@0.475.0"
+    },
+    {
+      "type": "library",
+      "name": "react",
+      "version": "18.3.1",
+      "scope": "required",
+      "purl": "pkg:npm/react@18.3.1"
+    },
+    {
+      "type": "library",
+      "name": "react-dom",
+      "version": "18.3.1",
+      "scope": "required",
+      "purl": "pkg:npm/react-dom@18.3.1"
+    },
+    {
+      "type": "library",
+      "name": "@tailwindcss/vite",
+      "version": "4.0.9",
+      "scope": "optional",
+      "purl": "pkg:npm/%40tailwindcss/vite@4.0.9"
+    },
+    {
+      "type": "library",
+      "name": "@types/react",
+      "version": "18.3.18",
+      "scope": "optional",
+      "purl": "pkg:npm/%40types/react@18.3.18"
+    },
+    {
+      "type": "library",
+      "name": "@types/react-dom",
+      "version": "18.3.5",
+      "scope": "optional",
+      "purl": "pkg:npm/%40types/react-dom@18.3.5"
+    },
+    {
+      "type": "library",
+      "name": "@vitejs/plugin-react",
+      "version": "4.3.4",
+      "scope": "optional",
+      "purl": "pkg:npm/%40vitejs/plugin-react@4.3.4"
+    },
+    {
+      "type": "library",
+      "name": "tailwindcss",
+      "version": "4.0.9",
+      "scope": "optional",
+      "purl": "pkg:npm/tailwindcss@4.0.9"
+    },
+    {
+      "type": "library",
+      "name": "typescript",
+      "version": "5.7.2",
+      "scope": "optional",
+      "purl": "pkg:npm/typescript@5.7.2"
+    },
+    {
+      "type": "library",
+      "name": "vite",
+      "version": "6.2.0",
+      "scope": "optional",
+      "purl": "pkg:npm/vite@6.2.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:block-buffer",
+      "version": "0.10.4",
+      "purl": "pkg:cargo/block-buffer@0.10.4"
+    },
+    {
+      "type": "library",
+      "name": "cargo:cfg-if",
+      "version": "1.0.5",
+      "purl": "pkg:cargo/cfg-if@1.0.5"
+    },
+    {
+      "type": "library",
+      "name": "cargo:cpufeatures",
+      "version": "0.2.17",
+      "purl": "pkg:cargo/cpufeatures@0.2.17"
+    },
+    {
+      "type": "library",
+      "name": "cargo:crypto-common",
+      "version": "0.1.7",
+      "purl": "pkg:cargo/crypto-common@0.1.7"
+    },
+    {
+      "type": "library",
+      "name": "cargo:digest",
+      "version": "0.10.7",
+      "purl": "pkg:cargo/digest@0.10.7"
+    },
+    {
+      "type": "library",
+      "name": "cargo:forgecore-code",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/forgecore-code@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:forgecore-duet",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/forgecore-duet@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:forgecore-kernel",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/forgecore-kernel@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:forgecore-server",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/forgecore-server@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:generic-array",
+      "version": "0.14.7",
+      "purl": "pkg:cargo/generic-array@0.14.7"
+    },
+    {
+      "type": "library",
+      "name": "cargo:itoa",
+      "version": "1.0.19",
+      "purl": "pkg:cargo/itoa@1.0.19"
+    },
+    {
+      "type": "library",
+      "name": "cargo:libc",
+      "version": "0.2.191",
+      "purl": "pkg:cargo/libc@0.2.191"
+    },
+    {
+      "type": "library",
+      "name": "cargo:memchr",
+      "version": "2.8.3",
+      "purl": "pkg:cargo/memchr@2.8.3"
+    },
+    {
+      "type": "library",
+      "name": "cargo:owner-entitlements",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/owner-entitlements@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:proc-macro2",
+      "version": "1.0.107",
+      "purl": "pkg:cargo/proc-macro2@1.0.107"
+    },
+    {
+      "type": "library",
+      "name": "cargo:quote",
+      "version": "1.0.47",
+      "purl": "pkg:cargo/quote@1.0.47"
+    },
+    {
+      "type": "library",
+      "name": "cargo:serde",
+      "version": "1.0.229",
+      "purl": "pkg:cargo/serde@1.0.229"
+    },
+    {
+      "type": "library",
+      "name": "cargo:serde_core",
+      "version": "1.0.229",
+      "purl": "pkg:cargo/serde_core@1.0.229"
+    },
+    {
+      "type": "library",
+      "name": "cargo:serde_derive",
+      "version": "1.0.229",
+      "purl": "pkg:cargo/serde_derive@1.0.229"
+    },
+    {
+      "type": "library",
+      "name": "cargo:serde_json",
+      "version": "1.0.154",
+      "purl": "pkg:cargo/serde_json@1.0.154"
+    },
+    {
+      "type": "library",
+      "name": "cargo:sha2",
+      "version": "0.10.9",
+      "purl": "pkg:cargo/sha2@0.10.9"
+    },
+    {
+      "type": "library",
+      "name": "cargo:syn",
+      "version": "3.0.10",
+      "purl": "pkg:cargo/syn@3.0.10"
+    },
+    {
+      "type": "library",
+      "name": "cargo:thiserror",
+      "version": "2.0.21",
+      "purl": "pkg:cargo/thiserror@2.0.21"
+    },
+    {
+      "type": "library",
+      "name": "cargo:thiserror-impl",
+      "version": "2.0.21",
+      "purl": "pkg:cargo/thiserror-impl@2.0.21"
+    },
+    {
+      "type": "library",
+      "name": "cargo:threadforge-cli",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/threadforge-cli@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:titanium-evidence",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/titanium-evidence@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:titanium-git",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/titanium-git@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:titanium-mcp",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/titanium-mcp@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:titanium-policy",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/titanium-policy@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:titanium-seams",
+      "version": "10.21.0",
+      "purl": "pkg:cargo/titanium-seams@10.21.0"
+    },
+    {
+      "type": "library",
+      "name": "cargo:typenum",
+      "version": "1.20.1",
+      "purl": "pkg:cargo/typenum@1.20.1"
+    },
+    {
+      "type": "library",
+      "name": "cargo:unicode-ident",
+      "version": "1.0.27",
+      "purl": "pkg:cargo/unicode-ident@1.0.27"
+    },
+    {
+      "type": "library",
+      "name": "cargo:version_check",
+      "version": "0.9.5",
+      "purl": "pkg:cargo/version_check@0.9.5"
+    },
+    {
+      "type": "library",
+      "name": "cargo:zmij",
+      "version": "1.0.23",
+      "purl": "pkg:cargo/zmij@1.0.23"
+    },
+    {
+      "type": "application",
+      "name": "android/ThreadForge-Quartz-10.21.0-dev-signed.aab",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6f1ea979392f6b0f51dbd9ba504b3891d6da2015a521443a52f099e40a294761"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "270749"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "android/ThreadForge-Quartz-10.21.0-dev-signed.apk",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3312ec89c611979e8885393d5bab6f7ba4d6e3b649dac35114355fe5673cc18a"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "280307"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "android/ThreadForge-Quartz-10.21.0-dev-signed.apk.idsig",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "30a161a23b49b66a7aa9ec39978aa3e5105be1d7fbfb95992d8ae397454c5bf3"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "6810"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "android/ThreadForge-Quartz-10.21.0-native-debug-symbols.zip",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c6da8e7f5b29a105b3c6c8d195372df6cdde6ff2cdc4000c9b3cb3e628e3f5df"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "2293"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "android/ThreadForge-Quartz-10.21.0-proguard-mapping.txt",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "55d870ccf7e8c4cd91e415cb78b212e7ed4c7a5f93ab743bd8967ea5d74f41ae"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "5497"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "android/ThreadForge-Quartz-10.21.0-unsigned.aab",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cd44fec8b01d9fcdc84f2e24825eddbc3f914ede8ae00801a49c96aa91543adb"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "265870"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "android/ThreadForge-Quartz-10.21.0-unsigned.apk",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "67afd7c25f9341ad64dc6a79e03ef9a76bbd583fec3bbec65367009cac008766"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "265443"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-arm64-musl/forgecore-code",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c330b8aea6c0b5d0aa963583b1b05aea1952e72e8555a5f7747726cfee8fe305"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "849608"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-arm64-musl/forgecore-duet",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d4aa3a6077f911e755bd81007c22cadedd02fc2ac4b95f965b7bdcfc0a5a2912"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "851800"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-arm64-musl/forgecore-server",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "caf30824cf414ae23900cce1f943d5aa8956f4a3c944c37dc6bfdca9f0c6466c"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "1184104"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-arm64-musl/tf",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c077632b478acb7082f317cb97e454cdfa090274614fbce4d3f9b5686200c656"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "558792"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-arm64-musl/titanium-mcp",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8ecfd23cc860acf93a041f62642a250d014b8bab6c7c0961c1cd04194fda245d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "663072"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-x86_64-musl/forgecore-code",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d2aeac586fcdbe0b0748eebbf3d73832ced58e44be33c00039349760fa9c8d5d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "996264"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-x86_64-musl/forgecore-duet",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "64f98c2bb6be69c4cfaebca8416620008666f9363695c55a9abddf368fdf97f1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "1008744"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-x86_64-musl/forgecore-server",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ad5ad1ba6c447d158f006c96e5df55b062b35e183f97cc08f905fadc9ea66b9b"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "1384208"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-x86_64-musl/tf",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9193beb480f12a36a5897118287b035ff403fd87042325e667c6c191e75ba290"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "647464"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binaries/linux-x86_64-musl/titanium-mcp",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8fd3d6154464d3d05484df1e003832ecbceb22d66959713cd1e41af02b6f14b4"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "769096"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binaries/windows-x86_64/forgecore-code.exe",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "982866564639f4c4bd1125b743f33aeff04badeb2e484f57f9ed4f3b86a43ee7"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "975360"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binaries/windows-x86_64/forgecore-duet.exe",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "96dd641491716726924059321286e6e1fa5c752bcc95f9ce7d861c2fcdda8803"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "962560"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binaries/windows-x86_64/forgecore-server.exe",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1ccec02af9f9f32327427088eb8a9620e5b8c47766bae80c344a24f2655ad9fe"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "1387520"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binaries/windows-x86_64/tf.exe",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0d0cc78a694154fde65acd95f9da7779a5198ef0e227466a8b0ac0a295920c28"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "521728"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binaries/windows-x86_64/titanium-mcp.exe",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "eea24d1de323a95a3ad27113a868b23226a871b728a43a643a81443e32dd7f36"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "682496"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "containers/oci-image-digests.json",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "71097ca3854589beadedc175edf67bae68367d0d1e96483a3ce7ac5a313b859e"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "911"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "containers/ThreadForge-Quartz-10.21.0-oci-linux-amd64-arm64.oci.tar",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4d12f7e4868ec36b72a49ea772048dc56cc7636369a32f6bf2f393a5712f09de"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "2856960"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "release-pack/ARCHITECTURE_10.21.0.md",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ba7ab55b1280c2919f8b7407fe2f3e976345ceb449baa05892a05f5cb646838e"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "8132"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "release-pack/FOUNDER_RELEASE_ATTESTATION.json",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f40355894a74d2971bf2b50eb4d91325b68b39f5eade4d1f056c040ae97b4984"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "678"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "release-pack/FOUNDER_RELEASE_ATTESTATION.json.sig",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ff450a0efe527c27107c10eb16636f8f4175bd8b3c3e1405dac8e785cea09a37"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "87"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "release-pack/release-signing-ed25519.pub.pem",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bb7998e1b5b6c3c76ed2ab0653445a9ea64f6844c8bf762594b11c02759510ae"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "116"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "release-pack/SIGN_FOR_STORE.md",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d5d9bb97327d66caa2b17321be9d6fa54103612647315cac92b26d395e9f6dc7"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "5748"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "release-pack/STORE_SUBMISSION_PACK.md",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6acd7d3f5e4c090d6ab96ece20123504c5ddfc3e932cd23cb4cc0a7214953eae"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "3683"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "release-pack/ThreadForge-Quartz-10.21.0-airgapped-offline-installer.zip",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "434cca8b444cd7d2f945a97a716a8ba8956c3dfd1f0200ac245a124e84bace41"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "4009897"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "release-pack/TRUST_AND_COMPLIANCE.md",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cbf45e88e680f1349ab188818d7789e2f81a960398c2cfcc03c8e3d20bf09874"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "5118"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "windows/Threadforge-Inc-LOCAL-DEV-TEST-ONLY.cer",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7ced1f8cba364c027be7992493d251274c84734b244c2aecb1970bb7362e86cf"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "1548"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-10.21.0.0-arm64-dev-signed.msix",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6569d06b22f1d5371ba59c466554f47d8aa735521158c6f6984338d10cd2d944"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "870568"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-10.21.0.0-arm64-unsigned.msix",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "48307050eb1aef35905399beb1ab2e23cae69539d96d43dd3eaec291edf60fd3"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "865870"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-10.21.0.0-dev-signed.msixbundle",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3137e3ef5dc21677eadb07e2bec25eaa5d5ae0e4dbee3f68842d521776e997bc"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "2932914"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-10.21.0.0-unsigned.msixbundle",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a88413f66ccc4082e6b139e61dcc462b0327de79fefe745602bd4c6f6fe963f4"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "2921005"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-10.21.0.0-x64-dev-signed.msix",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ce7e429dc15097de9227030d581a8fae0db9c62eeef3611d2e76b0a47ff4475d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "2057949"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-10.21.0.0-x64-unsigned.msix",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c72f02d855174054a08457909256db542b41e10c68912bdaed3da783be4f2d8f"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "2053150"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-Portable-10.21.0-win-arm64-unsigned.zip",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a12340d34b854bea289df61423a3b1ded9b186f93e2a1af613d73c06a780a83c"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "809675"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-Portable-10.21.0-win-x64-unsigned.zip",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ee12e840d46dab7ac5add022dcc86d2a8b049c89e0474facaa9212261235cc23"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "1978393"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-Setup-10.21.0-win-arm64-dev-signed.exe",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "55b87e228b2142e4b1257babae119ffe8cb797e7fcce716dc11352c82a10766f"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "1004520"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-Setup-10.21.0-win-arm64-unsigned.exe",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0f9e0ab1c51a79149acf5f968e612110bfb452cb3655ac6b8aceda6ad388bcbb"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "1001791"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-Setup-10.21.0-win-x64-dev-signed.exe",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8d6308bc98c64b8332c8e06b31372294056f1fe1a9bbc2cd89edd4e85b1b443d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "2197480"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "windows/ThreadForge-Quartz-Setup-10.21.0-win-x64-unsigned.exe",
+      "version": "10.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f8ee61f7b6f21ee55008fe562b44f6f4c57462e0680f2ab34ac345c4710e9a57"
+        }
+      ],
+      "properties": [
+        {
+          "name": "threadforge:sizeBytes",
+          "value": "2194747"
+        }
+      ]
+    }
+  ]
+}

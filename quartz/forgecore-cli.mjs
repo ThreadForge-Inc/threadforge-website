@@ -86,7 +86,7 @@ async function main() {
 
   await ensureGatewayRunning();
   console.log('====================================================================');
-  console.log(' FORGECORE × QUARTZ SOVEREIGN TERMINAL CLI (v1.3.1)');
+  console.log(' FORGECORE × QUARTZ SOVEREIGN TERMINAL CLI (v10.21.0 · Pioneer Legacy Build)');
   console.log(' Powered by © 2026 Threadforge Inc. · Owner Sovereign Ready');
   console.log(` Active Model : ${activeModel}  |  Gateway : ${BASE_URL}`);
   console.log(' Commands     : /model <1..5> (Spark, Thor, Ronin, Genesis, Titan) | /exit');

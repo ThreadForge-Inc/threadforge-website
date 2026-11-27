@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThreadForge Quartz 10.21.0 — Downloads &amp; Ed25519 Founder Attestation</title>
+    <meta
+      name="description"
+      content="Official ThreadForge Quartz 10.21.0 — Pioneer Legacy Build downloads, Ed25519 founder release attestation by Bilal Ahmed Khan (Threadforge Inc.), SHA-256 checksums, and CycloneDX SBOM."
+    />
+    <style>
+      :root { color-scheme: dark; }
+      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: #070b14; color: #e2e8f0; line-height: 1.55; }
+      .wrap { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.25rem; }
+      h1, h2 { color: #f8fafc; margin-top: 0; }
+      .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+      .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; margin-right: 0.4rem; }
+      .ok { background: rgba(16, 185, 129, 0.14); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.35); }
+      .warn { background: rgba(245, 158, 11, 0.14); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.35); }
+      ul { list-style: none; padding: 0; margin: 0.75rem 0 0; }
+      li { padding: 0.45rem 0; border-bottom: 1px solid #1e293b; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; }
+      li:last-child { border-bottom: 0; }
+      a { color: #38bdf8; text-decoration: none; font-weight: 600; }
+      a:hover { text-decoration: underline; }
+      code { background: #1e293b; padding: 0.12rem 0.38rem; border-radius: 5px; font-size: 0.85em; }
+      .sub { color: #94a3b8; font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="card">
+        <p class="sub" style="margin:0 0 0.5rem;"><a href="../../">← threadforgeofficial.com</a> · <a href="../../quartz/">Launch ThreadForge Quartz 10.21.0 Web App ↗</a></p>
+        <h1>ThreadForge Quartz 10.21.0 — Pioneer Legacy Build</h1>
+        <p>Powered by <strong>Threadforge Inc.</strong> · Visioned &amp; Ed25519-Attested by <strong>President &amp; Founder Bilal Ahmed Khan</strong></p>
+        <div>
+          <span class="badge ok">Ed25519 Founder-Attested</span>
+          <span class="badge warn">Local Dev-Signed &amp; Store-Unsigned Only</span>
+        </div>
+        <p class="sub" style="margin-top:0.85rem;">
+          Notice: <code>*-dev-signed.*</code> installers are signed with a local self-signed developer X.509 certificate for QA and sideloading
+          (trust <code>Threadforge-Inc-LOCAL-DEV-TEST-ONLY.cer</code> locally if testing Windows SmartScreen/MSIX). Official Microsoft Partner Center
+          and Google Play Store submissions must apply production certificates to the <code>*-unsigned.*</code> packages per <code>SIGN_FOR_STORE.md</code>.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Windows 10/11 (x64 &amp; ARM64)</h2>
+        <ul>
+          <li><span>Windows Setup EXE (x64 · Dev-Signed)</span><a href="./ThreadForge-Quartz-Setup-10.21.0-win-x64-dev-signed.exe" download>Download .exe</a></li>
+          <li><span>Windows Setup EXE (x64 · Unsigned for Store Signing)</span><a href="./ThreadForge-Quartz-Setup-10.21.0-win-x64-unsigned.exe" download>Download .exe</a></li>
+          <li><span>Windows Setup EXE (ARM64 · Dev-Signed)</span><a href="./ThreadForge-Quartz-Setup-10.21.0-win-arm64-dev-signed.exe" download>Download .exe</a></li>
+          <li><span>Windows Setup EXE (ARM64 · Unsigned)</span><a href="./ThreadForge-Quartz-Setup-10.21.0-win-arm64-unsigned.exe" download>Download .exe</a></li>
+          <li><span>Unified MSIXBundle x64 + ARM64 (Dev-Signed)</span><a href="./ThreadForge-Quartz-10.21.0.0-dev-signed.msixbundle" download>Download .msixbundle</a></li>
+          <li><span>Unified MSIXBundle x64 + ARM64 (Unsigned Store Package)</span><a href="./ThreadForge-Quartz-10.21.0.0-unsigned.msixbundle" download>Download .msixbundle</a></li>
+          <li><span>Local Dev Test Public Root Certificate</span><a href="./Threadforge-Inc-LOCAL-DEV-TEST-ONLY.cer" download>Threadforge-Inc-LOCAL-DEV-TEST-ONLY.cer</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Android (targetSdk 35 · versionCode 10210)</h2>
+        <ul>
+          <li><span>Android Sideload APK (Dev-Signed)</span><a href="./ThreadForge-Quartz-10.21.0-dev-signed.apk" download>Download .apk</a></li>
+          <li><span>Android Sideload APK (Unsigned)</span><a href="./ThreadForge-Quartz-10.21.0-unsigned.apk" download>Download .apk</a></li>
+          <li><span>Android App Bundle AAB (Dev-Signed)</span><a href="./ThreadForge-Quartz-10.21.0-dev-signed.aab" download>Download .aab</a></li>
+          <li><span>Android App Bundle AAB (Unsigned Play Store Package)</span><a href="./ThreadForge-Quartz-10.21.0-unsigned.aab" download>Download .aab</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Cryptographic Verification, SBOM &amp; Release Docs</h2>
+        <ul>
+          <li><span>Founder Release Attestation (Bilal Ahmed Khan / Threadforge Inc.)</span><span><a href="./FOUNDER_RELEASE_ATTESTATION.json">JSON</a> · <a href="./FOUNDER_RELEASE_ATTESTATION.json.sig" download>Ed25519 .sig</a></span></li>
+          <li><span>SHA-256 Checksums (All 46 Artifacts) &amp; Signature</span><span><a href="./SHA256SUMS.txt">SHA256SUMS.txt</a> · <a href="./SHA256SUMS.txt.sig" download>Ed25519 .sig</a></span></li>
+          <li><span>Release Ed25519 Public Key</span><a href="./release-signing-ed25519.pub.pem" download>release-signing-ed25519.pub.pem</a></li>
+          <li><span>CycloneDX 1.5 SBOM (89 Components)</span><a href="./sbom.cdx.json" download>sbom.cdx.json</a></li>
+          <li><span>Store Signing Runbook &amp; Checklists</span><span><a href="./SIGN_FOR_STORE.md">SIGN_FOR_STORE.md</a> · <a href="./STORE_SUBMISSION_PACK.md">STORE_SUBMISSION_PACK.md</a></span></li>
+          <li><span>Architecture &amp; Compliance Attestation</span><span><a href="./ARCHITECTURE_10.21.0.md">ARCHITECTURE_10.21.0.md</a> · <a href="./TRUST_AND_COMPLIANCE.md">TRUST_AND_COMPLIANCE.md</a></span></li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
